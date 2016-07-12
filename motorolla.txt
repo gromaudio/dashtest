@@ -1,0 +1,8 @@
+Feature: Project title feature
+
+  Scenario: As a user I can type in project name # features/my_first.feature:3
+    Then I press "button1"                       # calabash-android-0.7.3/lib/calabash-android/steps/press_button_steps.rb:17
+
+1 scenario (1 passed)
+1 step (1 passed)
+0m10.724s
