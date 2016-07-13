@@ -9,8 +9,3 @@ Feature: Multipple widgets
     Then I press image view number 10
     Then I press "Calculator"
     Then I take a screenshot
-
-
-  Scenario: Landscape
-    Then I set screen to landscape  
-    Then I take a screenshot

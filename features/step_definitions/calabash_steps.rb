@@ -14,3 +14,10 @@ end
 Then /^I hide keyboard$/ do
     hide_soft_keyboard()
 end
+Then /^I swipe up$/ do
+    perform_action('swipe', 'up')
+end
+	
+Then /^I swipe down$/ do
+	perform_action('swipe', 'down')
+end
