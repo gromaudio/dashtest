@@ -1,36 +1,3 @@
-query("imageView")
-query("*")
-start_test_server_in_background
-query("*")
-query("*")
-start_test_server_in_background
-query("*")
-query("*")
-start_test_server_in_background
-query("*")
-start_test_server_in_background
-query("*")
-query("*")
-start_test_server_in_background
-query("*")
-query("*")
-query("*")
-reinstall_apps
-start_test_server_in_background
-query("*")
-query("*")
-query("imageView")
-touch("imageView id:'icon' index:1")
-touch("imageView id:'icon' index:0")
-query("imageView")
-touch("imageView")
-query("imageView")
-touch("imageView id:'icon' index:0")
-touch("imageView id:'icon' index:1")
-touch("imageView id:'icon' index:2")
-quit
-quit
-start_test_server_in_background
 start_test_server_in_background
 touch("imageView id:'icon' index:2")
 touch("leftButtonFirst")
@@ -42,9 +9,42 @@ touch("imageView id:'1'")
 touch("imageView id:'icon' index:2")
 touch("imageView id:'leftButtonFirst'")
 touch("imageView id:'Settings'")
-touch("imageView id:'leftButtonFirst'")
+touch("imageView id:'leftButtonFirst'")[A
 touch("imageView id:'Settings'")
 touch("imageView id:'Settings'")
 query("imageView")
 query("imageView")quit
+quit
+start_test_server_in_background
+query("imageView")
+query("*")
+query("*")
+query("*")
+query("*")
+start_test_server_in_background
+query("*")
+query("imageView")
+query("*")
+query("*")
+start_test_server_in_background
+query("*")
+query("*")
+query("imageView")
+quit
+start_test_server_in_background
+query("imageView")
+query("*")
+quit
+start_test_server_in_background
+query("*")
+quit
+start_test_server_in_background
+query("*")
+query("*")
+query("imageView")
+query("imageView")
+query("imageView")
+query("*")
+query("imageView")
+query("*")
 quit

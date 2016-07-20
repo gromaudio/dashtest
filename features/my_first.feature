@@ -19,6 +19,9 @@ Feature: Menu options
     Then I see "Rotation lock" 
     Then I see "Brightness"
     Then I press "Rotation lock"
+    Then I press "Navigation"
+    Then I see "Maps"
+    Then I press "Maps"
     Then I scroll down
     Then I press "Disable USB Streaming"
 
