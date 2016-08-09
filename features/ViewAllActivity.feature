@@ -1,4 +1,4 @@
-Feature: All Activity
+Feature: Home Activity
 
 Scenario: View Side Menu
     Then I press "skipButton"
@@ -75,7 +75,7 @@ Scenario: Start screen View
     Then I see "Select Year"
     Then I see "Select Model"
 
-Scenario: Check widget tabs
+Scenario: Check default widget tabs
     Then I swipe right
     Then I press "icon"
     Then I see "APPS"

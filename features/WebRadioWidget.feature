@@ -1,13 +1,14 @@
-Feature: WebRadio
+Feature: WebRadio Widget
 
-Scenario: Navigation through the widget
+Scenario: Start
   Then I press "skipButton"
   Then I press "button2"
-  Then I swipe right
-  Then I press "icon"
+  Then I press "menu_button"
+  Then I press "replace"
   Then I press "PLUGINS"
   Then I press "WebRadio"
-  Then I swipe right
+
+Scenario: Navigation through the widget
   Then I press "icon"
   Then I see "Stations"
   And I see "Favorites"
@@ -30,93 +31,87 @@ Scenario: Navigation through the widget
   And I see "Library Side Swipe"
 
 Scenario: Play Radio
-  Then I swipe right
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
-  Then I press "Local radio"
-  Then I press "Kiss FM Ukraine 104.3 (Electronic)"
+  Then I press "Music"
+  Then I press list item number 3
+  Then I press "Boss Boss Radio (US)"
   Then I wait for progress
   Then I press "slide_panel_now_playing_title"
-  Then I press "next_control"
-  Then I see "MFM 104.3 (Electronic)"
-  Then I press "prev_control"
   Then I press "pause"
-  Then I see "Kiss FM Ukraine 104.3 (Electronic)" 
-
+  Then I see "Boss Boss Radio (US)" 
+   
 Scenario: Add to favorite (long press)
-  Then I swipe right
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
-  Then I press "Local radio"
-  Then I long press "MFM 104.3 (Electronic)"
+  Then I press "Music"
+  Then I press list item number 3
+  Then I long press list item number 5
   Then I press "Add to favorites"
   Then I press "Favorites"
-  And I see "MFM 104.3 (Electronic)"
-  Then I press "Stations"
+  And I see "Boss Boss Radio (US)"
 
-Scenario: Delete radio station from favorites
-  Then I swipe right
+Scenario: Delete radio station from favorites (long press)
   Then I press "icon"
   Then I press "Favorites"
-  Then I long press "MFM 104.3 (Electronic)"
+  Then I long press "Boss Boss Radio (US)"
   Then I press "Delete from favorites"
 
 Scenario: Add to favorite (favorite button)
-  Then I swipe right
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
-  Then I press "Local radio"
-  Then I press "MFM 104.3 (Electronic)"
+  Then I press "Music"
+  Then I press list item number 3
+  Then I press list item number 5
   Then I press "slide_panel_now_playing_title"
   Then I press "shuffle"
-  Then I go back
+  Then I press "WebRadio"
   Then I press "Favorites"
-  Then I see "MFM 104.3 (Electronic)"
+  Then I see "Boss Boss Radio (US)"
 
 Scenario: Record audio
-  Then I swipe right
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
-  Then I press "Local radio"
-  Then I press "MFM 104.3 (Electronic)"
+  Then I press "Music"
+  Then I press list item number 3
+  Then I press list item number 5
   Then I press "slide_panel_now_playing_title"
   Then I press "repeat"
   Then I press "repeat"
   Then I press "WebRadio"
   Then I press "Records"
-  Then I see "MFM 104.3 (Electronic)"
+  Then I see "Boss Boss Radio (US)"
 
 Scenario: Long press navigation
-  Then I swipe right
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
-  Then I press "Local radio"
-  Then I long press "Radio ROKS 89.1 (Rock)"
+  Then I press "Music"
+  Then I press list item number 3
+  Then I long press list item number 5
   And I see "Play"
-  And I see "Add to favorites"
+  And I see "Delete from favorites"
   Then I go back
   Then I press "Favorites"
-  Then I long press "MFM 104.3 (Electronic)"
+  Then I long press "Boss Boss Radio (US)"
   And I see "Play"
   And I see "Delete from favorites"
   Then I go back
   Then I press "Records"
-  Then I long press "MFM 104.3 (Electronic)" 
+  Then I long press "Boss Boss Radio (US)"
   And I see "Play"
   And I see "Delete"
 
-Scenario: Home button layout
-  Then I swipe right
+Scenario: Top layout menu
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "topContentContainer"
   Then I press "firstButtonLayout"
-  And I see "Local Music"
-  And I see "Where Is My Car"
+  And I see "WebRadio"
   And I see "Driving Mode"
+ 
