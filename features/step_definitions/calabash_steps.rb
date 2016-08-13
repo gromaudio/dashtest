@@ -25,3 +25,15 @@ Then /^I press item with name "([^\"]*)"$/ do |name|
 		raise "Item #{name} is not found on a screen"
 	end
 end
+
+Then /^I scroll until I see the "([^\"]*)" text$/ do |text|
+  q = query("TextView text:'#{text}'")
+  while q.empty?
+    scroll_down
+    q = query("TextView text:'#{text}'")
+  end 
+end
+
+Then /^I drag from (\d+):(\d+) to (\d+):(\d+) moving with (\d+) steps$/ do |from_x, from_y, to_x, to_y, steps|
+  perform_action('drag', from_x, to_x, from_y, to_y, steps)
+end

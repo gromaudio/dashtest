@@ -26,6 +26,7 @@ Scenario: Navigation through the widget
   Then I go back
   Then I press "leftButtonFirst"
   Then I press "Settings"
+  Then I see "WebRadio Settings"
   And I see "Gestures"
   And I see "AutoHide Panels"
   And I see "Library Side Swipe"

@@ -39,16 +39,18 @@ Scenario: Settings (Speed & Temperature)
 Scenario: Exit check
     Then I press "leftButtonFirst"
     Then I press "Exit"
+    Then I don't see "Exit"
     
 Scenario: About check (Send Report Error)  
     Then I press "leftButtonFirst"
     Then I press "About"
     Then I press "More options"
     Then I press "Send Report Error"
+    Then I press item with name "Select an application to send the log"
   
 Scenario: About check (Send Feedback)
     Then I press "leftButtonFirst"
     Then I press "About"
     Then I press "More options"
     Then I press "Send Feedback"
-    
+    Then I press item with name "Send Feedback Email"

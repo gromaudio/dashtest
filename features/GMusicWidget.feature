@@ -14,6 +14,8 @@ Scenario: Navigation through the widget
   Then I wait for 2 seconds
   Then I press item with name "kotorpiller@gmail.com"
   Then I press item with name "OK"
+  Then I press "leftButtonFirst"
+  Then I press "Sync"
   Then I wait for 5 seconds
   Then I press "Playlists"
   Then I see "Playlists"
@@ -193,3 +195,10 @@ Scenario: Add/Rename/Delete playlists
   Then I long press "Renamed_playlist"
   Then I press "Delete"
   Then I don't see "Renamed_playlist"
+
+Scenario: Top layout menu
+  Then I press "icon"
+  Then I press "topContentContainer"
+  Then I press "firstButtonLayout"
+  And I see "WebRadio"
+  And I see "Driving Mode"    

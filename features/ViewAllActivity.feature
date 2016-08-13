@@ -1,4 +1,4 @@
-Feature: Home Activity
+Feature: Default Activity
 
 Scenario: View Side Menu
     Then I press "skipButton"
@@ -22,8 +22,13 @@ Scenario: View Main Settings
     And I see "Screen will never sleep while charging"
     And I see "Show Quick Return icon"
     And I see "When other app is active the quick return icon will be shown at the side of the app. Icon can be adjusted in location via finger press and drag action."
-    Then I see "Advertising"
     Then I scroll down
+    Then I see "Speech To Text Engine"
+    Then I press "Speech To Text Engine"
+    And I see "Google"
+    Then I go back
+    Then I scroll down
+    Then I see "Advertising"
     Then I see "Car Integration"
     And I see "Disable USB Streaming"
     And I see "Disable USB when phone behaves incorrect or lagging"
@@ -104,5 +109,4 @@ Scenario: View Weather widget
     Then I see "EVENING"
     Then I see "NIGHT"
     Then I see "MORNING"
-    Then I press "updateIndicator"
-    Then I see "Lviv"      
+         
