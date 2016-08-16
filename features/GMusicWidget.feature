@@ -120,6 +120,20 @@ Scenario: Navigation through the Long press Options
   And I see "Rename"
   Then I press "Delete"
 
+Scenario: Jum to Album/Artist options
+  Then I press "icon"
+  Then I press "Songs"
+  Then I long press "Beat Me Up"
+  Then I press "Jump to Album"
+  Then I see "Just Like You"
+  And I see "Beat Me Up"
+  Then I go back 
+  Then I press "Songs"
+  Then I long press "Beat Me Up"
+  Then I press "Jump to Artist"
+  And I see "Allison Iraheta"
+  And I see "Just Like You"  
+
 Scenario: Add to playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"
