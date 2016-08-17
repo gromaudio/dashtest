@@ -80,7 +80,7 @@ Scenario: Start screen View
     Then I see "Select Year"
     Then I see "Select Model"
 
-Scenario: Check default widget tabs
+Scenario: Check default plugin tabs
     Then I swipe right
     Then I press "icon"
     Then I see "APPS"
@@ -103,7 +103,7 @@ Scenario: View Voice Commands
     Then I see "Call"
     Then I see "Navigate"
 
-Scenario: View Weather widget
+Scenario: View Weather plugin
     Then I press "weather_icon"
     Then I see "DAY"
     Then I see "EVENING"
