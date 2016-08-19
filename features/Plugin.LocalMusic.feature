@@ -1,5 +1,5 @@
-Feature: Local Music Settings 
-  You have to place LocalMusicTestSuite folder into sdcard/Music folder in order to run these tests.
+Feature: Local Music Plugin 
+  You have to place "assets/00 LocalMusicTestSuite" folder into sdcard/Music folder in order to run these tests.
 
 # FIXME: !!! Please use LocalMusicTestSuite items for all tests with folders/songs/artists/albums etc, since we must have common setup !!!
 
@@ -21,45 +21,45 @@ Scenario: Media rescan
 
   Then I should see text containing "00 Fleetwood Mac"
   When I touch the "00 Fleetwood Mac" text
-  Then I see "Rhiannon"
-  And I see "Fleetwood Mac - Greatest Hits"
+  Then I see "00 Rhiannon"
+  And I see "00 Fleetwood Mac - 00 Greatest"
   And I see "1/5 4:12"
-  Then I see "Don\'t stop"
+  Then I see "01 Don\'t stop"
   And I see "2/5 3:10"
-  Then I see "Go your own way"
+  Then I see "02 Go your own way"
   And I see "3/5 3:38"
-  Then I see "Hold Me"
+  Then I see "03 Hold Me"
   And I see "4/5 3:42"
   Then I scroll down
-  Then I see "Everywhere"
+  Then I see "04 Everywhere"
   And I see "5/5 3:42"
   Then I scroll up
   Then I press " .. "
   
   Then I should see text containing "01 Imagine Dragons"
   When I touch the "01 Imagine Dragons" text
-  Then I see "Radioactive"
-  And I see "Imagine Dragons - Night Visions"
+  Then I see "00 Radioactive"
+  And I see "01 Imagine Dragons - 01 Night"
   And I see "1/1 3:06"
   Then I press " .. "
 
   Then I should see text containing "02 Nickelback - Dark"
   When I touch the "02 Nickelback - Dark" text
-  Then I see "Shakin\' Hands"
-  And I see "Nickelback - Dark Horse"
+  Then I see "00 Shakin\' Hands"
+  And I see "02 Nickelback - 02 Dark Horse"
   And I see "1/2 3:39"
-  Then I see "S.E.X"
+  Then I see "01 S.E.X"
   And I see "2/2 3:53"
   Then I press " .. "
 
   Then I should see text containing "03 Red Hot Chili"
   When I touch the "03 Red Hot Chili" text
-  Then I see "Around The World"
-  And I should see text containing "Red Hot Chili Peppers - Cali"
+  Then I see "00 Around The World"
+  And I should see text containing "03 Red Hot Chili Peppers"
   And I see "1/3 3:58"
-  Then I see "Otherside"
+  Then I see "01 Otherside"
   And I see "2/3 4:15"
-  Then I see "Road Trippin\'"
+  Then I see "02 Road Trippin\'"
   And I see "3/3 3:25"
   Then I press " .. "
   #FIXME: finish this thing
