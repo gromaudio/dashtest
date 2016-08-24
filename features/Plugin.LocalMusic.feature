@@ -2,9 +2,10 @@ Feature: Local Music Settings
   You have to place LocalMusicTestSuite folder into sdcard/Music folder in order to run these tests.
 
 # FIXME: !!! Please use LocalMusicTestSuite items for all tests with folders/songs/artists/albums etc, since we must have common setup !!!
-
+# DONE
 
 # FIXME: we should test if rescan completed successfully by traversing all the folders/songs from LocalMusicTestSuite and checking its info
+# DONE
 
 Scenario: Media rescan
   Then I press "skipButton"
@@ -131,10 +132,21 @@ Scenario: Media rescan
 # FIXME: finish this thing
 # DONE
 
+Scenario: Check tabs and About
+  Then I press "icon"
+  Then I see "Folders"
+  Then I see "Playlists"
+  Then I see "Albums"
+  Then I see "Artists"
+  Then I press "Artists"
+  Then I see "Songs"
+  Then I see "Search"
+  Then I press "leftButtonFirst"
+  Then I press "About"
+  Then I see "Local music player for DashLinQ. Plays local tracks, automatic cover art update and voice search."
+  And I see "Copyright GROM Audio 2015"
 
 Scenario: Change "Music home folder" to Music
-  Then I press "skipButton"
-  Then I press "button2"
   Then I press "icon"
   Then I press "leftButtonFirst"
   Then I press "Settings"
@@ -143,19 +155,21 @@ Scenario: Change "Music home folder" to Music
   Then I press "Music"
   Then I press "Select"
   Then I press "leftButtonFirst"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
   And I should see text containing "00 Fleetwood Mac"
   And I should see text containing "01 Imagine Dragons"
   And I should see text containing "02 Nickelback - Dark"
   And I should see text containing "03 Red Hot Chili"
   And I should see text containing "04 Taylor Swift"
-  And I should see text containing "05 The Beatles"
   Then I scroll down
+  And I should see text containing "05 The Beatles"
   And I should see text containing "07 Кирпичи - Камни"
   And I should see text containing "08 The Police"
 
 # FIXME: We need a scenario: go to Settings, change "Music home folder" to Music, return to tabs and ensure we see LocalMusicTestSuite right in Folders tab
 # DONE  
-
 
 Scenario: Check if Albums tab contain items from LocalMusicTestSuite   
   Then I press "icon"
@@ -209,6 +223,8 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   And I see "Летим По Кругу"
   And I see "Вперед - Бодрит"
   And I see "Всё Для Народа"
+  Then I go back
+  Then I scroll up
 
 Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   Then I press "icon"
@@ -232,6 +248,7 @@ Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   And I see "1 album, 3 songs out of 3"
   Then I see "Кирпичи"
   And I see "1 album, 3 songs out of 3"
+  Then I scroll up
 
 Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I press "icon"
@@ -244,78 +261,78 @@ Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   And I see "2/30 4:53"
   Then I should see text containing "Being for the Benefit"
   And I see "3/30 2:37"
-  Then I see "Dont\'t Stop"
+  Then I see "Don\'t Stop"
   And I see "4/30 3:10"
   Then I see "Everywhere"
+
+  Then I scroll until I see the "9/30 3:42" text
   And I see "5/30 3:42"
-  Then I scroll until I see the "Fixing a Hole" text
-  And I see "6/30 2:36"
-  Then I scroll until I see the "Getting Better" text
-  And I see "7/30 2:48"
-  Then I scroll until I see the "Go Your Own Way" text
-  And I see "8/30 3:38"
-  Then I scroll until I see the "Hold Me" text
-  And I see "9/30 3:42"
-  Then I scroll until I see the "It\'s Alright for You" text  
-  And I see "10/30 3:12"
-  Then I scroll until I see the "Lovely Rita" text  
-  And I see "11/30 2:42"
-  Then I scroll until I see the "Lucy in the Sky" text  
-  And I see "12/30 3:28"
-  Then I scroll until I see the "Message in a Bottle" text  
-  And I see "13/30 4:50"
-  Then I scroll until I see the "Mine" text  
-  And I see "14/30 3:50"
-  Then I scroll until I see the "Otherside" text  
-  And I see "15/30 4:15"
-  Then I scroll until I see the "Radioactive" text  
-  And I see "16/30 3:06"
-  Then I scroll until I see the "Reggatta de Blanc" text  
-  And I see "17/30 3:05"
-  Then I scroll until I see the "Rhiannon" text  
-  And I see "18/30 4:12"
-  Then I scroll until I see the "Road Trippin\'" text  
-  And I see "19/30 3:25"
-  Then I scroll until I see the "S.E.X." text  
-  And I see "20/30 3:53"
-  Then I scroll until I see the "Sgt. Pepper\'s" text  
-  And I see "21/30 2:02"
-  Then I scroll until I see the "Shakin\' Hands" text  
-  And I see "22/30 3:39"
-  Then I scroll until I see the "She\'s Leaving Home" text  
-  And I see "23/30 3:35"
-  Then I scroll until I see the "Sparks Fly" text  
-  And I see "24/30 4:20"
-  Then I scroll until I see the "When I\'m Sixty-Four" text  
-  And I see "25/30 2:37"
-  Then I scroll until I see the "With a Little Help" text  
-  And I see "26/30 2:44"
-  Then I scroll until I see the "Within You Without You" text  
-  And I see "27/30 5:04"
-  Then I scroll until I see the "Вперед - Бодрит" text  
-  And I see "28/30 2:59"
-  Then I scroll until I see the "Всё Для Народа" text  
-  And I see "29/30 4:23"
-  Then I scroll until I see the "Летим По Кругу" text  
-  And I see "30/30 3:19"
+  Then I see "Fixing a Hole"
+  Then I see "6/30 2:36"
+  Then I see "Getting Better"
+  Then I see "7/30 2:48"
+  Then I see "Go Your Own Way"
+  Then I see "8/30 3:38"
+  Then I see "Hold Me"
+  Then I see "9/30 3:42"
+
+  Then I scroll until I see the "13/30 4:50" text 
+  Then I see "It\'s Alright for You" 
+  Then I see "10/30 3:12"
+  Then I see "Lovely Rita"  
+  Then I see "11/30 2:42"
+  Then I should see text containing "Lucy in the Sky"  
+  Then I see "12/30 3:28"
+  Then I see "Message in a Bottle"  
+  Then I see "13/30 4:50"
+
+  Then I scroll until I see the "17/30 3:05" text
+  Then I see "Mine"  
+  Then I see "14/30 3:50"
+  Then I see "Otherside"
+  Then I see "15/30 4:15"
+  Then I see "Radioactive" 
+  Then I see "16/30 3:06"
+  Then I see "Reggatta de Blanc"
+  Then I see "17/30 3:05"
+
+  Then I scroll until I see the "21/30 2:02" text
+  Then I see "Rhiannon" 
+  Then I see "18/30 4:12"
+  Then I see "Road Trippin\'"
+  Then I see "19/30 3:25"
+  Then I see "S.E.X."
+  Then I see "20/30 3:53"
+  Then I should see text containing "Sgt. Pepper\'s" 
+  Then I see "21/30 2:02"
+
+  Then I scroll until I see the "25/30 2:37" text 
+  Then I see "Shakin\' Hands"  
+  Then I see "22/30 3:39"
+  Then I see "She\'s Leaving Home"  
+  Then I see "23/30 3:35"
+  Then I see "Sparks Fly"  
+  Then I see "24/30 4:20"
+  Then I see "When I\'m Sixty-Four"
+  Then I see "25/30 2:37"
+
+  Then I scroll until I see the "29/30 4:23" text 
+  Then I see "With a Little Help"  
+  Then I see "26/30 2:44"
+  Then I see "Within You Without You" 
+  Then I see "27/30 5:04"
+  Then I see "Вперед - Бодрит" 
+  Then I see "28/30 2:59"
+  Then I see "Всё Для Народа"  
+  Then I see "29/30 4:23"
+  Then I scroll down
+  Then I see "Летим По Кругу"
+  Then I see "30/30 3:19"
+  Then I scroll up
 
 # FIXME: Also we have to check if Albums, Artists and Songs tabs contain items from LocalMusicTestSuite
 # DONE
 
-Scenario: Check tabs and About
-  Then I press "icon"
-  Then I see "Folders"
-  Then I see "Playlists"
-  Then I see "Albums"
-  Then I see "Artists"
-  Then I press "Artists"
-  Then I see "Songs"
-  Then I see "Search"
-  Then I press "leftButtonFirst"
-  Then I press "About"
-  Then I see "Local music player for DashLinQ. Plays local tracks, automatic cover art update and voice search."
-  And I see "Copyright GROM Audio 2015"
-    
 Scenario: Local Music Settings 
   Then I press "icon"
   Then I press "leftButtonFirst"
@@ -356,6 +373,7 @@ Scenario: Local Music Settings
 
 Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
   When I touch the "00 Fleetwood Mac" text
@@ -370,9 +388,12 @@ Scenario: Play/Pause Music (Folders tab)
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I go back
+  Then I go back
 
 Scenario: Play/Pause Music - long press (Folders tab)
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
   When I touch the "01 Imagine Dragons" text
@@ -388,6 +409,8 @@ Scenario: Play/Pause Music - long press (Folders tab)
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I go back
+  Then I go back
 
 
 # FIXME: use music from LocalMusicTestSuite folder, and use track titles as identifiers instead of numbers
@@ -403,6 +426,7 @@ Scenario: Play/Pause Music - long press (Folders tab)
 
 Scenario: Play/Pause Music (Playlists tab)
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
   When I touch the "00 Fleetwood Mac" text
@@ -410,6 +434,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I press "Add to playlist"
   Then I press "New"
   Then I press "Save"
+  Then I go back
   Then I press "Playlists"
   Then I press "Rhiannon"
   Then I touch the "Fleetwood Mac" text
@@ -424,6 +449,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I press "pause"
   Then I check Music playing
   Then I go back
+  Then I wait for 2 second
   Then I go back
   Then I long press "Rhiannon"
   Then I press "Delete"
@@ -437,8 +463,10 @@ Scenario: Play/Pause Music - long press (Playlists tab)
   Then I press "Add to playlist"
   Then I press "New"
   Then I press "Save"
+  Then I go back
   Then I press "Playlists"
   Then I long press "Don\'t Stop"
+  Then I press "Play"
   When I press "slide_panel_now_playing_title"
   Then I see "3:10"
   And I see "1/1"
@@ -457,6 +485,7 @@ Scenario: Play/Pause Music (Albums tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Albums"
+  Then I scroll up
   Then I press "Dark Horse"
   Then I press "Shakin\' Hands"
   When I press "slide_panel_now_playing_title"
@@ -469,6 +498,8 @@ Scenario: Play/Pause Music (Albums tab)
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I go back
+  Then I go back
 
 Scenario: Play/Pause Music - long press (Albums tab)
   Then I press "icon"
@@ -487,7 +518,7 @@ Scenario: Play/Pause Music - long press (Albums tab)
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
-
+  
 Scenario: Play/Pause Music (Artists tab)
   Then I press "icon"
   Then I press "Playlists"
@@ -562,6 +593,7 @@ Scenario: Play/Pause Music - long press (Songs tab)
   
 Scenario: Switching between tracks
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
   When I touch the "00 Fleetwood Mac" text
@@ -584,13 +616,17 @@ Scenario: Switching between tracks
 # FIXME: Check if track switching is working by next/prev buttons and cover right/left slides
 # DONE 50% (Need test for swipe right/left)
 
-# FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks (can't tap on cover need investigate)
+# !!! FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks (can't tap on cover need investigate)
 
 
 # FIXME: Use LocalMusicTestSuite instead of Music, and after creating playlist, ensure that there are songs from LocalMusicTestSuite in that playlist
+# DONE
 
 Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I press "icon"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
   Then I long press "5 songs"
   And I see "Play"
   And I see "Add to playlist"
@@ -609,7 +645,7 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   And I should see text containing "Fleetwood Mac"
   Then I press "Fleetwood Mac"
   And I see "Rhiannon"
-  And I see "Dont\'t Stop"
+  And I see "Don\'t Stop"
   And I see "Go Your Own Way"
   And I see "Hold Me"
   And I see "Everywhere"
@@ -633,6 +669,9 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
 
 Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "icon"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
   Then I long press "5 songs"
   Then I press "Add to playlist"
   Then I press "New"
@@ -656,30 +695,97 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "next_control"
   And I see "3/5"
   Then I go back
+  Then I wait for 2 seconds
   Then I go back
-  Then I press "On The Go"
-  Then I press list item number 1
-  Then I go back
+  Then I press "Albums"
+  Then I long press "Californication"
+  Then I press "Play"
+  Then I press "Playlists"
   Then I long press "Fleetwood Mac"
   When I press "Play from the saved position"
   Then I press "slide_panel_now_playing_title"
   And I should see text containing "Go Your Own Way"
   And I see "3/5"
   And I see "3:38"
+  Then I go back
+  Then I wait for 2 seconds
+  Then I go back
 
 # FIXME: Ensure others items from long press menu are covered too - Play, Add to playlist, Play from beginning, Play from the saved position
+# DONE
 
-Scenario: Delete Playlist
+# FIXME: ensure created playlist contains appropriate tracks
+# DONE
+Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I press "icon"
-  Then I press "Folders"
-  Then I long press "Music"
+  Then I press "Albums"
+  Then I long press "Dark Horse"
   Then I press "Add to playlist"
   Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_Albums" into field with id "playlist"
+  Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  Then I long press "Music"
+  And I see "From_Albums"
+  When I press "From_Albums"
+  Then I see "Shakin\' Hands"
+  And I see "1/2 3:39"
+  And I see "S.E.X."
+  And I see "2/2 3:53"
+  Then I go back
+  Then I long press "From_Albums"
   Then I press "Delete"
-  Then I don't see "Music"
+  Then I don't see "From_Albums"
+   
+# FIXME: ensure created playlist contains appropriate tracks
+# DONE
+Scenario: Long press actions - Add/Delete playlist from Artists tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I long press "Imagine Dragons"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "From_Artists" into field with id "playlist"
+  Then I go back
+  Then I press "Save"
+  Then I press "Albums"
+  When I press "Playlists"
+  Then I see "From_Artists"
+  When I press "From_Artists"
+  Then I see "Radioactive"
+  And I see "1/1 3:06"
+  Then I go back
+  Then I long press "From_Artists"
+  Then I press "Delete"
+  Then I don't see "From_Artists"
+
+# FIXME: ensure created playlist contains appropriate tracks
+# DONE
+Scenario: Long press actions - Add/Delete playlist from Songs tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "Back To December"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "From_Songs" into field with id "playlist"
+  Then I go back
+  Then I press "Save"
+  Then I press "Albums"
+  When I press "Playlists"
+  And I see "From_Songs"
+  Then I press "From_Songs"
+  And I see "Back To December"
+  And I see "1/1 4:53"
+  Then I go back
+  Then I long press "From_Songs"
+  Then I press "Delete"
+  Then I don't see "From_Songs"
 
 Scenario: Songs tab (View component)
   Then I press "icon"
@@ -693,89 +799,69 @@ Scenario: Songs tab (View component)
   Then I see "Jump to Folder"
   Then I see "Update cover art"  
 
-Scenario: Songs tab (Functionality)
+Scenario: Long press actions - Jum to .. (Songs tab)
   Then I press "icon"
   Then I press "Artists"
   Then I press "Songs"
-  # FIXME: use track names instead of numbers
-  Then I long press list item number 2
+  Then I long press "Around The World"
   Then I press "Jump to Album"
-  And I see "1000.mp3"
-  Then I wait for 2 seconds
+  Then I wait for 3 seconds
+  And I see "Californication"
+  And I see "Around The World"
+  And I see "Otherside"
+  And I see "Road Trippin\'"
   Then I go back
   Then I press "Songs"
-  Then I long press list item number 2
+  Then I long press "Back To December"
   Then I press "Jump to Artist"
-  Then I wait for 2 seconds
-  And I see "Unknown artist"
+  Then I wait for 3 seconds
+  And I see "Taylor Swift"
+  And I should see text containing "Speak Now"
   Then I press "Songs"
-  Then I long press list item number 2
+  Then I long press "Don\'t Stop"
   Then I press "Jump to Folder"
-  Then I see "1000.mp3"
-  Then I press " .. "
-  Then I press " .. "
-  Then I press " .. "
-  And I see "Music"  
+  Then I wait for 3 seconds
+  Then I see "Rhiannon"
+  And I see "Don\'t Stop"
+  And I see "Go Your Own Way"
+  And I see "Hold Me"
+  Then I scroll until I see the "Everywhere" text
+# FIXME: use track names instead of numbers
+# DONE
 
-# FIXME: ensure created playlist contains appropriate tracks
-Scenario: Add to playlist from Albums tab
+Scenario: Long press actions - Jum to Folder (Albums tab)
   Then I press "icon"
   Then I press "Albums"
-  Then I long press image view number 3
-  Then I long press list item number 2
-  Then I press "Add to playlist"
-  Then I press "New"
-  Then I clear "playlist"
-  Then I enter text "From_Albums" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
-  Then I press "title"
-  Then I press "Playlists"
-  And I see "From_Albums"
-  Then I long press "From_Albums"
-  Then I press "Delete"
-  Then I don't see "From_Albums"
-   
-# FIXME: ensure created playlist contains appropriate tracks
-Scenario: Add to playlist from Artists tab
-  Then I press "icon"
-  Then I press "Artists"
-  Then I long press list item number 1
-  Then I press "Add to playlist"
-  Then I press "New"
-  Then I clear input field with id "playlist"
-  Then I enter text "From_Artists" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
-  Then I press "Albums"
-  Then I press "Playlists"
-  And I see "From_Artists"
-  Then I long press "From_Artists"
-  Then I press "Delete"
-  Then I don't see "From_Artists"
+  Then I press "Dark Horse"
+  Then I long press "S.E.X."
+  Then I press "Jump to Folder"
+  Then I wait for 3 seconds
+  And I see "Shakin\' Hands"
+  And I see "1/2 3:39"
+  And I see "S.E.X."
+  And I see "2/2 3:53"
+  And I press " . . "
 
-# FIXME: ensure created playlist contains appropriate tracks
-Scenario: Add to playlist from Songs tab
+Scenario: Long press actions - Jum to Folder (Artists tab)
   Then I press "icon"
-  Then I press "Artists"
-  Then I press "Songs"
-  Then I long press list item number 1
-  Then I press "Add to playlist"
-  Then I press "New"
-  Then I clear input field with id "playlist"
-  Then I enter text "From_Songs" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
   Then I press "Albums"
-  Then I press "Playlists"
-  Then I scroll down
-  And I see "From_Songs"
-  Then I long press "From_Songs"
-  Then I press "Delete"
-  Then I don't see "From_Songs"
+  Then I press "Artists"
+  Then I press "The Police"
+  Then I press "Reggatta de Blanc"
+  Then I long press "Message in a Bottle"
+  Then I press "Jump to Folder"
+  Then I wait for 3 seconds
+  And I see "Message in a Bottle"
+  And I see "1/3 4:50"
+  And I see "Reggatta de Blanc"
+  And I see "2/3 3:05"
+  And I see "It\'s Alright for You"
+  And I see "3/3 3:12"
+  And I press " . . "
 
 Scenario: Top layout menu (Home icon)
   Then I press "icon"
+  Then I wait for 2 seconds
   Then I press "topContentContainer"
   Then I press "firstButtonLayout"
   And I see "WebRadio"
@@ -783,6 +869,7 @@ Scenario: Top layout menu (Home icon)
 
 Scenario: Top layout menu (Voice commands icon)
   Then I press "icon"
+  Then I wait for 2 seconds
   Then I press "topContentContainer"
   Then I press "thirdButtonLayout"
   And I see "Call"
