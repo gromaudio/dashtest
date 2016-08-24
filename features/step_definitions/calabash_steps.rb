@@ -87,3 +87,26 @@ Then /^I see item number text$/ do
 	end
 	wait_for_text(@item_text, timeout: 10)
 end
+
+
+Then /^I check Music playing$/ do 
+	a = query("* id:'currenttime'")
+	start = a[0]['text'].gsub(':','').to_i
+	sleep 1
+	a = query("* id:'currenttime'")
+	final = a[0]['text'].gsub(':','').to_i
+	if final <= start
+		raise "Timer is not working"
+	end
+end
+
+Then /^I check Music pause$/ do 
+	a = query("* id:'currenttime'")
+	start = a[0]['text'].gsub(':','').to_i
+	sleep 1
+	a = query("* id:'currenttime'")
+	final = a[0]['text'].gsub(':','').to_i
+	if final != start
+		raise "Timer is not working"
+	end
+end
