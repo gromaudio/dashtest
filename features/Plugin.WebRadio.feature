@@ -1,5 +1,7 @@
 Feature: WebRadio Plugin
 
+  # FIXME (highest): ensure that radio is not playing at the end of the tests where we check playback
+
 @debug
 Scenario: Start
   Then I press "skipButton"
@@ -40,10 +42,6 @@ Scenario: Navigation through the tabs
   Then I see "Search"
   Then I press "Search"
   Then I press "search_bar"
-# FIXME: ensure we're seeing the right search tab interface 
-# Done
-# And I see "Search Music" - doesn't work
-# Done
 
 Scenario: Settings
   Then I press "icon"
@@ -74,7 +72,6 @@ Scenario: Traversing down/up by Stations tab hierarchy
   And I see "Explore Sports"
   And I see "Events"
   Then I press "Explore Sports"
-  And I see "American Football"
   And I see "Baseball"
   And I see "Basketball"
   Then I press " .. "
@@ -89,32 +86,27 @@ Scenario: Traversing down/up by Stations tab hierarchy
   And I see "Trending"
   And I see "Music"
   And I see "Sports"
-# FIXME: We need a scenario to check traversing down/up by Stations tab hierarchy: Music/60's/../../ 
-# Done
 
 # FAVORITES TAB
-Scenario: Add to favorite (long press)
+Scenario: Add/remove favorite (long press)
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Music"
   Then I press "60\'s"
+  # FIXME (highest): doesn't work. opens top layout menu in this line
   Then I get text for item number 5
   Then I long press list item number 5
   Then I press "Add to favorites"
   Then I press "Favorites"
   Then I see item number text
 
-Scenario: Delete radio station from favorites (long press)
-  Then I press "icon"
   Then I press "Favorites"
   Then I long press list item number 1
   Then I press "Delete from favorites"
   And I see "No favorite stations found."
-# FIXME: Ensure track disappeared from favorites list and there is a text "No favorite stations found."
-# Done
 
-Scenario: Add to favorite (favorite button)
+Scenario: Add/remove favorite (favorite button)
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
@@ -128,16 +120,12 @@ Scenario: Add to favorite (favorite button)
   Then I press "Favorites"
   Then I see item number text
 
-Scenario: Delete from favorite (favorite button)
-  Then I press "icon"
   Then I press "Favorites"
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
   Then I press "shuffle"
   Then I press "WebRadio"
   And I see "No favorite stations found."
-# FIXME: Ensure that removing from favorites by favorite button is working too
-# Done
 
 # FIXME: Ensure that Favorite button (Star) is changing its color (white/cyan) depending on whether station in favorites or not (investigate - need custom steps for highlighted element)
 
@@ -152,10 +140,9 @@ Scenario: Play favorite station
   Then I press "Favorites"
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
+  # FIXME (highest): need to check radio is playing in a loop starting from 1 second to 5 seconds, since radio may start playing with a delay.
   Then I check Radio playing
   Then I press "shuffle"
-# FIXME: We need a scenario to check if starting station from Favorites tab is working      
-# Done
 
 Scenario: Play favorite station (Long press)
   Then I press "icon"
@@ -170,9 +157,7 @@ Scenario: Play favorite station (Long press)
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
   Then I check Radio playing
-# FIXME: Ensure that Play option from long press menu is working too
-# Done
-@debug
+
 Scenario: Switching between stations
   Then I press "icon"
   Then I press "Favorites"
@@ -182,6 +167,9 @@ Scenario: Switching between stations
   Then I wait for 2 seconds
   Then I long press list item number 5
   Then I press "Add to favorites"
+  # FIXME (highest): we need 3 stations to favorites, but this line tries to add the same station as previous line
+  Then I long press list item number 6
+  Then I press "Add to favorites"
   Then I press " .. "
   Then I press " .. "
   Then I press "Trending"
@@ -190,6 +178,7 @@ Scenario: Switching between stations
   Then I press "Favorites"
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
+  # FIXME (highest): Ensure stations switching is working by cover right/left slides too
   And I see "1/3"
   Then I press "next_control"
   And I see "2/3"
@@ -199,26 +188,19 @@ Scenario: Switching between stations
   And I see "2/3"
   Then I press "prev_control"
   And I see "1/3"
-# FIXME: We need a scenario when there are few favorite stations and switching between them is working
-# Done
+# FIXME: Can we use station titles, not just x/x numbers?
 
-# FIXME: Ensure that tap on the cover opens "Favorites" playlist and there is currently playing radio in the list (investigate - need custom steps for highlighted element)
+# FIXME (highest): Ensure that tap on the cover opens "Favorites" playlist and there is currently playing radio in the list, DON'T CHECK HIGHLIGHTS FOR NOW
 # FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
 
-Scenario: Long press navigation
-  Then I press "icon"
-  Then I press "Favorites"
-  Then I long press list item number 1
-  And I see "Play"
-  And I see "Delete from favorites"
-  
 # RECENTS TAB
-@debug
+  @debug
 Scenario: Recents tab
   # start some stations from Stations tab appears in the Recents tab at the top of the list
   # Play
   Then I press "icon"
   Then I press "Favorites"
+  # FIXME (highest): following line crashes with : undefined method `[]' for nil:NilClass (NoMethodError)
   Then I get text for item number 1
   Then I wait for 5 seconds
   Then I press list item number 1
@@ -237,6 +219,7 @@ Scenario: Recents tab
   Then I press "slide_panel_now_playing_title"
   Then I check Radio playing
   # Switching between stations
+  # FIXME (highest): Ensure stations switching is working by cover right/left slides too
   And I see "1/4"
   Then I press "next_control"
   And I see "2/4"
@@ -274,21 +257,8 @@ Scenario: Recents tab
 # Done
 
 # FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
-# FIXME: Ensure that tap on the cover opens "Recents" playlist and there is currently playing radio in the list (investigate - need custom steps for highlighted element)
+# FIXME (highest): Ensure that tap on the cover opens "Recents" playlist and there is currently playing radio in the list, DON'T check highlight for now
 
-Scenario: Long press navigation
-  Then I press "icon"
-  Then I press "Favorites"
-  Then I press "Recents"
-  Then I long press "Megapolis FM 89.5"
-  And I see "Play"
-  And I see "Add to favorites"
-  Then I press "Add to favorites"
-  Then I long press list item number 5
-  And I see "Play"
-  And I see "Delete from favorites"
-  Then I press "Delete from favorites"
-  
 # RECORDS TAB
 Scenario: Record audio
   Then I press "icon"
@@ -314,15 +284,10 @@ Scenario: Record audio
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
   Then I check Radio playing
+  Then I press "pause"
 
-Scenario: Long press navigation
-  Then I press "icon"
-  Then I press "Recents"
-  Then I press "Records"
-  Then I long press list item number 1
-  And I see "Play"
-  And I see "Delete"
-  
+# FIXME (highest): We need a scenario to check if switching between several records is working by next/prev buttons and cover left/right swipes
+
 Scenario: Delete from Records
   Then I press "icon"
   Then I press "Recents"
@@ -340,14 +305,7 @@ Scenario: Delete from Records
   Then I press "Delete"
   Then I see "No radio records found."
 
-# FIXME: We need a scenario to check if starting station from Records tab is working
-# Done
-# FIXME: Ensure that Play option from long press menu in Records tab is working too
-# Done
-# FIXME: We need a scenario to check if Delete option from long press menu in Records tab is working. Currently playing track is unable to delete
-# Done
-
-# FIXME: Ensure that tap on the cover opens "Records" playlist and there is currently playing record in the list (investigate - need custom steps for highlighted element)
+# FIXME (highest): Ensure that tap on the cover opens "Records" playlist and there is currently playing record in the list, DON'T check highlights for now
 # FIXME: Ensure that Record button is highlighted while recording (investigate - need custom steps for highlighted element)
  
 # STATIONS TAB
@@ -363,6 +321,7 @@ Scenario: Play Radio
   Then I wait for 2 seconds
   Then I check Radio playing
   Then I press "pause"
+  Then I check Radio pause
   Then I press "next_control"
   Then I press "WebRadio"
   # Play station (long press)
@@ -376,6 +335,7 @@ Scenario: Play Radio
   # Play again
   Then I press "pause"
   Then I check Radio playing
+  Then I press "pause"
 
 Scenario: Stations switching by next/prev 
   Then I press "icon"
@@ -384,7 +344,8 @@ Scenario: Stations switching by next/prev
   Then I press "Music"
   Then I press "60\'s"
   Then I press list item number 5
-  Then I press "slide_panel_now_playing_title" 
+  Then I press "slide_panel_now_playing_title"
+  # FIXME (highest): Ensure stations switching is working by cover right/left slides too
   Then I should see text containing "1/"
   Then I press "next_control"
   And I should see text containing "2/"
@@ -394,11 +355,6 @@ Scenario: Stations switching by next/prev
   And I should see text containing "2/"
   Then I press "pause"
   Then I press "WebRadio"
-# FIXME: Ensure stations switching is working by next/prev buttons and cover right/left slides by checking current track number:
-# Then I see "1/21"
-# When I press "Next"
-# Then I see "2/21"  
-# Done
 
 Scenario: Long press navigation
   Then I press "icon"
@@ -415,17 +371,8 @@ Scenario: Long press navigation
   And I see "Delete from favorites"
   Then I press "Delete from favorites"
   
-# FIXME: Ensure that Play option from long press menu is working too 
-# Done
-# FIXME: ensure that playback actually paused by checking current position is not counting or something like that
-# Done
-# FIXME: press play once again and ensure playback resumed
-# Done
-  
-
-
-# FIXME: Ensure that tap on the cover opens "On The Go" playlist and there is "Boss Boss Radio" in the list  
-# FIXME: Ensure that double tap on the cover opens track info dialog with File name, Size, Format fields etc.
+# FIXME (highest): Ensure that tap on the cover opens "On The Go" playlist and there is "Boss Boss Radio" in the list, DON'T check highlights for now
+# FIXME (highest): Ensure that double tap on the cover opens track info dialog with File name, Size, Format fields etc.
 
 # FIXME: ensure track is highlighted in the list (text color is cyan and V icon exists) (investigate - need custom steps for highlighted element)
 # FIXME: also we should go back to upper levels and ensure that Music/60s folders are highlighted too (investigate - need custom steps for highlighted element)
@@ -443,9 +390,10 @@ Scenario: Top layout menu (Home icon)
 Scenario: Top layout menu (Voice commands icon)
   Then I press "icon"
   Then I press "topContentContainer"
+  # FIXME (highest): error Timeout waiting for elements: * marked:'thirdButtonLayout'
   Then I press "thirdButtonLayout"
   And I see "Call"
-  And I see "Navigate" 
+  And I see "Navigate"
 
 Scenario: Exit option
   Then I press "icon"
@@ -455,6 +403,7 @@ Scenario: Exit option
   Then I see "WebRadio"
 
 # AM/FM Radio
+# FIXME: we need to check that AM/FM shortcut Stations tab has the same stations as regular WebRadio in Local/AM/FM folder
 Scenario: Start
   Then I press "menu_button"
   Then I press "replace"
@@ -490,14 +439,4 @@ Scenario: FM Shortcut
   Then I go back
   When I press "leftButtonFirst"
   Then I press "Settings"
-  And I see "FM Settings"  
-
-
-
-
-
-
-# FIXME: Divide and move this scenario to scenarios when checking appropriate tabs
-# Done
-
-# FIXME: We need a scenario to check Search tab  
+  And I see "FM Settings"
