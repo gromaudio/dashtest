@@ -1,14 +1,12 @@
-Feature: Local Music Settings 
-  You have to place LocalMusicTestSuite folder into sdcard/Music folder in order to run these tests.
+Feature: Local Music Plugin
+  You have to place "00 LocalMusicTestSuite" folder into sdcard/Music folder in order to run these tests.
 
-# FIXME: !!! Please use LocalMusicTestSuite items for all tests with folders/songs/artists/albums etc, since we must have common setup !!!
-
-
-# FIXME: we should test if rescan completed successfully by traversing all the folders/songs from LocalMusicTestSuite and checking its info
-
-Scenario: Media rescan
+  @debug
+Scenario: Start
   Then I press "skipButton"
   Then I press "button2"
+
+Scenario: Media rescan
   Then I press "icon"
   Then I press "leftButtonFirst"
   Then I press "Settings"
@@ -18,123 +16,124 @@ Scenario: Media rescan
   Then I press "Playlists"
   Then I press "Folders"
   When I press "Music"
-  Then I see "LocalMusicTestSuite"
+  Then I see "00 LocalMusicTestSuite"
   Then I see "30 songs"  
-  When I press "LocalMusicTestSuite"
+  When I press "00 LocalMusicTestSuite"
 
   Then I should see text containing "00 Fleetwood Mac"
   When I touch the "00 Fleetwood Mac" text
-  Then I see "Rhiannon"
-  And I see "Fleetwood Mac - Greatest Hits"
+  Then I see "00 Rhiannon"
+  And I see "00 Fleetwood Mac - 00 Greatest Hits"
   And I see "1/5 4:12"
-  Then I see "Don\'t stop"
+  Then I see "01 Don\'t stop"
   And I see "2/5 3:10"
-  Then I see "Go your own way"
+  Then I see "02 Go your own way"
   And I see "3/5 3:38"
-  Then I see "Hold Me"
-  And I see "4/5 3:42"
   Then I scroll down
-  Then I see "Everywhere"
+  Then I see "03 Hold Me"
+  And I see "4/5 3:42"
+  Then I see "04 Everywhere"
   And I see "5/5 3:42"
   Then I scroll up
   Then I press " .. "
   
   Then I should see text containing "01 Imagine Dragons"
   When I touch the "01 Imagine Dragons" text
-  Then I see "Radioactive"
-  And I see "Imagine Dragons - Night Visions"
+  Then I see "00 Radioactive"
+  And I see "01 Imagine Dragons - 01 Night Visions"
   And I see "1/1 3:06"
   Then I press " .. "
 
   Then I should see text containing "02 Nickelback - Dark"
   When I touch the "02 Nickelback - Dark" text
-  Then I see "Shakin\' Hands"
-  And I see "Nickelback - Dark Horse"
+  Then I see "00 Shakin\' Hands"
+  And I see "02 Nickelback - 02 Dark Horse"
   And I see "1/2 3:39"
-  Then I see "S.E.X"
+  Then I see "01 S.E.X"
   And I see "2/2 3:53"
   Then I press " .. "
 
   Then I should see text containing "03 Red Hot Chili"
   When I touch the "03 Red Hot Chili" text
-  Then I see "Around The World"
-  And I should see text containing "Red Hot Chili Peppers - Cali"
+  Then I see "00 Around The World"
+  And I should see text containing "03 Red Hot Chili Peppers"
   And I see "1/3 3:58"
-  Then I see "Otherside"
+  Then I see "01 Otherside"
   And I see "2/3 4:15"
-  Then I see "Road Trippin\'"
+  Then I see "02 Road Trippin\'"
   And I see "3/3 3:25"
   Then I press " .. "
+  Then I scroll down
 
   Then I should see text containing "04 Taylor Swift"
   When I touch the "04 Taylor Swift" text
-  Then I see "Mine"
-  And I should see text containing "Taylor Swift - Speak Now"
+  Then I see "00 Mine"
+  And I should see text containing "04 Taylor Swift - 04 Speak Now"
   And I see "1/3 3:50"
-  Then I see "Sparks Fly"
+  Then I see "01 Sparks Fly"
   And I see "2/3 4:20"
-  Then I see "Back To December"
+  Then I see "02 Back To December"
   And I see "3/3 4:53"
   Then I press " .. "
-  Then I scroll down 
 
   Then I should see text containing "05 The Beatles"
   When I touch the "05 The Beatles" text
-  Then I should see text containing "Sgt. Pepper\'s"
+  Then I should see text containing "00 Sgt. Pepper\'s"
+  And I should see text containing "05 The Beatles"
   And I see "1/10 2:02"
-  Then I should see text containing "With a Little Help"
+  Then I should see text containing "01 With a Little Help"
   And I see "2/10 2:44"
-  Then I should see text containing "Lucy in the Sky"
+  Then I should see text containing "02 Lucy in the Sky"
   And I see "3/10 3:28"
-  Then I see "Getting Better"
-  And I see "4/10 2:48"
-  Then I see "Fixing a Hole"
   Then I scroll down
+  Then I see "03 Getting Better"
+  And I see "4/10 2:48"
+  Then I see "04 Fixing a Hole"
   And I see "5/10 2:36"
-  Then I see "She\'s Leaving Home"
+  Then I see "05 She\'s Leaving Home"
   And I see "6/10 3:35"
-  Then I should see text containing "Being for the Benefit"
+  Then I scroll down
+  Then I should see text containing "06 Being for the Benefit"
   And I see "7/10 2:37"
-  Then I see "Within You Without You"
+  Then I see "07 Within You Without You"
   And I see "8/10 5:04"
-  Then I see "When I\'m Sixty-Four"
+  Then I see "08 When I\'m Sixty-Four"
   And I see "9/10 2:37"
   Then I scroll down
-  Then I see "Lovely Rita"
+  Then I see "09 Lovely Rita"
   And I see "10/10 2:42"
+  Then I scroll up
   Then I scroll up
   Then I press " .. "
   Then I scroll down
 
-  Then I should see text containing "07 Кирпичи - Камни"
-  When I touch the "07 Кирпичи - Камни" text
-  Then I see "Кирпичи - Камни"
-  And I see "Летим По Кругу"
+  Then I should see text containing "06 Кирпичи - Камни"
+  When I touch the "06 Кирпичи - Камни" text
+  And I see "00 Летим По Кругу"
+  Then I see "06 Кирпичи - 06 Камни"
   And I see "1/3 3:19"
-  And I see "Вперед - Бодрит"
+  And I see "01 Вперед - Бодрит"
   And I see "2/3 2:59"
-  And I see "Всё Для Народа"
+  And I see "02 Всё Для Народа"
   And I see "3/3 4:23"
   Then I press " .. "
 
-  Then I should see text containing "08 The Police"
-  When I touch the "08 The Police" text
-  Then I should see text containing "The Police - Reggatta de Blanc"
-  And I see "Message in a Bottle"
+  Then I should see text containing "07 The Police"
+  When I touch the "07 The Police" text
+  And I see "00 Message in a Bottle"
+  Then I should see text containing "07 The Police - 07 Reggatta de Blanc"
   And I see "1/3 4:50"
-  And I see "Reggatta de Blanc"
+  And I see "01 Reggatta de Blanc"
   And I see "2/3 3:05"
-  And I see "It\'s Alright for You"
+  And I see "02 It\'s Alright for You"
   And I see "3/3 3:12"
   Then I press " .. "
-
-# FIXME: finish this thing
-# DONE
-
+  Then I scroll up
+  Then I scroll up
+  Then I press " .. "
+  Then I press " .. "
 
 Scenario: Change "Music home folder" to Music
-  Then I press "skipButton"
-  Then I press "button2"
   Then I press "icon"
   Then I press "leftButtonFirst"
   Then I press "Settings"
@@ -142,165 +141,309 @@ Scenario: Change "Music home folder" to Music
   Then I scroll until I see the "Music" text
   Then I press "Music"
   Then I press "Select"
+  Then I press "Media Rescan"
   Then I press "leftButtonFirst"
-  And I should see text containing "00 Fleetwood Mac"
-  And I should see text containing "01 Imagine Dragons"
-  And I should see text containing "02 Nickelback - Dark"
-  And I should see text containing "03 Red Hot Chili"
-  And I should see text containing "04 Taylor Swift"
-  And I should see text containing "05 The Beatles"
-  Then I scroll down
-  And I should see text containing "07 Кирпичи - Камни"
-  And I should see text containing "08 The Police"
+  Then I wait for 5 seconds
+  Then I see "00 LocalMusicTestSuite"
+  Then I see "30 songs"
+  # Return back
+  Then I press "leftButtonFirst"
+  Then I press "Settings"
+  Then I press "Music home folder"
+  Then I press ".."
+  Then I press "Select"
+  Then I press "Media Rescan"
+  Then I press "leftButtonFirst"
+  Then I wait for 5 seconds
+  Then I see "Music"
 
-# FIXME: We need a scenario: go to Settings, change "Music home folder" to Music, return to tabs and ensure we see LocalMusicTestSuite right in Folders tab
-# DONE  
-
-
-Scenario: Check if Albums tab contain items from LocalMusicTestSuite   
+Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I press "icon"
   Then I press "Albums"
-  When I touch the "Californication" text
-  Then I see "Around The World"
-  And I see "Otherside"
-  And I see "Road Trippin\'"
+  When I touch the "00 Greatest Hits" text
+  Then I see "00 Rhiannon"
+  And I see "01 Don\'t stop"
+  And I see "02 Go your own way"
+  And I see "03 Hold Me"
+  And I see "04 Everywhere"
   Then I go back
-  When I touch the "Dark Horse" text
-  Then I see "Shakin\' Hands"
-  And I see "S.E.X."
+
+  When I touch the "01 Night Visions" text
+  Then I see "00 Radioactive"
   Then I go back
-  When I touch the "Greatest Hits" text
-  Then I see "Rhiannon"
-  And I see "Don\'t stop"
-  And I see "Go your own way"
-  And I see "Hold Me"
-  And I see "Everywhere"
+
+  When I touch the "02 Dark Horse" text
+  Then I see "00 Shakin\' Hands"
+  And I see "01 S.E.X."
   Then I go back
-  When I touch the "Night Visions" text
-  Then I see "Radioactive"
+
+  When I touch the "03 Californication" text
+  Then I see "00 Around The World"
+  And I see "01 Otherside"
+  And I see "02 Road Trippin\'"
+  Then I go back
+
+  Then I scroll down
+
+  When I touch the "04 Speak Now" text
+  Then I see "00 Mine"
+  And I see "01 Sparks Fly"
+  And I see "02 Back To December"
+  Then I go back
+
+  When I touch the "05 Sgt. Pepper\'s" text
+  Then I should see text containing "00 Sgt. Pepper\'s"
+  Then I should see text containing "01 With a Little Help"
+  Then I should see text containing "02 Lucy in the Sky"
+  Then I see "03 Getting Better"
+  Then I see "04 Fixing a Hole"
+  Then I scroll down
+  Then I see "05 She\'s Leaving Home"
+  Then I should see text containing "06 Being for the Benefit"
+  Then I see "07 Within You Without You"
+  Then I see "08 When I\'m Sixty-Four"
+  Then I scroll down
+  Then I see "09 Lovely Rita"
   Then I go back
   Then I scroll down
-  When I touch the "Reggatta de" text
-  Then I see "Message in a Bottle"
-  And I see "Reggatta de Blanc"
-  And I see "It\'s Alright for You"
+
+  When I touch the "06 Камни" text
+  And I see "00 Летим По Кругу"
+  And I see "01 Вперед - Бодрит"
+  And I see "02 Всё Для Народа"
   Then I go back
-  When I touch the "Sgt. Pepper\'s" text
-  Then I should see text containing "Sgt. Pepper\'s"
-  Then I should see text containing "With a Little Help"
-  Then I should see text containing "Lucy in the Sky"
-  Then I see "Getting Better"
-  Then I see "Fixing a Hole"
-  Then I scroll down
-  Then I see "She\'s Leaving Home"
-  Then I should see text containing "Being for the Benefit"
-  Then I see "Within You Without You"
-  Then I see "When I\'m Sixty-Four"
-  Then I scroll down
-  Then I see "Lovely Rita"
+
+  When I touch the "07 Reggatta de" text
+  Then I see "00 Message in a Bottle"
+  And I see "01 Reggatta de Blanc"
+  And I see "02 It\'s Alright for You"
   Then I go back
-  Then I scroll down
-  When I touch the "Speak Now" text
-  Then I see "Mine"
-  And I see "Sparks Fly"
-  And I see "Back To December"
-  Then I go back
-  When I touch the "Камни" text
-  And I see "Летим По Кругу"
-  And I see "Вперед - Бодрит"
-  And I see "Всё Для Народа"
+
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+
+  Then I press "Playlists"
+  Then I press "Folders"
 
 Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   Then I press "icon"
   Then I press "Albums"
   Then I press "Artists"
-  Then I see "The Beatles"
-  And I see "1 album, 10 songs out of 10"
-  Then I see "Fleetwood Mac"
+  Then I see "00 Fleetwood Mac"
   And I see "1 album, 5 songs out of 5"
-  Then I see "Imagine Dragons"
+  Then I press "00 Fleetwood Mac"
+  And I see "00 Greatest Hits"
+
+  Then I see "01 Imagine Dragons"
   And I see "1 album, 1 song out of 1"
-  Then I see "Nickelback"
-  And I see "1 album, 2 songs out of 2"
+  Then I press "01 Imagine Dragons"
+  And I see "01 Night Visions"
+
   Then I scroll down
-  Then I see "The Police"
-  And I see "1 album, 3 songs out of 3"
-  Then I see "Red Hot Chili Peppers"
+
+  Then I see "02 Nickelback"
+  And I see "1 album, 2 songs out of 2"
+  Then I press "02 Nickelback"
+  And I see "02 Dark Horse"
+
+  Then I see "03 Red Hot Chili Peppers"
   And I see "1 album, 2 songs out of 3"
-  And I see "1 album, 1 song out of 3"
-  Then I see "Taylor Swift"
+  Then I press "03 Red Hot Chili Peppers"
+  And I see "03 Californication"
+
+  Then I scroll down
+
+  Then I see "04 Taylor Swift"
   And I see "1 album, 3 songs out of 3"
-  Then I see "Кирпичи"
+  Then I press "04 Taylor Swift"
+  And I see "04 Speak Now"
+
+  Then I see "05 The Beatles"
+  And I see "1 album, 10 songs out of 10"
+  Then I press "05 The Beatles"
+  And I see "05 Sgt. Pepper\'s"
+
+  Then I scroll down
+
+  Then I see "06 Кирпичи"
   And I see "1 album, 3 songs out of 3"
+  Then I press "06 Кирпичи"
+  And I see "06 Камни"
+
+  Then I see "07 The Police"
+  And I see "1 album, 3 songs out of 3"
+  Then I press "07 The Police"
+  And I see "07 Reggatta de Blanc"
+
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
 
 Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I press "icon"
   Then I press "Albums"
   Then I press "Artists"
   When I press "Songs"
-  Then I see "Around The World"
-  And I see "1/30 3:58"
-  Then I see "Back To December"
-  And I see "2/30 4:53"
-  Then I should see text containing "Being for the Benefit"
-  And I see "3/30 2:37"
-  Then I see "Dont\'t Stop"
-  And I see "4/30 3:10"
-  Then I see "Everywhere"
-  And I see "5/30 3:42"
-  Then I scroll until I see the "Fixing a Hole" text
-  And I see "6/30 2:36"
-  Then I scroll until I see the "Getting Better" text
-  And I see "7/30 2:48"
-  Then I scroll until I see the "Go Your Own Way" text
-  And I see "8/30 3:38"
-  Then I scroll until I see the "Hold Me" text
-  And I see "9/30 3:42"
-  Then I scroll until I see the "It\'s Alright for You" text  
-  And I see "10/30 3:12"
-  Then I scroll until I see the "Lovely Rita" text  
-  And I see "11/30 2:42"
-  Then I scroll until I see the "Lucy in the Sky" text  
-  And I see "12/30 3:28"
-  Then I scroll until I see the "Message in a Bottle" text  
-  And I see "13/30 4:50"
-  Then I scroll until I see the "Mine" text  
-  And I see "14/30 3:50"
-  Then I scroll until I see the "Otherside" text  
-  And I see "15/30 4:15"
-  Then I scroll until I see the "Radioactive" text  
-  And I see "16/30 3:06"
-  Then I scroll until I see the "Reggatta de Blanc" text  
-  And I see "17/30 3:05"
-  Then I scroll until I see the "Rhiannon" text  
-  And I see "18/30 4:12"
-  Then I scroll until I see the "Road Trippin\'" text  
-  And I see "19/30 3:25"
-  Then I scroll until I see the "S.E.X." text  
-  And I see "20/30 3:53"
-  Then I scroll until I see the "Sgt. Pepper\'s" text  
-  And I see "21/30 2:02"
-  Then I scroll until I see the "Shakin\' Hands" text  
-  And I see "22/30 3:39"
-  Then I scroll until I see the "She\'s Leaving Home" text  
-  And I see "23/30 3:35"
-  Then I scroll until I see the "Sparks Fly" text  
-  And I see "24/30 4:20"
-  Then I scroll until I see the "When I\'m Sixty-Four" text  
-  And I see "25/30 2:37"
-  Then I scroll until I see the "With a Little Help" text  
-  And I see "26/30 2:44"
-  Then I scroll until I see the "Within You Without You" text  
-  And I see "27/30 5:04"
-  Then I scroll until I see the "Вперед - Бодрит" text  
-  And I see "28/30 2:59"
-  Then I scroll until I see the "Всё Для Народа" text  
-  And I see "29/30 4:23"
-  Then I scroll until I see the "Летим По Кругу" text  
-  And I see "30/30 3:19"
+  Then I see "00 Around The World"
+  And I see "03 Red Hot Chili Peppers"
+  And I see "3:58"
 
-# FIXME: Also we have to check if Albums, Artists and Songs tabs contain items from LocalMusicTestSuite
-# DONE
+  Then I see "00 Message in a Bottle"
+  And I see "07 The Police"
+  And I see "4:50"
+
+  Then I see "00 Mine"
+  And I see "04 Taylor Swift"
+  And I see "3:50"
+
+  Then I see "00 Radioactive"
+  And I see "01 Imagine Dragons"
+  And I see "3:06"
+
+  Then I scroll down
+
+  Then I see "00 Rhiannon"
+  And I see "00 Fleetwood Mac"
+  And I see "4:12"
+
+  Then I see "00 Sgt. Pepper\'s"
+  And I see "05 The Beatles"
+  And I see "2:02"
+
+  Then I see "00 Shakin\' Hands"
+  And I see "02 Nickelback"
+  And I see "3:39"
+
+  Then I see "00 Летим По Кругу"
+  And I see "06 Кирпичи"
+  And I see "3:19"
+
+  Then I scroll down
+
+  Then I see "01 Don\'t Stop"
+  And I see "00 Fleetwood Mac"
+  And I see "3:10"
+
+  Then I see "01 Otherside"
+  And I see "03 Red Hot Chili Peppers"
+  And I see "4:15"
+
+  Then I see "01 Reggatta de Blanc"
+  And I see "07 The Police"
+  And I see "3:05"
+
+  Then I see "01 S.E.X."
+  And I see "02 Nickelback"
+  And I see "3:53"
+
+  Then I scroll down
+
+  Then I see "01 Sparks Fly"
+  And I see "04 Taylor Swift"
+  And I see "4:20"
+
+  Then I see "01 With a Little Help"
+  And I see "5 The Beatles"
+  And I see "2:44"
+
+  Then I see "01 Вперед - Бодрит"
+  And I see "06 Кирпичи - 06 Камни"
+  And I see "2:59"
+
+  Then I see "02 Back To December"
+  And I see "04 Taylor Swift"
+  And I see "4:53"
+
+  Then I scroll down
+
+  Then I see "02 Go Your Own Way"
+  And I see "00 Fleetwood Mac"
+  And I see "3:38"
+
+  Then I see "02 It\'s Alright for You"
+  And I see "07 The Police"
+  And I see "3:12"
+
+  Then I see "02 Lucy in the Sky"
+  And I see "05 The Beatles"
+  And I see "3:28"
+
+  Then I see "02 Road Trippin\'"
+  And I see "03 Red Hot Chili Peppers"
+  And I see "3:25"
+
+  Then I scroll down
+
+  Then I see "02 Всё Для Народа"
+  And I see "06 Кирпичи - 06 Камни"
+  And I see "4:23"
+
+  Then I see "03 Getting Better"
+  And I see "05 The Beatles"
+  And I see "2:48"
+
+  Then I see "03 Hold Me"
+  And I see "00 Fleetwood Mac"
+  And I see "3:42"
+
+  Then I see "04 Everywhere"
+  And I see "00 Fleetwood Mac"
+  And I see "3:42"
+
+  Then I scroll down
+
+  Then I see "04 Fixing a Hole"
+  And I see "05 The Beatles"
+  And I see "2:36"
+
+  Then I see "05 She\'s Leaving Home"
+  And I see "05 The Beatles"
+  And I see "3:35"
+
+  Then I see "06 Being for the"
+  And I see "05 The Beatles"
+  And I see "2:37"
+
+  Then I see "07 Within You Without"
+  And I see "05 The Beatles"
+  And I see "5:04"
+
+  Then I scroll down
+
+  Then I see "08 When I\'m Sixty-Four"
+  And I see "05 The Beatles"
+  And I see "2:37"
+
+  Then I see "09 Lovely Rita"
+  And I see "05 The Beatles"
+  And I see "2:42"
+
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
 
 Scenario: Check tabs and About
   Then I press "icon"
@@ -311,12 +454,16 @@ Scenario: Check tabs and About
   Then I press "Artists"
   Then I see "Songs"
   Then I see "Search"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
   Then I press "leftButtonFirst"
   Then I press "About"
   Then I see "Local music player for DashLinQ. Plays local tracks, automatic cover art update and voice search."
   And I see "Copyright GROM Audio 2015"
-    
-Scenario: Local Music Settings 
+
+Scenario: Local Music Settings
   Then I press "icon"
   Then I press "leftButtonFirst"
   Then I press "Settings"
@@ -352,17 +499,19 @@ Scenario: Local Music Settings
   Then I see "Folders"
   And I see "Music home folder"
   Then I see "Indexing"
-  And I see "Media Rescan" 
+  And I see "Media Rescan"
 
 Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
+  Then I press "Music"
+  Then I press "00 LocalMusicTestSuite"
   When I touch the "00 Fleetwood Mac" text
-  Then I press "Rhiannon"
+  Then I press "00 Rhiannon"
   Then I press "slide_panel_now_playing_title"
-  Then I should see text containing "Rhiannon - Greatest Hits"
-  Then I see "Fleetwood Mac"
+  Then I should see text containing "00 Rhiannon - 00 Greatest Hits"
+  Then I see "00 Fleetwood Mac"
   And I see "4:12"
   And I see "1/5"
   Then I check Music playing
@@ -370,17 +519,24 @@ Scenario: Play/Pause Music (Folders tab)
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
+  Then I go back
+  Then I press " .. "
+  Then I press " .. "
+  Then I press " .. "
 
 Scenario: Play/Pause Music - long press (Folders tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
+  Then I press "Music"
+  Then I press "00 LocalMusicTestSuite"
   When I touch the "01 Imagine Dragons" text
-  Then I long press "Radioactive"
+  Then I long press "00 Radioactive"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I should see text containing "Radioactive - Night Visions"
-  Then I see "Imagine Dragons"
+  Then I should see text containing "00 Radioactive - 01 Night Visions"
+  Then I see "01 Imagine Dragons"
   And I see "3:06"
   And I see "1/1"
   Then I check Music playing
@@ -388,67 +544,75 @@ Scenario: Play/Pause Music - long press (Folders tab)
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
+  Then I go back
+  Then I press " .. "
+  Then I press " .. "
+  Then I press " .. "
 
-
-# FIXME: use music from LocalMusicTestSuite folder, and use track titles as identifiers instead of numbers
-# DONE
-# FIXME: ensure track is set successfully to player by verifying track's title, album, total time and number in folder (1/5)
-# DONE
-# FIXME: ensure playback is started by waiting for some time and checking that current time is not zero
-# DONE
-# FIXME: ensure playback is paused by waiting for some time and checking that current time didn't change (is it possible?)
-# DONE
-# FIXME: Ensure play track is working from all tabs, including long press menu
-# DONE
-
+  @debug
 Scenario: Play/Pause Music (Playlists tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
+  Then I press "Music"
+  Then I press "00 LocalMusicTestSuite"
   When I touch the "00 Fleetwood Mac" text
-  Then I long press "Rhiannon"
+  Then I long press "00 Rhiannon"
   Then I press "Add to playlist"
   Then I press "New"
   Then I press "Save"
+  Then I press " .. "
+  Then I press " .. "
+  Then I press " .. "
   Then I press "Playlists"
-  Then I press "Rhiannon"
+  Then I press "00 Rhiannon"
   Then I touch the "Fleetwood Mac" text
   When I press "slide_panel_now_playing_title"
   Then I see "4:12"
   And I see "1/1"
-  And I should see text containing "Rhiannon - Greatest Hits"
-  And I see "Fleetwood Mac"
+  And I should see text containing "00 Rhiannon - 00 Greatest Hits"
+  And I see "00 Fleetwood Mac"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
   Then I go back
+  Then I wait for 1 second
   Then I go back
-  Then I long press "Rhiannon"
+  Then I long press "00 Rhiannon"
   Then I press "Delete"
 
 Scenario: Play/Pause Music - long press (Playlists tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
+  Then I press "Music"
+  Then I press "00 LocalMusicTestSuite"
   When I touch the "00 Fleetwood Mac" text
-  Then I long press "Don\'t Stop"
+  Then I long press "01 Don\'t Stop"
   Then I press "Add to playlist"
   Then I press "New"
   Then I press "Save"
+  Then I press " .. "
+  Then I press " .. "
+  Then I press " .. "
   Then I press "Playlists"
-  Then I long press "Don\'t Stop"
+  Then I long press "01 Don\'t Stop"
+  Then I press "Play"
   When I press "slide_panel_now_playing_title"
   Then I see "3:10"
   And I see "1/1"
-  And I should see text containing "Don\'t Stop - Greatest Hits"
-  And I see "Fleetwood Mac"
+  And I should see text containing "01 Don\'t Stop - 00 Greatest Hits"
+  And I see "00 Fleetwood Mac"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
   Then I go back
   Then I long press "Don\'t Stop"
   Then I press "Delete"
@@ -457,11 +621,11 @@ Scenario: Play/Pause Music (Albums tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Albums"
-  Then I press "Dark Horse"
-  Then I press "Shakin\' Hands"
+  Then I press "02 Dark Horse"
+  Then I press "00 Shakin\' Hands"
   When I press "slide_panel_now_playing_title"
-  Then I see "Nickelback"
-  And I should see text containing "Shakin\' Hands - Dark"
+  Then I see "02 Nickelback"
+  And I should see text containing "00 Shakin\' Hands - 02 Dark"
   And I see "3:39"
   And I see "1/2"
   Then I check Music playing
@@ -469,17 +633,21 @@ Scenario: Play/Pause Music (Albums tab)
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
+  Then I go back
+  Then I wait for 1 second
+  Then I go back
 
 Scenario: Play/Pause Music - long press (Albums tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Albums"
-  Then I press "Dark Horse"
-  Then I long press "S.E.X."
+  Then I press "02 Dark Horse"
+  Then I long press "01 S.E.X."
   Then I press "Play"
   When I press "slide_panel_now_playing_title"
-  Then I see "Nickelback"
-  And I should see text containing "S.E.X. - Dark Horse"
+  Then I see "02 Nickelback"
+  And I should see text containing "01 S.E.X. - 02 Dark Horse"
   And I see "3:53"
   And I see "2/2"
   Then I check Music playing
@@ -487,111 +655,144 @@ Scenario: Play/Pause Music - long press (Albums tab)
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
+  Then I go back
+  Then I wait for 1 second
+  Then I go back
 
 Scenario: Play/Pause Music (Artists tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Artists"
-  Then I press "The Beatles"
-  Then I touch the "Sgt. Pepper\'s" text
-  Then I press "Getting Better"
+  Then I press "01 Imagine Dragons"
+  Then I touch the "01 Night Visions" text
+  Then I press "00 Radioactive"
   When I press "slide_panel_now_playing_title"
-  Then I see "The Beatles"
-  And I should see text containing "Getting Better - Sgt."
-  And I see "2:48"
-  And I see "4/10"
+  Then I see "01 Imagine Dragons"
+  And I should see text containing "00 Radioactive - 01 Night Visions"
+  And I see "3:06"
+  And I see "1/1"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
+  Then I go back
+  Then I wait for 1 second
+  Then I go back
 
 Scenario: Play/Pause Music - long press (Artists tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Artists"
-  Then I press "The Beatles"
-  Then I touch the "Sgt. Pepper\'s" text
-  Then I long press "Fixing a Hole"
+  Then I press "00 Fleetwood Mac"
+  Then I touch the "00 Greatest Hits [Reprise]" text
+  Then I long press "00 Rhiannon"
   Then I press "Play"
   When I press "slide_panel_now_playing_title"
-  Then I see "The Beatles"
-  And I should see text containing "Fixing a Hole - Sgt."
-  And I see "2:36"
-  And I see "5/10"
+  Then I see "00 Fleetwood Mac"
+  And I should see text containing "00 Rhiannon - 00 Greatest Hits [Reprise]"
+  And I see "4:12"
+  And I see "1/5"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
+  Then I go back
+  Then I wait for 1 second
+  Then I go back
 
 Scenario: Play/Pause Music (Songs tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Artists"
   Then I press "Songs"
-  Then I press "Around The World"
+  Then I press "00 Around The World"
   When I press "slide_panel_now_playing_title"
-  Then I see "Red Hot Chili Peppers"
-  And I should see text containing "Around The World"
+  Then I see "03 Red Hot Chili Peppers"
+  And I should see text containing "00 Around The World"
   And I see "3:58"
-  And I see "1/30"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
+  Then I press "pause"
+  Then I go back
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
 
 Scenario: Play/Pause Music - long press (Songs tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Artists"
   Then I press "Songs"
-  Then I long press "Back To December"
+  Then I long press "00 Message in a Bottle"
   Then I press "Play"
   When I press "slide_panel_now_playing_title"
-  Then I see "Taylor Swift"
-  And I should see text containing "Back To December"
-  And I see "4:53"
-  And I see "2/30"
+  Then I see "07 The Police"
+  And I should see text containing "00 Message in a Bottle"
+  And I see "4:50"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
   Then I press "pause"
   Then I check Music playing
-  
+  Then I press "pause"
+  Then I go back
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
+
 Scenario: Switching between tracks
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
+  Then I press "Music"
+  Then I press "00 LocalMusicTestSuite"
   When I touch the "00 Fleetwood Mac" text
-  Then I press "Don\'t Stop"
+  Then I press "01 Don\'t Stop"
   Then I press "slide_panel_now_playing_title"
+  Then I see "01 Don\'t stop"
   Then I see "2/5"
   When I press "next_control"
+  Then I see "02 Go Your Own Way"
   Then I see "3/5"
   When I press "next_control"
+  Then I see "03 Hold Me"
   Then I see "4/5"
   When I press "prev_control"
+  Then I see "02 Go Your Own Way"
   Then I see "3/5"
   When I press "prev_control"
+  Then I see "01 Don\'t stop"
   Then I see "2/5"
+  Then I press "pause"
+  Then I go back
+  Then I press " .. "
+  Then I press " .. "
+  Then I press " .. "
   # When I swipe right
   # Then I see "3/5"
   # When I swipe right
   # Then I see "4/5"
 
-# FIXME: Check if track switching is working by next/prev buttons and cover right/left slides
+# FIXME: Check if track switching is working by cover right/left slides
 # DONE 50% (Need test for swipe right/left)
 
-# FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks (can't tap on cover need investigate)
-
-
-# FIXME: Use LocalMusicTestSuite instead of Music, and after creating playlist, ensure that there are songs from LocalMusicTestSuite in that playlist
+# FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks, Don't check highlights for now
 
 Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I press "icon"
-  Then I long press "5 songs"
+  Then I press "Music"
+  Then I press "00 LocalMusicTestSuite"
+  Then I long press "00 Fleetwood Mac"
   And I see "Play"
   And I see "Add to playlist"
   Then I press "Add to playlist"
@@ -603,16 +804,17 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   And I see "Cancel"
   Then I clear "playlist"
   Then I enter text "Fleetwood Mac" into field with id "playlist"
+  # To hide keyboard
   Then I go back
   Then I press "Save"
   Then I press "Playlists"
   And I should see text containing "Fleetwood Mac"
   Then I press "Fleetwood Mac"
-  And I see "Rhiannon"
-  And I see "Dont\'t Stop"
-  And I see "Go Your Own Way"
-  And I see "Hold Me"
-  And I see "Everywhere"
+  And I see "00 Rhiannon"
+  And I see "01 Don\'t Stop"
+  And I see "02 Go Your Own Way"
+  And I see "03 Hold Me"
+  And I see "04 Everywhere"
   Then I go back
   Then I long press "Fleetwood Mac"
   And I see "Play"
@@ -622,29 +824,35 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   And I see "Delete"
   And I see "Rename"
   Then I press "Rename"
-  Then I clear "Music"
-  Then I enter text "Custome" into field with id "playlist"
+  Then I clear "playlist"
+  Then I enter text "Custom" into field with id "playlist"
   Then I go back
   Then I press "Save"
-  And I see "Custome"
-  Then I long press "Custome"
+  And I see "Custom"
+  Then I long press "Custom"
   Then I press "Delete"
-  And I don't see "Custome"
+  And I don't see "Custom"
+  Then I press "Folders"
+  Then I press " .. "
+  Then I press " .. "
 
 Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "icon"
-  Then I long press "5 songs"
+  Then I press "Music"
+  Then I press "00 LocalMusicTestSuite"
+  Then I long press "00 Fleetwood Mac"
   Then I press "Add to playlist"
   Then I press "New"
   Then I clear "playlist"
   Then I enter text "Fleetwood Mac" into field with id "playlist"
+  # To hide keyboard
   Then I go back
   Then I press "Save"
   Then I press "Playlists"
   Then I long press "Fleetwood Mac"
   Then I press "Play from the beginning"
   Then I press "slide_panel_now_playing_title"
-  And I should see text containing "Rhiannon - Greatest Hits"
+  And I should see text containing "00 Rhiannon - 00 Greatest Hits"
   And I see "4:12"
   And I see "1/5"
   Then I check Music playing
@@ -654,8 +862,10 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I check Music playing
   Then I press "next_control"
   Then I press "next_control"
+  And I see "02 Go Your Own Way"
   And I see "3/5"
   Then I go back
+  Then I wait for 1 second
   Then I go back
   Then I press "On The Go"
   Then I press list item number 1
@@ -663,11 +873,18 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I long press "Fleetwood Mac"
   When I press "Play from the saved position"
   Then I press "slide_panel_now_playing_title"
-  And I should see text containing "Go Your Own Way"
+  And I should see text containing "02 Go Your Own Way"
   And I see "3/5"
   And I see "3:38"
+  Then I press "pause"
+  Then I go back
+  Then I wait for 1 second
+  Then I go back
+  Then I press "Folders"
+  Then I press " .. "
+  Then I press " .. "
 
-# FIXME: Ensure others items from long press menu are covered too - Play, Add to playlist, Play from beginning, Play from the saved position
+# FIXME: Ensure Playlists/"Add to playlist" option from long press menu is working too
 
 Scenario: Delete Playlist
   Then I press "icon"
@@ -693,6 +910,7 @@ Scenario: Songs tab (View component)
   Then I see "Jump to Folder"
   Then I see "Update cover art"  
 
+  #FIXME please use items from LocalMusicTestSuite
 Scenario: Songs tab (Functionality)
   Then I press "icon"
   Then I press "Artists"
@@ -717,7 +935,7 @@ Scenario: Songs tab (Functionality)
   Then I press " .. "
   And I see "Music"  
 
-# FIXME: ensure created playlist contains appropriate tracks
+# FIXME: ensure created playlist contains appropriate tracks, please use items from LocalMusicTestSuite
 Scenario: Add to playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"
@@ -736,7 +954,7 @@ Scenario: Add to playlist from Albums tab
   Then I press "Delete"
   Then I don't see "From_Albums"
    
-# FIXME: ensure created playlist contains appropriate tracks
+# FIXME: ensure created playlist contains appropriate tracks, please use items from LocalMusicTestSuite
 Scenario: Add to playlist from Artists tab
   Then I press "icon"
   Then I press "Artists"
@@ -754,7 +972,7 @@ Scenario: Add to playlist from Artists tab
   Then I press "Delete"
   Then I don't see "From_Artists"
 
-# FIXME: ensure created playlist contains appropriate tracks
+# FIXME: ensure created playlist contains appropriate tracks, please use items from LocalMusicTestSuite
 Scenario: Add to playlist from Songs tab
   Then I press "icon"
   Then I press "Artists"
