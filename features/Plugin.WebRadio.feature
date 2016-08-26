@@ -1,8 +1,5 @@
 Feature: WebRadio Plugin
 
-  # FIXME (highest): ensure that radio is not playing at the end of the tests where we check playback
-  # FIXED
-
 @debug
 Scenario: Start
   Then I press "skipButton"
@@ -110,8 +107,6 @@ Scenario: Add/remove favorite (long press)
   Then I long press "Boss Boss Radio (US)"
   Then I press "Delete from favorites"
   And I see "No favorite stations found."
-# FIXME (highest): doesn't work. opens top layout menu in this line
-# FIXED
 
 Scenario: Add/remove favorite (favorite button)
   Then I press "icon"
@@ -157,8 +152,7 @@ Scenario: Play favorite station
   Then I press "pause"
   Then I check Radio pause
   Then I press "shuffle"
-# FIXME (highest): need to check radio is playing in a loop starting from 1 second to 5 seconds, since radio may start playing with a delay.
-# FIXED
+# FIXME: I meant - is it possible to check radio playing with progressive waiting - wait for 1 second, then wait for another second until radio is started or 5 seconds total spent. It is necessary to minimize waiting time as much as possible
 
 Scenario: Play favorite station (Long press)
   Then I press "icon"
@@ -228,16 +222,11 @@ Scenario: Switching between favorite stations
   Then I press "Delete from favorites"
   And I see "No favorite stations found."
 
-# FIXME (highest): we need 3 stations to favorites, but this line tries to add the same station as previous line
-# FIXED
-
-# FIXME (highest): Ensure stations switching is working by cover right/left slides too
+# FIXME (high): Ensure stations switching is working by cover right/left slides too
 # !!! Need find solution how swipe stations
 
-# FIXME: Can we use station titles, not just x/x numbers?
-# FIXED
 
-# FIXME (highest): Ensure that tap on the cover opens "Favorites" playlist and there is currently playing radio in the list, DON'T CHECK HIGHLIGHTS FOR NOW
+# FIXME (high): Ensure that tap on the cover opens "Favorites" playlist and there is currently playing radio in the list, DON'T CHECK HIGHLIGHTS FOR NOW
 # !!! Need find solution how to tap on cover
 
 # FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
@@ -268,10 +257,6 @@ Scenario: Recents tab
   Then I press " .. "
   Then I press " .. "
   Then I press "Favorites"
-
-  # FIXME (highest): following line crashes with : undefined method `[]' for nil:NilClass (NoMethodError)
-  # FIXED
-
   Then I press "Boss Radio (US)"
   Then I press "slide_panel_now_playing_title"
   Then I press "prev_control"
@@ -297,7 +282,7 @@ Scenario: Recents tab
   Then I press "pause"
   # Switching between stations
 
-  # FIXME (highest): Ensure stations switching is working by cover right/left slides too
+  # FIXME (high): Ensure stations switching is working by cover right/left slides too
   # !!! Need find solution how swipe stations
   
   Then I press "next_control"
@@ -328,20 +313,10 @@ Scenario: Recents tab
   Then I go back
   Then I press "Favorites"
   And I don't see "Megapolis FM 89.5" 
-# FIXME: We need a scenario when we start some stations from Stations tab and this station appears in the Recents tab at the top of the list
-# Done
-# FIXME: We need a scenario to check if starting station from Recents tab is working
-# Done
-# FIXME: Ensure that Play option from long press menu in Recents tab is working too
-# Done
-# FIXME: We need a scenario to check if switching between stations in Recents tab is working
-# Done
-# FIXME: Ensure that "Add to favorites"/"Remove from favorites" options from long press menu in Recents tab are working
-# Done
 
 # FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
 
-# FIXME (highest): Ensure that tap on the cover opens "Recents" playlist and there is currently playing radio in the list, DON'T check highlight for now
+# FIXME (high): Ensure that tap on the cover opens "Recents" playlist and there is currently playing radio in the list, DON'T check highlight for now
 # !!! Need find solution how to tap on cover
 
 # RECORDS TAB
@@ -401,7 +376,7 @@ Scenario: Switching between records
   And I press "Delete"
 
 
-# FIXME (highest): We need a scenario to check if switching between several records is working by next/prev buttons and cover left/right swipes
+# FIXME (high): We need a scenario to check if switching between several records is working by cover left/right swipes
 # 50 % Need find solution how swipe stations
 
 Scenario: Delete from Records
@@ -421,7 +396,7 @@ Scenario: Delete from Records
   Then I press "Delete"
   Then I see "No radio records found."
 
-# FIXME (highest): Ensure that tap on the cover opens "Records" playlist and there is currently playing record in the list, DON'T check highlights for now
+# FIXME (high): Ensure that tap on the cover opens "Records" playlist and there is currently playing record in the list, DON'T check highlights for now
 # !!! Need find solution how tap on the cover
 
 # FIXME: Ensure that Record button is highlighted while recording (investigate - need custom steps for highlighted element)
@@ -473,7 +448,7 @@ Scenario: Stations switching by next/prev
   Then I press "pause"
   Then I press "WebRadio"
 
-# FIXME (highest): Ensure stations switching is working by cover right/left slides too
+# FIXME (high): Ensure stations switching is working by cover right/left slides too
 # !!! Need find solution how swipe stations  
 
 Scenario: Long press navigation
@@ -491,9 +466,9 @@ Scenario: Long press navigation
   And I see "Delete from favorites"
   Then I press "Delete from favorites"
   
-# FIXME (highest): Ensure that tap on the cover opens "On The Go" playlist and there is "Boss Boss Radio" in the list, DON'T check highlights for now
+# FIXME (high): Ensure that tap on the cover opens "On The Go" playlist and there is "Boss Boss Radio" in the list, DON'T check highlights for now
 # !!! Need find solution how tap on the cover
-# FIXME (highest): Ensure that double tap on the cover opens track info dialog with File name, Size, Format fields etc.
+# FIXME (high): Ensure that double tap on the cover opens track info dialog with File name, Size, Format fields etc.
 # !!! Need find solution how tap on the cover
 
 
@@ -517,8 +492,6 @@ Scenario: Top layout menu (Voice commands icon)
   Then I press "thirdButtonLayout"
   And I see "Call"
   And I see "Navigate"
-# FIXME (highest): error Timeout waiting for elements: * marked:'thirdButtonLayout'
-# FIXED
 
 Scenario: Exit option
   Then I press "icon"
