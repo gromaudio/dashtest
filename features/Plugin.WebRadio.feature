@@ -1,6 +1,7 @@
 Feature: WebRadio Plugin
 
   # FIXME (highest): ensure that radio is not playing at the end of the tests where we check playback
+  # FIXED
 
 @debug
 Scenario: Start
@@ -13,6 +14,7 @@ Scenario: Start
 
 Scenario: Navigation through the tabs
   Then I press "icon"
+  Then I wait for 3 seconds
   # Ensure there is a default station selected in the player
   And I see "Megapolis FM 89.5"
   # Stations tab
@@ -42,6 +44,10 @@ Scenario: Navigation through the tabs
   Then I see "Search"
   Then I press "Search"
   Then I press "search_bar"
+  Then I press "Records"
+  Then I press "Recents"
+  Then I press "Favorites"
+  Then I press "Stations"
 
 Scenario: Settings
   Then I press "icon"
@@ -59,7 +65,7 @@ Scenario: Settings
   And I see "Gestures"
   And I see "AutoHide Panels"
   And I see "Library Side Swipe"
-
+  
 Scenario: Traversing down/up by Stations tab hierarchy
   Then I press "icon"
   Then I press "Favorites"
@@ -94,17 +100,18 @@ Scenario: Add/remove favorite (long press)
   Then I press "Stations"
   Then I press "Music"
   Then I press "60\'s"
-  # FIXME (highest): doesn't work. opens top layout menu in this line
-  Then I get text for item number 5
-  Then I long press list item number 5
+  Then I wait for 2 seconds
+  Then I scroll until I see the "Boss Boss Radio (US)" text
+  Then I long press "Boss Boss Radio (US)"
   Then I press "Add to favorites"
   Then I press "Favorites"
-  Then I see item number text
-
+  Then I see "Boss Boss Radio (US)"
   Then I press "Favorites"
-  Then I long press list item number 1
+  Then I long press "Boss Boss Radio (US)"
   Then I press "Delete from favorites"
   And I see "No favorite stations found."
+# FIXME (highest): doesn't work. opens top layout menu in this line
+# FIXED
 
 Scenario: Add/remove favorite (favorite button)
   Then I press "icon"
@@ -112,19 +119,21 @@ Scenario: Add/remove favorite (favorite button)
   Then I press "Stations"
   Then I press "Music"
   Then I press "60\'s"
-  Then I press list item number 5
-  Then I get text for item number 5
+  Then I wait for 2 seconds
+  Then I scroll until I see the "Boss Boss Radio (US)" text
+  Then I press "Boss Boss Radio (US)"
   Then I press "slide_panel_now_playing_title"
   Then I press "shuffle"
-  Then I press "WebRadio"
+  Then I press "actionBackArrow"
+  Then I scroll up
+  Then I press " .. "
+  Then I press " .. "
   Then I press "Favorites"
-  Then I see item number text
-
-  Then I press "Favorites"
-  Then I press list item number 1
+  Then I see "Boss Boss Radio (US)"
+  Then I press "Boss Boss Radio (US)"
   Then I press "slide_panel_now_playing_title"
   Then I press "shuffle"
-  Then I press "WebRadio"
+  Then I press "actionBackArrow"
   And I see "No favorite stations found."
 
 # FIXME: Ensure that Favorite button (Star) is changing its color (white/cyan) depending on whether station in favorites or not (investigate - need custom steps for highlighted element)
@@ -135,14 +144,21 @@ Scenario: Play favorite station
   Then I press "Stations"
   Then I press "Music"
   Then I press "60\'s"
+  Then I wait for 2 seconds
   Then I long press list item number 5
   Then I press "Add to favorites"
+  Then I press " .. "
+  Then I press " .. "
   Then I press "Favorites"
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
-  # FIXME (highest): need to check radio is playing in a loop starting from 1 second to 5 seconds, since radio may start playing with a delay.
+  Then I wait for 4 seconds
   Then I check Radio playing
+  Then I press "pause"
+  Then I check Radio pause
   Then I press "shuffle"
+# FIXME (highest): need to check radio is playing in a loop starting from 1 second to 5 seconds, since radio may start playing with a delay.
+# FIXED
 
 Scenario: Play favorite station (Long press)
   Then I press "icon"
@@ -150,88 +166,155 @@ Scenario: Play favorite station (Long press)
   Then I press "Stations"
   Then I press "Music"
   Then I press "60\'s"
+  Then I wait for 3 seconds
   Then I long press list item number 5
   Then I press "Add to favorites"
+  Then I press " .. "
+  Then I press " .. "
   Then I press "Favorites"
   Then I long press list item number 1
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
+  Then I wait for 3 seconds
   Then I check Radio playing
+  Then I press "pause"
+  Then I check Radio pause
+  Then I press "shuffle"
 
-Scenario: Switching between stations
+Scenario: Switching between favorite stations
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Music"
-  Then I press "70\'s"
+  Then I press "60\'s"
   Then I wait for 2 seconds
-  Then I long press list item number 5
+  Then I scroll until I see the "Boss Boss Radio (US)" text
+  Then I long press "Boss Boss Radio (US)"
   Then I press "Add to favorites"
-  # FIXME (highest): we need 3 stations to favorites, but this line tries to add the same station as previous line
-  Then I long press list item number 6
+  Then I scroll until I see the "GotRadio The 60\'s (US)" text
+  Then I long press "GotRadio The 60\'s (US)"
   Then I press "Add to favorites"
+  Then I scroll until I see the "Boss Radio (US)" text
+  Then I long press "Boss Radio (US)"
+  Then I press "Add to favorites"
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
   Then I press " .. "
   Then I press " .. "
-  Then I press "Trending"
-  Then I long press list item number 4
-  Then I press "Add to favorites"
   Then I press "Favorites"
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
-  # FIXME (highest): Ensure stations switching is working by cover right/left slides too
   And I see "1/3"
   Then I press "next_control"
+  Then I see "GotRadio The 60\'s (US)"
   And I see "2/3"
   Then I press "next_control"
+  Then I see "Boss Radio (US)"
   And I see "3/3"
   Then I press "prev_control"
   And I see "2/3"
   Then I press "prev_control"
+  Then I see "Boss Boss Radio (US)"
   And I see "1/3"
+  Then I press "pause"
+  Then I check Radio pause
+  Then I press "actionBackArrow"
+  Then I long press "Boss Boss Radio (US)"
+  Then I press "Delete from favorites"
+  Then I long press "GotRadio The 60\'s (US)"
+  Then I press "Delete from favorites"
+  Then I long press "Boss Radio (US)"
+  Then I press "Delete from favorites"
+  And I see "No favorite stations found."
+
+# FIXME (highest): we need 3 stations to favorites, but this line tries to add the same station as previous line
+# FIXED
+
+# FIXME (highest): Ensure stations switching is working by cover right/left slides too
+# !!! Need find solution how swipe stations
+
 # FIXME: Can we use station titles, not just x/x numbers?
+# FIXED
 
 # FIXME (highest): Ensure that tap on the cover opens "Favorites" playlist and there is currently playing radio in the list, DON'T CHECK HIGHLIGHTS FOR NOW
+# !!! Need find solution how to tap on cover
+
 # FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
 
 # RECENTS TAB
-  @debug
+@debug  
 Scenario: Recents tab
   # start some stations from Stations tab appears in the Recents tab at the top of the list
   # Play
   Then I press "icon"
   Then I press "Favorites"
+  Then I press "Stations"
+  Then I press "Music"
+  Then I press "60\'s"
+  Then I wait for 2 seconds
+  Then I scroll until I see the "Boss Boss Radio (US)" text
+  Then I long press "Boss Boss Radio (US)"
+  Then I press "Add to favorites"
+  Then I scroll until I see the "GotRadio The 60\'s (US)" text
+  Then I long press "GotRadio The 60\'s (US)"
+  Then I press "Add to favorites"
+  Then I scroll until I see the "Boss Radio (US)" text
+  Then I long press "Boss Radio (US)"
+  Then I press "Add to favorites"
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I press " .. "
+  Then I press " .. "
+  Then I press "Favorites"
+
   # FIXME (highest): following line crashes with : undefined method `[]' for nil:NilClass (NoMethodError)
-  Then I get text for item number 1
-  Then I wait for 5 seconds
-  Then I press list item number 1
+  # FIXED
+
+  Then I press "Boss Radio (US)"
+  Then I press "slide_panel_now_playing_title"
+  Then I press "prev_control"
+  Then I press "prev_control"
+  Then I press "pause"
+  Then I press "actionBackArrow"
   Then I press "Recents"
-  Then I press list item number 1
+  Then I press "Boss Boss Radio (US)"
   Then I press "slide_panel_now_playing_title"
   Then I check Radio playing
-  Then I see item number text
+  Then I see "Boss Boss Radio (US)"
   And I see "1/4"
   Then I press "next_control"
   Then I press "pause"
-  Then I press "WebRadio"
+  Then I press "actionBackArrow"
   # Long press Play
-  Then I long press list item number 1
+  Then I long press "Boss Boss Radio (US)"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
   Then I check Radio playing
+  Then I press "pause"
+  Then I check Radio pause
+  Then I press "pause"
   # Switching between stations
+
   # FIXME (highest): Ensure stations switching is working by cover right/left slides too
-  And I see "1/4"
+  # !!! Need find solution how swipe stations
+  
   Then I press "next_control"
+  Then I see "GotRadio The 60\'s (US)"
   And I see "2/4"
   Then I press "next_control"
+  Then I see "Boss Radio (US)"
   And I see "3/4"
   Then I press "next_control"
+  And I see "Megapolis FM 89.5"
   And I see "4/4"
   Then I press "prev_control"
   And I see "3/4"
   Then I press "prev_control"
   And I see "2/4"
-  Then I press "WebRadio"
+  Then I press "actionBackArrow"
+
   # "Add to favorites"/"Remove from favorites" options from long press menu in Recents tab
   Then I long press "Megapolis FM 89.5"
   Then I press "Add to favorites"
@@ -257,7 +340,9 @@ Scenario: Recents tab
 # Done
 
 # FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
+
 # FIXME (highest): Ensure that tap on the cover opens "Recents" playlist and there is currently playing radio in the list, DON'T check highlight for now
+# !!! Need find solution how to tap on cover
 
 # RECORDS TAB
 Scenario: Record audio
@@ -268,25 +353,56 @@ Scenario: Record audio
   Then I press "repeat"
   Then I wait for 3 seconds
   Then I press "repeat"
-  Then I press "WebRadio"
+  Then I press "actionBackArrow"
   Then I press "Records"
   Then I see "Megapolis FM 89.5"
   # Starting station from Records tab
-  Then I press list item number 1
+  Then I press "Megapolis FM 89.5"
   Then I press "slide_panel_now_playing_title"
   Then I check Radio playing
-  Then I press "WebRadio"
+  Then I press "pause"
+  Then I check Radio pause
+  Then I press "pause"
+  Then I press "actionBackArrow"
   Then I press "Recents"
   # Starting station from Records tab (Long press)
   Then I press list item number 1
   Then I press "Records"
-  Then I long press list item number 1
+  Then I long press "Megapolis FM 89.5"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
   Then I check Radio playing
   Then I press "pause"
+  Then I check Radio pause
+  
+
+Scenario: Switching between records
+  Then I press "icon"
+  Then I press "Recents"
+  Then I press "Boss Boss Radio (US)"
+  Then I press "slide_panel_now_playing_title"
+  Then I press "repeat"
+  Then I wait for 3 seconds
+  Then I press "repeat"
+  Then I press "actionBackArrow"
+  Then I press "Records"
+  Then I press list item number 1
+  Then I press "slide_panel_now_playing_title"
+  And I see "1/2"
+  Then I press "next_control"
+  Then I see "Megapolis FM 89.5"
+  And I see "2/2"
+  Then I press "prev_control"
+  Then I see "Boss Boss Radio (US)"
+  And I see "1/2"
+  Then I press "next_control"
+  Then I press "actionBackArrow"
+  Then I long press "Boss Boss Radio (US)"
+  And I press "Delete"
+
 
 # FIXME (highest): We need a scenario to check if switching between several records is working by next/prev buttons and cover left/right swipes
+# 50 % Need find solution how swipe stations
 
 Scenario: Delete from Records
   Then I press "icon"
@@ -306,6 +422,8 @@ Scenario: Delete from Records
   Then I see "No radio records found."
 
 # FIXME (highest): Ensure that tap on the cover opens "Records" playlist and there is currently playing record in the list, DON'T check highlights for now
+# !!! Need find solution how tap on the cover
+
 # FIXME: Ensure that Record button is highlighted while recording (investigate - need custom steps for highlighted element)
  
 # STATIONS TAB
@@ -323,7 +441,7 @@ Scenario: Play Radio
   Then I press "pause"
   Then I check Radio pause
   Then I press "next_control"
-  Then I press "WebRadio"
+  Then I press "actionBackArrow"
   # Play station (long press)
   Then I long press list item number 5
   Then I press "Play"
@@ -345,7 +463,6 @@ Scenario: Stations switching by next/prev
   Then I press "60\'s"
   Then I press list item number 5
   Then I press "slide_panel_now_playing_title"
-  # FIXME (highest): Ensure stations switching is working by cover right/left slides too
   Then I should see text containing "1/"
   Then I press "next_control"
   And I should see text containing "2/"
@@ -355,6 +472,9 @@ Scenario: Stations switching by next/prev
   And I should see text containing "2/"
   Then I press "pause"
   Then I press "WebRadio"
+
+# FIXME (highest): Ensure stations switching is working by cover right/left slides too
+# !!! Need find solution how swipe stations  
 
 Scenario: Long press navigation
   Then I press "icon"
@@ -372,7 +492,10 @@ Scenario: Long press navigation
   Then I press "Delete from favorites"
   
 # FIXME (highest): Ensure that tap on the cover opens "On The Go" playlist and there is "Boss Boss Radio" in the list, DON'T check highlights for now
+# !!! Need find solution how tap on the cover
 # FIXME (highest): Ensure that double tap on the cover opens track info dialog with File name, Size, Format fields etc.
+# !!! Need find solution how tap on the cover
+
 
 # FIXME: ensure track is highlighted in the list (text color is cyan and V icon exists) (investigate - need custom steps for highlighted element)
 # FIXME: also we should go back to upper levels and ensure that Music/60s folders are highlighted too (investigate - need custom steps for highlighted element)
@@ -389,11 +512,13 @@ Scenario: Top layout menu (Home icon)
 
 Scenario: Top layout menu (Voice commands icon)
   Then I press "icon"
+  Then I wait for 3 seconds
   Then I press "topContentContainer"
-  # FIXME (highest): error Timeout waiting for elements: * marked:'thirdButtonLayout'
   Then I press "thirdButtonLayout"
   And I see "Call"
   And I see "Navigate"
+# FIXME (highest): error Timeout waiting for elements: * marked:'thirdButtonLayout'
+# FIXED
 
 Scenario: Exit option
   Then I press "icon"

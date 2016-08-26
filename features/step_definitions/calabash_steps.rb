@@ -51,7 +51,7 @@ end
 Then /^I check Radio playing$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 1
+	sleep 2
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final <= start
@@ -62,7 +62,7 @@ end
 Then /^I check Radio pause$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 1
+	sleep 2
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final != start
@@ -109,4 +109,13 @@ Then /^I check Music pause$/ do
 	if final != start
 		raise "Timer is not working"
 	end
+end
+
+
+Then /^I rotate device to portrait$/ do 
+	perform_action('set_activity_orientation', 'portrait')
+end
+
+Then /^I rotate device to landscape$/ do 
+	perform_action('set_activity_orientation', 'landscape')
 end
