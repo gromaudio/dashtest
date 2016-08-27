@@ -85,7 +85,7 @@ Scenario: Media rescan
   And I see "2/10 2:44"
   Then I should see text containing "02 Lucy in the Sky"
   And I see "3/10 3:28"
-  Then I scroll down
+  Then I scroll until I see the "7/10 2:37" text
   Then I see "03 Getting Better"
   And I see "4/10 2:48"
   Then I see "04 Fixing a Hole"
@@ -95,6 +95,7 @@ Scenario: Media rescan
   Then I scroll down
   Then I should see text containing "06 Being for the Benefit"
   And I see "7/10 2:37"
+  Then I scroll until I see the "10/10 2:42" text
   Then I see "07 Within You Without You"
   And I see "8/10 5:04"
   Then I see "08 When I\'m Sixty-Four"
@@ -133,6 +134,7 @@ Scenario: Media rescan
   Then I press " .. "
   Then I press " .. "
 
+@debug
 Scenario: Change "Music home folder" to Music
   Then I press "icon"
   Then I press "leftButtonFirst"
@@ -143,9 +145,18 @@ Scenario: Change "Music home folder" to Music
   Then I press "Select"
   Then I press "Media Rescan"
   Then I press "leftButtonFirst"
-  Then I wait for 5 seconds
-  Then I see "00 LocalMusicTestSuite"
-  Then I see "30 songs"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
+  And I should see text containing "00 Fleetwood Mac"
+  And I should see text containing "01 Imagine Dragons"
+  And I should see text containing "02 Nickelback - Dark"
+  And I should see text containing "03 Red Hot Chili"
+  And I should see text containing "04 Taylor Swift"
+  Then I scroll down
+  And I should see text containing "05 The Beatles"
+  And I should see text containing "06 Кирпичи - Камни"
+  And I should see text containing "07 The Police"
   # Return back
   Then I press "leftButtonFirst"
   Then I press "Settings"
@@ -157,8 +168,17 @@ Scenario: Change "Music home folder" to Music
   Then I wait for 5 seconds
   Then I see "Music"
 
+@debug
 Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I press "icon"
+  Then I press "leftButtonFirst"
+  Then I press "Settings"
+  Then I press "Music home folder"
+  Then I scroll until I see the "Music" text
+  Then I press "Music"
+  Then I press "Select"
+  Then I press "Media Rescan"
+  Then I press "leftButtonFirst"
   Then I press "Albums"
   When I touch the "00 Greatest Hits" text
   Then I see "00 Rhiannon"
@@ -228,43 +248,66 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I press "Playlists"
   Then I press "Folders"
 
+  Then I press "leftButtonFirst"
+  Then I press "Settings"
+  Then I press "Music home folder"
+  Then I press ".."
+  Then I press "Select"
+  Then I press "Media Rescan"
+  Then I press "leftButtonFirst"
+  Then I wait for 5 seconds
+  Then I see "Music"
+
+@debug
 Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   Then I press "icon"
+  Then I press "leftButtonFirst"
+  Then I press "Settings"
+  Then I press "Music home folder"
+  Then I scroll until I see the "Music" text
+  Then I press "Music"
+  Then I press "Select"
+  Then I press "Media Rescan"
+  Then I press "leftButtonFirst"
   Then I press "Albums"
   Then I press "Artists"
   Then I see "00 Fleetwood Mac"
   And I see "1 album, 5 songs out of 5"
   Then I press "00 Fleetwood Mac"
-  And I see "00 Greatest Hits"
+  And I should see text containing "00 Greatest Hits"
+  Then I press "00 Fleetwood Mac"
 
   Then I see "01 Imagine Dragons"
   And I see "1 album, 1 song out of 1"
   Then I press "01 Imagine Dragons"
   And I see "01 Night Visions"
-
-  Then I scroll down
+  Then I press "01 Imagine Dragons"
 
   Then I see "02 Nickelback"
   And I see "1 album, 2 songs out of 2"
   Then I press "02 Nickelback"
   And I see "02 Dark Horse"
+  Then I press "02 Nickelback"
 
   Then I see "03 Red Hot Chili Peppers"
   And I see "1 album, 2 songs out of 3"
   Then I press "03 Red Hot Chili Peppers"
   And I see "03 Californication"
+  Then I press "03 Red Hot Chili Peppers"
 
   Then I scroll down
 
   Then I see "04 Taylor Swift"
   And I see "1 album, 3 songs out of 3"
   Then I press "04 Taylor Swift"
-  And I see "04 Speak Now"
+  And I should see text containing "04 Speak Now"
+  Then I press "04 Taylor Swift"
 
   Then I see "05 The Beatles"
   And I see "1 album, 10 songs out of 10"
   Then I press "05 The Beatles"
-  And I see "05 Sgt. Pepper\'s"
+  And I should see text containing "05 Sgt. Pepper\'s"
+  Then I press "05 The Beatles"
 
   Then I scroll down
 
@@ -272,26 +315,45 @@ Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   And I see "1 album, 3 songs out of 3"
   Then I press "06 Кирпичи"
   And I see "06 Камни"
+  Then I press "06 Кирпичи"
 
   Then I see "07 The Police"
   And I see "1 album, 3 songs out of 3"
   Then I press "07 The Police"
   And I see "07 Reggatta de Blanc"
+  Then I press "07 The Police"
 
   Then I scroll up
   Then I scroll up
   Then I scroll up
   Then I scroll up
   Then I scroll up
-  Then I scroll up
-  Then I scroll up
-
+  
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
 
+  Then I press "leftButtonFirst"
+  Then I press "Settings"
+  Then I press "Music home folder"
+  Then I press ".."
+  Then I press "Select"
+  Then I press "Media Rescan"
+  Then I press "leftButtonFirst"
+  Then I wait for 5 seconds
+  Then I see "Music"
+
+@debug
 Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I press "icon"
+  Then I press "leftButtonFirst"
+  Then I press "Settings"
+  Then I press "Music home folder"
+  Then I scroll until I see the "Music" text
+  Then I press "Music"
+  Then I press "Select"
+  Then I press "Media Rescan"
+  Then I press "leftButtonFirst"
   Then I press "Albums"
   Then I press "Artists"
   When I press "Songs"
@@ -447,6 +509,7 @@ Scenario: Check if Songs tab contain items from LocalMusicTestSuite
 
 Scenario: Check tabs and About
   Then I press "icon"
+  Then I wait for 3 seconds
   Then I see "Folders"
   Then I see "Playlists"
   Then I see "Albums"
@@ -505,9 +568,8 @@ Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
-  Then I press "Music"
-  Then I press "00 LocalMusicTestSuite"
   When I touch the "00 Fleetwood Mac" text
+  Then I scroll up
   Then I press "00 Rhiannon"
   Then I press "slide_panel_now_playing_title"
   Then I should see text containing "00 Rhiannon - 00 Greatest Hits"
@@ -520,17 +582,14 @@ Scenario: Play/Pause Music (Folders tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
+  Then I scroll up
   Then I press " .. "
-  Then I press " .. "
-  Then I press " .. "
-
+  
 Scenario: Play/Pause Music - long press (Folders tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
-  Then I press "Music"
-  Then I press "00 LocalMusicTestSuite"
   When I touch the "01 Imagine Dragons" text
   Then I long press "00 Radioactive"
   Then I press "Play"
@@ -545,25 +604,19 @@ Scenario: Play/Pause Music - long press (Folders tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
-  Then I press " .. "
-  Then I press " .. "
+  Then I press "actionBackArrow"
   Then I press " .. "
 
-  @debug
 Scenario: Play/Pause Music (Playlists tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
-  Then I press "Music"
-  Then I press "00 LocalMusicTestSuite"
   When I touch the "00 Fleetwood Mac" text
+  Then I scroll up
   Then I long press "00 Rhiannon"
   Then I press "Add to playlist"
   Then I press "New"
   Then I press "Save"
-  Then I press " .. "
-  Then I press " .. "
   Then I press " .. "
   Then I press "Playlists"
   Then I press "00 Rhiannon"
@@ -579,7 +632,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I go back
   Then I long press "00 Rhiannon"
@@ -589,15 +642,11 @@ Scenario: Play/Pause Music - long press (Playlists tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
-  Then I press "Music"
-  Then I press "00 LocalMusicTestSuite"
   When I touch the "00 Fleetwood Mac" text
   Then I long press "01 Don\'t Stop"
   Then I press "Add to playlist"
   Then I press "New"
   Then I press "Save"
-  Then I press " .. "
-  Then I press " .. "
   Then I press " .. "
   Then I press "Playlists"
   Then I long press "01 Don\'t Stop"
@@ -613,14 +662,15 @@ Scenario: Play/Pause Music - long press (Playlists tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
-  Then I long press "Don\'t Stop"
+  Then I press "actionBackArrow"
+  Then I long press "01 Don\'t Stop"
   Then I press "Delete"
 
 Scenario: Play/Pause Music (Albums tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Albums"
+  Then I scroll up
   Then I press "02 Dark Horse"
   Then I press "00 Shakin\' Hands"
   When I press "slide_panel_now_playing_title"
@@ -634,7 +684,7 @@ Scenario: Play/Pause Music (Albums tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I go back
 
@@ -642,6 +692,7 @@ Scenario: Play/Pause Music - long press (Albums tab)
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Albums"
+  Then I scroll up
   Then I press "02 Dark Horse"
   Then I long press "01 S.E.X."
   Then I press "Play"
@@ -656,7 +707,7 @@ Scenario: Play/Pause Music - long press (Albums tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I go back
 
@@ -678,7 +729,7 @@ Scenario: Play/Pause Music (Artists tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I go back
 
@@ -701,7 +752,7 @@ Scenario: Play/Pause Music - long press (Artists tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I go back
 
@@ -754,8 +805,6 @@ Scenario: Switching between tracks
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
-  Then I press "Music"
-  Then I press "00 LocalMusicTestSuite"
   When I touch the "00 Fleetwood Mac" text
   Then I press "01 Don\'t Stop"
   Then I press "slide_panel_now_playing_title"
@@ -775,8 +824,7 @@ Scenario: Switching between tracks
   Then I see "2/5"
   Then I press "pause"
   Then I go back
-  Then I press " .. "
-  Then I press " .. "
+  Then I scroll up
   Then I press " .. "
   # When I swipe right
   # Then I see "3/5"
@@ -790,8 +838,8 @@ Scenario: Switching between tracks
 
 Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I press "icon"
-  Then I press "Music"
-  Then I press "00 LocalMusicTestSuite"
+  Then I press "Playlists"
+  Then I press "Folders"
   Then I long press "00 Fleetwood Mac"
   And I see "Play"
   And I see "Add to playlist"
@@ -833,13 +881,9 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I press "Delete"
   And I don't see "Custom"
   Then I press "Folders"
-  Then I press " .. "
-  Then I press " .. "
 
 Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "icon"
-  Then I press "Music"
-  Then I press "00 LocalMusicTestSuite"
   Then I long press "00 Fleetwood Mac"
   Then I press "Add to playlist"
   Then I press "New"
@@ -881,84 +925,78 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I wait for 1 second
   Then I go back
   Then I press "Folders"
-  Then I press " .. "
-  Then I press " .. "
 
 # FIXME: Ensure Playlists/"Add to playlist" option from long press menu is working too
-
-Scenario: Delete Playlist
+# DONE
+Scenario: Long press actions - Add to playlist from playlist tab
   Then I press "icon"
-  Then I press "Folders"
-  Then I long press "Music"
+  Then I long press "00 Fleetwood Mac"
   Then I press "Add to playlist"
   Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "Fleetwood Mac" into field with id "playlist"
+  # To hide keyboard
+  Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  Then I long press "Music"
-  Then I press "Delete"
-  Then I don't see "Music"
-
-Scenario: Songs tab (View component)
-  Then I press "icon"
-  Then I press "Artists"
-  Then I press "Songs"
-  Then I long press list item number 1
-  Then I see "Play"
-  Then I see "Add to playlist"
-  Then I see "Jump to Album"
-  Then I see "Jump to Artist"
-  Then I see "Jump to Folder"
-  Then I see "Update cover art"  
-
-  #FIXME please use items from LocalMusicTestSuite
-Scenario: Songs tab (Functionality)
-  Then I press "icon"
-  Then I press "Artists"
-  Then I press "Songs"
-  # FIXME: use track names instead of numbers
-  Then I long press list item number 2
-  Then I press "Jump to Album"
-  And I see "1000.mp3"
-  Then I wait for 2 seconds
+  And I should see text containing "Fleetwood Mac"
+  Then I press "Fleetwood Mac"
+  And I see "00 Rhiannon"
+  And I see "01 Don\'t Stop"
+  And I see "02 Go Your Own Way"
+  And I see "03 Hold Me"
+  And I see "04 Everywhere"
   Then I go back
-  Then I press "Songs"
-  Then I long press list item number 2
-  Then I press "Jump to Artist"
-  Then I wait for 2 seconds
-  And I see "Unknown artist"
-  Then I press "Songs"
-  Then I long press list item number 2
-  Then I press "Jump to Folder"
-  Then I see "1000.mp3"
-  Then I press " .. "
-  Then I press " .. "
-  Then I press " .. "
-  And I see "Music"  
+  Then I long press "Fleetwood Mac"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "Fleetwood Copy" into field with id "playlist"
+  # To hide keyboard
+  Then I go back
+  Then I press "Save"
+  Then I see "Fleetwood Copy"
+  Then I press "Fleetwood Copy"
+  And I see "00 Rhiannon"
+  And I see "01 Don\'t Stop"
+  And I see "02 Go Your Own Way"
+  And I see "03 Hold Me"
+  And I see "04 Everywhere"
+  Then I go back
+  Then I long press "Fleetwood Copy"
+  Then I press "Delete"
+  Then I long press "Fleetwood Mac"
+  Then I press "Delete"
 
-# FIXME: ensure created playlist contains appropriate tracks, please use items from LocalMusicTestSuite
-Scenario: Add to playlist from Albums tab
+Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"
-  Then I long press image view number 3
-  Then I long press list item number 2
+  Then I long press "02 Dark Horse"
   Then I press "Add to playlist"
   Then I press "New"
   Then I clear "playlist"
   Then I enter text "From_Albums" into field with id "playlist"
   Then I go back
   Then I press "Save"
-  Then I press "title"
   Then I press "Playlists"
   And I see "From_Albums"
+  When I press "From_Albums"
+  Then I see "00 Shakin\' Hands"
+  And I see "1/2 3:39"
+  And I see "01 S.E.X."
+  And I see "2/2 3:53"
+  Then I go back
   Then I long press "From_Albums"
   Then I press "Delete"
   Then I don't see "From_Albums"
    
-# FIXME: ensure created playlist contains appropriate tracks, please use items from LocalMusicTestSuite
-Scenario: Add to playlist from Artists tab
+# FIXME: ensure created playlist contains appropriate tracks
+# DONE
+Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Artists"
-  Then I long press list item number 1
+  Then I long press "01 Imagine Dragons"
   Then I press "Add to playlist"
   Then I press "New"
   Then I clear input field with id "playlist"
@@ -966,18 +1004,24 @@ Scenario: Add to playlist from Artists tab
   Then I go back
   Then I press "Save"
   Then I press "Albums"
-  Then I press "Playlists"
-  And I see "From_Artists"
+  When I press "Playlists"
+  Then I see "From_Artists"
+  When I press "From_Artists"
+  Then I see "00 Radioactive"
+  And I see "1/1 3:06"
+  Then I go back
   Then I long press "From_Artists"
   Then I press "Delete"
   Then I don't see "From_Artists"
 
-# FIXME: ensure created playlist contains appropriate tracks, please use items from LocalMusicTestSuite
-Scenario: Add to playlist from Songs tab
+# FIXME: ensure created playlist contains appropriate tracks
+# DONE
+Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Artists"
   Then I press "Songs"
-  Then I long press list item number 1
+  Then I long press "00 Mine"
   Then I press "Add to playlist"
   Then I press "New"
   Then I clear input field with id "playlist"
@@ -985,15 +1029,80 @@ Scenario: Add to playlist from Songs tab
   Then I go back
   Then I press "Save"
   Then I press "Albums"
-  Then I press "Playlists"
-  Then I scroll down
+  When I press "Playlists"
   And I see "From_Songs"
+  Then I press "From_Songs"
+  And I see "00 Mine"
+  And I see "1/1 3:50"
+  Then I go back
   Then I long press "From_Songs"
   Then I press "Delete"
   Then I don't see "From_Songs"
 
+Scenario: Long press actions - Jum to .. (Songs tab)
+  Then I press "icon"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "00 Around The World"
+  Then I press "Jump to Album"
+  Then I wait for 3 seconds
+  And I see "03 Californication"
+  And I see "00 Around The World"
+  And I see "01 Otherside"
+  And I see "02 Road Trippin\'"
+  Then I go back
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "00 Radioactive"
+  Then I press "Jump to Artist"
+  Then I wait for 3 seconds
+  And I see "01 Imagine Dragons"
+  And I see "01 Night Visions"
+  And I see "1 song"
+  Then I press "Songs"
+  Then I long press "00 Message in a Bottle"
+  Then I press "Jump to Folder"
+  Then I wait for 3 seconds
+  Then I see "00 Message in a Bottle"
+  And I see "01 Reggatta de Blanc"
+  And I see "02 It\'s Alright for You"
+  Then I press " .. "
+
+# FIXME: use track names instead of numbers
+# DONE
+
+Scenario: Long press actions - Jum to Folder (Albums tab)
+  Then I press "icon"
+  Then I press "Albums"
+  Then I scroll up
+  Then I press "02 Dark Horse"
+  Then I long press "01 S.E.X."
+  Then I press "Jump to Folder"
+  Then I wait for 3 seconds
+  And I see "00 Shakin\' Hands"
+  And I see "1/2 3:39"
+  And I see "01 S.E.X."
+  And I see "2/2 3:53"
+  And I press " .. "
+
+Scenario: Long press actions - Jum to Folder (Artists tab)
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "02 Nickelback"
+  Then I press "02 Dark Horse"
+  Then I long press "01 S.E.X."
+  Then I press "Jump to Folder"
+  Then I wait for 3 seconds
+  And I see "00 Shakin\' Hands"
+  And I see "1/2 3:39"
+  And I see "01 S.E.X."
+  And I see "2/2 3:53"
+  And I press " .. "
+
 Scenario: Top layout menu (Home icon)
   Then I press "icon"
+  Then I wait for 2 seconds
   Then I press "topContentContainer"
   Then I press "firstButtonLayout"
   And I see "WebRadio"
@@ -1001,6 +1110,7 @@ Scenario: Top layout menu (Home icon)
 
 Scenario: Top layout menu (Voice commands icon)
   Then I press "icon"
+  Then I wait for 2 seconds
   Then I press "topContentContainer"
   Then I press "thirdButtonLayout"
   And I see "Call"
