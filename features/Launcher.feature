@@ -1,5 +1,5 @@
 Feature: Launcher
-
+@debug
 Scenario: Start
     Then I press "skipButton"
     Then I press "button2"
@@ -42,11 +42,14 @@ Scenario: View Settings
     And I see "Find the best GROM module for your vehicle. Direct integration and digital quality sound."
 
     # FIXME: can we check that pressed check boxes are checked/unchecked?
+    # Don't know how to implement for now
+
 Scenario: View Settings components 
     Then I press "leftButtonFirst"
     Then I press "Settings"
 
     # NOTE: if you press something, make sure you unpress it and check that it returned back
+
     Then I see "MPH"
     Then I press "Speed"
     Then I see "KM/H"
@@ -60,7 +63,9 @@ Scenario: View Settings components
     Then I see "℉"
 
     # NOTE: Device may already have bluetooth connections, so we can only test dialog header
+
     # FIXME: we should have manual test for testing this dialog: 1)device has no connected BT devices 2) this dialog shows "To enable Bluetooth integration please enable Bluetooth in Settings" 3) press "enable" button 4) pair some device 5) ensure this dialog shows that device
+
     Then I press "Bluetooth connection"
     Then I see "Bluetooth connection"
     Then I press "Cancel"
@@ -86,13 +91,14 @@ Scenario: View Settings components
     Then I press "Google"
 
     Then I scroll down
+    Then I press "Disable USB Streaming"
+    Then I press "Disable USB Streaming"
 
     # FIXME: please think about how can we test advertising option?
-
-    Then I press "Disable USB Streaming"
-    Then I press "Disable USB Streaming"
+    # Don't know how to implement for now
 
     # FIXME: can we check if Sticky icon changed?
+    # Don't know how to implement for now
 Scenario: Settings (Brightness)
     Then I press "leftButtonFirst"
     Then I press "Settings"
@@ -104,7 +110,15 @@ Scenario: Settings (Brightness)
     Then I press "leftButtonSecond"
     Then I press "leftButtonSecond"
 
+Scenario: Settings (Brightness) after restart
+    Then I wait for 2 seconds
+    Then I rotate device to landscape
+    Then I rotate device to portrait
+    Then I press "leftButtonSecond"
+    Then I press "leftButtonSecond"    
+
     # FIXME: can we check if Sticky icon changed?
+    # Don't know how to implement for now
 Scenario: Settings (Rotation lock)
     Then I press "leftButtonFirst"
     Then I press "Settings"
@@ -112,8 +126,14 @@ Scenario: Settings (Rotation lock)
     Then I press "Rotation lock"
     Then I press "leftButtonFirst"
     Then I press "leftButtonSecond"
+    
+Scenario: Settings (Rotation lock) after restart
+    Then I wait for 2 seconds
+    Then I rotate device to landscape
+    Then I rotate device to portrait
     Then I press "leftButtonSecond"
-
+    Then I press "leftButtonSecond"        
+@debug
 Scenario: Settings (Speed & Temperature)
     Then I press "weather_icon"
     Then I see "℉"
@@ -124,6 +144,12 @@ Scenario: Settings (Speed & Temperature)
     Then I press "Speed"
     Then I press "Temperature"
     Then I press "leftButtonFirst"
+    Then I press "weather_icon"
+    Then I see "℃"
+    Then I see "kmph"
+@debug
+Scenario: Settings (Speed & Temperature) after restart
+    Then I wait for 2 seconds
     Then I press "weather_icon"
     Then I see "℃"
     Then I see "kmph"
@@ -143,6 +169,8 @@ Scenario: Find compatible device
     Then I see "Find Interface"
 
 # FIXME: we need a scenario to check if changed settings are correctly saved and restored after app restart including units, sticky icon etc
+# DONE (After restart Rotation lock and Brightness icons is not appeared Bug 2003 - work around this: after change rotation - icon appears)
+
 
 # ABOUT
 
@@ -157,8 +185,9 @@ Scenario: About check (Send Report Error)
     Then I press "leftButtonFirst"
     Then I press "About"
     Then I press "More options"
-    #Then I press "Send Report Error"
-    #Then I press item with name "Select an application to send the log"
+    Then I press "Send Report Error"
+
+    # Then I press item with name "Select an application to send the log"
 
     # FIXME: this scenario fails with:
     # execution expired (HTTPClient::ReceiveTimeoutError)
@@ -166,11 +195,13 @@ Scenario: About check (Send Report Error)
     # Before do |scenario|
     # start_test_server_in_background
     # end
+
 Scenario: About check (Send Feedback)
     Then I press "leftButtonFirst"
     Then I press "About"
     Then I press "More options"
-    #Then I press "Send Feedback"
+    Then I press "Send Feedback"
+
     #Then I press item with name "Send Feedback Email"
 
 # EXIT
@@ -183,8 +214,10 @@ Scenario: Exit check
 # MAIN
 
     # FIXME: Swipe left doesn't work on my Nexus 5 & Samsung A300 - it swipes in correct direction, but releases too early, so screen doesn't change
+    # I have added delay on 1 seconds. Hope it help
 
 Scenario: Check default plugin tabs
+    Then I wait for 1 seconds
     Then I swipe right
     Then I press "icon"
     Then I see "APPS"
@@ -193,6 +226,7 @@ Scenario: Check default plugin tabs
     Then I press "SHORTCUTS"
     Then I press "PLUGINS"
     # FIXME: how we can check A2DP Stream & Car Play plugins existence in VLine mode?
+    # It's not possible without BLoutooth adapter box (USB Car Kits)
     Then I see "GMusic"
     Then I see "Local Music"
     Then I see "Spotify"
@@ -213,9 +247,41 @@ Scenario: Check default plugin tabs
     #   - app can be checked by launching an app which 100% have all the devices - calculator for example
     #   - shortcut can be checked by AM/FM shortcuts
     #   - plugins can be checked by launching Local music for example
+    
     # - check that swipe-down player menu is working
     # - check that swipe-up location menu is working
+
+Scenario: Add App
+    Then I wait for 1 seconds
+    Then I swipe right
+    Then I press "icon"
+    Then I scroll until I see the "Calculator" text
+    Then I press "Calculator"
+    And I see "Calculator"
+    Then I swipe left
+    Then I swipe right
+    And I see "Calculator"
+    Then I press "menu_button"
+    And I press "delete"
+    Then I swipe left
+
+Scenario: Add Shourtcat    
+    Then I wait for 1 seconds
+    Then I swipe right
+    Then I press "icon"
+    When I press "SHORTCUTS"
+    Then I scroll until I see the "AM Radio" text
+    Then I press "AM Radio"
+    And I see "AM Radio"
+    Then I swipe left
+    Then I swipe right
+    And I see "AM Radio"
+    Then I press "menu_button"
+    And I press "delete"
+    Then I swipe left
+
 Scenario: Delete plugin
+    Then I wait for 1 seconds
     Then I swipe right
     Then I press "icon"
     Then I press "PLUGINS"
@@ -227,6 +293,7 @@ Scenario: Delete plugin
     Then I swipe left
 
 Scenario: Replace plugin
+    Then I wait for 1 seconds
     Then I swipe right
     Then I press "icon"
     Then I press "PLUGINS"
@@ -238,25 +305,41 @@ Scenario: Replace plugin
     Then I press "GMusic"
     Then I see "GMusic"
     Then I swipe left
-
-Scenario: Add plugin WebRadio
     Then I swipe right
-    Then I press image view number 9
+    And I see "GMusic"
+    Then I press "menu_button"
+    Then I press "delete"
+    Then I swipe left
+
+Scenario: Add Plugin
+    Then I wait for 1 seconds
+    Then I swipe right
+    Then I press "icon"
     Then I press "PLUGINS"
     Then I press "WebRadio"
     Then I see "WebRadio"
     Then I swipe left
+    Then I swipe right
+    And I see "WebRadio" 
+    Then I press "menu_button"
+    Then I press "delete"       
+    Then I swipe left
 
 Scenario: Add multiple plugins
+    Then I wait for 1 seconds
     Then I swipe right
-    Then I press image view number 10
+    Then I press "icon"
     Then I press "PLUGINS"
     Then I press "Local Music"
-    Then I see "Local Music"
     Then I press image view number 10
     Then I press "PLUGINS"
     Then I press "Where is My Car"
+    Then I see "Local Music"
     Then I see "Where is My Car"
+    Then I swipe left
+    Then I swipe right
+    And I see "Local Music" 
+    And I see "Where is My Car"
     Then I swipe left
 
     # NOTE: all item from PLUGINS tab are called PLUGINS (Local, Webradio etc), fixed three items from launcher screen are called widgets - Voice, Weather, Navigation-
@@ -284,12 +367,14 @@ Scenario: Voice Widget (Navigate)
 # NAVIGATION WIDGET
 
     # FIXME: ensure app is launched
+
 Scenario: Navigation widget
     Then I press "navi_icon"
 
 # WEATHER WIDGET
 
     # FIXME: ensure we see current time on the widget on the main screen
+
 Scenario: View Time&Weather plugin
     Then I press "weather_icon"
     Then I see "DAY"
