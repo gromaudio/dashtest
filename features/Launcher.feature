@@ -64,7 +64,7 @@ Scenario: View Settings components
 
     # NOTE: Device may already have bluetooth connections, so we can only test dialog header
 
-    # FIXME: we should have manual test for testing this dialog: 1)device has no connected BT devices 2) this dialog shows "To enable Bluetooth integration please enable Bluetooth in Settings" 3) press "enable" button 4) pair some device 5) ensure this dialog shows that device
+    # !!!FIXME: we should have manual test for testing this dialog: 1)device has no connected BT devices 2) this dialog shows "To enable Bluetooth integration please enable Bluetooth in Settings" 3) press "enable" button 4) pair some device 5) ensure this dialog shows that device
 
     Then I press "Bluetooth connection"
     Then I see "Bluetooth connection"
@@ -214,7 +214,7 @@ Scenario: Exit check
 # MAIN
 
     # FIXME: Swipe left doesn't work on my Nexus 5 & Samsung A300 - it swipes in correct direction, but releases too early, so screen doesn't change
-    # I have added delay on 1 seconds. Hope it help
+    # !!!
 
 Scenario: Check default plugin tabs
     Then I wait for 1 seconds
@@ -241,13 +241,17 @@ Scenario: Check default plugin tabs
     # - add apps, shortcuts, plugins to the slots of all three screens and ensure the are added successfully
     # - swipe screens left-right and ensure added icons are there where they were added
     # - replace one item with another via item menu
+
     # - swap items via drag&drop, including dragging over to next screen
+    # Don't know how to implement for now
+
     # - delete item via item menu
+
     # - launching item - we should ensure that apps, shortcuts and plugins launch as expected:
     #   - app can be checked by launching an app which 100% have all the devices - calculator for example
     #   - shortcut can be checked by AM/FM shortcuts
     #   - plugins can be checked by launching Local music for example
-    
+
     # - check that swipe-down player menu is working
     # - check that swipe-up location menu is working
 
