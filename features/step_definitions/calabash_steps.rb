@@ -119,3 +119,19 @@ end
 Then /^I rotate device to landscape$/ do 
 	perform_action('set_activity_orientation', 'landscape')
 end
+
+Then /^I scroll to right$/ do
+    perform_action('drag', 90, 0, 50, 50, 50)
+end
+
+Then /^I scroll to left$/ do
+    perform_action('drag', 10, 90, 50, 50, 50)
+end
+
+Then /^I scroll to down$/ do
+	perform_action('drag', 88, 80, 70, 85, 10)
+end
+
+Then /^I scroll to up$/ do
+	perform_action('drag', 88, 80, 90, 5, 10)
+end
