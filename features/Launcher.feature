@@ -111,11 +111,10 @@ Scenario: Settings (Brightness)
     Then I press "leftButtonSecond"
     Then I press "leftButtonSecond"
 
-# BLOCKED 
-# Scenario: Settings (Brightness) after restart 
-#    Then I wait for 2 seconds
-#    Then I press "leftButtonSecond"
-#    Then I press "leftButtonSecond"    
+Scenario: Settings (Brightness) after restart 
+    Then I wait for 2 seconds
+    Then I press "leftButtonSecond"
+    Then I press "leftButtonSecond"    
 
     # FIXME: can we check if Sticky icon changed?
     # Don't know how to implement for now
@@ -128,12 +127,11 @@ Scenario: Settings (Rotation lock)
     Then I press "leftButtonFirst"
     Then I press "leftButtonSecond"
     Then I press "leftButtonSecond"
-
-# BLOCKED     
-# Scenario: Settings (Rotation lock) after restart
-#   Then I wait for 2 seconds
-#   Then I press "leftButtonSecond"
-#   Then I press "leftButtonSecond"        
+    
+Scenario: Settings (Rotation lock) after restart
+    Then I wait for 2 seconds
+    Then I press "leftButtonSecond"
+    Then I press "leftButtonSecond"        
 
 Scenario: Settings (Speed & Temperature)
     Then I press "weather_icon"
