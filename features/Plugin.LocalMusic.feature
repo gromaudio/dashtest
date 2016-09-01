@@ -1,29 +1,31 @@
 Feature: Local Music Plugin
   You have to place "00 LocalMusicTestSuite" folder into sdcard/Music folder in order to run these tests.
 
-  @debug
+@debug
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2"
 
-Scenario: Media rescan
+
+Scenario: Change "Music home folder" to Music
   Then I press "icon"
   Then I press "leftButtonFirst"
   Then I press "Settings"
+  Then I press "Music home folder"
+  Then I scroll until I see the "Music" text
+  Then I press "Music"
+  Then I press "00 LocalMusicTestSuite"
+  Then I press "Select"
   Then I press "Media Rescan"
   Then I press "leftButtonFirst"
-  Then I wait for 5 seconds
+  Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
-  When I press "Music"
-  Then I see "00 LocalMusicTestSuite"
-  Then I see "30 songs"  
-  When I press "00 LocalMusicTestSuite"
-
+  
   Then I should see text containing "00 Fleetwood Mac"
   When I touch the "00 Fleetwood Mac" text
   Then I see "00 Rhiannon"
-  And I see "00 Fleetwood Mac - 00 Greatest Hits"
+  And I see "00 Fleetwood Mac - 00"
   And I see "1/5 4:12"
   Then I see "01 Don\'t stop"
   And I see "2/5 3:10"
@@ -93,10 +95,10 @@ Scenario: Media rescan
   Then I see "05 She\'s Leaving Home"
   And I see "6/10 3:35"
   Then I scroll down
-  Then I should see text containing "06 Being for the Benefit"
+  Then I should see text containing "06 Being for the"
   And I see "7/10 2:37"
   Then I scroll until I see the "10/10 2:42" text
-  Then I see "07 Within You Without You"
+  Then I see "07 Within You"
   And I see "8/10 5:04"
   Then I see "08 When I\'m Sixty-Four"
   And I see "9/10 2:37"
@@ -122,7 +124,7 @@ Scenario: Media rescan
   Then I should see text containing "07 The Police"
   When I touch the "07 The Police" text
   And I see "00 Message in a Bottle"
-  Then I should see text containing "07 The Police - 07 Reggatta de Blanc"
+  Then I should see text containing "07 The Police - 07 Reggatta de"
   And I see "1/3 4:50"
   And I see "01 Reggatta de Blanc"
   And I see "2/3 3:05"
@@ -131,54 +133,9 @@ Scenario: Media rescan
   Then I press " .. "
   Then I scroll up
   Then I scroll up
-  Then I press " .. "
-  Then I press " .. "
-
-@debug
-Scenario: Change "Music home folder" to Music
-  Then I press "icon"
-  Then I press "leftButtonFirst"
-  Then I press "Settings"
-  Then I press "Music home folder"
-  Then I scroll until I see the "Music" text
-  Then I press "Music"
-  Then I press "Select"
-  Then I press "Media Rescan"
-  Then I press "leftButtonFirst"
-  Then I press "Albums"
-  Then I press "Playlists"
-  Then I press "Folders"
-  And I should see text containing "00 Fleetwood Mac"
-  And I should see text containing "01 Imagine Dragons"
-  And I should see text containing "02 Nickelback - Dark"
-  And I should see text containing "03 Red Hot Chili"
-  And I should see text containing "04 Taylor Swift"
-  Then I scroll down
-  And I should see text containing "05 The Beatles"
-  And I should see text containing "06 Кирпичи - Камни"
-  And I should see text containing "07 The Police"
-  # Return back
-  Then I press "leftButtonFirst"
-  Then I press "Settings"
-  Then I press "Music home folder"
-  Then I press ".."
-  Then I press "Select"
-  Then I press "Media Rescan"
-  Then I press "leftButtonFirst"
-  Then I wait for 5 seconds
-  Then I see "Music"
-
-@debug
+  
 Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I press "icon"
-  Then I press "leftButtonFirst"
-  Then I press "Settings"
-  Then I press "Music home folder"
-  Then I scroll until I see the "Music" text
-  Then I press "Music"
-  Then I press "Select"
-  Then I press "Media Rescan"
-  Then I press "leftButtonFirst"
   Then I press "Albums"
   When I touch the "00 Greatest Hits" text
   Then I see "00 Rhiannon"
@@ -219,8 +176,8 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I see "04 Fixing a Hole"
   Then I scroll down
   Then I see "05 She\'s Leaving Home"
-  Then I should see text containing "06 Being for the Benefit"
-  Then I see "07 Within You Without You"
+  Then I should see text containing "06 Being for the"
+  Then I see "07 Within You"
   Then I see "08 When I\'m Sixty-Four"
   Then I scroll down
   Then I see "09 Lovely Rita"
@@ -248,27 +205,9 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I press "Playlists"
   Then I press "Folders"
 
-  Then I press "leftButtonFirst"
-  Then I press "Settings"
-  Then I press "Music home folder"
-  Then I press ".."
-  Then I press "Select"
-  Then I press "Media Rescan"
-  Then I press "leftButtonFirst"
-  Then I wait for 5 seconds
-  Then I see "Music"
-
-@debug
+  
 Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   Then I press "icon"
-  Then I press "leftButtonFirst"
-  Then I press "Settings"
-  Then I press "Music home folder"
-  Then I scroll until I see the "Music" text
-  Then I press "Music"
-  Then I press "Select"
-  Then I press "Media Rescan"
-  Then I press "leftButtonFirst"
   Then I press "Albums"
   Then I press "Artists"
   Then I see "00 Fleetwood Mac"
@@ -333,27 +272,9 @@ Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   Then I press "Playlists"
   Then I press "Folders"
 
-  Then I press "leftButtonFirst"
-  Then I press "Settings"
-  Then I press "Music home folder"
-  Then I press ".."
-  Then I press "Select"
-  Then I press "Media Rescan"
-  Then I press "leftButtonFirst"
-  Then I wait for 5 seconds
-  Then I see "Music"
 
-@debug
 Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I press "icon"
-  Then I press "leftButtonFirst"
-  Then I press "Settings"
-  Then I press "Music home folder"
-  Then I scroll until I see the "Music" text
-  Then I press "Music"
-  Then I press "Select"
-  Then I press "Media Rescan"
-  Then I press "leftButtonFirst"
   Then I press "Albums"
   Then I press "Artists"
   When I press "Songs"
@@ -564,6 +485,32 @@ Scenario: Local Music Settings
   Then I see "Indexing"
   And I see "Media Rescan"
 
+@debug
+# Blocked by Bug 1994
+Scenario: Settings - Library Side Swipe option
+  Then I press "icon"
+  Then I wait for 3 seconds
+  # Library Side Swipe ON
+  Then I see "00 Fleetwood Mac"
+  Then I see "01 Imagine Dragons"
+  Then I touch the "00 Fleetwood Mac" text
+  And I see "00 Rhiannon"
+  Then I scroll to left
+  And I see "00 Fleetwood Mac"
+  And I see "01 Imagine Dragons"
+  # Library Side Swipe OFF
+  #Then I press "leftButtonFirst"
+  #Then I press "Settings"
+  #Then I press "Library Side Swipe"
+  #Then I go back
+  #Then I see "00 Fleetwood Mac"
+  #Then I see "01 Imagine Dragons"
+  #Then I touch the "00 Fleetwood Mac" text
+  #And I see "00 Rhiannon"
+  #Then I scroll to left
+  #And I see "00 Rhiannon"
+  #Then I press " .. "
+  
 Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"
   Then I press "Playlists"
@@ -930,6 +877,8 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
 # DONE
 Scenario: Long press actions - Add to playlist from playlist tab
   Then I press "icon"
+  Then I press "Playlists"
+  Then I press "Folders"
   Then I long press "00 Fleetwood Mac"
   Then I press "Add to playlist"
   Then I press "New"
@@ -967,6 +916,7 @@ Scenario: Long press actions - Add to playlist from playlist tab
   Then I press "Delete"
   Then I long press "Fleetwood Mac"
   Then I press "Delete"
+  Then I press "Folders"
 
 Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I press "icon"
