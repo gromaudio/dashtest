@@ -120,7 +120,7 @@ Then /^I rotate device to landscape$/ do
 	perform_action('set_activity_orientation', 'landscape')
 end
 
-Then /^I scroll to right$/ do
+Then /^I swipe to right$/ do
     perform_action('drag', 75, 25, 50, 50, 2)
 end
 
@@ -134,4 +134,8 @@ end
 
 Then /^I swipe to up$/ do
 	perform_action('drag', 50, 50, 75, 25, 2)
+end
+
+Then /^I tap on cover$/ do
+	perform_action('drag', 50, 50, 50, 50, 1)
 end
