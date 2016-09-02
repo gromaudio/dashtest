@@ -228,12 +228,12 @@ Scenario: Check default plugin tabs
     Then I see "Spotify"
     Then I see "WebRadio"
     Then I see "Where is My Car"
-    Then I scroll to left
-    Then I scroll to left
+    Then I swipe to left
+    Then I swipe to left
     #Then I press "SHORTCUTS"
     #Then I press "APPS"
     Then I press "leftButtonFirst"
-    Then I scroll to left
+    Then I swipe to left
     # FIXME: how we can check A2DP Stream & Car Play plugins existence in VLine mode?
     # It's not possible without BLoutooth adapter box (USB Car Kits)
 
@@ -263,14 +263,14 @@ Scenario: Check default plugin tabs
     # - don't know how to implement for now
     
 Scenario: Swipe-down player menu
-    Then I scroll to down
+    Then I swipe to down
     Then I press "next_button"
     Then I press "prev_button"
     Then I press "play_button_additional"
     Then I go back
 
 Scenario: Swipe-up location menu
-    Then I scroll to up
+    Then I swipe to up
     Then I press "locationTextView"
     Then I go back
 
@@ -280,12 +280,12 @@ Scenario: Add App
     Then I scroll until I see the "Calculator" text
     Then I press "Calculator"
     And I see "Calculator"
-    Then I scroll to left
+    Then I swipe to left
     Then I swipe right
     And I see "Calculator"
     Then I press "menu_button"
     And I press "delete"
-    Then I scroll to left
+    Then I swipe to left
 
 Scenario: Add Shourtcat    
     Then I swipe right
@@ -294,10 +294,10 @@ Scenario: Add Shourtcat
     Then I scroll until I see the "AM Radio" text
     Then I press "AM Radio"
     And I see "AM Radio"
-    Then I scroll to left
+    Then I swipe to left
     Then I swipe right
     And I see "AM Radio"
-    Then I scroll to left
+    Then I swipe to left
 
 Scenario: Launch and Check Shourtcat 
     Then I swipe right   
@@ -313,7 +313,7 @@ Scenario: Launch and Check Shourtcat
     Then I press "Exit"
     Then I press "menu_button"
     Then I press "delete"
-    Then I scroll to left  
+    Then I swipe to left  
 
 Scenario: Add Plugin
     Then I swipe right
@@ -321,10 +321,10 @@ Scenario: Add Plugin
     Then I press "PLUGINS"
     Then I press "Local Music"
     Then I see "Local Music"
-    Then I scroll to left
+    Then I swipe to left
     Then I swipe right
     And I see "Local Music"
-    Then I scroll to left 
+    Then I swipe to left 
    
 Scenario: Launch and Check Plugin 
     Then I swipe right   
@@ -340,7 +340,7 @@ Scenario: Launch and Check Plugin
     Then I press "Exit"
     Then I press "menu_button"
     Then I press "delete"       
-    Then I scroll to left  
+    Then I swipe to left  
 
 Scenario: Delete plugin
     Then I swipe right
@@ -351,7 +351,7 @@ Scenario: Delete plugin
     Then I press "menu_button"
     Then I press "delete"
     Then I don't see "Spotify"
-    Then I scroll to left
+    Then I swipe to left
 
 Scenario: Replace plugin
     Then I swipe right
@@ -364,12 +364,12 @@ Scenario: Replace plugin
     Then I press "PLUGINS"
     Then I press "GMusic"
     Then I see "GMusic"
-    Then I scroll to left
+    Then I swipe to left
     Then I swipe right
     And I see "GMusic"
     Then I press "menu_button"
     Then I press "delete"
-    Then I scroll to left
+    Then I swipe to left
 
 Scenario: Add multiple plugins
     Then I swipe right
@@ -381,11 +381,11 @@ Scenario: Add multiple plugins
     Then I press "Where is My Car"
     Then I see "Local Music"
     Then I see "Where is My Car"
-    Then I scroll to left
+    Then I swipe to left
     Then I swipe right
     And I see "Local Music" 
     And I see "Where is My Car"
-    Then I scroll to left
+    Then I swipe to left
 
     # NOTE: all item from PLUGINS tab are called PLUGINS (Local, Webradio etc), fixed three items from launcher screen are called widgets - Voice, Weather, Navigation
 
