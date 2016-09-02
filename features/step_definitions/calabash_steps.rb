@@ -121,17 +121,17 @@ Then /^I rotate device to landscape$/ do
 end
 
 Then /^I scroll to right$/ do
-    perform_action('drag', 90, 0, 50, 50, 50)
+    perform_action('drag', 75, 25, 50, 50, 2)
 end
 
-Then /^I scroll to left$/ do
-    perform_action('drag', 10, 90, 50, 50, 50)
+Then /^I swipe to left$/ do
+    perform_action('drag', 25, 75, 50, 50, 2)
 end
 
-Then /^I scroll to down$/ do
-	perform_action('drag', 88, 80, 70, 85, 10)
+Then /^I swipe to down$/ do
+	perform_action('drag', 50, 50, 25, 75, 2)
 end
 
-Then /^I scroll to up$/ do
-	perform_action('drag', 88, 80, 90, 5, 10)
+Then /^I swipe to up$/ do
+	perform_action('drag', 50, 50, 75, 25, 2)
 end
