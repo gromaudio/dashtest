@@ -6,7 +6,6 @@ Scenario: Start
   Then I press "skipButton"
   Then I press "button2"
 
-
 Scenario: Change "Music home folder" to Music
   Then I press "icon"
   Then I press "leftButtonFirst"
@@ -486,7 +485,6 @@ Scenario: Local Music Settings
   And I see "Media Rescan"
 
 @debug
-# Blocked by Bug 1994
 Scenario: Settings - Library Side Swipe option
   Then I press "icon"
   Then I wait for 3 seconds
@@ -494,22 +492,23 @@ Scenario: Settings - Library Side Swipe option
   Then I see "00 Fleetwood Mac"
   Then I see "01 Imagine Dragons"
   Then I touch the "00 Fleetwood Mac" text
+  Then I scroll up
   And I see "00 Rhiannon"
-  Then I scroll to left
+  Then I swipe to left
   And I see "00 Fleetwood Mac"
   And I see "01 Imagine Dragons"
   # Library Side Swipe OFF
-  #Then I press "leftButtonFirst"
-  #Then I press "Settings"
-  #Then I press "Library Side Swipe"
-  #Then I go back
-  #Then I see "00 Fleetwood Mac"
-  #Then I see "01 Imagine Dragons"
-  #Then I touch the "00 Fleetwood Mac" text
-  #And I see "00 Rhiannon"
-  #Then I scroll to left
-  #And I see "00 Rhiannon"
-  #Then I press " .. "
+  Then I press "leftButtonFirst"
+  Then I press "Settings"
+  Then I press "Library Side Swipe"
+  Then I go back
+  Then I see "00 Fleetwood Mac"
+  Then I see "01 Imagine Dragons"
+  Then I touch the "00 Fleetwood Mac" text
+  And I see "00 Rhiannon"
+  Then I swipe to left
+  And I see "00 Rhiannon"
+  Then I press " .. "
   
 Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"
@@ -769,19 +768,37 @@ Scenario: Switching between tracks
   When I press "prev_control"
   Then I see "01 Don\'t stop"
   Then I see "2/5"
+  Then I swipe to right
+  Then I see "02 Go Your Own Way"
+  Then I see "3/5"
+  Then I swipe to right
+  Then I see "03 Hold Me"
+  Then I see "4/5"
   Then I press "pause"
   Then I go back
   Then I scroll up
   Then I press " .. "
-  # When I swipe right
-  # Then I see "3/5"
-  # When I swipe right
-  # Then I see "4/5"
 
 # FIXME: Check if track switching is working by cover right/left slides
-# DONE 50% (Need test for swipe right/left)
+# DONE
 
 # FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks, Don't check highlights for now
+# Don't know how to implement for now
+
+Scenario: Tap on cover open current folder
+  Then I press "icon"
+  Then I press "Playlists"
+  Then I press "Folders"
+  When I touch the "02 Nickelback" text
+  Then I press "01 S.E.X."
+  Then I press "slide_panel_now_playing_title"
+  Then I see "01 S.E.X. - 02 Dark Horse"
+  Then I tap on cover
+  And I see "02 Nickelback - Dark Horse"
+  Then I press "actionBackArrow"
+  Then I press "actionBackArrow"
+  Then I press " .. "
+  Then I scroll up
 
 Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I press "icon"
