@@ -70,25 +70,6 @@ Then /^I check Radio pause$/ do
 	end
 end
 
-Then /^I get text for item number (\d+)$/ do |index|
-	tap_when_element_exists("android.widget.ImageView index:#{index.to_i-1}")
-	a=query("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
-	@item_text = a[0]['text']
-	puts "\tDebug: text for item # #{index} is #{@item_text}"
-	if @item_text.empty?
-		raise "#{index} does not have text"
-	end
-end
-
-Then /^I see item number text$/ do
-	puts "\tDebug: text in item_text variable is #{@item_text}"
-	if @item_text.empty?
-		raise "Item text var is empty"
-	end
-	wait_for_text(@item_text, timeout: 10)
-end
-
-
 Then /^I check Music playing$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
@@ -110,7 +91,6 @@ Then /^I check Music pause$/ do
 		raise "Timer is not working"
 	end
 end
-
 
 Then /^I rotate device to portrait$/ do 
 	perform_action('set_activity_orientation', 'portrait')
@@ -137,5 +117,50 @@ Then /^I swipe to up$/ do
 end
 
 Then /^I tap on cover$/ do
-	perform_action('drag', 50, 50, 50, 50, 1)
+	perform_action('click_on_screen', 35, 50)
+end
+
+Then /^I click on screen (\d+)% from the left and (\d+)% from the top$/ do |x, y|
+  perform_action('click_on_screen', x, y)
+end
+
+Then /^I get text for item number (\d+)$/ do |index|
+	a=query("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
+	@item_text = a[0]['text']
+	puts "\tDebug: text for item # #{index} is #{@item_text}"
+	if @item_text.empty?
+		raise "#{index} does not have text"
+	end
+end
+
+Then /^I see item number text$/ do
+	puts "\tDebug: text in item_text variable is #{@item_text}"
+	if @item_text.empty?
+		raise "Item text var is empty"
+	end
+	wait_for_text(@item_text, timeout: 10)
+end
+
+Then /^I press previously added element$/ do
+	tap_when_element_exists("* marked:'#{@item_text}'")
+end	
+
+Then /^I long press previously added element$/ do
+	long_press_when_element_exists("* marked:'#{@item_text}'")
+end
+
+Then /^I scroll until I see "([^\"]*)"$/ do |text|
+  count = query("AppCompatTextView").count
+  q = query("* text:'#{text}'")
+  while (q.empty? && count >= 0) do
+  	begin
+	    scroll_down
+	    q = query("* text:'#{text}'")
+	rescue Calabash::Android::WaitHelpers::WaitError
+		 puts "\tDebug: #{q}"
+		 count=count-1
+	end
+    #fail("#{text} is missing") if count == 0
+  end 
+    tap_when_element_exists("* text:'#{text}'")
 end
