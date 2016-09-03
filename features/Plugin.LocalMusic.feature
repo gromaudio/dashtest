@@ -484,16 +484,17 @@ Scenario: Local Music Settings
   Then I see "Indexing"
   And I see "Media Rescan"
 
-@debug
 Scenario: Settings - Library Side Swipe option
   Then I press "icon"
   Then I wait for 3 seconds
   # Library Side Swipe ON
   Then I see "00 Fleetwood Mac"
   Then I see "01 Imagine Dragons"
-  Then I touch the "00 Fleetwood Mac" text
+  Then I touch the "03 Red Hot Chili" text
   Then I scroll up
-  And I see "00 Rhiannon"
+  And I see "00 Around The"
+  And I see "01 Otherside"
+  And I see "02 Road Trippin\'"
   Then I swipe to left
   And I see "00 Fleetwood Mac"
   And I see "01 Imagine Dragons"
@@ -504,10 +505,14 @@ Scenario: Settings - Library Side Swipe option
   Then I go back
   Then I see "00 Fleetwood Mac"
   Then I see "01 Imagine Dragons"
-  Then I touch the "00 Fleetwood Mac" text
-  And I see "00 Rhiannon"
+  Then I touch the "03 Red Hot Chili" text
+  And I see "00 Around The"
+  And I see "01 Otherside"
+  And I see "02 Road Trippin\'"
   Then I swipe to left
-  And I see "00 Rhiannon"
+  And I see "00 Around The"
+  And I see "01 Otherside"
+  And I see "02 Road Trippin\'"
   Then I press " .. "
   
 Scenario: Play/Pause Music (Folders tab)
@@ -746,7 +751,7 @@ Scenario: Play/Pause Music - long press (Songs tab)
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
-
+@debug
 Scenario: Switching between tracks
   Then I press "icon"
   Then I press "Playlists"
@@ -784,7 +789,7 @@ Scenario: Switching between tracks
 
 # FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks, Don't check highlights for now
 # Don't know how to implement for now
-
+@debug
 Scenario: Tap on cover open current folder
   Then I press "icon"
   Then I press "Playlists"
