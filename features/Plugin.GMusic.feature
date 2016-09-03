@@ -12,7 +12,7 @@ Scenario: Start
 Scenario: Navigation through the plugin
   Then I press "icon"
   Then I wait for 2 seconds
-  Then I press item with name "kotorpiller@gmail.com"
+  Then I press item with name "dashlinqbetatest@gmail.com"
   Then I press item with name "OK"
   Then I press "leftButtonFirst"
   Then I press "Sync"
