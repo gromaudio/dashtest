@@ -1,10 +1,10 @@
 require 'calabash-android/calabash_steps'
 Then /^I press image view number (\d+)$/ do |index|
- tap_when_element_exists("android.widget.ImageView index:#{index.to_i-1}")
+ tap_when_element_exists("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
 end
 
 Then /^I long press image view number (\d+)$/ do |index|
- tap_when_element_exists("android.support.v7.widget.AppCompatTextView index:#{index.to_i-1}")
+ long_press_when_element_exists("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
 end
 
 Then /^I long press "([^\"]*)" and select item number (\d+)$/ do |text, index|
@@ -51,7 +51,7 @@ end
 Then /^I check Radio playing$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 2
+	sleep 3
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final <= start
@@ -62,7 +62,7 @@ end
 Then /^I check Radio pause$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 2
+	sleep 3
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final != start
