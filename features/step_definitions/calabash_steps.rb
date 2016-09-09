@@ -101,19 +101,19 @@ Then /^I rotate device to landscape$/ do
 end
 
 Then /^I swipe to right$/ do
-    perform_action('drag', 75, 25, 50, 50, 2)
+    perform_action('drag', 75, 25, 50, 50, 1)
 end
 
 Then /^I swipe to left$/ do
-    perform_action('drag', 25, 75, 50, 50, 2)
+    perform_action('drag', 25, 75, 50, 50, 1)
 end
 
 Then /^I swipe to down$/ do
-	perform_action('drag', 50, 50, 25, 75, 2)
+	perform_action('drag', 50, 50, 25, 75, 1)
 end
 
 Then /^I swipe to up$/ do
-	perform_action('drag', 50, 50, 75, 25, 2)
+	perform_action('drag', 50, 50, 75, 25, 1)
 end
 
 Then /^I tap on cover$/ do
