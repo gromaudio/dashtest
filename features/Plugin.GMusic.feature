@@ -1,5 +1,7 @@
 Feature: GMusic
-@debug
+  You have to (export ADB_DEVICE_ARG=****)
+
+
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2" 
@@ -7,7 +9,7 @@ Scenario: Start
   Then I press "replace"
   Then I press "PLUGINS"
   Then I press "GMusic"
-@debug
+
 Scenario: Navigation through the plugin
   Then I press "icon"
   Then I wait for 3 seconds
@@ -86,6 +88,8 @@ Scenario: Check About section
   Then I see "Google Music (cloud storage) player for DashLinQ. Plays personal tracks stored on Google Music, automatic cover art updates, offline playback and voice search."
   Then I see "Copyright GROM Audio 2015"
 
+# Albums Tab
+
 Scenario: Check Albums tab
   Then I press "icon"
   Then I press "Albums"
@@ -154,6 +158,95 @@ Scenario: Check Albums tab
   Then I scroll up
   Then I press "Playlists"
 
+Scenario: Add to playlist from Albums tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Adele - 21"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I press "Save"
+  Then I press "Playlists"
+  And I see "Adele - 21"
+  Then I press "Adele - 21"
+  And I see "Rolling In The Deep"
+  And I see "Rumor Has It"
+  And I see "He Won\'t Go"
+  And I see "Lovesong"
+  Then I press "actionBackArrow"
+  Then I long press "Adele - 21"
+  Then I press "Delete"
+
+Scenario: Play/Pause music - Albums tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Adele - 21"
+  Then I press "Rolling In The Deep"
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for 2 seconds
+  Then I see "Rolling In The Deep"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "actionBackArrow"
+  # Long press play
+  Then I long press "Rumor Has It"
+  Then I press "Play"
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for 2 seconds
+  Then I see "Rumor Has It"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "actionBackArrow"
+  Then I press "actionBackArrow"
+  Then I press "Playlists"
+
+Scenario: Switching between tracks - Albums tab 
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Buffy"
+  Then I press "Someday"
+  Then I press "slide_panel_now_playing_title"
+  Then I see "Someday - Buffy First Love" 
+  And I see "2/4"
+  Then I press "next_control"
+  Then I see "I Miss You"
+  And I see "3/4"
+  Then I press "prev_control"
+  Then I see "Someday - Buffy First Love" 
+  And I see "2/4"
+  # Swipe Switching
+  Then I wait for 2 seconds
+  Then I swipe to right
+  Then I see "I Miss You"
+  Then I see "3/4"
+  Then I swipe to left
+  Then I see "Someday - Buffy First Love"
+  Then I see "2/4"
+  Then I press "pause"
+  Then I press "actionBackArrow"
+  Then I press "actionBackArrow"
+  Then I press "Playlists"
+
+Scenario: Tap on cover  
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Adele"
+  Then I press "Play"
+  Then I press "slide_panel_now_playing_title"
+  And I see "GMusic"
+  Then I tap on cover
+  And I see "Adele - 21"
+  And I see "Rolling In The Deep"
+  And I see "Rumor Has It"
+  And I see "He Won\'t Go"
+  And I see "Lovesong"
+  Then I press "actionBackArrow"
+  Then I press "actionBackArrow"
+  Then I press "Playlists"
+
+# Artists Tab
+
 Scenario: Check Artists tab
   Then I press "icon"
   Then I press "Artists"
@@ -191,6 +284,102 @@ Scenario: Check Artists tab
   Then I scroll up
   Then I press "Albums"
   Then I press "Playlists"
+
+Scenario: Add to playlist from Artists tab
+  Then I press "icon"
+  Then I press "Artists"
+  Then I long press "Adam Lambert"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I press "Save"
+  Then I press "Albums"
+  Then I press "Playlists"
+  And I see "Adam Lambert"
+  Then I press "Adam Lambert"
+  And I see "Strut"
+  And I see "Fever"
+  And I see "Music Again"
+  And I see "Soaked"
+  Then I press "actionBackArrow"
+  Then I long press "Adam Lambert"
+  Then I press "Delete"
+@debug
+Scenario: Play/Pause music
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Adele"
+  When I press "Adele - 21"
+  Then I press "Rumor Has It"
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for 2 seconds
+  Then I see "Rumor Has It - Adele"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "actionBackArrow"
+  # Long press play
+  Then I long press "He Won\'t Go"
+  Then I press "Play"
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for 2 seconds
+  Then I see "He Won\'t Go - Adele"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "actionBackArrow"
+  Then I press "actionBackArrow"
+  Then I press "Albums"
+  Then I press "Playlists"
+
+Scenario: Switching between tracks 
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I long press "Adele"
+  Then I press "Play"
+  Then I press "slide_panel_now_playing_title"
+  Then I see "Rumor Has It - Adele - 21" 
+  And I see "1/4"
+  Then I press "next_control"
+  Then I see "He Won\'t Go - Adele - 21"
+  And I see "2/4"
+  Then I press "prev_control"
+  Then I see "Rumor Has It - Adele - 21" 
+  And I see "1/4"
+  # Swipe Switching
+  Then I wait for 2 seconds
+  Then I swipe to right
+  Then I see "He Won\'t Go - Adele - 21"
+  Then I see "2/4"
+  Then I swipe to left
+  Then I see "Rumor Has It - Adele - 21"
+  Then I see "1/4"
+  Then I press "pause"
+  Then I press "actionBackArrow"
+  Then I press "Albums"
+  Then I press "Playlists"
+
+Scenario: Tap on cover  
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I long press "Adam Lambert"
+  Then I press "Play"
+  Then I press "slide_panel_now_playing_title"
+  And I see "GMusic"
+  Then I tap on cover
+  And I see "Adam Lambert"
+  And I see "Strut"
+  And I see "Fever"
+  And I see "Music Again"
+  And I see "Soaked"
+  Then I press "actionBackArrow"
+  Then I press "actionBackArrow"
+  Then I press "Albums"
+  Then I press "Playlists"
+
+# Songs Tab
 
 Scenario: Check Songs tab
   Then I press "icon"
@@ -289,6 +478,131 @@ Scenario: Check Songs tab
   Then I press "Albums"
   Then I press "Playlists"
 
+Scenario: Jum to Album/Artist options from Songs tab
+  Then I press "icon"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "2 Find U"
+  Then I press "Jump to Album"
+  Then I see "Buffy First Love"
+  Then I see "2 Find U"
+  And I see "Someday"
+  And I see "I Miss You"
+  And I see "First Love"
+  Then I go back 
+  Then I press "Songs"
+  Then I long press "2 Find U"
+  Then I press "Jump to Artist"
+  And I see "Buffy First Love"
+  And I see "4 songs"
+  Then I press "Buffy"
+  Then I scroll up 
+  Then I press "Albums"
+  Then I press "Playlists" 
+
+Scenario: Add to playlist from Songs tab
+  Then I press "icon"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "Dreams"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I press "Save"
+  Then I press "Albums"
+  Then I press "Playlists"
+  And I see "Dreams"
+  Then I press "Dreams"
+  And I see "Fleetwood Mac - Greatest Hits"
+  Then I press "actionBackArrow"
+  Then I long press "Dreams"
+  Then I press "Delete"
+
+Scenario: Play/Pause music
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "2 Find U"
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for 2 seconds
+  Then I see "2 Find U - Buffy First Love"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "actionBackArrow"
+  # Long press play
+  Then I long press "Dreams"
+  Then I press "Play"
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for 2 seconds
+  Then I see "Dreams - Greatest Hits"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "actionBackArrow"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+
+Scenario: Switching between tracks 
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Dreams"
+  Then I press "slide_panel_now_playing_title"
+  Then I see "Dreams - Greatest Hits" 
+  And I see "2/20"
+  Then I press "next_control"
+  Then I see "Fever - For Your"
+  And I see "3/20"
+  Then I press "prev_control"
+  Then I see "Dreams - Greatest Hits" 
+  And I see "2/20"
+  # Swipe Switching
+  Then I wait for 2 seconds
+  Then I swipe to left
+  Then I see "2 Find U - Buffy First Love"
+  Then I see "1/20"
+  Then I swipe to right
+  Then I see "Dreams - Greatest Hits"
+  Then I see "2/20"
+  Then I press "pause"
+  Then I press "actionBackArrow"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+
+# Playlists Tab
+
+Scenario: Add/Rename/Delete playlists
+  Then I press "icon"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "Fever"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "Original" into field with id "playlist"
+  Then I go back
+  Then I press "Save"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I see "Original"
+  Then I long press "Original"
+  Then I press "Rename"
+  Then I clear input field with id "playlist"
+  Then I enter text "Unoriginal" into field with id "playlist"
+  Then I go back
+  Then I press "Save"
+  And I see "Unoriginal"
+  Then I long press "Unoriginal"
+  Then I press "Delete"
+  Then I don't see "Unoriginal"
+
+
+
+
 Scenario: Navigation through the Long press Options
   Then I press "icon"
   Then I press "Artists"
@@ -325,103 +639,23 @@ Scenario: Navigation through the Long press Options
   And I see "Rename"
   Then I press "Delete"
 
-Scenario: Jum to Album/Artist options from Songs tab
-  Then I press "icon"
-  Then I press "Artists"
-  Then I press "Songs"
-  Then I long press "2 First U"
-  Then I press "Jump to Album"
-  Then I see "Buffy First Love"
-  Then I see "2 First U"
-  And I see "Someday"
-  And I see "I Miss You"
-  And I see "First Love"
-  Then I go back 
-  Then I press "Songs"
-  Then I long press "2 First U"
-  Then I press "Jump to Artist"
-  And I see "Buffy First Love"
-  And I see "4 songs"
-  Then I press "Buffy"
-  Then I scroll up 
-  Then I press "Albums"
-  Then I press "Playlists" 
 
-Scenario: Add to playlist from Albums tab
-  Then I press "icon"
-  Then I press "Albums"
-  Then I long press image view number 3
-  Then I long press list item number 2
-  Then I press "Add to playlist"
-  Then I press "New"
-  Then I clear "playlist"
-  Then I enter text "From_Albums" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
-  Then I press "title"
-  Then I press "Playlists"
-  And I see "From_Albums"
-  Then I long press "From_Albums"
-  Then I press "Delete"
-   
-Scenario: Add to playlist from Artists tab
-  Then I press "icon"
-  Then I press "Artists"
-  Then I long press list item number 1
-  Then I press "Add to playlist"
-  Then I press "New"
-  Then I clear input field with id "playlist"
-  Then I enter text "From_Artists" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
-  Then I press "Albums"
-  Then I press "Playlists"
-  And I see "From_Artists"
-  Then I long press "From_Artists"
-  Then I press "Delete"
 
-Scenario: Add to playlist from Songs tab
-  Then I press "icon"
-  Then I press "Artists"
-  Then I press "Songs"
-  Then I long press list item number 1
-  Then I press "Add to playlist"
-  Then I press "New"
-  Then I clear input field with id "playlist"
-  Then I enter text "From_Songs" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
-  Then I press "Albums"
-  Then I press "Playlists"
-  Then I scroll down
-  And I see "From_Songs"
-  Then I long press "From_Songs"
-  Then I press "Delete"
 
-Scenario: Add/Rename/Delete playlists
-  Then I press "icon"
-  Then I press "Artists"
-  Then I press "Songs"
-  Then I long press list item number 1
-  Then I press "Add to playlist"
-  Then I press "New"
-  Then I clear input field with id "playlist"
-  Then I enter text "Added_playlist" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
-  Then I press "Albums"
-  Then I press "Playlists"
-  Then I see "Added_playlist"
-  Then I long press "Added_playlist"
-  Then I press "Rename"
-  Then I clear input field with id "playlist"
-  Then I enter text "Renamed_playlist" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
-  And I see "Renamed_playlist"
-  Then I long press "Renamed_playlist"
-  Then I press "Delete"
-  Then I don't see "Renamed_playlist"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Scenario: Top layout menu (Home icon)
   Then I press "icon"
@@ -442,7 +676,7 @@ Scenario: Top layout menu (Voice commands icon)
 Scenario: Exit option
   Then I press "icon"
   Then I press "leftButtonFirst"
-  Then I scroll to up
+  Then I swipe to up
   Then I press "Exit"
   Then I see "Where is My Car"
   Then I see "WebRadio"  
