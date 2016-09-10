@@ -664,6 +664,20 @@ Scenario: Long press actions - Play From the ...
   Then I go back
   Then I wait for 1 second
   Then I go back
+
+Scenario: Long press actions - Delete cache
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Adele"
+  Then I press "Play"
+  Then I long press "Adele"
+  Then I see "Delete cache"
+  Then I press "Delete cache"
+  Then I long press "Adele"
+  Then I don't see "Delete cache"
+  Then I go back
+  Then I press "Playlists"
+
  
 Scenario: Top layout menu (Home icon)
   Then I press "icon"
