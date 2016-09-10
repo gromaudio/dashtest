@@ -486,11 +486,12 @@ Scenario: Local Music Settings
 @debug
 Scenario: Settings - Library Side Swipe option
   Then I press "icon"
+  Then I press "Playlists"
+  Then I press "Folders"
   # Library Side Swipe ON
   Then I see "00 Fleetwood Mac"
   Then I see "01 Imagine Dragons"
   Then I touch the "03 Red Hot Chili" text
-  Then I scroll up
   And I see "00 Around The"
   And I see "01 Otherside"
   And I see "02 Road Trippin\'"
