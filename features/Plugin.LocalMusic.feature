@@ -483,10 +483,9 @@ Scenario: Local Music Settings
   And I see "Music home folder"
   Then I see "Indexing"
   And I see "Media Rescan"
-
+@debug
 Scenario: Settings - Library Side Swipe option
   Then I press "icon"
-  Then I wait for 3 seconds
   # Library Side Swipe ON
   Then I see "00 Fleetwood Mac"
   Then I see "01 Imagine Dragons"
@@ -495,6 +494,7 @@ Scenario: Settings - Library Side Swipe option
   And I see "00 Around The"
   And I see "01 Otherside"
   And I see "02 Road Trippin\'"
+  Then I wait for 2 seconds
   Then I swipe to left
   And I see "00 Fleetwood Mac"
   And I see "01 Imagine Dragons"
@@ -585,7 +585,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I go back
+  Then I press "actionBackArrow"
   Then I long press "00 Rhiannon"
   Then I press "Delete"
 
@@ -637,7 +637,7 @@ Scenario: Play/Pause Music (Albums tab)
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I go back
+  Then I press "actionBackArrow"
 
 Scenario: Play/Pause Music - long press (Albums tab)
   Then I press "icon"
@@ -660,7 +660,7 @@ Scenario: Play/Pause Music - long press (Albums tab)
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I go back
+  Then I press "actionBackArrow"
 
 Scenario: Play/Pause Music (Artists tab)
   Then I press "icon"
@@ -682,7 +682,7 @@ Scenario: Play/Pause Music (Artists tab)
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I go back
+  Then I press "actionBackArrow"
 
 Scenario: Play/Pause Music - long press (Artists tab)
   Then I press "icon"
@@ -705,7 +705,7 @@ Scenario: Play/Pause Music - long press (Artists tab)
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I go back
+  Then I press "actionBackArrow"
 
 Scenario: Play/Pause Music (Songs tab)
   Then I press "icon"
@@ -723,7 +723,7 @@ Scenario: Play/Pause Music (Songs tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
@@ -746,14 +746,15 @@ Scenario: Play/Pause Music - long press (Songs tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
-@debug
+
 Scenario: Switching between tracks
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
   When I touch the "00 Fleetwood Mac" text
@@ -780,7 +781,7 @@ Scenario: Switching between tracks
   Then I see "03 Hold Me"
   Then I see "4/5"
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I scroll up
   Then I press " .. "
 
@@ -788,10 +789,11 @@ Scenario: Switching between tracks
 # DONE
 
 # FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks, Don't check highlights for now
-# Don't know how to implement for now
-@debug
+# DONE
+
 Scenario: Tap on cover open current folder
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
   When I touch the "02 Nickelback" text
@@ -807,6 +809,7 @@ Scenario: Tap on cover open current folder
 
 Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I press "icon"
+  Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
   Then I long press "00 Fleetwood Mac"
@@ -832,7 +835,7 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   And I see "02 Go Your Own Way"
   And I see "03 Hold Me"
   And I see "04 Everywhere"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I long press "Fleetwood Mac"
   And I see "Play"
   And I see "Add to playlist"
@@ -853,6 +856,9 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
 
 Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "icon"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
   Then I long press "00 Fleetwood Mac"
   Then I press "Add to playlist"
   Then I press "New"
@@ -877,12 +883,12 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "next_control"
   And I see "02 Go Your Own Way"
   And I see "3/5"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I go back
   Then I press "On The Go"
   Then I press list item number 1
-  Then I go back
+  Then I press "actionBackArrow"
   Then I long press "Fleetwood Mac"
   When I press "Play from the saved position"
   Then I press "slide_panel_now_playing_title"
@@ -890,9 +896,9 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   And I see "3/5"
   And I see "3:38"
   Then I press "pause"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I go back
+  Then I press "actionBackArrow"
   Then I press "Folders"
 
 # FIXME: Ensure Playlists/"Add to playlist" option from long press menu is working too
@@ -917,7 +923,7 @@ Scenario: Long press actions - Add to playlist from playlist tab
   And I see "02 Go Your Own Way"
   And I see "03 Hold Me"
   And I see "04 Everywhere"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I long press "Fleetwood Mac"
   Then I press "Add to playlist"
   Then I press "New"
@@ -933,7 +939,7 @@ Scenario: Long press actions - Add to playlist from playlist tab
   And I see "02 Go Your Own Way"
   And I see "03 Hold Me"
   And I see "04 Everywhere"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I long press "Fleetwood Copy"
   Then I press "Delete"
   Then I long press "Fleetwood Mac"
@@ -957,7 +963,7 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   And I see "1/2 3:39"
   And I see "01 S.E.X."
   And I see "2/2 3:53"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I long press "From_Albums"
   Then I press "Delete"
   Then I don't see "From_Albums"
@@ -981,7 +987,7 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   When I press "From_Artists"
   Then I see "00 Radioactive"
   And I see "1/1 3:06"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I long press "From_Artists"
   Then I press "Delete"
   Then I don't see "From_Artists"
@@ -1006,7 +1012,7 @@ Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I press "From_Songs"
   And I see "00 Mine"
   And I see "1/1 3:50"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I long press "From_Songs"
   Then I press "Delete"
   Then I don't see "From_Songs"
@@ -1022,7 +1028,7 @@ Scenario: Long press actions - Jum to .. (Songs tab)
   And I see "00 Around The World"
   And I see "01 Otherside"
   And I see "02 Road Trippin\'"
-  Then I go back
+  Then I press "actionBackArrow"
   Then I press "Artists"
   Then I press "Songs"
   Then I long press "00 Radioactive"

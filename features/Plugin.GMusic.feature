@@ -478,7 +478,7 @@ Scenario: Check Songs tab
   Then I press "Albums"
   Then I press "Playlists"
 
-Scenario: Jum to Album/Artist options from Songs tab
+Scenario: Jump to Album/Artist options from Songs tab
   Then I press "icon"
   Then I press "Artists"
   Then I press "Songs"
@@ -600,63 +600,71 @@ Scenario: Add/Rename/Delete playlists
   Then I press "Delete"
   Then I don't see "Unoriginal"
 
-
-
-
-Scenario: Navigation through the Long press Options
+Scenario: Add to playlist from playlists tab
   Then I press "icon"
-  Then I press "Artists"
-  Then I press "Songs"
-  Then I long press list item number 1
-  And I see "Play"
-  And I see "Add to playlist"
-  And I see "Jump to Album"
-  And I see "Jump to Artist"
-  And I see "Update cover art"
+  Then I press "Albums"
+  Then I long press "Adele - 21"  
   Then I press "Add to playlist"
   Then I press "New"
   Then I clear "playlist"
-  Then I enter text "Long press" into field with id "playlist"
-  Then I go back
-  Then I press "Save"
-  Then I press "Artists"
-  Then I long press list item number 1
-  And I see "Play"
-  And I see "Add to playlist"
-  Then I press "Add to playlist"
-  Then I press "New"
-  Then I clear input field with id "playlist"
-  Then I enter text "Long_press" into field with id "playlist"
+  Then I enter text "Play" into field with id "playlist"
   Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  Then I long press "Long_press"
   And I see "Play"
-  And I see "Add to playlist"
-  And I see "Play from the beginning"
-  And I see "Play from the saved position"
-  And I see "Delete"
-  And I see "Rename"
-  Then I press "Delete"
+  Then I long press "Play"
+  Then I clear "playlist"
+  Then I enter text "Playlist" into field with id "playlist"
+  Then I go back
+  Then I press "Save"
+  And I see "Playlist"
+  And I see "Play"
+  Then I long press "Play"
+  And I press "Delete"
+  Then I long press "Playlist"
+  And I press "Delete"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Scenario: Long press actions - Play From the ...
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Adele"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I press "Save"
+  Then I press "Playlists"
+  Then I long press "Adele - 21"
+  Then I press "Play from the beginning"
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for 2 seconds
+  And I should see text containing "Rolling In The Deep"
+  And I see "3:48"
+  And I see "1/4"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "pause"
+  Then I check Music playing
+  Then I press "next_control"
+  Then I press "next_control"
+  #And I see "He Won\'t Go"
+  And I see "3/4"
+  Then I go back
+  Then I wait for 1 second
+  Then I go back
+  Then I press "On The Go"
+  Then I press list item number 1
+  Then I go back
+  Then I long press "Adele - 21"
+  When I press "Play from the saved position"
+  Then I press "slide_panel_now_playing_title"
+  And I should see text containing "He Won\'t Go"
+  And I see "3/4"
+  And I see "4:37"
+  Then I press "pause"
+  Then I go back
+  Then I wait for 1 second
+  Then I go back
+ 
 Scenario: Top layout menu (Home icon)
   Then I press "icon"
   Then I wait for 2 seconds

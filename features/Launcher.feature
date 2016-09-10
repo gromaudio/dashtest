@@ -100,6 +100,7 @@ Scenario: View Settings components
 
     # FIXME: can we check if Sticky icon changed?
     # Don't know how to implement for now
+
 Scenario: Settings (Brightness)
     Then I press "leftButtonFirst"
     Then I press "Settings"
@@ -168,7 +169,7 @@ Scenario: Find compatible device
     Then I see "Find Interface"
 
 # FIXME: we need a scenario to check if changed settings are correctly saved and restored after app restart including units, sticky icon etc
-# DONE (After restart Rotation lock and Brightness icons is not appeared Blocked by Bug 2003)
+# DONE
 
 
 # ABOUT
@@ -186,8 +187,7 @@ Scenario: About check (Send Report Error)
     Then I press "More options"
     Then I press "Send Report Error"
     # Then I press item with name "Select an application to send the log"
-    # Need export device id for this step "export ADB_DEVICE_ARG=device id" how to find device id: adb devices.  
-
+    # Need export device id for this step "export ADB_DEVICE_ARG=*******"
     # FIXME: this scenario fails with:
     # execution expired (HTTPClient::ReceiveTimeoutError)
     # ./features/support/app_life_cycle_hooks.rb:5:in `Before'
@@ -277,12 +277,12 @@ Scenario: Swipe-up location menu
 Scenario: Add App
     Then I swipe right
     Then I press "icon"
-    Then I scroll until I see the "Calculator" text
-    Then I press "Calculator"
-    And I see "Calculator"
+    Then I scroll until I see the "Play Store" text
+    Then I press "Play Store"
+    And I see "Play Store"
     Then I swipe to left
     Then I swipe right
-    And I see "Calculator"
+    And I see "Play Store"
     Then I press "menu_button"
     And I press "delete"
     Then I swipe to left

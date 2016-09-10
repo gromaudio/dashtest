@@ -1,6 +1,6 @@
 Feature: WebRadio Plugin
 
-@debug  @A
+@debug  @A @D
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2"
@@ -464,11 +464,12 @@ Scenario: Tap on cover
 
 # FIXME (high): We need a scenario to check if switching between several records is working by cover left/right swipes
 # DONE
-
+@D
 Scenario: Delete from Records
   Then I press "icon"
   Then I press "Recents"
   Then I press "Records"
+  Then I wait for 20 seconds
   # Currently playing record is unable to delete
   Then I press list item number 1
   Then I long press list item number 1
