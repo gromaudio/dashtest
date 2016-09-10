@@ -73,7 +73,7 @@ end
 Then /^I check Music playing$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 1
+	sleep 2
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final <= start
@@ -84,7 +84,7 @@ end
 Then /^I check Music pause$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 1
+	sleep 2
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final != start
@@ -101,19 +101,19 @@ Then /^I rotate device to landscape$/ do
 end
 
 Then /^I swipe to right$/ do
-    perform_action('drag', 75, 25, 50, 50, 1)
+    perform_action('drag', 75, 25, 50, 50, 2)
 end
 
 Then /^I swipe to left$/ do
-    perform_action('drag', 25, 75, 50, 50, 1)
+    perform_action('drag', 25, 75, 50, 50, 2)
 end
 
 Then /^I swipe to down$/ do
-	perform_action('drag', 50, 50, 25, 75, 1)
+	perform_action('drag', 50, 50, 25, 75, 2)
 end
 
 Then /^I swipe to up$/ do
-	perform_action('drag', 50, 50, 75, 25, 1)
+	perform_action('drag', 50, 50, 75, 25, 2)
 end
 
 Then /^I tap on cover$/ do
@@ -149,18 +149,3 @@ Then /^I long press previously added element$/ do
 	long_press_when_element_exists("* marked:'#{@item_text}'")
 end
 
-Then /^I scroll until I see "([^\"]*)"$/ do |text|
-  count = query("AppCompatTextView").count
-  q = query("* text:'#{text}'")
-  while (q.empty? && count >= 0) do
-  	begin
-	    scroll_down
-	    q = query("* text:'#{text}'")
-	rescue Calabash::Android::WaitHelpers::WaitError
-		 puts "\tDebug: #{q}"
-		 count=count-1
-	end
-    #fail("#{text} is missing") if count == 0
-  end 
-    tap_when_element_exists("* text:'#{text}'")
-end
