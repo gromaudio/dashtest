@@ -1,7 +1,6 @@
 Feature: GMusic
   You have to (export ADB_DEVICE_ARG=****)
 
-
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2" 
@@ -15,6 +14,7 @@ Scenario: Navigation through the plugin
   Then I wait for 3 seconds
   Then I press item with name "dashlinqbetatest@gmail.com"
   Then I press item with name "OK"
+  Then I wait for 2 seconds
   Then I press "leftButtonFirst"
   Then I press "Sync"
   Then I wait for 5 seconds
@@ -607,21 +607,23 @@ Scenario: Add to playlist from playlists tab
   Then I press "Add to playlist"
   Then I press "New"
   Then I clear "playlist"
-  Then I enter text "Play" into field with id "playlist"
+  Then I enter text "TestPlaylist" into field with id "playlist"
   Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  And I see "Play"
-  Then I long press "Play"
+  And I see "TestPlaylist"
+  Then I long press "TestPlaylist"
+  Then I press "Add to playlist"
+  Then I press "New"
   Then I clear "playlist"
-  Then I enter text "Playlist" into field with id "playlist"
+  Then I enter text "TestPlaylist2" into field with id "playlist"
   Then I go back
   Then I press "Save"
-  And I see "Playlist"
-  And I see "Play"
-  Then I long press "Play"
+  And I see "TestPlaylist2"
+  And I see "TestPlaylist"
+  Then I long press "TestPlaylist"
   And I press "Delete"
-  Then I long press "Playlist"
+  Then I long press "TestPlaylist2"
   And I press "Delete"
 
 Scenario: Long press actions - Play From the ...
@@ -646,7 +648,7 @@ Scenario: Long press actions - Play From the ...
   Then I check Music playing
   Then I press "next_control"
   Then I press "next_control"
-  #And I see "He Won\'t Go"
+  And I see "He Won\'t Go"
   And I see "3/4"
   Then I go back
   Then I wait for 1 second
@@ -678,8 +680,7 @@ Scenario: Long press actions - Delete cache
   Then I go back
   Then I press "Playlists"
 
- 
-Scenario: Top layout menu (Home icon)
+ Scenario: Top layout menu (Home icon)
   Then I press "icon"
   Then I wait for 2 seconds
   Then I press "topContentContainer"

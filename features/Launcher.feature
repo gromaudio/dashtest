@@ -273,13 +273,14 @@ Scenario: Swipe-up location menu
     Then I swipe to up
     Then I press "locationTextView"
     Then I go back
-
+@debug
 Scenario: Add App
     Then I swipe right
     Then I press "icon"
-    Then I scroll until I see the "Play Store" text
+    Then I scroll to "Play Store" text
     Then I press "Play Store"
     And I see "Play Store"
+    Then I wait for 2 seconds
     Then I swipe to left
     Then I swipe right
     And I see "Play Store"
