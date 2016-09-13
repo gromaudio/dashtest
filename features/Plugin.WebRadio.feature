@@ -1,6 +1,6 @@
 Feature: WebRadio Plugin
 
-@debug  @A @D
+@debug
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2"
@@ -91,7 +91,7 @@ Scenario: Traversing down/up by Stations tab hierarchy
   And I see "Sports"
 
 # FAVORITES TAB
-@debug
+
 Scenario: Add/remove favorite (long press)
   Then I press "icon"
   Then I press "Favorites"
@@ -108,7 +108,7 @@ Scenario: Add/remove favorite (long press)
   Then I long press previously added element
   Then I press "Delete from favorites"
   And I see "No favorite stations found."
-@debug
+
 Scenario: Add/remove favorite (favorite button)
   Then I press "icon"
   Then I press "Favorites"
@@ -131,7 +131,7 @@ Scenario: Add/remove favorite (favorite button)
   And I see "No favorite stations found."
 
 # FIXME: Ensure that Favorite button (Star) is changing its color (white/cyan) depending on whether station in favorites or not (investigate - need custom steps for highlighted element)
-@debug
+
 Scenario: Play favorite station
   Then I press "icon"
   Then I press "Favorites"
@@ -150,7 +150,7 @@ Scenario: Play favorite station
   Then I check Radio pause
   Then I press "shuffle"
 # FIXME: I meant - is it possible to check radio playing with progressive waiting - wait for 1 second, then wait for another second until radio is started or 5 seconds total spent. It is necessary to minimize waiting time as much as possible
-@debug
+
 Scenario: Play favorite station (Long press)
   Then I press "icon"
   Then I press "Favorites"
@@ -169,7 +169,7 @@ Scenario: Play favorite station (Long press)
   Then I press "pause"
   Then I check Radio pause
   Then I press "shuffle"
-@debug
+
 Scenario: Switching between favorite stations
   Then I press "icon"
   Then I press "Favorites"
@@ -255,7 +255,7 @@ Scenario: Switching between favorite stations
 # FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
 
 # RECENTS TAB
-@debug  
+  
 Scenario: Recents tab
   # start some stations from Stations tab appears in the Recents tab at the top of the list
   # Play
@@ -362,7 +362,7 @@ Scenario: Recents tab
 
 
 # RECORDS TAB
-@debug
+
 Scenario: Record audio
   Then I press "icon"
   Then I press "Favorites"
@@ -412,11 +412,12 @@ Scenario: Record audio
   Then I press "Favorites"
   Then I press "Stations"
   
-@debug
+
 Scenario: Switching between records
   Then I press "icon"
   Then I press "Recents"
   Then I press "Records"
+  Then I wait for 2 seconds
   Then I get text for item number 1
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
@@ -464,12 +465,12 @@ Scenario: Tap on cover
 
 # FIXME (high): We need a scenario to check if switching between several records is working by cover left/right swipes
 # DONE
-@D
+
 Scenario: Delete from Records
   Then I press "icon"
   Then I press "Recents"
   Then I press "Records"
-  Then I wait for 20 seconds
+  Then I wait for 2 seconds
   # Currently playing record is unable to delete
   Then I press list item number 1
   Then I long press list item number 1
@@ -489,7 +490,7 @@ Scenario: Delete from Records
 # FIXME: Ensure that Record button is highlighted while recording (investigate - need custom steps for highlighted element)
  
 # STATIONS TAB
-@A
+
 Scenario: Play Radio
   Then I press "icon"
   Then I press "Favorites"
@@ -519,7 +520,7 @@ Scenario: Play Radio
   Then I wait for 3 seconds
   Then I check Radio playing
   Then I press "pause"
-@A
+
 Scenario: Stations switching by next/prev 
   Then I press "icon"
   Then I press "Favorites"
@@ -570,7 +571,7 @@ Scenario: Stations switching by next/prev
 
   Then I press "pause"
   Then I press "WebRadio"
-@A
+
 Scenario: Tap on cover
   Then I press "icon"
   Then I press "Favorites"
@@ -592,7 +593,7 @@ Scenario: Tap on cover
 # DONE  
 # FIXME (high): Ensure that tap on the cover opens "On The Go" playlist and there is "Boss Boss Radio" in the list, DON'T check highlights for now
 # DONE
-@A
+
 Scenario: Long press navigation
   Then I press "icon"
   Then I press "Favorites"
