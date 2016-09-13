@@ -105,7 +105,7 @@ Then /^I swipe to right$/ do
 end
 
 Then /^I swipe to left$/ do
-    perform_action('drag', 25, 75, 50, 50, 2)
+    perform_action('drag', 25, 75, 50, 50, 3)
 end
 
 Then /^I swipe to down$/ do
@@ -149,3 +149,8 @@ Then /^I long press previously added element$/ do
 	long_press_when_element_exists("* marked:'#{@item_text}'")
 end
 
+Then /^I scroll to "([^\"]*)" text$/ do |name|
+    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 20) do
+    scroll_down
+    end
+end
