@@ -154,3 +154,7 @@ Then /^I scroll to "([^\"]*)" text$/ do |name|
     scroll_down
     end
 end
+
+Then /^I restart application$/ do
+	start_test_server_in_background
+end	
