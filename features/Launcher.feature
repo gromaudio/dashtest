@@ -429,3 +429,89 @@ Scenario: View Time&Weather plugin
     Then I see "EVENING"
     Then I see "NIGHT"
     Then I see "MORNING"
+
+Scenario: Player restore
+    Then I press "skipButton"
+    Then I press "button2"
+    Then I press "icon"
+    Then I press "Albums"
+    Then I press "Artists"
+    Then I press "Songs"
+    Then I press "00 Mine"
+    Then I press "Artists"
+    Then I press "Albums"
+    Then I press "Playlists"
+    Then I press "Folders"
+    Then I press "topContentContainer"
+    Then I press "firstButtonLayout"
+    Then I wait for 1 second
+    
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+    
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+    
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+    
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds        
