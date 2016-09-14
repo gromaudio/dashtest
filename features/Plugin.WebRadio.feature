@@ -480,6 +480,7 @@ Scenario: Delete from Records
   Then I press "Recents"
   Then I press list item number 1
   Then I press "Records"
+  Then I wait for 1 second
   Then I long press list item number 1
   Then I press "Delete"
   Then I see "No radio records found."
