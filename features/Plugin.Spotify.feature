@@ -1,5 +1,5 @@
 Feature: Spotify
-
+@debug
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2" 
@@ -7,11 +7,48 @@ Scenario: Start
   Then I press "replace"
   Then I press "PLUGINS"
   Then I press "Spotify"
+ 
+@debug
+Scenario: Login 
+  Then I press "icon"
+  Then I wait for 3 seconds
+  Then I tap on login
+  Then I enter credentials
+  Then I press enter button
+  Then I wait for 6 seconds
+
+@debug
+Scenario: Check "Your Music" tab 
+  Then I press "icon"
   Then I wait for 2 seconds
+  Then I go back
+  Then I press "New Releases"
+  Then I press "Genres and Moods"
+  Then I press "Your Music"
+  And I see "Songs"
+  And I see "Playlists"
+  And I see "Albums"
+  And I see "Artists"
+  And I see "Recently played"
+  Then I press "Songs"
+  And I see "No elements"
+  Then I press "actionBackArrow"
+  Then I press "Playlists"
+  And I see "On The Go"
+  Then I press "actionBackArrow"
+  Then I press "Albums"
+  And I see "No elements"
+  Then I press "actionBackArrow"
+  Then I press "Artists"
+  And I see "No elements"
+  Then I press "actionBackArrow"
+  Then I press "Recently played"
+  And I see "No elements"
+  Then I press "actionBackArrow"
 
 Scenario: Navigation through the plugin 
   Then I press "icon"
-  Then I wait for 10 seconds
+  Then I wait for 2 seconds
   Then I go back
   Then I see "Stations"
   Then I see "Charts"
@@ -22,6 +59,8 @@ Scenario: Navigation through the plugin
   Then I see "Your Music"
   Then I press "Your Music"
   Then I see "Search"
+  Then I press "Search"
+  Then I press "search_bar"
   Then I press "leftButtonFirst"
   And I see "Accounts"
   And I see "Settings"
@@ -30,7 +69,7 @@ Scenario: Navigation through the plugin
   
 Scenario: Navigation through the Settings
   Then I press "icon"
-  Then I wait for 10 seconds
+  Then I wait for 4 seconds
   Then I go back
   Then I press "leftButtonFirst"
   Then I press "Settings"
@@ -77,7 +116,7 @@ Scenario: Navigation through the Settings
 
 Scenario: Check About section
   Then I press "icon"
-  Then I wait for 10 seconds
+  Then I wait for 4 seconds
   Then I go back
   Then I press "leftButtonFirst"
   Then I press "About"
@@ -86,7 +125,7 @@ Scenario: Check About section
 
  Scenario: Top layout menu
   Then I press "icon"
-  Then I wait for 10 seconds
+  Then I wait for 4 seconds
   Then I go back
   Then I press "topContentContainer"
   Then I press "firstButtonLayout"
@@ -95,7 +134,7 @@ Scenario: Check About section
 
 Scenario: Top layout menu (Voice commands icon)
   Then I press "icon"
-  Then I wait for 10 seconds
+  Then I wait for 4 seconds
   Then I go back
   Then I press "topContentContainer"
   Then I press "thirdButtonLayout"
@@ -104,7 +143,7 @@ Scenario: Top layout menu (Voice commands icon)
 
 Scenario: Exit check
   Then I press "icon"
-  Then I wait for 10 seconds
+  Then I wait for 4 seconds
   Then I go back
   Then I press "leftButtonFirst"
   Then I press "Exit"
