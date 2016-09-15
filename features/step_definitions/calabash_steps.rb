@@ -158,3 +158,20 @@ end
 Then /^I restart application$/ do
 	start_test_server_in_background
 end	
+
+Then /^I enter credentials$/ do
+	enter_text("WebView css:'input[type=\"text\"]'", "xehiyoux")
+	enter_text("WebView css:'input[type=\"Password\"]'", "Gr0m$potify")
+end
+
+Then /^I tap on login$/ do
+	touch("webView xpath:'//A[contains(text(),\"Log in to Spotify\")]'")
+end
+
+Then /^I press enter button$/ do
+	press_enter_button
+end
+
+Then /^I press Okay button$/ do
+	touch("webView xpath:'//BUTTON[contains(text(),\"Okay\")]'")
+end	
