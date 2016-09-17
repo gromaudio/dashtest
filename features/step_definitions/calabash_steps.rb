@@ -40,10 +40,6 @@ Then /^I scroll until I see the "([^\"]*)" text$/ do |text|
     }
 end    
 
-Then /^I drag from (\d+):(\d+) to (\d+):(\d+) moving with (\d+) steps$/ do |from_x, from_y, to_x, to_y, steps|
-  perform_action('drag', from_x, to_x, from_y, to_y, steps)
-end
-
 Then /^I long touch the "([^\"]*)" text$/ do |text|
 	long_press_when_element_exists("* {text CONTAINS[c] '#{text}'}")
 end
@@ -150,7 +146,7 @@ Then /^I long press previously added element$/ do
 end
 
 Then /^I scroll to "([^\"]*)" text$/ do |name|
-    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 20) do
+    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 40) do
     scroll_down
     end
 end
@@ -164,7 +160,7 @@ Then /^I enter credentials$/ do
 	enter_text("WebView css:'input[type=\"Password\"]'", "Gr0m$potify")
 end
 
-Then /^I tap on login$/ do
+Then /^I tap on Log in to Spotify$/ do
 	touch("webView xpath:'//A[contains(text(),\"Log in to Spotify\")]'")
 end
 
@@ -175,3 +171,57 @@ end
 Then /^I press Okay button$/ do
 	touch("webView xpath:'//BUTTON[contains(text(),\"Okay\")]'")
 end	
+
+Then /^I press Login button$/ do
+	touch("webView xpath:'//BUTTON[contains(text(),\"Log In\")]'")
+end	
+
+
+Then /^I verify checkboxes$/ do
+	checkboxes = query("* id:'checkbox'")
+	checkbox_count = checkboxes.count
+	checkboxes.each_with_index do |checkbox, index|
+		touch("* id:'#{checkbox['id']}' index:#{index}")
+	end
+	checkboxes = query("* checked:true")
+	if checkbox_count != checkboxes.count
+		raise "Not all checkboxes were checked"
+	end
+end
+
+Then /^I uncheck all checkboxes$/ do
+	checkboxes = query("* checked:true")
+	checkboxes.each_with_index do |checkbox, index|
+		touch("* id:'#{checkbox['id']}' index:#{index}")
+	end
+end
+
+Then /^I check weather widget time$/ do
+	phone_time = query("* id:'time'")[0]['text']
+	a = Time.now().to_s.split(" ")[1].split(":")
+	system_time = a[0]+":"+a[1]
+	phone_time == system_time	
+end	
+
+
+Then /^I check player playing$/ do 
+	a = query("* id:'position_time'")
+	start = a[0]['text'].gsub(':','').to_i
+	sleep 2
+	a = query("* id:'position_time'")
+	final = a[0]['text'].gsub(':','').to_i
+	if final <= start
+		raise "Timer is not working"
+	end
+end
+
+Then /^I check player pause$/ do 
+	a = query("* id:'position_time'")
+	start = a[0]['text'].gsub(':','').to_i
+	sleep 2
+	a = query("* id:'position_time'")
+	final = a[0]['text'].gsub(':','').to_i
+	if final != start
+		raise "Timer is not working"
+	end
+end
