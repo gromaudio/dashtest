@@ -11,16 +11,255 @@ Scenario: Start
 @debug
 Scenario: Login 
   Then I press "icon"
-  Then I wait for 3 seconds
-  Then I tap on login
+  Then I wait for 4 seconds
+  Then I tap on Log in to Spotify
   Then I enter credentials
+  Then I wait for 2 seconds
   Then I press enter button
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
 
+#STATIONS TAB
+
+Scenario: Check "Stations" tab 
+  Then I press "icon"
+  Then I wait for 5 seconds
+  Then I go back
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  And I see "Blues"
+  And I see "Christian music"
+  And I see "Classical"
+  And I see "Comedy"
+  And I see "Country"
+  Then I scroll down
+  And I see "Club music"
+  And I see "Folk"
+  And I see "Gospel"
+  And I see "Heavy metal"
+  Then I scroll down
+  And I see "Hip-Hop"
+  And I see "Indie"
+  And I see "Jazz"
+  And I see "Latin"
+  And I see "Pop"
+  Then I scroll down
+  And I see "Punk"
+  And I see "Rhythm & Blues" 
+  And I see "Reggae"
+  And I see "Rock"
+  And I see "Soul"
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+
+#CHARTS TAB
+
+Scenario: Check "Charts" tab 
+  Then I press "icon"
+  Then I wait for 5 seconds
+  Then I go back
+  Then I press "Charts"
+  Then I scroll up
+  And I see "Today\'s Top Hits"
+  And I see "Rap Caviar"
+  And I see "electroNOW"
+  And I see "Rock This"
+  And I see "Are & Be"
+  Then I scroll down
+  And I see "Viva Latino"
+  And I see "Hot Country"
+  And I see "New Music Friday"
+  And I see "Viral Hits"
+  And I see "Fresh Finds"
+  Then I scroll up
+  Then I press "Stations"
+
+Scenario: Add to/Save as playlist 
+  Then I press "icon"
+  Then I wait for 5 seconds
+  Then I go back
+  Then I press "Charts"
+  # Save as playlist
+  Then I long press "Rap Caviar"
+  Then I press "Save as playlist"
+  Then I press "New Releases"
+  Then I touch the "Genres" text
+  Then I touch the "Your" text
+  Then I press "Playlists"
+  And I see "Rap Caviar"
+  Then I press "actionBackArrow"
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press "Charts"
+  # Add to playlist
+  Then I long press "electroNOW"
+  And I press "Add to playlist"
+  Then I press "New"
+  Then I press "Save"
+  Then I press "New Releases"
+  Then I touch the "Genres" text
+  Then I touch the "Your" text
+  Then I press "Playlists"
+  And I see "electroNOW"
+  Then I long press "electroNOW"
+  And I press "Delete"
+  Then I long press "Rap Caviar"
+  And I press "Delete"
+  Then I press "actionBackArrow"
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press "Charts"
+  Then I press "Stations"
+
+Scenario: Delete from playlist  
+  Then I press "icon"
+  Then I wait for 5 seconds
+  Then I go back
+  Then I press "Charts"
+  Then I long press "Rap Caviar"
+  Then I press "Save as playlist"
+  Then I press "New Releases"
+  Then I touch the "Genres" text
+  Then I touch the "Your" text
+  Then I press "Playlists"
+  And I see "Rap Caviar"
+  Then I long press "Rap Caviar"
+  And I press "Delete"
+  Then I don't see "Rap Caviar"
+  Then I press "actionBackArrow"
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press "Charts"
+  Then I press "Stations"
+
+#GENRES AND MOODS TAB 
+
+Scenario: Check "Genres and Moods" tab 
+  Then I press "icon"
+  Then I wait for 5 seconds
+  Then I go back
+  Then I press "Charts"
+  Then I press "New Releases"
+  Then I press "Genres and Moods"
+  And I see "Mood"
+  And I see "Party"
+  And I see "Pop"
+  And I see "Trending"
+
+  Then I scroll down
+  And I see "Focus"
+  And I see "Rock"
+  And I see "Indie"
+  And I see "EDM/Dance"
+
+  Then I scroll down
+  And I see "Chill"
+  And I see "Dinner"
+  And I see "Sleep"
+  And I see "Hip Hop"
+
+  Then I scroll down
+  And I see "Workout"
+  And I see "RnB"
+  And I see "Country"
+  And I see "Folk &"
+
+  Then I scroll down
+  And I see "Metal"
+  And I see "Soul"
+  And I see "Travel"
+  And I see "Decades"
+
+  Then I scroll down
+  And I see "Jazz"
+  And I see "Blues"
+  And I see "Reggae"
+  And I see "Latino"
+
+  Then I scroll down
+  And I see "Punk"
+  And I see "Romance"
+  And I see "Funk"
+  And I see "Classical"
+
+  Then I scroll down
+  And I see "Comedy"
+  And I see "Kids"
+  And I see "Gaming"
+
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+  Then I scroll up
+
+  Then I press "New Releases"
+  Then I press "Charts"
+  Then I press "Stations"
 @debug
+Scenario: Add to/Save as playlist 
+  Then I press "icon"
+  Then I wait for 5 seconds
+  Then I go back
+  Then I press "Charts"
+  Then I press "New Releases"
+  Then I touch the "Genres" text
+  Then I press "Mood"
+  Then I long press "Happy Hits!"
+  Then I press "Save as playlist"
+  Then I long press "Brain Food"
+  And I press "Add to playlist"
+  Then I press "New"
+  Then I press "Save"
+  Then I press "actionBackArrow"
+  Then I touch the "Your" text
+  Then I press "Playlists"
+  And I see "Brain Food"
+  And I see "Happy Hits!"
+  Then I long press "Brain Food"
+  And I press "Delete"
+  Then I long press "Happy Hits!"
+  And I press "Delete"
+  Then I press "actionBackArrow"
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press "Charts"
+  Then I press "Stations"
+@debug
+Scenario: Delete from playlist  
+  Then I press "icon"
+  Then I wait for 5 seconds
+  Then I go back
+  Then I press "Charts"
+  Then I press "New Releases"
+  Then I touch the "Genres" text
+  Then I press "Party"
+  Then I long press "TGIF"
+  And I press "Add to playlist"
+  Then I press "New"
+  Then I press "Save"
+  Then I press "actionBackArrow"
+  Then I touch the "Your" text
+  Then I press "Playlists"
+  Then I long press "TGIF"
+  And I press "Delete"
+  Then I don't see "TGIF"
+  Then I press "actionBackArrow"
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press "Charts"
+  Then I press "Stations"
+
+#YOUR MUSIC TAB
+
 Scenario: Check "Your Music" tab 
   Then I press "icon"
-  Then I wait for 2 seconds
+  Then I wait for 4 seconds
   Then I go back
   Then I press "New Releases"
   Then I press "Genres and Moods"
@@ -30,21 +269,12 @@ Scenario: Check "Your Music" tab
   And I see "Albums"
   And I see "Artists"
   And I see "Recently played"
-  Then I press "Songs"
-  And I see "No elements"
-  Then I press "actionBackArrow"
-  Then I press "Playlists"
-  And I see "On The Go"
-  Then I press "actionBackArrow"
-  Then I press "Albums"
-  And I see "No elements"
-  Then I press "actionBackArrow"
-  Then I press "Artists"
-  And I see "No elements"
-  Then I press "actionBackArrow"
-  Then I press "Recently played"
-  And I see "No elements"
-  Then I press "actionBackArrow"
+
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press "Charts"
+  Then I press "Stations"
+  
 
 Scenario: Navigation through the plugin 
   Then I press "icon"
@@ -61,6 +291,10 @@ Scenario: Navigation through the plugin
   Then I see "Search"
   Then I press "Search"
   Then I press "search_bar"
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press "Charts"
+  Then I press "Stations"
   Then I press "leftButtonFirst"
   And I see "Accounts"
   And I see "Settings"
@@ -93,8 +327,8 @@ Scenario: Navigation through the Settings
   Then I press "leftButtonFirst"
   Then I see "AutoHide Panels"
   And I see "Hide Navigation panels when browsing long lists to free up more space for text data"
-  Then I see "Library Side Swipe"
-  And I see "Enable side swipe for faster library navigation"
+  #Then I see "Library Side Swipe"
+  #And I see "Enable side swipe for faster library navigation"
   Then I see "Cover art resources"
   And I see "Change order of how cover art is searched"
   When I press "Cover art resources"

@@ -41,14 +41,9 @@ Scenario: View Settings
     And I see "Find compatible device"
     And I see "Find the best GROM module for your vehicle. Direct integration and digital quality sound."
 
-    # FIXME: can we check that pressed check boxes are checked/unchecked?
-    # Don't know how to implement for now
-
 Scenario: View Settings components 
     Then I press "leftButtonFirst"
     Then I press "Settings"
-
-    # NOTE: if you press something, make sure you unpress it and check that it returned back
 
     Then I see "MPH"
     Then I press "Speed"
@@ -61,11 +56,6 @@ Scenario: View Settings components
     Then I see "℃"
     Then I press "Temperature"
     Then I see "℉"
-
-    # NOTE: Device may already have bluetooth connections, so we can only test dialog header
-
-    # FIXME: we should have manual test for testing this dialog: 1)device has no connected BT devices 2) this dialog shows "To enable Bluetooth integration please enable Bluetooth in Settings" 3) press "enable" button 4) pair some device 5) ensure this dialog shows that device
-    # Added manual tests
 
     Then I press "Bluetooth connection"
     Then I see "Bluetooth connection"
@@ -95,12 +85,6 @@ Scenario: View Settings components
     Then I press "Disable USB Streaming"
     Then I press "Disable USB Streaming"
 
-    # FIXME: please think about how can we test advertising option?
-    # Don't know how to implement for now
-
-    # FIXME: can we check if Sticky icon changed?
-    # Don't know how to implement for now
-
 Scenario: Settings (Brightness)
     Then I press "leftButtonFirst"
     Then I press "Settings"
@@ -116,9 +100,6 @@ Scenario: Settings (Brightness) after restart
     Then I wait for 2 seconds
     Then I press "leftButtonSecond"
     Then I press "leftButtonSecond"    
-
-    # FIXME: can we check if Sticky icon changed?
-    # Don't know how to implement for now
 
 Scenario: Settings (Rotation lock)
     Then I press "leftButtonFirst"
@@ -168,10 +149,6 @@ Scenario: Find compatible device
     Then I see "Skip"
     Then I see "Find Interface"
 
-# FIXME: we need a scenario to check if changed settings are correctly saved and restored after app restart including units, sticky icon etc
-# DONE
-
-
 # ABOUT
 
 Scenario: View About section
@@ -179,7 +156,7 @@ Scenario: View About section
     Then I press "About"
     Then I press "More options"
     And I see "Send Report Error"
-    # And I see "Send Feedback"
+    And I see "Send Feedback"
 
 Scenario: About check (Send Report Error)
     Then I press "leftButtonFirst"
@@ -187,6 +164,7 @@ Scenario: About check (Send Report Error)
     Then I press "More options"
     Then I press "Send Report Error"
     # Then I press item with name "Select an application to send the log"
+   
     # Need export device id for this step "export ADB_DEVICE_ARG=*******"
     # FIXME: this scenario fails with:
     # execution expired (HTTPClient::ReceiveTimeoutError)
@@ -200,7 +178,6 @@ Scenario: About check (Send Feedback)
     Then I press "About"
     Then I press "More options"
     Then I press "Send Feedback"
-
     # Then I press item with name "Send Feedback Email"
 
 # EXIT
@@ -211,9 +188,6 @@ Scenario: Exit check
     Then I don't see "Exit"
 
 # MAIN
-
-    # FIXME: Swipe left doesn't work on my Nexus 5 & Samsung A300 - it swipes in correct direction, but releases too early, so screen doesn't change
-    # DONE
 
 Scenario: Check default plugin tabs
     Then I swipe right
@@ -230,38 +204,9 @@ Scenario: Check default plugin tabs
     Then I see "Where is My Car"
     Then I swipe to left
     Then I swipe to left
-    #Then I press "SHORTCUTS"
-    #Then I press "APPS"
     Then I press "leftButtonFirst"
     Then I swipe to left
-    # FIXME: how we can check A2DP Stream & Car Play plugins existence in VLine mode?
-    # It's not possible without BLoutooth adapter box (USB Car Kits)
 
-# FIXME: ensure we have following scenarios:
-    # - add apps, shortcuts, plugins to the slots of all three screens and ensure the are added successfully
-    # - done
-    # - swipe screens left-right and ensure added icons are there where they were added
-    # - 50/50 don't know how to check item place
-    # - replace one item with another via item menu
-    # - done
-    # - delete item via item menu
-    # - done
-    # - check that swipe-down player menu is working
-    # - done
-    # - check that swipe-up location menu is working
-    # - done
-
-    # - launching item - we should ensure that apps, shortcuts and plugins launch as expected:
-     #   - app can be checked by launching an app which 100% have all the devices - calculator for example
-     #   - don't know how to implement for now
-
-    #   - shortcut can be checked by AM/FM shortcuts
-    #   - plugins can be checked by launching Local music for example
-    # - done
-    
-    # - swap items via drag&drop, including dragging over to next screen
-    # - don't know how to implement for now
-    
 Scenario: Swipe-down player menu
     Then I swipe to down
     Then I press "next_button"
@@ -273,7 +218,7 @@ Scenario: Swipe-up location menu
     Then I swipe to up
     Then I press "locationTextView"
     Then I go back
-@debug
+
 Scenario: Add App
     Then I swipe right
     Then I press "icon"
@@ -388,11 +333,7 @@ Scenario: Add multiple plugins
     And I see "Where is My Car"
     Then I swipe to left
 
-    # NOTE: all item from PLUGINS tab are called PLUGINS (Local, Webradio etc), fixed three items from launcher screen are called widgets - Voice, Weather, Navigation
-
 # VOICE WIDGET
-
-    # FIXME: we will implement auto testing for voice playback when we have time, for now - only manual testing
 
 Scenario: View Widget
     Then I press "voice_search"
@@ -412,16 +353,10 @@ Scenario: Voice Widget (Navigate)
 
 # NAVIGATION WIDGET
 
-    # FIXME: ensure app is launched
-    # - don't know how to implement for now
-
 Scenario: Navigation widget
     Then I press "navi_icon"
 
 # WEATHER WIDGET
-
-    # FIXME: ensure we see current time on the widget on the main screen
-    # - don't know how to implement for now
 
 Scenario: View Time&Weather plugin
     Then I press "weather_icon"
@@ -430,10 +365,10 @@ Scenario: View Time&Weather plugin
     Then I see "NIGHT"
     Then I see "MORNING"
 
+@debug
 Scenario: Player restore
-    Then I press "skipButton"
-    Then I press "button2"
     Then I press "icon"
+    Then I wait for 2 seconds
     Then I press "Albums"
     Then I press "Artists"
     Then I press "Songs"
@@ -444,74 +379,155 @@ Scenario: Player restore
     Then I press "Folders"
     Then I press "topContentContainer"
     Then I press "firstButtonLayout"
-    Then I wait for 1 second
+        
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I check player playing
+    Then I press "next_button"
+    Then I wait for 2 seconds
+    Then I see "01 Imagine Dragons"
+    Then I press "next_button"
+    Then I wait for 2 seconds
+    Then I see "00 Fleetwood Mac"
+    Then I press "prev_button"
+    Then I press "prev_button"
     
     Then I restart application
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 3 seconds
+    Then I wait for 2 seconds
+    Then I check player playing
     
     Then I restart application
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 3 seconds
+    Then I wait for 2 seconds
+    Then I check player playing
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 2 seconds
+    Then I check player playing
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 2 seconds
+    Then I check player playing
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 2 seconds
+    Then I check player playing
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 2 seconds
+    Then I check player playing
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 2 seconds
+    Then I check player playing
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 2 seconds
+    Then I check player playing
+
+    Then I restart application
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 2 seconds
+    Then I check player playing        
+
+
+    # FIXME: Swipe left doesn't work on my Nexus 5 & Samsung A300 - it swipes in correct direction, but releases too early, so screen doesn't change
+    # DONE
+
+    # FIXME: ensure we see current time on the widget on the main screen
+    # DONE
+
+    # FIXME: ensure app is launched
+    # - don't know how to implement for now
+
+    # FIXME: we will implement auto testing for voice playback when we have time, for now - only manual testing
     
-    Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds
+    # FIXME: we need a scenario to check if changed settings are correctly saved and restored after app restart including units, sticky icon etc
+    # DONE
 
-    Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds
+    # NOTE: all item from PLUGINS tab are called PLUGINS (Local, Webradio etc), fixed three items from launcher screen are called widgets - Voice, Weather, Navigation
+
+    # FIXME: can we check if Sticky icon changed?
+    # Don't know how to implement for now
+
+    # NOTE: Device may already have bluetooth connections, so we can only test dialog header
+
+    # FIXME: we should have manual test for testing this dialog: 1)device has no connected BT devices 2) this dialog shows "To enable Bluetooth integration please enable Bluetooth in Settings" 3) press "enable" button 4) pair some device 5) ensure this dialog shows that device
+    # Added manual tests
+
+    # FIXME: please think about how can we test advertising option?
+    # Don't know how to implement for now
+
+    # FIXME: can we check if Sticky icon changed?
+    # Don't know how to implement for now
+
+    # FIXME: can we check that pressed check boxes are checked/unchecked?
+    # Don't know how to implement for now
+
+    # NOTE: if you press something, make sure you unpress it and check that it returned back
+
+    # FIXME: how we can check A2DP Stream & Car Play plugins existence in VLine mode?
+    # It's not possible without BLoutooth adapter box (USB Car Kits)
+
+    # FIXME: ensure we have following scenarios:
+    # - add apps, shortcuts, plugins to the slots of all three screens and ensure the are added successfully
+    # - done
+    # - swipe screens left-right and ensure added icons are there where they were added
+    # - done
+    # - replace one item with another via item menu
+    # - done
+    # - delete item via item menu
+    # - done
+    # - check that swipe-down player menu is working
+    # - done
+    # - check that swipe-up location menu is working
+    # - done
+
+    # - launching item - we should ensure that apps, shortcuts and plugins launch as expected:
+     #   - app can be checked by launching an app which 100% have all the devices - calculator for example
+     #   - don't know how to implement for now
+
+    #   - shortcut can be checked by AM/FM shortcuts
+    #   - plugins can be checked by launching Local music for example
+    # - done
     
-    Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds
-
-    Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds
-
-    Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds
-
-    Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds
-
-    Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds
-
-    Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds        
+    # - swap items via drag&drop, including dragging over to next screen
+    # - don't know how to implement for now
+    

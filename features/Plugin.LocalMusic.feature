@@ -469,8 +469,8 @@ Scenario: Local Music Settings
   Then I press "leftButtonFirst" 
   Then I see "AutoHide Panels"
   And I see "Hide Navigation panels when browsing long lists to free up more space for text data"
-  Then I see "Library Side Swipe"
-  And I see "Enable side swipe for faster library navigation"
+  #Then I see "Library Side Swipe"
+  #And I see "Enable side swipe for faster library navigation"
   Then I see "Cover art resources"
   And I see "Change order of how cover art is searched"
   When I press "Cover art resources"
@@ -483,12 +483,12 @@ Scenario: Local Music Settings
   And I see "Music home folder"
   Then I see "Indexing"
   And I see "Media Rescan"
-@debug
+
 Scenario: Settings - Library Side Swipe option
   Then I press "icon"
   Then I press "Playlists"
   Then I press "Folders"
-  # Library Side Swipe ON
+
   Then I see "00 Fleetwood Mac"
   Then I see "01 Imagine Dragons"
   Then I touch the "03 Red Hot Chili" text
@@ -499,22 +499,24 @@ Scenario: Settings - Library Side Swipe option
   Then I swipe to left
   And I see "00 Fleetwood Mac"
   And I see "01 Imagine Dragons"
-  # Library Side Swipe OFF
-  Then I press "leftButtonFirst"
-  Then I press "Settings"
-  Then I press "Library Side Swipe"
-  Then I go back
-  Then I see "00 Fleetwood Mac"
-  Then I see "01 Imagine Dragons"
-  Then I touch the "03 Red Hot Chili" text
-  And I see "00 Around The"
-  And I see "01 Otherside"
-  And I see "02 Road Trippin\'"
-  Then I swipe to left
-  And I see "00 Around The"
-  And I see "01 Otherside"
-  And I see "02 Road Trippin\'"
-  Then I press " .. "
+
+# Library Side Swipe OFF
+#  Then I press "leftButtonFirst"
+#  Then I press "Settings"
+#  Then I press "Library Side Swipe"
+#  Then I go back
+#  Then I see "00 Fleetwood Mac"
+#  Then I see "01 Imagine Dragons"
+#  Then I touch the "03 Red Hot Chili" text
+#  And I see "00 Around The"
+#  And I see "01 Otherside"
+#  And I see "02 Road Trippin\'"
+#  Then I swipe to left
+#  And I see "00 Around The"
+#  And I see "01 Otherside"
+#  And I see "02 Road Trippin\'"
+#  Then I press " .. "
+
   
 Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"
@@ -786,12 +788,6 @@ Scenario: Switching between tracks
   Then I scroll up
   Then I press " .. "
 
-# FIXME: Check if track switching is working by cover right/left slides
-# DONE
-
-# FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks, Don't check highlights for now
-# DONE
-
 Scenario: Tap on cover open current folder
   Then I press "icon"
   Then I press "Albums"
@@ -902,8 +898,6 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "actionBackArrow"
   Then I press "Folders"
 
-# FIXME: Ensure Playlists/"Add to playlist" option from long press menu is working too
-# DONE
 Scenario: Long press actions - Add to playlist from playlist tab
   Then I press "icon"
   Then I press "Playlists"
@@ -969,8 +963,6 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I press "Delete"
   Then I don't see "From_Albums"
    
-# FIXME: ensure created playlist contains appropriate tracks
-# DONE
 Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I press "icon"
   Then I press "Albums"
@@ -993,8 +985,6 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I press "Delete"
   Then I don't see "From_Artists"
 
-# FIXME: ensure created playlist contains appropriate tracks
-# DONE
 Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I press "icon"
   Then I press "Albums"
@@ -1047,9 +1037,6 @@ Scenario: Long press actions - Jum to .. (Songs tab)
   And I see "02 It\'s Alright for You"
   Then I press " .. "
 
-# FIXME: use track names instead of numbers
-# DONE
-
 Scenario: Long press actions - Jum to Folder (Albums tab)
   Then I press "icon"
   Then I press "Albums"
@@ -1101,3 +1088,16 @@ Scenario: Exit option
   Then I press "Exit"
   Then I see "Where is My Car"
   Then I see "WebRadio"
+
+# FIXME: Check if track switching is working by cover right/left slides
+# DONE
+# FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks, Don't check highlights for now
+# DONE  
+# FIXME: use track names instead of numbers
+# DONE
+# FIXME: ensure created playlist contains appropriate tracks
+# DONE
+# FIXME: Ensure Playlists/"Add to playlist" option from long press menu is working too
+# DONE
+# FIXME: ensure created playlist contains appropriate tracks
+# DONE
