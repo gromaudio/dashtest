@@ -134,7 +134,7 @@ Then /^I see item number text$/ do
 	if @item_text.empty?
 		raise "Item text var is empty"
 	end
-	wait_for_text(@item_text, timeout: 10)
+	wait_for_text(@item_text, timeout: 15)
 end
 
 Then /^I press previously added element$/ do
@@ -146,7 +146,19 @@ Then /^I long press previously added element$/ do
 end
 
 Then /^I scroll to "([^\"]*)" text$/ do |name|
-    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 40) do
+    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 60) do
+    scroll_down
+    end
+end
+
+Then /^I scroll up to "([^\"]*)" text$/ do |name|
+    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 120) do
+    scroll_up
+    end
+end
+
+Then /^I scroll down to "([^\"]*)" text$/ do |name|
+    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 120) do
     scroll_down
     end
 end
@@ -224,4 +236,8 @@ Then /^I check player pause$/ do
 	if final != start
 		raise "Timer is not working"
 	end
+end
+
+Then /^I enter text "([^\"]*)"$/ do |text|
+  perform_action('keyboard_enter_text', text)
 end
