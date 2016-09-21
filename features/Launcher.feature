@@ -1,9 +1,9 @@
 Feature: Launcher
-@debug
+@debug 
 Scenario: Start
     Then I press "skipButton"
     Then I press "button2"
-    
+       
 # SIDE MENU
 
 Scenario: View Side Menu
@@ -25,6 +25,7 @@ Scenario: View Settings
     And I see "Bluetooth connections that will launch DashLinQ automatically"
     Then I see "Advanced functionality"
     And I see "Display Stay Awake"
+    Then I scroll down
     And I see "Screen will never sleep while charging"
     And I see "Show Quick Return icon"
     And I see "When other app is active the quick return icon will be shown at the side of the app. Icon can be adjusted in location via finger press and drag action."
@@ -64,6 +65,7 @@ Scenario: View Settings components
     Then I press "Display Stay Awake"
     Then I press "Display Stay Awake"
 
+    Then I scroll down
     Then I press "Show Quick Return icon"
     Then I press "Show Quick Return icon"
 
@@ -88,6 +90,7 @@ Scenario: View Settings components
 Scenario: Settings (Brightness)
     Then I press "leftButtonFirst"
     Then I press "Settings"
+    Then I scroll down
     Then I press "Sticky icon"
     Then I press "Brightness"
     Then I press "leftButtonFirst"
@@ -104,6 +107,7 @@ Scenario: Settings (Brightness) after restart
 Scenario: Settings (Rotation lock)
     Then I press "leftButtonFirst"
     Then I press "Settings"
+    Then I scroll down
     Then I press "Sticky icon"
     Then I press "Rotation lock"
     Then I press "leftButtonFirst"
@@ -139,6 +143,7 @@ Scenario: Find compatible device
     Then I press "leftButtonFirst"
     Then I press "Settings"
     Then I scroll down
+    Then I scroll down
     Then I press "Find compatible device"
     Then I see "DashLinQ is a media player for car use. Gestures, large fonts and simple layout is perfect while driving. For seemless car integration use GROM module for your specific car."
     Then I see "Choose your make/year for further instructions:"
@@ -163,22 +168,14 @@ Scenario: About check (Send Report Error)
     Then I press "About"
     Then I press "More options"
     Then I press "Send Report Error"
-    # Then I press item with name "Select an application to send the log"
-   
-    # Need export device id for this step "export ADB_DEVICE_ARG=*******"
-    # FIXME: this scenario fails with:
-    # execution expired (HTTPClient::ReceiveTimeoutError)
-    # ./features/support/app_life_cycle_hooks.rb:5:in `Before'
-    # Before do |scenario|
-    # start_test_server_in_background
-    # end
+    #Then I press item with name "Select an application to send the log"
 
 Scenario: About check (Send Feedback)
     Then I press "leftButtonFirst"
     Then I press "About"
     Then I press "More options"
     Then I press "Send Feedback"
-    # Then I press item with name "Send Feedback Email"
+    #Then I press item with name "Send Feedback Email"
 
 # EXIT
 
@@ -200,6 +197,7 @@ Scenario: Check default plugin tabs
     Then I see "GMusic"
     Then I see "Local Music"
     Then I see "Spotify"
+    Then I scroll down
     Then I see "WebRadio"
     Then I see "Where is My Car"
     Then I swipe to left
@@ -226,9 +224,6 @@ Scenario: Add App
     Then I press "Play Store"
     And I see "Play Store"
     Then I wait for 2 seconds
-    Then I swipe to left
-    Then I swipe right
-    And I see "Play Store"
     Then I press "menu_button"
     And I press "delete"
     Then I swipe to left
@@ -324,6 +319,7 @@ Scenario: Add multiple plugins
     Then I press "Local Music"
     Then I press "icon"
     Then I press "PLUGINS"
+    Then I scroll down
     Then I press "Where is My Car"
     Then I see "Local Music"
     Then I see "Where is My Car"
@@ -359,6 +355,8 @@ Scenario: Navigation widget
 # WEATHER WIDGET
 
 Scenario: View Time&Weather plugin
+    Then I wait for 2 seconds
+    Then I check weather widget time
     Then I press "weather_icon"
     Then I see "DAY"
     Then I see "EVENING"
@@ -369,6 +367,17 @@ Scenario: View Time&Weather plugin
 Scenario: Player restore
     Then I press "icon"
     Then I wait for 2 seconds
+    Then I press "leftButtonFirst"
+    Then I press "Settings"
+    Then I wait for 2 seconds
+    Then I scroll down
+    Then I press "Music home folder"
+    Then I scroll to "Music" text
+    Then I press "Music"
+    Then I press "00 LocalMusicTestSuite"
+    Then I press "Select"
+    Then I press "Media Rescan"
+    Then I press "leftButtonFirst"
     Then I press "Albums"
     Then I press "Artists"
     Then I press "Songs"
@@ -377,14 +386,15 @@ Scenario: Player restore
     Then I press "Albums"
     Then I press "Playlists"
     Then I press "Folders"
-    Then I press "topContentContainer"
-    Then I press "firstButtonLayout"
+    Then I press "leftButtonFirst"
+    Then I press "Exit"
         
     Then I restart application
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
+    Then I wait for 3 seconds
     Then I check player playing
     Then I press "next_button"
     Then I wait for 2 seconds
@@ -400,7 +410,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing
     
     Then I restart application
@@ -408,7 +418,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing
 
     Then I restart application
@@ -416,7 +426,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing
 
     Then I restart application
@@ -424,7 +434,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing
 
     Then I restart application
@@ -432,7 +442,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing
 
     Then I restart application
@@ -440,7 +450,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing
 
     Then I restart application
@@ -448,7 +458,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing
 
     Then I restart application
@@ -456,7 +466,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing
 
     Then I restart application
@@ -464,7 +474,7 @@ Scenario: Player restore
     And I see "00 Mine"
     And I see "04 Taylor Swift"
     Then I press "play_button_additional"
-    Then I wait for 2 seconds
+    Then I wait for 3 seconds
     Then I check player playing        
 
 
