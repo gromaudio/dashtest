@@ -3,6 +3,8 @@ Feature: Launcher
 Scenario: Start
     Then I press "skipButton"
     Then I press "button2"
+    Then I press "weather_icon"
+    Then I press "updateIndicator"
        
 # SIDE MENU
 
@@ -390,6 +392,7 @@ Scenario: Player restore
     Then I press "Exit"
         
     Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -403,17 +406,21 @@ Scenario: Player restore
     Then I wait for 2 seconds
     Then I see "00 Fleetwood Mac"
     Then I press "prev_button"
+    Then I wait for 2 seconds
     Then I press "prev_button"
+    Then I wait for 2 seconds
+
+    Then I restart application
+    Then I wait for 1 second
+    Then I swipe to down
+    And I see "00 Mine"
+    And I see "04 Taylor Swift"
+    Then I press "play_button_additional"
+    Then I wait for 3 seconds
+    Then I check player playing
     
     Then I restart application
-    Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
-    Then I press "play_button_additional"
-    Then I wait for 3 seconds
-    Then I check player playing
-    
-    Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -422,6 +429,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -430,6 +438,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -438,6 +447,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -446,6 +456,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -454,6 +465,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -462,6 +474,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -470,6 +483,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
+    Then I wait for 1 second
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
