@@ -241,3 +241,7 @@ end
 Then /^I enter text "([^\"]*)"$/ do |text|
   perform_action('keyboard_enter_text', text)
 end
+
+Then /^I full scroll down$/ do
+	perform_action('drag', 50, 50, 60, -300, 20)
+end
