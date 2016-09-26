@@ -36,11 +36,11 @@ Scenario: Change "Music home folder" to Music
   Then I see "02 Go Your Own Way"
   And I see "3/5"
   
-  Then I scroll to "03 Hold Me" text
+  Then I scroll to "04 Everywhere" text
   Then I see "03 Hold Me"
   And I see "4/5"
   
-  Then I scroll to "04 Everywhere" text
+  Then I full scroll down
   Then I see "04 Everywhere"
   And I see "5/5"
   
@@ -106,11 +106,11 @@ Scenario: Change "Music home folder" to Music
   Then I should see text containing "02 Lucy in the Sky"
   And I see "3/10"
 
-  Then I scroll to "03 Getting Better" text
+  Then I scroll to "04 Fixing a Hole" text
   Then I see "03 Getting Better"
   And I see "4/10"
 
-  Then I scroll to "04 Fixing a Hole" text
+  Then I scroll to "05 She\'s Leaving Home" text
   Then I see "04 Fixing a Hole"
   And I see "5/10"
 
@@ -122,7 +122,7 @@ Scenario: Change "Music home folder" to Music
   Then I should see text containing "06 Being for the"
   And I see "7/10"
 
-  Then I scroll to "07 Within You Without You" text
+  Then I scroll to "08 When I\'m Sixty-Four" text
   Then I see "07 Within You"
   And I see "8/10"
 
@@ -130,7 +130,7 @@ Scenario: Change "Music home folder" to Music
   Then I see "08 When I\'m Sixty-Four"
   And I see "9/10"
 
-  Then I scroll to "09 Lovely Rita" text
+  Then I full scroll down
   Then I see "09 Lovely Rita"
   And I see "10/10"
 
@@ -166,7 +166,7 @@ Scenario: Change "Music home folder" to Music
   Then I press " .. "
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I drag from 50:30 to 50:300 moving with 20 steps
-@debug
+
 Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I press "icon"
   Then I press "Albums"
@@ -306,13 +306,6 @@ Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   And I see "2 of 3 songs"
   Then I touch the "03 Red Hot Chili" text
   
-  Then I scroll to "03 Red Hot Chilli Peppers" text
-  Then I touch the "03 Red Hot Chilli" text
-  And I see "03 Californication"
-  And I see "1 album, 1 song out of 3"
-  And I see "1 of 3 songs"
-  Then I touch the "03 Red Hot Chilli" text
-
   Then I scroll to "04 Taylor Swift" text
   Then I see "04 Taylor Swift"
   Then I press "04 Taylor Swift"
@@ -350,7 +343,7 @@ Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
-
+@debug
 Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I press "icon"
   Then I press "Albums"
@@ -358,123 +351,93 @@ Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   When I press "Songs"
   Then I see "00 Around The World"
   And I see "03 Red Hot Chili Peppers"
-  And I see "1/30"
-
-  Then I see "00 Message in a Bottle"
+ 
+  Then I see "07 The Police"
   And I see "07 The Police"
-  And I see "2/30"
-
+  
   Then I scroll to "00 Mine" text
   Then I see "00 Mine"
-  And I see "3/30"
-
+ 
   Then I scroll to "00 Radioactive" text
   Then I see "00 Radioactive"
-   And I see "4/30"
-
+  
   Then I scroll to "00 Rhiannon" text
   Then I see "00 Rhiannon"
-  And I see "5/30" 
   
   Then I scroll to "00 Sgt. Pepper\'s Lonely Hearts " text
   Then I see "00 Sgt. Pepper\'s"
-  And I see "6/30"
-
+  
   Then I scroll to "00 Shakin\' Hands" text
   Then I see "00 Shakin\' Hands"
-  And I see "7/30" 
-
+ 
   Then I scroll to "00 Летим По Кругу" text
   Then I see "00 Летим По Кругу"
-  And I see "8/30" 
-
+  
   Then I scroll to "01 Don\'t Stop" text
   Then I see "01 Don\'t Stop"
-  And I see "9/30" 
-
+  
   Then I scroll to "01 Otherside" text
   Then I see "01 Otherside"
-  And I see "10/30" 
-
+ 
   Then I scroll to "01 Reggatta de Blanc" text
   Then I see "01 Reggatta de Blanc"
-  And I see "11/30" 
 
   Then I scroll to "01 S.E.X." text
   Then I see "01 S.E.X."
-  And I see "12/30" 
 
   Then I scroll to "01 Sparks Fly" text
   Then I see "01 Sparks Fly"
-  And I see "13/30" 
 
-  Then I scroll to "01 With a Little Help from My F" text
+  Then I scroll to "01 Вперед - Бодрит" text
   Then I see "01 With a Little Help"
-  And I see "14/30" 
 
   Then I scroll to "01 Вперед - Бодрит" text
   Then I see "01 Вперед - Бодрит"
-  And I see "15/30" 
 
   Then I scroll to "02 Back To December" text
   Then I see "02 Back To December"
-  And I see "16/30" 
 
   Then I scroll to "02 Go Your Own Way" text
   Then I see "02 Go Your Own Way"
-  And I see "17/30" 
 
   Then I scroll to "02 It\'s Alright for You" text
   Then I see "02 It\'s Alright for You"
-  And I see "18/30" 
 
-  Then I scroll to "02 Lucy in the Sky with Diamond" text
+  Then I scroll to "02 Road Trippin\'" text
   Then I see "02 Lucy in the Sky"
-  And I see "19/30" 
 
   Then I scroll to "02 Road Trippin\'" text
   Then I see "02 Road Trippin\'"
-  And I see "20/30" 
 
   Then I scroll to "02 Всё Для Народа" text
   Then I see "02 Всё Для Народа"
-  And I see "21/30" 
 
   Then I scroll to "03 Getting Better" text
   Then I see "03 Getting Better"
-  And I see "22/30" 
 
   Then I scroll to "03 Hold Me" text
   Then I see "03 Hold Me"
-  And I see "23/30" 
 
   Then I scroll to "04 Everywhere" text
   Then I see "04 Everywhere"
-  And I see "24/30" 
   
   Then I scroll to "04 Fixing a Hole" text
   Then I see "04 Fixing a Hole"
-  And I see "25/30" 
 
   Then I scroll to "05 She\'s Leaving Home" text
   Then I see "05 She\'s Leaving Home"
-  And I see "26/30" 
 
-  Then I scroll to "07 Within You Without You" text
+  Then I scroll down
   Then I see "06 Being for the"
-  And I see "27/30" 
 
-  Then I scroll to "07 Within You Without You" text
+  Then I scroll to "08 When I\'m Sixty-Four" text
   Then I see "07 Within You Without"
-  And I see "28/30" 
 
   Then I scroll to "08 When I\'m Sixty-Four" text
   Then I see "08 When I\'m Sixty-Four"
-  And I see "29/30" 
 
   Then I scroll to "09 Lovely Rita" text
   Then I see "09 Lovely Rita"
-  And I see "30/30" 
 
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I drag from 50:30 to 50:300 moving with 20 steps
