@@ -112,6 +112,10 @@ Then /^I swipe to up$/ do
 	perform_action('drag', 50, 50, 75, 25, 2)
 end
 
+Then /^I swipe to Exit$/ do
+	perform_action('drag', 10, 10, 85, 25, 5)
+end
+
 Then /^I tap on cover$/ do
 	perform_action('click_on_screen', 35, 50)
 end
