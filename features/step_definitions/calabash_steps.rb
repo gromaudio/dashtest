@@ -156,13 +156,13 @@ Then /^I scroll to "([^\"]*)" text$/ do |name|
 end
 
 Then /^I scroll up to "([^\"]*)" text$/ do |name|
-    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 120) do
+    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 60) do
     scroll_up
     end
 end
 
 Then /^I scroll down to "([^\"]*)" text$/ do |name|
-    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 120) do
+    wait_poll(:until_exists => "* {text CONTAINS[c] '#{name}'}", :timeout => 60) do
     scroll_down
     end
 end
