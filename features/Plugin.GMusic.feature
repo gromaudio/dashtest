@@ -8,7 +8,7 @@ Scenario: Start
   Then I press "replace"
   Then I press "PLUGINS"
   Then I press "GMusic"
-
+@debug
 Scenario: Navigation through the plugin
   Then I press "icon"
   Then I wait for 3 seconds
@@ -233,7 +233,7 @@ Scenario: Check Albums tab
   Then I go back
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Playlists"
-
+@debug
 Scenario: Add to playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"
@@ -254,7 +254,7 @@ Scenario: Add to playlist from Albums tab
   Then I go back
   Then I long press "Adele - 21"
   Then I wait for 2 seconds
-  Then I swipe to up
+  Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
 
 Scenario: Switching between tracks - Albums tab 
@@ -373,7 +373,7 @@ Scenario: Add to playlist from Artists tab
   Then I press "actionBackArrow"
   Then I long press "Adam Lambert"
   Then I wait for 2 seconds
-  Then I swipe to up
+  Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
 
 Scenario: Play/Pause music
@@ -583,7 +583,7 @@ Scenario: Add to playlist from Songs tab
   Then I go back
   Then I long press "Dreams"
   Then I wait for 2 seconds
-  Then I swipe to up
+  Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
 
 Scenario: Play/Pause music
@@ -663,7 +663,7 @@ Scenario: Add/Rename/Delete playlists
   Then I see "Original"
   Then I long press "Original"
   Then I wait for 2 seconds
-  Then I swipe to up
+  Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Rename"
   Then I clear input field with id "playlist"
   Then I enter text "Unoriginal"
@@ -672,7 +672,7 @@ Scenario: Add/Rename/Delete playlists
   And I see "Unoriginal"
   Then I long press "Unoriginal"
   Then I wait for 2 seconds
-  Then I swipe to up
+  Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
   Then I don't see "Unoriginal"
 
@@ -700,13 +700,13 @@ Scenario: Add to playlist from playlists tab
   And I see "TestPlaylist2"
   Then I long press "TestPlaylist2"
   Then I wait for 2 seconds
-  Then I swipe to up
+  Then I drag from 50:75 to 50:25 moving with 15 steps
   And I press "Delete"
   Then I scroll to "TestPlaylist" text
   And I see "TestPlaylist"
   Then I long press "TestPlaylist"
   Then I wait for 2 seconds
-  Then I swipe to up
+  Then I drag from 50:75 to 50:25 moving with 15 steps
   And I press "Delete"
 
 Scenario: Long press actions - Play From the ...
@@ -763,7 +763,7 @@ Scenario: Long press actions - Delete cache
   Then I press "Play"
   Then I long press "Adele"
   Then I wait for 2 seconds
-  Then I swipe to up
+  Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I see "Delete cache"
   Then I press "Delete cache"
   Then I long press "Adele"
