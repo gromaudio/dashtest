@@ -292,7 +292,7 @@ Scenario: Tap on cover
   Then I press "icon"
   Then I press "Albums"
   Then I drag from 50:30 to 50:300 moving with 20 steps
-  Then I long press "Adele"
+  Then I long press "Adele - 21"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
   And I see "GMusic"
