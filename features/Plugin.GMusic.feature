@@ -98,6 +98,7 @@ Scenario: Check About section
 Scenario: Play/Pause music - Albums tab
   Then I press "icon"
   Then I press "Albums"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Adele - 21"
   Then I scroll up
   Then I press "Rolling In The Deep"
@@ -127,7 +128,7 @@ Scenario: Check Albums tab
   Then I press "icon"
   Then I press "Albums"
   Then I full scroll down
-  Then I scroll up to "Adele" text
+  Then I scroll up to "Adele - 21" text
   Then I wait for 1 second
   When I press "Adele"
   And I see "Adele - 21"
@@ -190,9 +191,9 @@ Scenario: Check Albums tab
   Then I go back
 
   Then I full scroll down
-  Then I scroll up to "Fleetwood Mac" text
+  Then I scroll up to "Greatest Hits" text
   Then I wait for 1 second
-  When I press "Fleetwood Mac"
+  When I touch the "Greatest Hits" text
   And I see "Greatest Hits"
   And I see "Gypsy"
   And I see "1/4"
@@ -236,6 +237,7 @@ Scenario: Check Albums tab
 Scenario: Add to playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I long press "Adele - 21"
   Then I press "Add to playlist"
   Then I press "New"
@@ -258,6 +260,7 @@ Scenario: Add to playlist from Albums tab
 Scenario: Switching between tracks - Albums tab 
   Then I press "icon"
   Then I press "Albums"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Buffy"
   Then I scroll up
   Then I press "Someday"
@@ -288,6 +291,7 @@ Scenario: Switching between tracks - Albums tab
 Scenario: Tap on cover  
   Then I press "icon"
   Then I press "Albums"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I long press "Adele"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
@@ -351,6 +355,7 @@ Scenario: Check Artists tab
 Scenario: Add to playlist from Artists tab
   Then I press "icon"
   Then I press "Artists"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I long press "Adam Lambert"
   Then I press "Add to playlist"
   Then I press "New"
@@ -375,6 +380,7 @@ Scenario: Play/Pause music
   Then I press "icon"
   Then I press "Albums"
   Then I press "Artists"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Adele"
   When I press "Adele - 21"
   Then I scroll up
@@ -405,6 +411,7 @@ Scenario: Switching between tracks
   Then I press "icon"
   Then I press "Albums"
   Then I press "Artists"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Adele"
   Then I press "Adele - 21"
   Then I press "Rolling In The Deep" 
@@ -437,6 +444,7 @@ Scenario: Tap on cover
   Then I press "icon"
   Then I press "Albums"
   Then I press "Artists"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I long press "Adam Lambert"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
@@ -671,6 +679,7 @@ Scenario: Add/Rename/Delete playlists
 Scenario: Add to playlist from playlists tab
   Then I press "icon"
   Then I press "Albums"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I long press "Adele - 21"  
   Then I press "Add to playlist"
   Then I press "New"
@@ -704,6 +713,7 @@ Scenario: Long press actions - Play From the ...
   Then I press "icon"
   Then I press "Artists"
   Then I press "Albums"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I long press "Adele"
   Then I press "Add to playlist"
   Then I press "New"
@@ -748,6 +758,7 @@ Scenario: Long press actions - Play From the ...
 Scenario: Long press actions - Delete cache
   Then I press "icon"
   Then I press "Albums"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I long press "Adele"
   Then I press "Play"
   Then I long press "Adele"
