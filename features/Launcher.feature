@@ -27,7 +27,6 @@ Scenario: View Settings
     And I see "Bluetooth connections that will launch DashLinQ automatically"
     Then I see "Advanced functionality"
     And I see "Display Stay Awake"
-    And I see "Screen will never sleep while charging"
     Then I scroll down
     And I see "Show Quick Return icon"
     And I see "When other app is active the quick return icon will be shown at the side of the app. Icon can be adjusted in location via finger press and drag action."
