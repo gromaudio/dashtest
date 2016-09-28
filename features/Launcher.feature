@@ -402,17 +402,7 @@ Scenario: Player restore
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
-    Then I press "next_button"
-    Then I wait for 2 seconds
-    Then I see "01 Imagine Dragons"
-    Then I press "next_button"
-    Then I wait for 2 seconds
-    Then I see "00 Fleetwood Mac"
-    Then I press "prev_button"
-    Then I wait for 2 seconds
-    Then I press "prev_button"
-    Then I wait for 2 seconds
-
+    
     Then I restart application
     Then I wait for 1 second
     Then I swipe to down
