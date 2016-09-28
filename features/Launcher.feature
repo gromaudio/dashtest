@@ -27,8 +27,8 @@ Scenario: View Settings
     And I see "Bluetooth connections that will launch DashLinQ automatically"
     Then I see "Advanced functionality"
     And I see "Display Stay Awake"
-    Then I scroll down
     And I see "Screen will never sleep while charging"
+    Then I scroll down
     And I see "Show Quick Return icon"
     And I see "When other app is active the quick return icon will be shown at the side of the app. Icon can be adjusted in location via finger press and drag action."
     Then I scroll down
@@ -165,23 +165,23 @@ Scenario: View About section
     And I see "Send Report Error"
     And I see "Send Feedback"
 
-Scenario: About check (Send Report Error)
-    Then I press "leftButtonFirst"
-    Then I press "About"
-    Then I press "More options"
-    Then I press "Send Report Error"
-    Then I wait for 2 seconds
-    #Then I go back
-    #Then I press item with name "Select an application to send the log"
+#Scenario: About check (Send Report Error)
+#    Then I press "leftButtonFirst"
+#    Then I press "About"
+#    Then I press "More options"
+#    Then I press "Send Report Error"
+#    Then I wait for 2 seconds
+#    Then I go back
+#    Then I press item with name "Select an application to send the log"
 
-Scenario: About check (Send Feedback)
-    Then I press "leftButtonFirst"
-    Then I press "About"
-    Then I press "More options"
-    Then I press "Send Feedback"
-    Then I wait for 2 seconds
-    #Then I go back
-    #Then I press item with name "Send Feedback Email"
+#Scenario: About check (Send Feedback)
+#    Then I press "leftButtonFirst"
+#    Then I press "About"
+#    Then I press "More options"
+#    Then I press "Send Feedback"
+#    Then I wait for 2 seconds
+#    Then I go back
+#    Then I press item with name "Send Feedback Email"
 
 # EXIT
 
