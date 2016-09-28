@@ -532,7 +532,6 @@ Scenario: Check Songs tab
 
 Scenario: Jump to Album/Artist options from Songs tab
   Then I press "icon"
-  Then I wait for 10 seconds
   Then I press "Artists"
   Then I press "Songs"
   Then I long press "2 Find U"
