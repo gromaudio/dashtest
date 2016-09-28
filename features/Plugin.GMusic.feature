@@ -574,6 +574,7 @@ Scenario: Add to playlist from Songs tab
   Then I press "Add to playlist"
   Then I press "New"
   Then I press "Save"
+  Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
   Then I scroll to "Dreams" text
