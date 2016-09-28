@@ -388,7 +388,7 @@ Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I scroll to "01 Sparks Fly" text
   Then I see "01 Sparks Fly"
 
-  Then I scroll to "01 Вперед - Бодрит" text
+  Then I scroll down to "14/30" text
   Then I see "01 With a Little Help"
 
   Then I scroll to "01 Вперед - Бодрит" text
@@ -403,7 +403,7 @@ Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I scroll to "02 It\'s Alright for You" text
   Then I see "02 It\'s Alright for You"
 
-  Then I scroll to "02 Road Trippin\'" text
+  Then I scroll down to "19/30" text
   Then I see "02 Lucy in the Sky"
 
   Then I scroll to "02 Road Trippin\'" text
@@ -427,10 +427,10 @@ Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I scroll to "05 She\'s Leaving Home" text
   Then I see "05 She\'s Leaving Home"
 
-  Then I scroll down
+  Then I scroll down to "27/30" text
   Then I see "06 Being for the"
 
-  Then I scroll to "08 When I\'m Sixty-Four" text
+  Then I scroll down to "28/30" text
   Then I see "07 Within You Without"
 
   Then I scroll to "08 When I\'m Sixty-Four" text
