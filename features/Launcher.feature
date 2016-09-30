@@ -545,5 +545,4 @@ Scenario: Player restore
     # - done
     
     # - swap items via drag&drop, including dragging over to next screen
-    # - don't know how to implement for now
-    
+    # - don't know how to implement for now   

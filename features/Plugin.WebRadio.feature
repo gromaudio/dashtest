@@ -25,8 +25,7 @@ Scenario: Settings
   And I see "Gestures"
   And I see "AutoHide Panels"
   Then I press "AutoHide Panels"
-  # And I see "Library Side Swipe"
-
+  
 Scenario: Navigation through the tabs
   Then I press "icon"
   Then I wait for 3 seconds
@@ -573,22 +572,22 @@ Scenario: Long press navigation
 
 # TOP LAYOUT MENU
 
-Scenario: Top layout menu (Home icon)
-  Then I press "icon"
-  Then I press "Favorites"
-  Then I press "Stations"
-  Then I press "topContentContainer"
-  Then I press "firstButtonLayout"
-  And I see "WebRadio"
-  And I see "Driving Mode"
+#Scenario: Top layout menu (Home icon)
+#  Then I press "icon"
+#  Then I press "Favorites"
+#  Then I press "Stations"
+#  Then I press "topContentContainer"
+#  Then I press "firstButtonLayout"
+#  And I see "WebRadio"
+#  And I see "Driving Mode"
 
-Scenario: Top layout menu (Voice commands icon)
-  Then I press "icon"
-  Then I wait for 3 seconds
-  Then I press "topContentContainer"
-  Then I press "thirdButtonLayout"
-  And I see "Call"
-  And I see "Navigate"
+#Scenario: Top layout menu (Voice commands icon)
+#  Then I press "icon"
+#  Then I wait for 3 seconds
+#  Then I press "topContentContainer"
+#  Then I press "thirdButtonLayout"
+#  And I see "Call"
+#  And I see "Navigate"
 
 Scenario: Exit option
   Then I press "icon"

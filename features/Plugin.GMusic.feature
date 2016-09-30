@@ -773,21 +773,21 @@ Scenario: Long press actions - Delete cache
   Then I go back
   Then I press "Playlists"
 
- Scenario: Top layout menu (Home icon)
-  Then I press "icon"
-  Then I wait for 2 seconds
-  Then I press "topContentContainer"
-  Then I press "firstButtonLayout"
-  And I see "WebRadio"
-  And I see "Driving Mode"  
+#Scenario: Top layout menu (Home icon)
+#  Then I press "icon"
+#  Then I wait for 2 seconds
+#  Then I press "topContentContainer"
+#  Then I press "firstButtonLayout"
+#  And I see "WebRadio"
+#  And I see "Driving Mode"  
 
-Scenario: Top layout menu (Voice commands icon)
-  Then I press "icon"
-  Then I wait for 2 seconds
-  Then I press "topContentContainer"
-  Then I press "thirdButtonLayout"
-  And I see "Call"
-  And I see "Navigate" 
+#Scenario: Top layout menu (Voice commands icon)
+#  Then I press "icon"
+#  Then I wait for 2 seconds
+#  Then I press "topContentContainer"
+#  Then I press "thirdButtonLayout"
+#  And I see "Call"
+#  And I see "Navigate" 
 
 Scenario: Exit option
   Then I press "icon"
