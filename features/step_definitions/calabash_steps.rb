@@ -192,7 +192,6 @@ Then /^I press Login button$/ do
 	touch("webView xpath:'//BUTTON[contains(text(),\"Log In\")]'")
 end	
 
-
 Then /^I verify checkboxes$/ do
 	checkboxes = query("* id:'checkbox'")
 	checkbox_count = checkboxes.count
