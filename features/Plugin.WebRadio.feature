@@ -106,7 +106,7 @@ Scenario: Add/remove favorite (long press)
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I get text for item number 3
   Then I long press image view number 3
   Then I press "Add to favorites"
@@ -123,7 +123,7 @@ Scenario: Add/remove favorite (favorite button)
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 2 seconds
+  Then I wait for 4 seconds
   Then I get text for item number 3
   Then I press image view number 3
   Then I press "slide_panel_now_playing_title"
@@ -144,7 +144,7 @@ Scenario: Play favorite station
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 2 seconds
+  Then I wait for 4 seconds
   Then I long press list item number 3
   Then I press "Add to favorites"
   Then I press " .. "
@@ -163,7 +163,7 @@ Scenario: Play favorite station (Long press)
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 2 seconds
+  Then I wait for 4 seconds
   Then I long press list item number 3
   Then I press "Add to favorites"
   Then I press " .. "
@@ -182,7 +182,7 @@ Scenario: Switching between favorite stations
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 2 seconds
+  Then I wait for 4 seconds
   Then I get text for item number 3
   Then I long press list item number 3
   Then I press "Add to favorites"
@@ -249,7 +249,7 @@ Scenario: Recents tab
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 2 seconds
+  Then I wait for 4 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "Recents"
@@ -346,7 +346,7 @@ Scenario: Record audio
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -498,7 +498,7 @@ Scenario: Stations switching by next/prev
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -542,7 +542,7 @@ Scenario: Tap on cover
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
