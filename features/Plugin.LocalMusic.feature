@@ -343,7 +343,7 @@ Scenario: Check if Artists tab contain items from LocalMusicTestSuite
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
-@debug
+
 Scenario: Check if Songs tab contain items from LocalMusicTestSuite
   Then I press "icon"
   Then I press "Albums"
@@ -483,10 +483,11 @@ Scenario: Local Music Settings
   Then I scroll down
   And I see "Prev category. Folder, Playlist, Album, Artist"
   Then I see "FIXED ACTIONS"
+  And I see "Navigation Menu slider"
   And I see "Previous Track"
   And I see "Next Track"
-  And I see "Show Playing Now tracks"
   Then I scroll down
+  And I see "Show Playing Now tracks"
   And I see "Update cover art from internet"
   Then I press "leftButtonFirst" 
   Then I see "AutoHide Panels"
@@ -848,7 +849,8 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I scroll down
   And I see "03 Hold Me"
   And I see "04 Everywhere"
-  Then I press "actionBackArrow"
+  Then I go back
+  Then I wait for 1 second
   Then I long press "Fleet"
   Then I wait for 2 seconds
   And I see "Play"

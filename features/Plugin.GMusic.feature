@@ -8,7 +8,7 @@ Scenario: Start
   Then I press "replace"
   Then I press "PLUGINS"
   Then I press "GMusic"
-@debug
+
 Scenario: Navigation through the plugin
   Then I press "icon"
   Then I wait for 3 seconds
@@ -55,10 +55,11 @@ Scenario: Navigation through the Settings
   Then I scroll down
   And I see "Prev category. Folder, Playlist, Album, Artist"
   Then I see "FIXED ACTIONS"
+  And I see "Navigation Menu slider"
   And I see "Previous Track"
   And I see "Next Track"
-  And I see "Show Playing Now tracks"
   Then I scroll down
+  And I see "Show Playing Now tracks"
   And I see "Update cover art from internet"
   Then I press "leftButtonFirst"
   Then I see "AutoHide Panels"
@@ -233,7 +234,7 @@ Scenario: Check Albums tab
   Then I go back
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Playlists"
-@debug
+
 Scenario: Add to playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"

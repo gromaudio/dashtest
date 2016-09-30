@@ -368,7 +368,6 @@ Scenario: View Time&Weather plugin
     Then I see "NIGHT"
     Then I see "MORNING"
 
-@debug
 Scenario: Player restore
     Then I press "icon"
     Then I wait for 2 seconds
