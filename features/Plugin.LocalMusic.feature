@@ -167,6 +167,31 @@ Scenario: Change "Music home folder" to Music
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I drag from 50:30 to 50:300 moving with 20 steps
 
+Scenario: Play/Pause Music (Folders tab)
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
+  Then I go back
+  When I touch the "00 Fleetwood Mac" text
+  Then I scroll up
+  Then I press "00 Rhiannon"
+  Then I press "slide_panel_now_playing_title"
+  Then I should see text containing "00 Rhiannon"
+  Then I should see text containing "00 Greatest"
+  Then I see "00 Fleetwood Mac"
+  And I see "4:12"
+  And I see "1/5"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "pause"
+  Then I check Music playing
+  Then I press "pause"
+  Then I press "actionBackArrow"
+  Then I scroll up
+  Then I press " .. "  
+
 Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I press "icon"
   Then I press "Albums"
@@ -196,7 +221,7 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I go back
   Then I full scroll down
 
-  Then I scroll up to "03 Californication" text
+  Then I scroll up to "03 Red Hot"
   Then I wait for 2 seconds
   When I touch the "03 Californication" text
   Then I see "00 Around The World"
@@ -505,32 +530,7 @@ Scenario: Local Music Settings
   And I see "Music home folder"
   Then I see "Indexing"
   And I see "Media Rescan"
-
-Scenario: Play/Pause Music (Folders tab)
-  Then I press "icon"
-  Then I press "Albums"
-  Then I press "Playlists"
-  Then I press "Folders"
-  Then I go back
-  When I touch the "00 Fleetwood Mac" text
-  Then I scroll up
-  Then I press "00 Rhiannon"
-  Then I press "slide_panel_now_playing_title"
-  Then I should see text containing "00 Rhiannon"
-  Then I should see text containing "00 Greatest"
-  Then I see "00 Fleetwood Mac"
-  And I see "4:12"
-  And I see "1/5"
-  Then I check Music playing
-  Then I press "pause"
-  Then I check Music pause
-  Then I press "pause"
-  Then I check Music playing
-  Then I press "pause"
-  Then I press "actionBackArrow"
-  Then I scroll up
-  Then I press " .. "
-  
+ 
 Scenario: Play/Pause Music - long press (Folders tab)
   Then I press "icon"
   Then I press "Albums"
