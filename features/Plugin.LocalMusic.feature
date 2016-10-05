@@ -804,6 +804,7 @@ Scenario: Tap on cover open current folder
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
+  Then I go back
   Then I wait for 2 seconds
   When I touch the "01 Imagine Dragons" text
   Then I press "00 Radioactive"
