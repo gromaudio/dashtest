@@ -365,11 +365,11 @@ Scenario: Add to playlist from Artists tab
   Then I press "Playlists"
   And I see "Adam Lambert"
   Then I press "Adam Lambert"
-  And I see "Strut"
-  And I see "Fever"
-  Then I scroll down
   And I see "Music Again"
+  And I see "Strut"
+  Then I scroll down
   And I see "Soaked"
+  And I see "Fever"
   Then I scroll up
   Then I press "actionBackArrow"
   Then I long press "Adam Lambert"
@@ -450,6 +450,7 @@ Scenario: Tap on cover
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
   And I see "GMusic"
+  Then I wait for 2 seconds
   Then I tap on cover
   And I see "Adam Lambert"
   And I see "Music Again"

@@ -209,7 +209,8 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I go back
   Then I full scroll down
   
-  Then I scroll up to "04 Taylor Swift" text
+  Then I drag from 50:30 to 50:300 moving with 20 steps
+  Then I scroll down to "04 Taylor Swift" text
   When I touch the "04 Speak Now" text
   Then I see "00 Mine"
   And I see "01 Sparks Fly"
@@ -219,7 +220,8 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I go back
   Then I full scroll down
 
-  Then I scroll up to "05 The Beatles" text
+  Then I drag from 50:30 to 50:300 moving with 20 steps
+  Then I scroll down to "05 The Beatles" text
   When I touch the "05 Sgt. Pepper\'s" text
   Then I should see text containing "00 Sgt. Pepper\'s"
   Then I should see text containing "01 With a Little Help"
@@ -252,7 +254,8 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I go back
   Then I full scroll down
   
-  Then I scroll up to "06 Камни" text
+  Then I drag from 50:30 to 50:300 moving with 20 steps
+  Then I scroll down to "06 Камни" text
   When I touch the "06 Камни" text
   And I see "00 Летим По Кругу"
   And I see "01 Вперед - Бодрит"
@@ -262,7 +265,8 @@ Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I go back
   Then I full scroll down
 
-  Then I scroll up to "07 The Police" text
+  Then I drag from 50:30 to 50:300 moving with 20 steps
+  Then I scroll down to "07 The Police" text
   When I touch the "07 Reggatta" text
   Then I see "00 Message in a Bottle"
   And I see "01 Reggatta de Blanc"
