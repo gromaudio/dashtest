@@ -67,8 +67,8 @@ Scenario: View Settings components
     Then I press "Display Stay Awake"
 
     Then I scroll down
-    Then I press "Show Quick Return icon"
-    Then I press "Show Quick Return icon"
+#   Then I press "Show Quick Return icon"
+#   Then I press "Show Quick Return icon"
 
     Then I press "Sticky icon"
     Then I see "None"
@@ -163,24 +163,6 @@ Scenario: View About section
     Then I press "More options"
     And I see "Send Report Error"
     And I see "Send Feedback"
-
-#Scenario: About check (Send Report Error)
-#    Then I press "leftButtonFirst"
-#    Then I press "About"
-#    Then I press "More options"
-#    Then I press "Send Report Error"
-#    Then I wait for 2 seconds
-#    Then I go back
-#    Then I press item with name "Select an application to send the log"
-
-#Scenario: About check (Send Feedback)
-#    Then I press "leftButtonFirst"
-#    Then I press "About"
-#    Then I press "More options"
-#    Then I press "Send Feedback"
-#    Then I wait for 2 seconds
-#    Then I go back
-#    Then I press item with name "Send Feedback Email"
 
 # EXIT
 

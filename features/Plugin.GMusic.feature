@@ -104,7 +104,7 @@ Scenario: Play/Pause music - Albums tab
   Then I scroll up
   Then I press "Rolling In The Deep"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I see "Rolling In The Deep"
   Then I check Music playing
   Then I press "pause"
@@ -112,10 +112,11 @@ Scenario: Play/Pause music - Albums tab
   Then I wait for 1 second
   Then I go back
   # Long press play
+  Then I wait for 1 second
   Then I long press "Rumor Has It"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I see "Rumor Has It"
   Then I check Music playing
   Then I press "pause"
@@ -148,6 +149,7 @@ Scenario: Check Albums tab
   And I see "5:16"
   Then I scroll up
   Then I go back
+  Then I wait for 1 second
 
   Then I full scroll down
   Then I scroll up to "Buffy" text
@@ -170,6 +172,7 @@ Scenario: Check Albums tab
   Then I scroll up
   Then I go back
 
+  Then I wait for 2 seconds
   Then I full scroll down
   Then I scroll up to "Adam Lambert" text
   Then I wait for 1 second
@@ -191,6 +194,7 @@ Scenario: Check Albums tab
   Then I scroll up
   Then I go back
 
+  Then I wait for 2 seconds
   Then I full scroll down
   Then I scroll up to "Greatest Hits" text
   Then I wait for 1 second
@@ -212,6 +216,7 @@ Scenario: Check Albums tab
   Then I scroll up
   Then I go back
   
+  Then I wait for 2 seconds
   Then I full scroll down
   Then I scroll up to "Queen" text
   Then I wait for 1 second
@@ -253,6 +258,7 @@ Scenario: Add to playlist from Albums tab
   And I see "Lovesong"
   Then I scroll up
   Then I go back
+  Then I wait for 2 seconds
   Then I long press "Adele - 21"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
@@ -372,6 +378,7 @@ Scenario: Add to playlist from Artists tab
   And I see "Fever"
   Then I scroll up
   Then I press "actionBackArrow"
+  Then I wait for 1 second
   Then I long press "Adam Lambert"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
@@ -387,17 +394,18 @@ Scenario: Play/Pause music
   Then I scroll up
   Then I press "Rumor Has It"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I see "Rumor Has It"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
   Then I go back
   # Long press play
+  Then I wait for 2 seconds
   Then I long press "Rolling In The Deep"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I see "Rolling In The Deep"
   Then I check Music playing
   Then I press "pause"
@@ -557,6 +565,7 @@ Scenario: Jump to Album/Artist options from Songs tab
   Then I scroll up
   Then I go back 
   Then I press "Songs"
+  Then I wait for 1 second
   Then I long press "2 Find U"
   Then I press "Jump to Artist"
   Then I wait for 2 seconds
@@ -584,6 +593,7 @@ Scenario: Add to playlist from Songs tab
   Then I press "Dreams"
   And I see "Fleetwood Mac - Greatest Hits"
   Then I go back
+  Then I wait for 1 second
   Then I long press "Dreams"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
@@ -596,17 +606,18 @@ Scenario: Play/Pause music
   Then I press "Songs"
   Then I press "2 Find U"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I see "2 Find U"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
   Then I go back
   # Long press play
+  Then I wait for 2 seconds
   Then I long press "Dreams"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I see "Dreams"
   Then I check Music playing
   Then I press "pause"
@@ -651,6 +662,7 @@ Scenario: Add/Rename/Delete playlists
   Then I press "icon"
   Then I press "Artists"
   Then I press "Songs"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I scroll to "Fever" text
   Then I long press "Fever"
   Then I press "Add to playlist"
@@ -746,6 +758,7 @@ Scenario: Long press actions - Play From the ...
   Then I press "On The Go"
   Then I press list item number 1
   Then I go back
+  Then I wait for 1 second
   Then I scroll to "Adele - 21" text
   Then I long press "Adele - 21"
   When I press "Play from the saved position"

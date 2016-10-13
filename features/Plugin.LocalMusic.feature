@@ -227,6 +227,7 @@ Scenario: Play/Pause Music (Folders tab)
   Then I scroll up
   Then I press "01 Shakin\' Hands"
   Then I go back
+  Then I wait for 1 second
   Then I press "slide_panel_now_playing_title"
   Then I should see text containing "01 Shakin\' Hands"
   Then I should see text containing "Dark Horse"
@@ -248,10 +249,12 @@ Scenario: Play/Pause Music - long press (Folders tab)
   Then I press "Playlists"
   Then I press "Folders"
   Then I go back
+  Then I wait for 1 second
   Then I press "Taylor Swift - Speak Now"
   Then I long press "01 Mine"
   Then I press "Play"
   Then I go back
+  Then I wait for 1 second
   Then I press "slide_panel_now_playing_title"
   Then I should see text containing "01 Mine"
   Then I should see text containing "Speak Now"
@@ -273,6 +276,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I press "Playlists"
   Then I press "Folders"
   Then I go back
+  Then I wait for 1 second
   Then I touch the "Nickelback - Dark Horse" text
   Then I scroll up
   Then I long press "01 Shakin\' Hands"
@@ -289,6 +293,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I press "Mac"
   Then I press "01 Shakin\' Hands"
   Then I go back
+  Then I wait for 2 seconds
   When I press "slide_panel_now_playing_title"
   Then I see "3:39"
   And I see "1/1"
@@ -301,6 +306,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I check Music playing
   Then I press "pause"
   Then I go back
+  Then I wait for 1 second
   Then I long press "Mac"
   Then I wait for 3 seconds
   Then I swipe to up
@@ -312,6 +318,7 @@ Scenario: Play/Pause Music - long press (Playlists tab)
   Then I press "Playlists"
   Then I press "Folders"
   Then I go back
+  Then I wait for 1 second
   When I touch the "Taylor Swift - Speak Now" text
   Then I long press "01 Mine"
   Then I press "Add to playlist"
@@ -334,6 +341,7 @@ Scenario: Play/Pause Music - long press (Playlists tab)
   Then I check Music playing
   Then I press "pause"
   Then I press "actionBackArrow"
+  Then I wait for 1 second
   Then I long press "01 Mine"
   Then I wait for 3 seconds
   Then I swipe to up
@@ -346,6 +354,7 @@ Scenario: Play/Pause Music (Albums tab)
   Then I press "Reggatta"
   Then I press "01 Message in a Bottle"
   Then I go back
+  Then I wait for 1 second
   When I press "slide_panel_now_playing_title"
   Then I see "02 The Police"
   And I should see text containing "01 Message in a Bottle"
@@ -393,6 +402,7 @@ Scenario: Play/Pause Music (Artists tab)
   Then I touch the "Reggatta" text
   Then I press "01 Message in a Bottle"
   Then I go back
+  Then I wait for 1 second
   When I press "slide_panel_now_playing_title"
   Then I see "02 The Police"
   And I should see text containing "01 Message in a Bottle"
@@ -486,6 +496,7 @@ Scenario: Switching between tracks
   Then I press "Playlists"
   Then I press "Folders"
   Then I go back
+  Then I wait for 1 second
   Then I long press "Taylor Swift - Speak Now"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
@@ -540,6 +551,7 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I press "Playlists"
   Then I press "Folders"
   Then I go back
+  Then I wait for 1 second
   Then I long press "Taylor Swift - Speak Now"
   Then I press "Add to playlist"
   Then I press "New"
@@ -580,6 +592,7 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "Playlists"
   Then I press "Folders"
   Then I go back
+  Then I wait for 1 second
   Then I long press "Nickelback - Dark Horse"
   Then I press "Add to playlist"
   Then I press "New"
@@ -608,15 +621,18 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I go back
   Then I wait for 1 second
   Then I go back
+  Then I wait for 1 second
   Then I scroll up
   Then I press "On The Go"
   Then I wait for 2 seconds
   Then I press list item number 1
   Then I press "actionBackArrow"
+  Then I wait for 1 second
   Then I long press "Nickelback"
   When I press "Play from the saved position"
   Then I wait for 2 seconds
   Then I press "actionBackArrow"
+  Then I wait for 1 second
   Then I press "slide_panel_now_playing_title"
   And I should see text containing "02 S.E.X."
   And I should see text containing "Dark Horse"
@@ -624,6 +640,7 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   And I see "3:53"
   Then I press "pause"
   Then I go back
+  Then I wait for 1 second
   Then I long press "Nickelback"
   Then I wait for 3 seconds
   Then I swipe to up
@@ -636,6 +653,7 @@ Scenario: Long press actions - Add to playlist from playlist tab
   Then I press "Playlists"
   Then I press "Folders"
   Then I go back
+  Then I wait for 1 second
   Then I long press "Taylor Swift - Speak Now"
   Then I press "Add to playlist"
   Then I press "New"
@@ -653,6 +671,7 @@ Scenario: Long press actions - Add to playlist from playlist tab
   And I see "03 Back To December"
   Then I scroll up
   Then I go back
+  Then I wait for 2 seconds
   Then I long press "Swift"
   Then I press "Add to playlist"
   Then I press "New"
@@ -670,6 +689,7 @@ Scenario: Long press actions - Add to playlist from playlist tab
   And I see "03 Back To December"
   Then I scroll up
   Then I go back
+  Then I wait for 2 seconds
   Then I long press "Swift Copy"
   Then I wait for 3 seconds
   Then I swipe to up
@@ -700,6 +720,7 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   And I see "02 S.E.X."
   And I see "2/2"
   Then I press "actionBackArrow"
+  Then I wait for 1 second
   Then I long press "From_Albums"
   Then I wait for 3 seconds
   Then I swipe to up
@@ -728,6 +749,7 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I see "03 It\'s Alright for You"
   Then I scroll up
   Then I go back
+  Then I wait for 1 second
   Then I long press "From_Artists"
   Then I wait for 3 seconds
   Then I swipe to up
@@ -755,6 +777,7 @@ Scenario: Long press actions - Add/Delete playlist from Songs tab
   And I see "01 Mine"
   And I see "1/1"
   Then I go back
+  Then I wait for 1 second
   Then I long press "From_Songs"
   Then I wait for 3 seconds
   Then I swipe to up
@@ -777,6 +800,7 @@ Scenario: Long press actions - Jum to .. (Songs tab)
   And I see "03 Back To December"
   Then I scroll up
   Then I press "actionBackArrow"
+  Then I wait for 1 second
   Then I press "Artists"
   Then I press "Songs"
   Then I long press "01 Message in a Bottle"
