@@ -11,7 +11,10 @@ Then /^I long press "([^\"]*)" and select item number (\d+)$/ do |text, index|
 end
 
 Then /^I press back button$/ do
-	Device.press_back_button
+	back_command = adb shell input keyevent 4
+	env_command = "export ANDROID_SERIAL = $ADB_DEVICE_ARG"
+	system(env_command)
+	system(back_command)
 end
 
 Then /^I press image view with id "([^\"]*)" number (\d+)$/ do |id, index|
@@ -20,6 +23,14 @@ end
 
 Then /^I press item with name "([^\"]*)"$/ do |name|
 	exit_code = system "./features/step_definitions/click-by-text.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
+	if !exit_code
+		p exit_code
+		raise "Item #{name} is not found on a screen"
+	end
+end
+
+Then /^I press permission "([^\"]*)"$/ do |name|
+	exit_code = system "./features/step_definitions/click-by-text-permit.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
 	if !exit_code
 		p exit_code
 		raise "Item #{name} is not found on a screen"
@@ -126,7 +137,7 @@ end
 
 Then /^I get text for item number (\d+)$/ do |index|
 	a=query("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
-	@item_text = a[0]['text']
+	@item_text = a[0]['text'] 
 	puts "\tDebug: text for item # #{index} is #{@item_text}"
 	if @item_text.empty?
 		raise "#{index} does not have text"
