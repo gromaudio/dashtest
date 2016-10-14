@@ -137,7 +137,8 @@ end
 
 Then /^I get text for item number (\d+)$/ do |index|
 	a=query("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
-	@item_text = a[0]['text'] 
+	#@item_text = a[0]['text'] 
+	@item_text = a[0]['text'].gsub("'"){"\\'"}
 	puts "\tDebug: text for item # #{index} is #{@item_text}"
 	if @item_text.empty?
 		raise "#{index} does not have text"
