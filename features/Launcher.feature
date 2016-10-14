@@ -67,8 +67,9 @@ Scenario: View Settings components
     Then I press "Display Stay Awake"
 
     Then I scroll down
-#   Then I press "Show Quick Return icon"
-#   Then I press "Show Quick Return icon"
+    Then I press "Show Quick Return icon"
+    Then I press permission "Permit drawing over other apps"
+    Then I press "Show Quick Return icon"
 
     Then I press "Sticky icon"
     Then I see "None"
@@ -125,6 +126,7 @@ Scenario: Settings (Speed & Temperature)
     Then I see "℉"
     Then I see "mph"
     Then I press "leftButtonFirst"
+    Then I wait for 1 second
     Then I press "leftButtonFirst"
     Then I press "Settings"
     Then I press "Speed"
