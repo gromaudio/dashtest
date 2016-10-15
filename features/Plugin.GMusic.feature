@@ -462,9 +462,9 @@ Scenario: Tap on cover
   Then I tap on cover
   And I see "Adam Lambert"
   And I see "Music Again"
-  And I see "Soaked"
-  Then I scroll down
   And I see "Strut"
+  Then I scroll down
+  And I see "Soaked"
   And I see "Fever"
   Then I scroll up
   Then I go back
