@@ -30,7 +30,7 @@ Then /^I press item with name "([^\"]*)"$/ do |name|
 end
 
 Then /^I press permission "([^\"]*)"$/ do |name|
-	exit_code = system "./features/step_definitions/click-by-text-permit.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
+	exit_code = system "./features/step_definitions/click-by-text2.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
 	if !exit_code
 		p exit_code
 		raise "Item #{name} is not found on a screen"
