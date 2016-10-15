@@ -104,7 +104,7 @@ Scenario: Play/Pause music - Albums tab
   Then I scroll up
   Then I press "Rolling In The Deep"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I see "Rolling In The Deep"
   Then I check Music playing
   Then I press "pause"
@@ -116,7 +116,7 @@ Scenario: Play/Pause music - Albums tab
   Then I long press "Rumor Has It"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I see "Rumor Has It"
   Then I check Music playing
   Then I press "pause"
@@ -394,7 +394,7 @@ Scenario: Play/Pause music
   Then I scroll up
   Then I press "Rumor Has It"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I see "Rumor Has It"
   Then I check Music playing
   Then I press "pause"
@@ -405,7 +405,7 @@ Scenario: Play/Pause music
   Then I long press "Rolling In The Deep"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I see "Rolling In The Deep"
   Then I check Music playing
   Then I press "pause"
@@ -606,7 +606,7 @@ Scenario: Play/Pause music
   Then I press "Songs"
   Then I press "2 Find U"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I see "2 Find U"
   Then I check Music playing
   Then I press "pause"
@@ -617,7 +617,7 @@ Scenario: Play/Pause music
   Then I long press "Dreams"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I see "Dreams"
   Then I check Music playing
   Then I press "pause"
