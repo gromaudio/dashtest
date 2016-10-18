@@ -9,6 +9,9 @@ Created on May 5, 2012
 import sys
 import os
 import time
+env_command = "ANDROID_SERIAL=$ADB_DEVICE_ARG; export ANDROID_SERIAL"
+os.system(env_command)
+os.system("echo $ANDROID_SERIAL")
 
 try:
     sys.path.append(os.path.join(os.environ['ANDROID_VIEW_CLIENT_HOME'], 'src'))
@@ -24,10 +27,5 @@ if b:
     (x, y) = b.getXY()
     b.touch()
     back_command = "adb shell input keyevent 4"
-    env_command = "set ANDROID_SERIAL = $ADB_DEVICE_ARG; export ANDROID_SERIAL"
-    os.system(env_command)
     os.system(back_command)
-    os.system("echo $ANDROID_SERIAL")
-    
 sys.exit(0)
-
