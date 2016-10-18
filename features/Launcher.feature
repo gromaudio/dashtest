@@ -33,7 +33,7 @@ Scenario: View Settings
     Then I scroll down
     Then I see "Speech To Text Engine"
     Then I press "Speech To Text Engine"
-    And I see "Google"
+    And I see "Capio"
     Then I go back
     Then I scroll down
     Then I see "Advertising"
@@ -82,8 +82,8 @@ Scenario: View Settings components
     Then I press "Maps"
 
     Then I press "Speech To Text Engine"
-    Then I see "Google"
-    Then I press "Google"
+    Then I see "Capio"
+    Then I press "Capio"
 
     Then I scroll down
     Then I press "Disable USB Streaming"
@@ -467,31 +467,12 @@ Scenario: Player restore
     Then I wait for 3 seconds
     Then I check player playing        
 
-
-    # FIXME: Swipe left doesn't work on my Nexus 5 & Samsung A300 - it swipes in correct direction, but releases too early, so screen doesn't change
-    # DONE
-
-    # FIXME: ensure we see current time on the widget on the main screen
-    # DONE
-
     # FIXME: ensure app is launched
     # - don't know how to implement for now
-
-    # FIXME: we will implement auto testing for voice playback when we have time, for now - only manual testing
-    
-    # FIXME: we need a scenario to check if changed settings are correctly saved and restored after app restart including units, sticky icon etc
-    # DONE
-
-    # NOTE: all item from PLUGINS tab are called PLUGINS (Local, Webradio etc), fixed three items from launcher screen are called widgets - Voice, Weather, Navigation
-
+   
     # FIXME: can we check if Sticky icon changed?
     # Don't know how to implement for now
-
-    # NOTE: Device may already have bluetooth connections, so we can only test dialog header
-
-    # FIXME: we should have manual test for testing this dialog: 1)device has no connected BT devices 2) this dialog shows "To enable Bluetooth integration please enable Bluetooth in Settings" 3) press "enable" button 4) pair some device 5) ensure this dialog shows that device
-    # Added manual tests
-
+    
     # FIXME: please think about how can we test advertising option?
     # Don't know how to implement for now
 
@@ -501,32 +482,12 @@ Scenario: Player restore
     # FIXME: can we check that pressed check boxes are checked/unchecked?
     # Don't know how to implement for now
 
-    # NOTE: if you press something, make sure you unpress it and check that it returned back
-
-    # FIXME: how we can check A2DP Stream & Car Play plugins existence in VLine mode?
-    # It's not possible without BLoutooth adapter box (USB Car Kits)
-
-    # FIXME: ensure we have following scenarios:
-    # - add apps, shortcuts, plugins to the slots of all three screens and ensure the are added successfully
-    # - done
-    # - swipe screens left-right and ensure added icons are there where they were added
-    # - done
-    # - replace one item with another via item menu
-    # - done
-    # - delete item via item menu
-    # - done
-    # - check that swipe-down player menu is working
-    # - done
-    # - check that swipe-up location menu is working
-    # - done
-
     # - launching item - we should ensure that apps, shortcuts and plugins launch as expected:
-     #   - app can be checked by launching an app which 100% have all the devices - calculator for example
-     #   - don't know how to implement for now
-
-    #   - shortcut can be checked by AM/FM shortcuts
-    #   - plugins can be checked by launching Local music for example
-    # - done
+    #   - app can be checked by launching an app which 100% have all the devices - calculator for example
+    #   - don't know how to implement for now
     
     # - swap items via drag&drop, including dragging over to next screen
     # - don't know how to implement for now   
+
+    # FIXME: we should have manual test for testing this dialog: 1)device has no connected BT devices 2) this dialog shows "To enable Bluetooth integration please enable Bluetooth in Settings" 3) press "enable" button 4) pair some device 5) ensure this dialog shows that device
+    # Added manual tests
