@@ -378,7 +378,7 @@ Scenario: Player restore
     Then I press "Exit"
         
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -387,7 +387,7 @@ Scenario: Player restore
     Then I check player playing
     
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -396,7 +396,7 @@ Scenario: Player restore
     Then I check player playing
     
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -405,7 +405,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -414,7 +414,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -423,7 +423,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -432,7 +432,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -441,7 +441,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -450,7 +450,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
@@ -459,7 +459,7 @@ Scenario: Player restore
     Then I check player playing
 
     Then I restart application
-    Then I wait for 1 second
+    Then I wait for 2 seconds
     Then I swipe to down
     And I see "00 Mine"
     And I see "04 Taylor Swift"
