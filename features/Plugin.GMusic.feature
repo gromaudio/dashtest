@@ -402,7 +402,8 @@ Scenario: Play/Pause music
   Then I go back
   # Long press play
   Then I wait for 2 seconds
-  Then I long press "Rolling In The Deep"
+  Then I go back
+  Then I long press "Adele"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
   Then I wait for 5 seconds
@@ -689,8 +690,7 @@ Scenario: Add/Rename/Delete playlists
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
-  Then I don't see "Unoriginal"
-
+  
 Scenario: Add to playlist from playlists tab
   Then I press "icon"
   Then I press "Albums"
