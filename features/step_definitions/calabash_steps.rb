@@ -10,11 +10,9 @@ end
 Then /^I long press "([^\"]*)" and select item number (\d+)$/ do |text, index|
 end
 
-Then /^I press back button$/ do
-	back_command = adb shell input keyevent 4
-	env_command = "export ANDROID_SERIAL = $ADB_DEVICE_ARG"
-	system(env_command)
-	system(back_command)
+Then /^I click back button$/ do
+	cmd = "#{default_device.adb_command} shell input keyevent 4"
+	system(cmd)
 end
 
 Then /^I press image view with id "([^\"]*)" number (\d+)$/ do |id, index|
@@ -112,7 +110,7 @@ Then /^I swipe to right$/ do
 end
 
 Then /^I swipe to left$/ do
-    perform_action('drag', 25, 75, 50, 50, 3)
+    perform_action('drag', 35, 75, 50, 50, 3)
 end
 
 Then /^I swipe to down$/ do
