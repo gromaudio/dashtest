@@ -1,5 +1,5 @@
 Feature: Launcher
-@debug 
+@debug
 Scenario: Start
     Then I press "skipButton"
     Then I press "button2"
@@ -33,7 +33,7 @@ Scenario: View Settings
     Then I scroll down
     Then I see "Speech To Text Engine"
     Then I press "Speech To Text Engine"
-    And I see "Capio"
+    And I see "Google"
     Then I go back
     Then I scroll down
     Then I see "Advertising"
@@ -82,8 +82,8 @@ Scenario: View Settings components
     Then I press "Maps"
 
     Then I press "Speech To Text Engine"
-    Then I see "Capio"
-    Then I press "Capio"
+    Then I see "Google"
+    Then I press "Google"
 
     Then I scroll down
     Then I press "Disable USB Streaming"
@@ -176,7 +176,7 @@ Scenario: Exit check
 # MAIN
 
 Scenario: Check default plugin tabs
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
     Then I see "APPS"
     Then I see "SHORTCUTS"
@@ -189,8 +189,8 @@ Scenario: Check default plugin tabs
     Then I scroll down
     Then I see "WebRadio"
     Then I see "Where is My Car"
-    Then I swipe to left
-    Then I swipe to left
+    Then I drag from 25:50 to 75:50 moving with 5 steps
+    Then I drag from 25:50 to 75:50 moving with 5 steps
     Then I press "leftButtonFirst"
     Then I swipe to left
 
@@ -205,32 +205,40 @@ Scenario: Swipe-up location menu
     Then I swipe to up
     Then I press "locationTextView"
     Then I go back
-
+@debug
 Scenario: Add App
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
-    Then I scroll to "Play Store" text
-    Then I press "Play Store"
-    And I see "Play Store"
+    Then I scroll to "Google Settings" text
+    Then I press "Google Settings"
+    And I see "Google Settings"
+    Then I wait for 2 seconds
+    Then I swipe to left
+@debug
+Scenario: Launch and Check App
+    Then I drag from 75:50 to 35:50 moving with 5 steps 
+    When I press "icon"
+    Then I press item with name "Google Settings"
+    Then I click back button
     Then I wait for 2 seconds
     Then I press "menu_button"
     And I press "delete"
     Then I swipe to left
 
 Scenario: Add Shourtcat    
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
     When I press "SHORTCUTS"
     Then I scroll until I see the "AM Radio" text
     Then I press "AM Radio"
     And I see "AM Radio"
     Then I swipe to left
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     And I see "AM Radio"
     Then I swipe to left
 
 Scenario: Launch and Check Shourtcat 
-    Then I swipe right   
+    Then I drag from 75:50 to 35:50 moving with 5 steps   
     When I press "icon"
     And I see "Stations"
     And I see "Favorites"
@@ -246,18 +254,19 @@ Scenario: Launch and Check Shourtcat
     Then I swipe to left  
 
 Scenario: Add Plugin
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
     Then I press "PLUGINS"
     Then I press "Local Music"
     Then I see "Local Music"
     Then I swipe to left
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     And I see "Local Music"
     Then I swipe to left 
-   
+  
 Scenario: Launch and Check Plugin 
-    Then I swipe right   
+    Then I wait for 2 seconds
+    Then I drag from 75:50 to 35:50 moving with 5 steps 
     When I press "icon"
     And I see "Folders"
     And I see "Playlists"
@@ -273,7 +282,7 @@ Scenario: Launch and Check Plugin
     Then I swipe to left  
 
 Scenario: Delete plugin
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
     Then I press "PLUGINS"
     Then I press "Spotify"
@@ -284,7 +293,7 @@ Scenario: Delete plugin
     Then I swipe to left
 
 Scenario: Replace plugin
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
     Then I press "PLUGINS"
     Then I press "Spotify"
@@ -295,14 +304,14 @@ Scenario: Replace plugin
     Then I press "GMusic"
     Then I see "GMusic"
     Then I swipe to left
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     And I see "GMusic"
     Then I press "menu_button"
     Then I press "delete"
     Then I swipe to left
 
 Scenario: Add multiple plugins
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
     Then I press "PLUGINS"
     Then I press "Local Music"
@@ -313,7 +322,7 @@ Scenario: Add multiple plugins
     Then I see "Local Music"
     Then I see "Where is My Car"
     Then I swipe to left
-    Then I swipe right
+    Then I drag from 75:50 to 35:50 moving with 5 steps
     And I see "Local Music" 
     And I see "Where is My Car"
     Then I swipe to left
@@ -353,6 +362,7 @@ Scenario: View Time&Weather plugin
     Then I see "MORNING"
 
 Scenario: Player restore
+    Then I swipe to left
     Then I press "icon"
     Then I wait for 2 seconds
     Then I press "leftButtonFirst"
