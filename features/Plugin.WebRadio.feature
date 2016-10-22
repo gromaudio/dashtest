@@ -550,7 +550,7 @@ Scenario: Tap on cover
   Then I see item number text
   And I see "On The Go"
   Then I press "actionBackArrow"
-  Then I wait 1 second
+  Then I wait for 1 second
   Then I press "actionBackArrow"
   Then I press " .. "
 
