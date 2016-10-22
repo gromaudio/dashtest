@@ -217,33 +217,33 @@ Scenario: Local Music Settings
   Then I see "Indexing"
   And I see "Media Rescan"
 
-Scenario: Play/Pause Music when change orientation
-  Then I press "icon"
-  Then I press "Albums"
-  Then I press "Playlists"
-  Then I press "Folders"
-  Then I go back
-  Then I press "Taylor Swift - Speak Now"
-  Then I long press "01 Mine"
-  Then I rotate device to landscape
-  Then I press "Play"
-  Then I rotate device to portrait
-  Then I go back
-  Then I wait for 1 second
-  Then I press "slide_panel_now_playing_title"
-  Then I should see text containing "01 Mine"
-  Then I should see text containing "Speak Now"
-  Then I see "03 Taylor Swift"
-  And I see "3:50"
-  And I see "1/3"
-  Then I check Music playing
-  Then I press "pause"
-  Then I check Music pause
-  Then I press "pause"
-  Then I check Music playing
-  Then I press "pause"
-  Then I press "actionBackArrow"
-  Then I scroll up
+#Scenario: Play/Pause Music when change orientation
+#  Then I press "icon"
+#  Then I press "Albums"
+#  Then I press "Playlists"
+#  Then I press "Folders"
+#  Then I go back
+#  Then I press "Taylor Swift - Speak Now"
+#  Then I long press "01 Mine"
+#  Then I rotate device to landscape
+#  Then I press "Play"
+#  Then I rotate device to portrait
+#  Then I go back
+#  Then I wait for 1 second
+#  Then I press "slide_panel_now_playing_title"
+#  Then I should see text containing "01 Mine"
+#  Then I should see text containing "Speak Now"
+#  Then I see "03 Taylor Swift"
+#  And I see "3:50"
+#  And I see "1/3"
+#  Then I check Music playing
+#  Then I press "pause"
+#  Then I check Music pause
+#  Then I press "pause"
+#  Then I check Music playing
+#  Then I press "pause"
+#  Then I press "actionBackArrow"
+#  Then I scroll up
 
 Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"

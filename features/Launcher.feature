@@ -194,36 +194,27 @@ Scenario: Check default plugin tabs
     Then I press "leftButtonFirst"
     Then I swipe to left
 
-Scenario: Swipe-down player menu
-    Then I swipe to down
-    Then I press "next_button"
-    Then I press "prev_button"
-    Then I press "play_button_additional"
-    Then I go back
-
-Scenario: Swipe-up location menu
-    Then I swipe to up
-    Then I press "locationTextView"
-    Then I go back
 @debug
 Scenario: Add App
     Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
-    Then I scroll to "Google Settings" text
-    Then I press "Google Settings"
-    And I see "Google Settings"
-    Then I wait for 2 seconds
-    Then I swipe to left
-@debug
-Scenario: Launch and Check App
-    Then I drag from 75:50 to 35:50 moving with 5 steps 
-    When I press "icon"
-    Then I press item with name "Google Settings"
-    Then I click back button
+    Then I scroll to "Play Store" text
+    Then I press "Play Store"
+    And I see "Play Store"
     Then I wait for 2 seconds
     Then I press "menu_button"
     And I press "delete"
     Then I swipe to left
+
+#Scenario: Launch and Check App
+#    Then I drag from 75:50 to 35:50 moving with 5 steps 
+#    When I press "icon"
+#    Then I press item with name "*****"
+#    Then I click back button
+#    Then I wait for 2 seconds
+#    Then I press "menu_button"
+#    And I press "delete"
+#    Then I swipe to left
 
 Scenario: Add Shourtcat    
     Then I drag from 75:50 to 35:50 moving with 5 steps
@@ -361,7 +352,20 @@ Scenario: View Time&Weather plugin
     Then I see "NIGHT"
     Then I see "MORNING"
 
+Scenario: Swipe-down player menu
+    Then I swipe to down
+    Then I press "next_button"
+    Then I press "prev_button"
+    Then I press "play_button_additional"
+    Then I go back
+
+Scenario: Swipe-up location menu
+    Then I swipe to up
+    Then I press "locationTextView"
+    Then I go back
+
 Scenario: Player restore
+    Then I swipe to left
     Then I swipe to left
     Then I press "icon"
     Then I wait for 2 seconds
@@ -477,14 +481,6 @@ Scenario: Player restore
     Then I wait for 3 seconds
     Then I check player playing        
 
-    # FIXME: ensure app is launched
-    # - don't know how to implement for now
-   
-    # FIXME: can we check if Sticky icon changed?
-    # Don't know how to implement for now
-    
-    # FIXME: please think about how can we test advertising option?
-    # Don't know how to implement for now
 
     # FIXME: can we check if Sticky icon changed?
     # Don't know how to implement for now
@@ -492,12 +488,6 @@ Scenario: Player restore
     # FIXME: can we check that pressed check boxes are checked/unchecked?
     # Don't know how to implement for now
 
-    # - launching item - we should ensure that apps, shortcuts and plugins launch as expected:
-    #   - app can be checked by launching an app which 100% have all the devices - calculator for example
-    #   - don't know how to implement for now
-    
+   
     # - swap items via drag&drop, including dragging over to next screen
     # - don't know how to implement for now   
-
-    # FIXME: we should have manual test for testing this dialog: 1)device has no connected BT devices 2) this dialog shows "To enable Bluetooth integration please enable Bluetooth in Settings" 3) press "enable" button 4) pair some device 5) ensure this dialog shows that device
-    # Added manual tests

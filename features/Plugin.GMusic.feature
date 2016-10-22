@@ -240,6 +240,29 @@ Scenario: Check Albums tab
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Playlists"
 
+#Scenario: Play/Pause music change oriantation
+#  Then I press "icon"
+#  Then I press "Albums"
+#  Then I drag from 50:30 to 50:300 moving with 20 steps
+  # Long press play
+#  Then I wait for 1 second
+#  Then I press "Adele - 21"
+#  Then I scroll up
+#  Then I long press "Rumor Has It"
+#  Then I rotate device to landscape
+#  Then I press "Play"
+#  Then I rotate device to portrait
+#  Then I press "slide_panel_now_playing_title"
+#  Then I wait for 5 seconds
+#  Then I see "Rumor Has It"
+#  Then I check Music playing
+#  Then I press "pause"
+#  Then I check Music pause
+#  Then I go back
+#  Then I wait for 1 second
+#  Then I go back
+#  Then I press "Playlists"  
+
 Scenario: Add to playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"
@@ -372,10 +395,14 @@ Scenario: Add to playlist from Artists tab
   And I see "Adam Lambert"
   Then I press "Adam Lambert"
   And I see "Music Again"
+  And I see "1/4"
   And I see "Strut"
+  And I see "2/4"
   Then I scroll down
   And I see "Soaked"
+  And I see "3/4"
   And I see "Fever"
+  And I see "4/4"
   Then I scroll up
   Then I press "actionBackArrow"
   Then I wait for 1 second
@@ -395,6 +422,7 @@ Scenario: Play/Pause music
   Then I press "Rumor Has It"
   Then I press "slide_panel_now_playing_title"
   Then I wait for 5 seconds
+  And I see "2/4"
   Then I see "Rumor Has It"
   Then I check Music playing
   Then I press "pause"
@@ -408,6 +436,7 @@ Scenario: Play/Pause music
   Then I press "slide_panel_now_playing_title"
   Then I wait for 5 seconds
   Then I see "Rolling In The Deep"
+  And I see "1/4"
   Then I check Music playing
   Then I press "pause"
   Then I check Music pause
@@ -463,10 +492,14 @@ Scenario: Tap on cover
   Then I tap on cover
   And I see "Adam Lambert"
   And I see "Music Again"
+  And I see "1/4"
   And I see "Strut"
+  And I see "2/4"
   Then I scroll down
   And I see "Soaked"
+  And I see "3/4"
   And I see "Fever"
+  And I see "4/4"
   Then I scroll up
   Then I go back
   Then I wait for 1 second
