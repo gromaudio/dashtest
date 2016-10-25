@@ -487,7 +487,3 @@ Scenario: Player restore
 
     # FIXME: can we check that pressed check boxes are checked/unchecked?
     # Don't know how to implement for now
-
-   
-    # - swap items via drag&drop, including dragging over to next screen
-    # - don't know how to implement for now   

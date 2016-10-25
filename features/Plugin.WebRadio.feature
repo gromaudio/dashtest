@@ -105,7 +105,7 @@ Scenario: Add/remove favorite (long press)
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I get text for item number 3
   Then I long press image view number 3
   Then I press "Add to favorites"
@@ -122,7 +122,7 @@ Scenario: Add/remove favorite (favorite button)
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I get text for item number 3
   Then I press image view number 3
   Then I press "slide_panel_now_playing_title"
@@ -143,14 +143,14 @@ Scenario: Play favorite station
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I long press list item number 3
   Then I press "Add to favorites"
   Then I press " .. "
   Then I press "Favorites"
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 6 seconds
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
@@ -162,7 +162,7 @@ Scenario: Play favorite station (Long press)
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I long press list item number 3
   Then I press "Add to favorites"
   Then I press " .. "
@@ -170,7 +170,7 @@ Scenario: Play favorite station (Long press)
   Then I long press list item number 1
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 6 seconds
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
@@ -181,14 +181,14 @@ Scenario: Switching between favorite stations
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I get text for item number 3
   Then I long press list item number 3
   Then I press "Add to favorites"
   Then I press "Favorites"
   Then I see item number text
   Then I press "Stations"
-  Then I wait for 3 seconds
+  Then I wait for 5 seconds
   Then I get text for item number 6
   Then I long press list item number 6
   Then I press "Add to favorites"
@@ -262,7 +262,7 @@ Scenario: Recents tab
   Then I press "actionBackArrow"
   Then I press "Favorites"
   Then I press "Stations"
-  Then I wait for 2 seconds
+  Then I wait for 4 seconds
   Then I get text for item number 6
   Then I press list item number 6
   Then I press "Recents"
@@ -345,7 +345,7 @@ Scenario: Record audio
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -471,7 +471,7 @@ Scenario: Play Radio
   # Play station
   Then I press list item number 5
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 6 seconds
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
@@ -481,14 +481,14 @@ Scenario: Play Radio
   Then I long press list item number 5
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for 6 seconds
   Then I check Radio playing
   # Pause
   Then I press "pause"
   Then I check Radio pause
   # Play again
   Then I press "pause"
-  Then I wait for 3 seconds
+  Then I wait for 5 seconds
   Then I check Radio playing
   Then I press "pause"
 
@@ -497,7 +497,7 @@ Scenario: Stations switching by next/prev
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -541,7 +541,7 @@ Scenario: Tap on cover
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -636,40 +636,7 @@ Scenario: FM Shortcut
   Then I press "Settings"
   And I see "FM Settings"
 
-# FIXME (high): Ensure stations switching is working by cover right/left slides too
-# DONE  
-# FIXME (high): Ensure that tap on the cover opens "On The Go" playlist and there is "Boss Boss Radio" in the list, DON'T check highlights for now
-# DONE  
-#FIXME: we need to check that AM/FM shortcut Stations tab has the same stations as regular WebRadio in Local/AM/FM folder
-
 # FIXME (high): Ensure that double tap on the cover opens track info dialog with File name, Size, Format fields etc.
 # !!! Need find solution how tap on the cover
-
 # FIXME: ensure track is highlighted in the list (text color is cyan and V icon exists) (investigate - need custom steps for highlighted element)
 # FIXME: also we should go back to upper levels and ensure that Music/60s folders are highlighted too (investigate - need custom steps for highlighted element)
-
-# FIXME (high): Ensure that tap on the cover opens "Records" playlist and there is currently playing record in the list, DON'T check highlights for now
-# DONE
-
-# FIXME: Ensure that Record button is highlighted while recording (investigate - need custom steps for highlighted element)
-
-# FIXME (high): Ensure stations switching is working by cover right/left slides too
-# DONE
-
-# FIXME (high): Ensure that tap on the cover opens "Favorites" playlist and there is currently playing radio in the list, DON'T CHECK HIGHLIGHTS FOR NOW
-# DONE
-
-# FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
-
-# FIXME: Ensure that Favorite button (Star) is changing its color (white/cyan) depending on whether station in favorites or not (investigate - need custom steps for highlighted element)
-
-# FIXME (high): Ensure stations switching is working by cover right/left slides too
-# DONE
-
-# FIXME (high): Ensure that tap on the cover opens "Recents" playlist and there is currently playing radio in the list, DON'T check highlight for now
-# DONE
-
-# FIXME: Ensure that currently playing station is highlighted in the list same way as in Stations tab (investigate - need custom steps for highlighted element)
-
-# FIXME (high): We need a scenario to check if switching between several records is working by cover left/right swipes
-# DONE

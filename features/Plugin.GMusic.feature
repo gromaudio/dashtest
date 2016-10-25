@@ -104,7 +104,7 @@ Scenario: Play/Pause music - Albums tab
   Then I scroll up
   Then I press "Rolling In The Deep"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 5 seconds
+  Then I wait for 8 seconds
   Then I see "Rolling In The Deep"
   Then I check Music playing
   Then I press "pause"
@@ -116,7 +116,7 @@ Scenario: Play/Pause music - Albums tab
   Then I long press "Rumor Has It"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 5 seconds
+  Then I wait for 8 seconds
   Then I see "Rumor Has It"
   Then I check Music playing
   Then I press "pause"
@@ -250,10 +250,13 @@ Scenario: Check Albums tab
 #  Then I scroll up
 #  Then I long press "Rumor Has It"
 #  Then I rotate device to landscape
+#  Then I wait for 1 second
 #  Then I press "Play"
+#  Then I wait for 1 second
 #  Then I rotate device to portrait
+#  Then I wait for 1 second
 #  Then I press "slide_panel_now_playing_title"
-#  Then I wait for 5 seconds
+#  Then I wait for 8 seconds
 #  Then I see "Rumor Has It"
 #  Then I check Music playing
 #  Then I press "pause"
@@ -421,7 +424,7 @@ Scenario: Play/Pause music
   Then I scroll up
   Then I press "Rumor Has It"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 5 seconds
+  Then I wait for 8 seconds
   And I see "2/4"
   Then I see "Rumor Has It"
   Then I check Music playing
@@ -434,7 +437,7 @@ Scenario: Play/Pause music
   Then I long press "Adele"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 5 seconds
+  Then I wait for 8 seconds
   Then I see "Rolling In The Deep"
   And I see "1/4"
   Then I check Music playing
@@ -640,7 +643,7 @@ Scenario: Play/Pause music
   Then I press "Songs"
   Then I press "2 Find U"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 5 seconds
+  Then I wait for 8 seconds
   Then I see "2 Find U"
   Then I check Music playing
   Then I press "pause"
@@ -651,7 +654,7 @@ Scenario: Play/Pause music
   Then I long press "Dreams"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 5 seconds
+  Then I wait for 8 seconds
   Then I see "Dreams"
   Then I check Music playing
   Then I press "pause"
@@ -771,7 +774,7 @@ Scenario: Long press actions - Play From the ...
   Then I long press "Adele - 21"
   Then I press "Play from the beginning"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 2 seconds
+  Then I wait for 8 seconds
   And I should see text containing "Rolling In The Deep"
   And I see "3:48"
   And I see "1/4"
@@ -795,6 +798,7 @@ Scenario: Long press actions - Play From the ...
   Then I scroll to "Adele - 21" text
   Then I long press "Adele - 21"
   When I press "Play from the saved position"
+  Then I wait for 8 seconds
   Then I press "slide_panel_now_playing_title"
   And I should see text containing "He Won\'t Go"
   And I see "3/4"

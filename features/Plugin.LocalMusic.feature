@@ -226,7 +226,9 @@ Scenario: Local Music Settings
 #  Then I press "Taylor Swift - Speak Now"
 #  Then I long press "01 Mine"
 #  Then I rotate device to landscape
+#  Then I wait for 1 second
 #  Then I press "Play"
+#  Then I wait for 1 second
 #  Then I rotate device to portrait
 #  Then I go back
 #  Then I wait for 1 second
@@ -907,16 +909,3 @@ Scenario: Exit option
   Then I press "Exit"
   Then I see "Where is My Car"
   Then I see "WebRadio"
-
-# FIXME: Check if track switching is working by cover right/left slides
-# DONE
-# FIXME: Ensure that by tap on cover current folder opens - check folder title and existence of some tracks, Don't check highlights for now
-# DONE
-# FIXME: use track names instead of numbers
-# DONE
-# FIXME: ensure created playlist contains appropriate tracks
-# DONE
-# FIXME: Ensure Playlists/"Add to playlist" option from long press menu is working too
-# DONE
-# FIXME: ensure created playlist contains appropriate tracks
-# DONE
