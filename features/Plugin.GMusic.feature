@@ -240,32 +240,6 @@ Scenario: Check Albums tab
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Playlists"
 
-#Scenario: Play/Pause music change oriantation
-#  Then I press "icon"
-#  Then I press "Albums"
-#  Then I drag from 50:30 to 50:300 moving with 20 steps
-  # Long press play
-#  Then I wait for 1 second
-#  Then I press "Adele - 21"
-#  Then I scroll up
-#  Then I long press "Rumor Has It"
-#  Then I rotate device to landscape
-#  Then I wait for 1 second
-#  Then I press "Play"
-#  Then I wait for 1 second
-#  Then I rotate device to portrait
-#  Then I wait for 1 second
-#  Then I press "slide_panel_now_playing_title"
-#  Then I wait for start
-#  Then I see "Rumor Has It"
-#  Then I check Music playing
-#  Then I press "pause"
-#  Then I check Music pause
-#  Then I go back
-#  Then I wait for 1 second
-#  Then I go back
-#  Then I press "Playlists"  
-
 Scenario: Add to playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"
@@ -833,3 +807,29 @@ Scenario: Exit option
   Then I press "Exit"
   Then I see "Where is My Car"
   Then I see "WebRadio"  
+
+Scenario: Play/Pause music change oriantation
+  Then I press "icon"
+  Then I press "Albums"
+  Then I drag from 50:30 to 50:300 moving with 20 steps
+  # Long press play
+  Then I wait for 1 second
+  Then I press "Adele - 21"
+  Then I scroll up
+  Then I long press "Rumor Has It"
+  Then I rotate device to landscape
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I wait for 1 second
+  Then I rotate device to portrait
+  Then I wait for 2 seconds
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for start
+  Then I see "Rumor Has It"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I go back
+  Then I wait for 1 second
+  Then I go back
+  Then I press "Playlists"   
