@@ -264,3 +264,19 @@ end
 Then /^I full scroll down$/ do
 	perform_action('drag', 50, 50, 60, -300, 20)
 end
+
+Then /^I swipe to next board$/ do
+	pan_left
+end	
+
+Then /^I wait for start$/ do
+count = 0
+start = 0
+  while (start == 0 &&  count < 100) do
+    a = query("* id:'currenttime'")
+    start = a[0]['text'].gsub(':','').to_i
+    #puts start
+    count += 1 
+    sleep 1
+  end 
+end
