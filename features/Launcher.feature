@@ -362,7 +362,7 @@ Scenario: Swipe-up location menu
     Then I swipe to up
     Then I press "locationTextView"
     Then I go back
-
+@debug
 Scenario: Player restore
     Then I swipe to left
     Then I swipe to left
@@ -375,14 +375,13 @@ Scenario: Player restore
     Then I press "Music home folder"
     Then I scroll to "Music" text
     Then I press "Music"
-    Then I press "00 LocalMusicTestSuite"
+    Then I press "01 LocalMusicTestSuite"
     Then I press "Select"
-    Then I press "Media Rescan"
     Then I press "leftButtonFirst"
     Then I press "Albums"
     Then I press "Artists"
     Then I press "Songs"
-    Then I press "00 Mine"
+    Then I press "01 Mine"
     Then I press "Artists"
     Then I press "Albums"
     Then I press "Playlists"
@@ -393,8 +392,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -402,8 +401,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -411,8 +410,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -420,8 +419,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -429,8 +428,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -438,8 +437,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -447,8 +446,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -456,8 +455,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -465,8 +464,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing
@@ -474,15 +473,8 @@ Scenario: Player restore
     Then I restart application
     Then I wait for 2 seconds
     Then I swipe to down
-    And I see "00 Mine"
-    And I see "04 Taylor Swift"
+    And I see "01 Mine"
+    And I see "03 Taylor Swift"
     Then I press "play_button_additional"
     Then I wait for 3 seconds
     Then I check player playing        
-
-
-    # FIXME: can we check if Sticky icon changed?
-    # Don't know how to implement for now
-
-    # FIXME: can we check that pressed check boxes are checked/unchecked?
-    # Don't know how to implement for now
