@@ -73,6 +73,7 @@ Scenario: Traversing down/up by Stations tab hierarchy
   Then I press "Stations"
   Then I scroll to "Sports" text
   Then I press "Sports"
+  Then I wait for 4 seconds
   And I see "More Sports and Teams"
   And I see "Fantasy Sports"
   Then I scroll to "Sports Talk & News" text
@@ -105,7 +106,7 @@ Scenario: Add/remove favorite (long press)
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
   Then I get text for item number 3
   Then I long press image view number 3
   Then I press "Add to favorites"
@@ -122,7 +123,7 @@ Scenario: Add/remove favorite (favorite button)
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
   Then I get text for item number 3
   Then I press image view number 3
   Then I press "slide_panel_now_playing_title"
@@ -143,26 +144,25 @@ Scenario: Play favorite station
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
   Then I long press list item number 3
   Then I press "Add to favorites"
   Then I press " .. "
   Then I press "Favorites"
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 6 seconds
+  Then I wait for start
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
   Then I press "shuffle"
-# FIXME: I meant - is it possible to check radio playing with progressive waiting - wait for 1 second, then wait for another second until radio is started or 5 seconds total spent. It is necessary to minimize waiting time as much as possible
 
 Scenario: Play favorite station (Long press)
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
   Then I long press list item number 3
   Then I press "Add to favorites"
   Then I press " .. "
@@ -170,7 +170,7 @@ Scenario: Play favorite station (Long press)
   Then I long press list item number 1
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 6 seconds
+  Then I wait for start
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
@@ -181,14 +181,14 @@ Scenario: Switching between favorite stations
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
   Then I get text for item number 3
   Then I long press list item number 3
   Then I press "Add to favorites"
   Then I press "Favorites"
   Then I see item number text
   Then I press "Stations"
-  Then I wait for 5 seconds
+  Then I wait for 6 seconds
   Then I get text for item number 6
   Then I long press list item number 6
   Then I press "Add to favorites"
@@ -248,7 +248,7 @@ Scenario: Recents tab
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 5 seconds
+  Then I wait for 10 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "Recents"
@@ -256,6 +256,7 @@ Scenario: Recents tab
   Then I press previously added element
   Then I press "slide_panel_now_playing_title"
   Then I see item number text
+  Then I wait for start
   And I see "1/"
   Then I check Radio playing 
   Then I press "pause"
@@ -279,7 +280,7 @@ Scenario: Recents tab
   Then I long press list item number 4
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 4 seconds
+  Then I wait for start
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
@@ -345,16 +346,17 @@ Scenario: Record audio
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
+  Then I wait for start
   Then I press "repeat"
   Then I wait for 5 seconds
   Then I press "repeat"
   Then I press "actionBackArrow"
   Then I press "Recents"
-  Then I press "Records"
+  Then I press "Records" 
   Then I see item number text
   Then I press "Favorites"
   Then I press "Stations"
@@ -362,6 +364,7 @@ Scenario: Record audio
   Then I get text for item number 6
   Then I press list item number 6
   Then I press "slide_panel_now_playing_title"
+  Then I wait for start
   Then I press "repeat"
   Then I wait for 5 seconds
   Then I press "repeat"
@@ -373,6 +376,7 @@ Scenario: Record audio
   # Starting station from Records tab
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
+  Then I wait for start
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
@@ -383,6 +387,7 @@ Scenario: Record audio
   Then I long press list item number 4
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
+  Then I wait for start
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
@@ -390,7 +395,6 @@ Scenario: Record audio
   Then I press "Favorites"
   Then I press "Stations"
   
-
 Scenario: Switching between records
   Then I press "icon"
   Then I press "Recents"
@@ -467,11 +471,13 @@ Scenario: Play Radio
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Music"
+  Then I wait for 3 seconds
   Then I press "60\'s"
+  Then I wait for 5 seconds
   # Play station
   Then I press list item number 5
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 6 seconds
+  Then I wait for start
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
@@ -481,14 +487,14 @@ Scenario: Play Radio
   Then I long press list item number 5
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 6 seconds
+  Then I wait for start
   Then I check Radio playing
   # Pause
   Then I press "pause"
   Then I check Radio pause
   # Play again
   Then I press "pause"
-  Then I wait for 5 seconds
+  Then I wait for start
   Then I check Radio playing
   Then I press "pause"
 
@@ -497,7 +503,7 @@ Scenario: Stations switching by next/prev
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -541,7 +547,7 @@ Scenario: Tap on cover
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 6 seconds
+  Then I wait for 10 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -561,6 +567,7 @@ Scenario: Long press navigation
   Then I press "Music"
   #Then I scroll to "70\'s" text
   Then I press "70\'s"
+  Then I wait for 4 seconds
   Then I long press list item number 5
   And I see "Play"
   And I see "Add to favorites"

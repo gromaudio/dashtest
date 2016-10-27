@@ -5,7 +5,7 @@ Feature: Local Music Plugin
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2"
-
+@debug
 Scenario: Change "Music home folder" to Music
   Then I press "icon"
   Then I press "leftButtonFirst"
@@ -216,7 +216,7 @@ Scenario: Local Music Settings
   And I see "Music home folder"
   Then I see "Indexing"
   And I see "Media Rescan"
-
+@debug
 #Scenario: Play/Pause Music when change orientation
 #  Then I press "icon"
 #  Then I press "Albums"
@@ -246,7 +246,7 @@ Scenario: Local Music Settings
 #  Then I press "pause"
 #  Then I press "actionBackArrow"
 #  Then I scroll up
-
+@debug
 Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"
   Then I press "Albums"

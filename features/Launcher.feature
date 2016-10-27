@@ -194,7 +194,6 @@ Scenario: Check default plugin tabs
     Then I press "leftButtonFirst"
     Then I swipe to left
 
-@debug
 Scenario: Add App
     Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
@@ -254,10 +253,9 @@ Scenario: Add Plugin
     Then I drag from 75:50 to 35:50 moving with 5 steps
     And I see "Local Music"
     Then I swipe to left 
-  
+
 Scenario: Launch and Check Plugin 
-    Then I wait for 2 seconds
-    Then I drag from 75:50 to 35:50 moving with 5 steps 
+    Then I swipe to next board
     When I press "icon"
     And I see "Folders"
     And I see "Playlists"
@@ -266,6 +264,7 @@ Scenario: Launch and Check Plugin
     When I press "Settings"
     Then I see "Local Settings"
     Then I go back
+    Then I wait for 2 seconds
     Then I press "leftButtonFirst"
     Then I press "Exit"
     Then I press "menu_button"
@@ -273,7 +272,7 @@ Scenario: Launch and Check Plugin
     Then I swipe to left  
 
 Scenario: Delete plugin
-    Then I drag from 75:50 to 35:50 moving with 5 steps
+    Then I swipe to next board
     Then I press "icon"
     Then I press "PLUGINS"
     Then I press "Spotify"
@@ -284,7 +283,7 @@ Scenario: Delete plugin
     Then I swipe to left
 
 Scenario: Replace plugin
-    Then I drag from 75:50 to 35:50 moving with 5 steps
+    Then I swipe to next board
     Then I press "icon"
     Then I press "PLUGINS"
     Then I press "Spotify"
