@@ -577,26 +577,6 @@ Scenario: Long press navigation
   And I see "Delete from favorites"
   Then I press "Delete from favorites"
   
-
-# TOP LAYOUT MENU
-
-#Scenario: Top layout menu (Home icon)
-#  Then I press "icon"
-#  Then I press "Favorites"
-#  Then I press "Stations"
-#  Then I press "topContentContainer"
-#  Then I press "firstButtonLayout"
-#  And I see "WebRadio"
-#  And I see "Driving Mode"
-
-#Scenario: Top layout menu (Voice commands icon)
-#  Then I press "icon"
-#  Then I wait for 3 seconds
-#  Then I press "topContentContainer"
-#  Then I press "thirdButtonLayout"
-#  And I see "Call"
-#  And I see "Navigate"
-
 Scenario: Exit option
   Then I press "icon"
   Then I press "leftButtonFirst"

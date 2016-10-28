@@ -784,22 +784,6 @@ Scenario: Long press actions - Play From the ...
   Then I wait for 1 second
   Then I go back
 
-#Scenario: Top layout menu (Home icon)
-#  Then I press "icon"
-#  Then I wait for 2 seconds
-#  Then I press "topContentContainer"
-#  Then I press "firstButtonLayout"
-#  And I see "WebRadio"
-#  And I see "Driving Mode"  
-
-#Scenario: Top layout menu (Voice commands icon)
-#  Then I press "icon"
-#  Then I wait for 2 seconds
-#  Then I press "topContentContainer"
-#  Then I press "thirdButtonLayout"
-#  And I see "Call"
-#  And I see "Navigate" 
-
 Scenario: Exit option
   Then I press "icon"
   Then I press "leftButtonFirst"
