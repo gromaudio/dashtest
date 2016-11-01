@@ -465,7 +465,7 @@ Scenario: Delete from Records
   Then I see "No radio records found."
  
 # STATIONS TAB
-
+@debug
 Scenario: Play Radio
   Then I press "icon"
   Then I press "Favorites"

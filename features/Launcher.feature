@@ -33,7 +33,7 @@ Scenario: View Settings
     Then I scroll down
     Then I see "Speech To Text Engine"
     Then I press "Speech To Text Engine"
-    And I see "Google"
+    And I see "Capio"
     Then I go back
     Then I scroll down
     Then I see "Advertising"
@@ -82,8 +82,8 @@ Scenario: View Settings components
     Then I press "Maps"
 
     Then I press "Speech To Text Engine"
-    Then I see "Google"
-    Then I press "Google"
+    Then I see "Capio"
+    Then I press "Capio"
 
     Then I scroll down
     Then I press "Disable USB Streaming"
