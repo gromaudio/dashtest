@@ -3,6 +3,14 @@ Then /^I press image view number (\d+)$/ do |index|
  tap_when_element_exists("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
 end
 
+Then /^I press element number (\d+)$/ do |index|
+ tap_when_element_exists("android.support.v7.widget.AppCompatTextView index:#{index.to_i-1}")
+end
+
+Then /^I long press element number (\d+)$/ do |index|
+ long_press_when_element_exists("android.support.v7.widget.AppCompatTextView index:#{index.to_i-1}")
+end
+
 Then /^I long press image view number (\d+)$/ do |index|
  long_press_when_element_exists("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
 end
@@ -56,7 +64,7 @@ end
 Then /^I check Radio playing$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 3
+	sleep 5
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final <= start
@@ -67,7 +75,7 @@ end
 Then /^I check Radio pause$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 3
+	sleep 5
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final != start
@@ -78,7 +86,7 @@ end
 Then /^I check Music playing$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 2
+	sleep 4
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final <= start
@@ -89,7 +97,7 @@ end
 Then /^I check Music pause$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 2
+	sleep 4
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final != start
@@ -275,7 +283,7 @@ start = 0
   while (start == 0 &&  count < 100) do
     a = query("* id:'currenttime'")
     start = a[0]['text'].gsub(':','').to_i
-    #puts start
+    puts start
     count += 1 
     sleep 1
   end 
