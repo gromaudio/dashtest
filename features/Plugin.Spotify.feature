@@ -1,5 +1,5 @@
 Feature: Spotify
-@debug @MA
+@debug @mus
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2" 
@@ -8,20 +8,24 @@ Scenario: Start
   Then I press "PLUGINS"
   Then I press "Spotify"
  
-@debug @MA
+@debug @mus
 Scenario: Login 
   Then I press "icon"
-  Then I wait for 8 seconds
+  Then I wait for 10 seconds
   Then I tap on Log in to Spotify
   Then I wait for 2 seconds
+  Then I touch username field
   Then I enter username
+  Then I go back
+  Then I wait for 2 seconds
   Then I touch password field
   Then I enter password
+  Then I go back
   Then I wait for 2 seconds
-  Then I press enter button
+  Then I press Login button
   Then I wait for 10 seconds
 
-@debug @M
+@mus
 Scenario: Navigation through the Settings
   Then I press "icon"
   Then I wait for 6 seconds
@@ -38,6 +42,7 @@ Scenario: Navigation through the Settings
   And I see "Toggle Random on/off"
   And I see "Return to Library"
   And I see "Next category. Folder, Playlist, Album, Artist"
+  Then I scroll down
   And I see "Prev category. Folder, Playlist, Album, Artist"
   Then I see "FIXED ACTIONS"
   #And I see "Previous Track/Station"
@@ -49,7 +54,7 @@ Scenario: Navigation through the Settings
   Then I see "AutoHide Panels"
   And I see "Hide Navigation panels when browsing long lists to free up more space for text data"
   Then I press "AutoHide Panels"
-@debug
+
 Scenario: Navigation through the plugin 
   Then I press "icon"
   Then I wait for 6 seconds
@@ -75,7 +80,7 @@ Scenario: Navigation through the plugin
   And I see "Settings"
   And I see "About"
   And I see "Exit"
-@debug  
+
 Scenario: Check About section
   Then I press "icon"
   Then I wait for 6 seconds
@@ -84,7 +89,7 @@ Scenario: Check About section
   Then I press "About"
   And I see "Spotify plugin for DashLinQ."
   And I see "Copyright GROM Audio 2015"
-@debug
+
 Scenario: Exit check
   Then I press "icon"
   Then I wait for 6 seconds
@@ -95,7 +100,7 @@ Scenario: Exit check
   Then I see "WebRadio"
 
 #STATIONS TAB
-@music
+
 Scenario: Play/Pause Music
   Then I press "icon"
   Then I wait for 8 seconds
@@ -129,7 +134,7 @@ Scenario: Play/Pause Music
   Then I wait for 1 second
   Then I go back
 
-@debug
+@mus
 Scenario: Add/Delete to playlist/favorite
   Then I press "icon"
   Then I wait for 8 seconds
@@ -171,6 +176,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Songs"
   Then I see item number text
   Then I go back
+  Then I scroll down
 
   Then I press "Albums"
   Then I press element number 3
@@ -178,7 +184,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I go back
   Then I wait for 1 second
   Then I go back
-
+  
   Then I press "Artists"
   Then I press image view number 1
   Then I press image view number 3
@@ -186,15 +192,16 @@ Scenario: Add/Delete to playlist/favorite
   Then I go back
   Then I wait for 1 second
   Then I go back
+  Then I scroll up
 
   Then I press "Songs"
   Then I long press previously added element
   Then I press "Delete from favorites"
   Then I wait for 3 seconds
-  And I see "No elements"
+  Then I do not see item number text
   Then I go back
-  And I see "0 albums"
-  And I see "0 artists"
+  #And I see "0 albums"
+  #And I see "0 artists"
   Then I press "Genres and Moods"
   Then I touch the "Releases" text
   Then I press "Charts"
@@ -333,17 +340,17 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Albums"
   Then I press element number 3
   Then I see item number text
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I go back
+  Then I press "actionBackArrow"
 
   Then I press "Artists"
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
-  Then I go back
+  Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I go back
+  Then I press "actionBackArrow"
 
   Then I press "Songs"
   Then I long press previously added element
@@ -384,7 +391,8 @@ Scenario: Play/Pause Music
   # Long press play
   Then I wait for 1 second
   Then I press element number 1
-  Then I press image view number 1
+  Then I wait for 2 seconds
+  Then I long press image view number 1
   Then I press "Play"
   Then I wait for 2 seconds
   Then I press "slide_panel_now_playing_title"
