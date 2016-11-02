@@ -216,6 +216,20 @@ Then /^I press Login button$/ do
 	touch("webView xpath:'//BUTTON[contains(text(),\"Log In\")]'")
 end	
 
+Then /^I touch password field$/ do
+	touch("WebView css:'input[type=\"Password\"]'")
+end
+
+Then /^I enter username$/ do
+	cmd = "#{default_device.adb_command} shell input text 'xehiyoux'"
+	system(cmd)
+end
+
+Then /^I enter password$/ do
+	cmd = "#{default_device.adb_command} shell input text 'Gr0m\\$potify'"
+	system(cmd)
+end
+
 Then /^I verify checkboxes$/ do
 	checkboxes = query("* id:'checkbox'")
 	checkbox_count = checkboxes.count
@@ -288,3 +302,4 @@ start = 0
     sleep 1
   end 
 end
+
