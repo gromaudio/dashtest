@@ -1,5 +1,5 @@
 Feature: Spotify
-@debug @M
+@debug @MA
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2" 
@@ -8,15 +8,19 @@ Scenario: Start
   Then I press "PLUGINS"
   Then I press "Spotify"
  
-@debug @M
+@debug @MA
 Scenario: Login 
   Then I press "icon"
   Then I wait for 8 seconds
   Then I tap on Log in to Spotify
-  Then I enter credentials
+  Then I wait for 2 seconds
+  Then I enter username
+  Then I touch password field
+  Then I enter password
   Then I wait for 2 seconds
   Then I press enter button
-  Then I wait for 16 seconds
+  Then I wait for 10 seconds
+
 @debug @M
 Scenario: Navigation through the Settings
   Then I press "icon"
@@ -280,7 +284,7 @@ Scenario: Follow Charts
   And I press "Unfollow"
   Then I wait for 2 seconds
   Then I don't see "Rap Caviar"
-  Then I press "actionBackArrow"
+  Then I go back
   Then I press "Genres and Moods"
   Then I touch the "Releases" text
   Then I press "Charts"
