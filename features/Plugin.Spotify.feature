@@ -1,5 +1,5 @@
 Feature: Spotify
-@debug @mus
+@debug
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2" 
@@ -8,7 +8,7 @@ Scenario: Start
   Then I press "PLUGINS"
   Then I press "Spotify"
  
-@debug @mus
+@debug
 Scenario: Login 
   Then I press "icon"
   Then I wait for 10 seconds
@@ -25,7 +25,7 @@ Scenario: Login
   Then I press Login button
   Then I wait for 10 seconds
 
-@mus
+
 Scenario: Navigation through the Settings
   Then I press "icon"
   Then I wait for 6 seconds
@@ -95,6 +95,7 @@ Scenario: Exit check
   Then I wait for 6 seconds
   Then I go back
   Then I press "leftButtonFirst"
+  Then I swipe to Exit
   Then I press "Exit"
   Then I see "Where is My Car"
   Then I see "WebRadio"
@@ -105,7 +106,7 @@ Scenario: Play/Pause Music
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
-  Then I wait for 1 seconds
+  Then I wait for loading "Acoustic"
   Then I press "Acoustic"
   Then I wait for 5 seconds
   Then I press image view number 3
@@ -134,12 +135,11 @@ Scenario: Play/Pause Music
   Then I wait for 1 second
   Then I go back
 
-@mus
 Scenario: Add/Delete to playlist/favorite
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
-  Then I wait for 1 seconds
+  Then I wait for loading "Acoustic"
   Then I press "Afrobeat"
   Then I wait for 5 seconds
   Then I get text for item number 3
@@ -178,14 +178,17 @@ Scenario: Add/Delete to playlist/favorite
   Then I go back
   Then I scroll down
 
+  Then I wait for 1 second
   Then I press "Albums"
-  Then I press element number 3
+  Then I wait for 1 second
+  Then I press element number 4
   Then I see item number text
   Then I go back
   Then I wait for 1 second
   Then I go back
   
   Then I press "Artists"
+  Then I wait for 1 second
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
@@ -198,22 +201,22 @@ Scenario: Add/Delete to playlist/favorite
   Then I long press previously added element
   Then I press "Delete from favorites"
   Then I wait for 3 seconds
-  Then I do not see item number text
+  And I see "No elements"
+
   Then I go back
-  #And I see "0 albums"
-  #And I see "0 artists"
   Then I press "Genres and Moods"
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
 
 #CHARTS TAB
-@music
+
 Scenario: Play/Pause Music
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
   Then I press "Charts"
+  Then I wait for loading "Rap Caviar"
   And I press "Rap Caviar"
   Then I wait for 4 seconds
   Then I press image view number 1
@@ -254,13 +257,12 @@ Scenario: Play/Pause Music
   Then I wait for 1 second
   Then I press "Stations"
 
-@debug
 Scenario: Check "Charts" tab 
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
   Then I press "Charts"
-  Then I drag from 50:30 to 50:300 moving with 20 steps
+  Then I wait for loading "Rap Caviar"
   And I see "Today\'s Top Hits"
   And I see "Rap Caviar"
   Then I scroll to "electroNOW" text
@@ -273,12 +275,13 @@ Scenario: Check "Charts" tab
   Then I scroll to "Fresh Finds" text
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "Stations"
-@debug
+
 Scenario: Follow Charts 
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
   Then I press "Charts"
+  Then I wait for loading "Rap Caviar"
   # Save as playlist
   Then I long press "Rap Caviar"
   Then I press "Follow"
@@ -297,12 +300,12 @@ Scenario: Follow Charts
   Then I press "Charts"
   Then I press "Stations"
 
-@debug
 Scenario: Add/Delete to playlist/favorite 
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
   Then I press "Charts"
+  Then I wait for loading "Rap Caviar"
   Then I press "Rap Caviar"
   Then I wait for 5 seconds
   Then I get text for item number 1
@@ -336,21 +339,25 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Songs"
   Then I see item number text
   Then I go back
+  Then I scroll down
 
   Then I press "Albums"
-  Then I press element number 3
+  Then I wait for 1 second
+  Then I press element number 4
   Then I see item number text
   Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I press "actionBackArrow"
 
   Then I press "Artists"
+  Then I wait for 1 second
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
   Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I press "actionBackArrow"
+  Then I scroll up
 
   Then I press "Songs"
   Then I long press previously added element
@@ -358,9 +365,6 @@ Scenario: Add/Delete to playlist/favorite
   Then I wait for 3 seconds
   And I see "No elements"
   Then I go back
-  And I see "0 albums"
-  And I see "0 artists"
-
   Then I press "Genres and Moods"
   Then I touch the "Releases" text
   Then I press "Charts"
@@ -368,12 +372,12 @@ Scenario: Add/Delete to playlist/favorite
 
 #NEW RELEASES TAB 
 
-@music
 Scenario: Play/Pause Music
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
   Then I press "New Releases"
+  Then I wait for 2 seconds
   Then I press element number 4
   Then I wait for 5 seconds
   Then I press image view number 1
@@ -389,8 +393,8 @@ Scenario: Play/Pause Music
   Then I wait for 1 second
   Then I go back
   # Long press play
-  Then I wait for 1 second
-  Then I press element number 1
+  Then I wait for 2 seconds
+  Then I press element number 2
   Then I wait for 2 seconds
   Then I long press image view number 1
   Then I press "Play"
@@ -420,7 +424,6 @@ Scenario: Play/Pause Music
   Then I press "Charts"
   Then I press "Stations"
 
-@we
 Scenario: Add/Delete to playlist/favorite  
   Then I press "icon"
   Then I wait for 8 seconds
@@ -458,21 +461,25 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Songs"
   Then I see item number text
   Then I go back
+  Then I scroll down
 
   Then I press "Albums"
-  Then I press element number 3
+  Then I wait for 1 second
+  Then I press element number 4
   Then I see item number text
   Then I go back
   Then I wait for 1 second
   Then I go back
 
   Then I press "Artists"
+  Then I wait for 1 second
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
   Then I go back
   Then I wait for 1 second
   Then I go back
+  Then I scroll up
 
   Then I press "Songs"
   Then I long press previously added element
@@ -480,24 +487,20 @@ Scenario: Add/Delete to playlist/favorite
   Then I wait for 3 seconds
   And I see "No elements"
   Then I go back
-  And I see "0 albums"
-  And I see "0 artists"
-
   Then I press "Genres and Moods"
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
 
-
 #GENRES AND MOODS TAB 
 
-@music
 Scenario: Play/Pause Music
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
   Then I press "New Releases"
   Then I touch the "Genres" text
+  Then I wait for loading "Party"
   Then I press "Party"
   Then I wait for 5 seconds
   Then I press element number 4
@@ -543,13 +546,13 @@ Scenario: Play/Pause Music
   Then I press "Charts"
   Then I press "Stations"
 
-@qw
 Scenario: Add/Delete to playlist/favorite  
   Then I press "icon"
   Then I wait for 8 seconds
   Then I go back
   Then I press "New Releases"
   Then I touch the "Genres" text
+  Then I wait for loading "Party"
   Then I press "Party"
   Then I wait for 5 seconds
   Then I press element number 4
@@ -585,21 +588,25 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Songs"
   Then I see item number text
   Then I go back
+  Then I scroll down
 
   Then I press "Albums"
-  Then I press element number 3
+  Then I wait for 1 second
+  Then I press element number 4
   Then I see item number text
   Then I go back
   Then I wait for 1 second
   Then I go back
 
   Then I press "Artists"
+  Then I wait for 1 second
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
   Then I go back
   Then I wait for 1 second
   Then I go back
+  Then I scroll up
 
   Then I press "Songs"
   Then I long press previously added element
@@ -607,8 +614,6 @@ Scenario: Add/Delete to playlist/favorite
   Then I wait for 3 seconds
   And I see "No elements"
   Then I go back
-  And I see "0 albums"
-  And I see "0 artists"
 
   Then I press "Genres and Moods"
   Then I touch the "Releases" text
@@ -616,7 +621,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Stations"
 
 #YOUR MUSIC TAB
-@M
+
 Scenario: Check "Your Music" tab 
   Then I press "icon"
   Then I wait for 6 seconds
@@ -626,8 +631,10 @@ Scenario: Check "Your Music" tab
   Then I press "Your Music"
   And I see "Playlists"
   And I see "Songs"
+  Then I scroll down
   And I see "Albums"
   And I see "Artists"
+  Then I scroll up
   Then I press "Playlists"
   And I see "On The Go"
   Then I go back
@@ -636,7 +643,7 @@ Scenario: Check "Your Music" tab
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
-@M
+
 Scenario: Add to favorite from Playlist
   Then I press "icon"
   Then I wait for 6 seconds
@@ -661,22 +668,26 @@ Scenario: Add to favorite from Playlist
   Then I press "Songs"
   Then I see item number text
   Then I go back
+  Then I scroll down
 
   Then I press "Albums"
-  Then I press element number 3
+  Then I wait for 1 second
+  Then I press element number 4
   Then I see item number text
   Then I go back
   Then I wait for 1 seconds
   Then I go back
 
   Then I press "Artists"
+  Then I wait for 1 second
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
   Then I go back
   Then I wait for 1 seconds
   Then I go back
-@M
+  Then I scroll up
+
 Scenario: Add to Playlist from Favorites
   Then I press "icon"
   Then I wait for 6 seconds
@@ -693,6 +704,9 @@ Scenario: Add to Playlist from Favorites
   Then I go back
   Then I press "Save"
   Then I wait for 1 second
+  Then I long press image view number 1
+  Then I press "Delete from favorites"
+  Then I wait for 1 second
   Then I go back
   Then I press "Playlists"
   And I see "From_favorite"
@@ -704,7 +718,7 @@ Scenario: Add to Playlist from Favorites
   Then I wait for 2 seconds
   Then I don't see "From_favorite"
   Then I go back
-@M
+
 Scenario: Play/Pause Music
   Then I press "icon"
   Then I wait for 6 seconds
