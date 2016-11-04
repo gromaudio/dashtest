@@ -159,6 +159,14 @@ Then /^I see item number text$/ do
 	wait_for_text(@item_text, timeout: 15)
 end
 
+Then /^I do not see item number text$/ do
+	puts "\tDebug: text in item_text variable is #{@item_text}"
+	if @item_text.empty?
+		raise "Item text var is empty"
+	end
+	wait_for_text_to_disappear(@item_text, timeout: 15)
+end
+
 Then /^I press previously added element$/ do
 	tap_when_element_exists("* marked:'#{@item_text}'")
 end	
@@ -218,6 +226,10 @@ end
 
 Then /^I touch password field$/ do
 	touch("WebView css:'input[type=\"Password\"]'")
+end
+
+Then /^I touch username field$/ do
+	touch("WebView css:'input[name=\"username\"]'")
 end
 
 Then /^I enter username$/ do
@@ -294,12 +306,18 @@ end
 Then /^I wait for start$/ do
 count = 0
 start = 0
-  while (start == 0 &&  count < 100) do
+  while (start < 2 &&  count < 50) do
     a = query("* id:'currenttime'")
     start = a[0]['text'].gsub(':','').to_i
     puts start
     count += 1 
     sleep 1
   end 
+  if start < 2
+		raise "Timer is not working"
+  end
 end
 
+Then /^I wait for loading "([^\"]*)"$/ do |text|
+  wait_for_text(text, timeout: 30)
+end
