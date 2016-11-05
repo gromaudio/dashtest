@@ -8,7 +8,7 @@ Scenario: Start
   Then I press "replace"
   Then I press "PLUGINS"
   Then I press "GMusic"
-
+@debug
 Scenario: Navigation through the plugin
   Then I press "icon"
   Then I wait for 3 seconds
@@ -95,7 +95,7 @@ Scenario: Check About section
   Then I see "Copyright GROM Audio 2015"
 
 # Albums Tab
-
+@debug
 Scenario: Play/Pause music - Albums tab
   Then I press "icon"
   Then I press "Albums"
@@ -420,7 +420,6 @@ Scenario: Play/Pause music
   Then I check Music pause
   Then I go back
   Then I wait for 1 second
-  Then I go back
   Then I press "Albums"
   Then I press "Playlists"
 

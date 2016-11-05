@@ -25,7 +25,6 @@ Scenario: Login
   Then I press Login button
   Then I wait for 10 seconds
 
-
 Scenario: Navigation through the Settings
   Then I press "icon"
   Then I wait for 6 seconds
@@ -38,17 +37,17 @@ Scenario: Navigation through the Settings
   And I see "Learn/reassign which gestures do what. Random, Repeat, browse options, extra menus, equalizer and many more is accessible via gestures !"
   When I press "Gestures"
   Then I see "CHANGEABLE ACTIONS"
-  #And I see "Show track/station information, file size, bitrate etc"
+  And I see "Show track/station information, file size, bitrate etc"
   And I see "Toggle Random on/off"
   And I see "Return to Library"
   And I see "Next category. Folder, Playlist, Album, Artist"
   Then I scroll down
   And I see "Prev category. Folder, Playlist, Album, Artist"
   Then I see "FIXED ACTIONS"
-  #And I see "Previous Track/Station"
-  #And I see "Next Track/Station"
+  And I see "Previous Track/Station"
+  And I see "Next Track/Station"
   Then I scroll down
-  #And I see "Show Playing Now tracks/stations"
+  And I see "Show Playing Now tracks/stations"
   And I see "Update cover art from internet"
   Then I press "leftButtonFirst"
   Then I see "AutoHide Panels"
@@ -101,7 +100,7 @@ Scenario: Exit check
   Then I see "WebRadio"
 
 #STATIONS TAB
-
+@debug
 Scenario: Play/Pause Music
   Then I press "icon"
   Then I wait for 8 seconds
@@ -134,7 +133,7 @@ Scenario: Play/Pause Music
   Then I go back
   Then I wait for 1 second
   Then I go back
-
+@debug
 Scenario: Add/Delete to playlist/favorite
   Then I press "icon"
   Then I wait for 8 seconds
@@ -180,15 +179,15 @@ Scenario: Add/Delete to playlist/favorite
 
   Then I wait for 1 second
   Then I press "Albums"
-  Then I wait for 1 second
-  Then I press element number 4
+  Then I wait for 2 seconds
+  Then I press on folder
   Then I see item number text
   Then I go back
   Then I wait for 1 second
   Then I go back
   
   Then I press "Artists"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
@@ -342,15 +341,15 @@ Scenario: Add/Delete to playlist/favorite
   Then I scroll down
 
   Then I press "Albums"
-  Then I wait for 1 second
-  Then I press element number 4
+  Then I wait for 2 seconds
+  Then I press on folder
   Then I see item number text
   Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I press "actionBackArrow"
 
   Then I press "Artists"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
@@ -378,7 +377,7 @@ Scenario: Play/Pause Music
   Then I go back
   Then I press "New Releases"
   Then I wait for 2 seconds
-  Then I press element number 4
+  Then I press element number 1
   Then I wait for 5 seconds
   Then I press image view number 1
   Then I wait for 2 seconds
@@ -410,7 +409,7 @@ Scenario: Play/Pause Music
   Then I wait for 1 second
   Then I go back
   # Long press on folder play
-  Then I long press element number 4
+  Then I long press element number 1
   Then I press "Play"
   Then I wait for 2 seconds
   Then I press "slide_panel_now_playing_title"
@@ -429,7 +428,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I wait for 8 seconds
   Then I go back
   Then I press "New Releases"
-  Then I press element number 2
+  Then I press element number 1
   Then I wait for 5 seconds
   Then I get text for item number 1
   Then I long press image view number 1
@@ -464,15 +463,15 @@ Scenario: Add/Delete to playlist/favorite
   Then I scroll down
 
   Then I press "Albums"
-  Then I wait for 1 second
-  Then I press element number 4
+  Then I wait for 2 seconds
+  Then I press on folder
   Then I see item number text
   Then I go back
   Then I wait for 1 second
   Then I go back
 
   Then I press "Artists"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
@@ -503,7 +502,7 @@ Scenario: Play/Pause Music
   Then I wait for loading "Party"
   Then I press "Party"
   Then I wait for 5 seconds
-  Then I press element number 4
+  Then I press element number 2
   Then I wait for 5 seconds
   Then I press image view number 1
   Then I wait for 2 seconds
@@ -531,7 +530,7 @@ Scenario: Play/Pause Music
   Then I wait for 1 second
   Then I go back
   # Long press on folder play
-  Then I long press element number 4
+  Then I long press element number 2
   Then I press "Play"
   Then I wait for 2 seconds
   Then I press "slide_panel_now_playing_title"
@@ -555,7 +554,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I wait for loading "Party"
   Then I press "Party"
   Then I wait for 5 seconds
-  Then I press element number 4
+  Then I press element number 2
   Then I wait for 5 seconds
   Then I get text for item number 1
   Then I long press image view number 1
@@ -591,15 +590,15 @@ Scenario: Add/Delete to playlist/favorite
   Then I scroll down
 
   Then I press "Albums"
-  Then I wait for 1 second
-  Then I press element number 4
+  Then I wait for 2 seconds
+  Then I press on folder
   Then I see item number text
   Then I go back
   Then I wait for 1 second
   Then I go back
 
   Then I press "Artists"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
@@ -671,15 +670,15 @@ Scenario: Add to favorite from Playlist
   Then I scroll down
 
   Then I press "Albums"
-  Then I wait for 1 second
-  Then I press element number 4
+  Then I wait for 2 seconds
+  Then I press on folder
   Then I see item number text
   Then I go back
   Then I wait for 1 seconds
   Then I go back
 
   Then I press "Artists"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I press image view number 1
   Then I press image view number 3
   Then I see item number text
