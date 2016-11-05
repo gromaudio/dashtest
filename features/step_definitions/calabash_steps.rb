@@ -4,11 +4,15 @@ Then /^I press image view number (\d+)$/ do |index|
 end
 
 Then /^I press element number (\d+)$/ do |index|
- tap_when_element_exists("android.support.v7.widget.AppCompatTextView index:#{index.to_i-1}")
+ tap_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr' index:#{index.to_i-1}")
+end
+
+Then /^I press on folder$/ do
+  tap_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr'")
 end
 
 Then /^I long press element number (\d+)$/ do |index|
- long_press_when_element_exists("android.support.v7.widget.AppCompatTextView index:#{index.to_i-1}")
+ long_press_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr' index:#{index.to_i-1}")
 end
 
 Then /^I long press image view number (\d+)$/ do |index|
