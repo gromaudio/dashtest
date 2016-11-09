@@ -357,10 +357,10 @@ Scenario: Swipe-down player menu
     Then I press "play_button_additional"
     Then I go back
 
-Scenario: Swipe-up location menu
-    Then I swipe to up
-    Then I press "locationTextView"
-    Then I go back
+#Scenario: Swipe-up location menu
+#    Then I swipe to up
+#    Then I press "locationTextView"
+#    Then I go back
 @debug
 Scenario: Player restore
     Then I swipe to left
