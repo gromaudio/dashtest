@@ -126,7 +126,7 @@ Then /^I swipe to left$/ do
 end
 
 Then /^I swipe to down$/ do
-	perform_action('drag', 50, 50, 25, 75, 2)
+	perform_action('drag', 50, 50, 10, 75, 2)
 end
 
 Then /^I swipe to up$/ do
