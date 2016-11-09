@@ -163,7 +163,7 @@ Scenario: Play favorite station (Long press)
   Then I press "Stations"
   Then I press "Trending"
   Then I wait for 10 seconds
-  Then I long press list item number 3
+  Then I long press list item number 6
   Then I press "Add to favorites"
   Then I press " .. "
   Then I press "Favorites"
@@ -352,7 +352,7 @@ Scenario: Record audio
   Then I press "slide_panel_now_playing_title"
   Then I wait for start
   Then I press "repeat"
-  Then I wait for 5 seconds
+  Then I wait for 10 seconds
   Then I press "repeat"
   Then I press "actionBackArrow"
   Then I press "Recents"
@@ -366,7 +366,7 @@ Scenario: Record audio
   Then I press "slide_panel_now_playing_title"
   Then I wait for start
   Then I press "repeat"
-  Then I wait for 5 seconds
+  Then I wait for 10 seconds
   Then I press "repeat"
   Then I press "actionBackArrow"
   Then I press "Recents"

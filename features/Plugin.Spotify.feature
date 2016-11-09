@@ -150,7 +150,7 @@ Scenario: Add/Delete to playlist/favorite
   # To hide keyboard
   Then I go back
   Then I press "Save"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   
   Then I long press image view number 3
   Then I press "Add to favorites"
@@ -316,7 +316,7 @@ Scenario: Add/Delete to playlist/favorite
   # To hide keyboard
   Then I go back
   Then I press "Save"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I long press image view number 1
   Then I press "Add to favorites"
   Then I wait for 1 second
@@ -439,7 +439,7 @@ Scenario: Add/Delete to playlist/favorite
   # To hide keyboard
   Then I go back
   Then I press "Save"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I long press image view number 1
   Then I press "Add to favorites"
   Then I wait for 1 second
@@ -491,7 +491,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Charts"
   Then I press "Stations"
 
-#GENRES AND MOODS TAB 
+#GENRES AND MOODS TAB
 
 Scenario: Play/Pause Music
   Then I press "icon"
@@ -565,7 +565,7 @@ Scenario: Add/Delete to playlist/favorite
   # To hide keyboard
   Then I go back
   Then I press "Save"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I long press image view number 1
   Then I press "Add to favorites"
   Then I wait for 1 second
@@ -702,7 +702,7 @@ Scenario: Add to Playlist from Favorites
   # To hide keyboard
   Then I go back
   Then I press "Save"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I long press image view number 1
   Then I press "Delete from favorites"
   Then I wait for 1 second

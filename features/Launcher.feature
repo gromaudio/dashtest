@@ -77,10 +77,9 @@ Scenario: View Settings components
     Then I see "Brightness"
     Then I press "None"
 
-    Then I press "Navigation"
+    Then I see "Navigation"
     Then I see "Maps"
-    Then I press "Maps"
-
+    
     Then I press "Speech To Text Engine"
     Then I see "Capio"
     Then I press "Capio"
