@@ -80,9 +80,9 @@ Scenario: View Settings components
     Then I see "Navigation"
     Then I see "Maps"
     
-    Then I press "Speech To Text Engine"
-    Then I see "Capio"
-    Then I press "Capio"
+    #Then I press "Speech To Text Engine"
+    #Then I see "Google"
+    #Then I press "Google"
 
     Then I scroll down
     Then I press "Disable USB Streaming"
@@ -357,10 +357,10 @@ Scenario: Swipe-down player menu
     Then I press "play_button_additional"
     Then I go back
 
-#Scenario: Swipe-up location menu
-#    Then I swipe to up
-#    Then I press "locationTextView"
-#    Then I go back
+Scenario: Swipe-up location menu
+    Then I swipe to up
+    Then I press "locationTextView"
+    Then I go back
 @debug
 Scenario: Player restore
     Then I swipe to left
