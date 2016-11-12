@@ -351,6 +351,7 @@ Scenario: View Time&Weather plugin
     Then I see "MORNING"
 
 Scenario: Swipe-down player menu
+    Then I wait for 3 seconds
     Then I swipe to down
     Then I press "next_button"
     Then I press "prev_button"
@@ -358,6 +359,7 @@ Scenario: Swipe-down player menu
     Then I go back
 
 Scenario: Swipe-up location menu
+    Then I wait for 3 seconds
     Then I swipe to up
     Then I press "locationTextView"
     Then I go back
