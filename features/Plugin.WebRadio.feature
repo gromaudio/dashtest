@@ -1,6 +1,6 @@
 Feature: WebRadio Plugin
 
-@debug
+@debug @a
 Scenario: Start
   Then I press "skipButton"
   Then I press "button2"
@@ -584,6 +584,42 @@ Scenario: Exit option
   Then I see "Where is My Car"
   Then I see "WebRadio"
 
+Scenario: Equalizer
+  Then I press "icon"
+  Then I wait for 2 seconds
+  Then I press "slide_panel_now_playing_title"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Flat"
+  Then I press "PRESETS"
+  Then I press "Jazz"
+  Then I wait for 2 seconds
+  Then I press "actionBackArrow"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Jazz"
+  Then I restart application
+  Then I press "icon"
+  Then I press "slide_panel_now_playing_title"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Jazz"
+  Then I press "PRESETS"
+  Then I press "Flat"
+
+Scenario: Search
+  Then I press "icon"
+  Then I press "Recents"
+  Then I press "Records"
+  Then I press "Search" 
+  Then I press "search_bar"
+  Then I enter text "KQED-"
+  Then I wait for 10 seconds
+  Then I see "KQED-FM"
+  Then I press "text1"
+  Then I wait for 2 seconds
+  And I see "KQED-FM"
+  Then I press "Recents"
+  Then I press "Favorites"
+  Then I press "Stations"
+  
 # AM/FM Radio
 
 Scenario: Start

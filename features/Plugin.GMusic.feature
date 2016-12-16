@@ -789,8 +789,52 @@ Scenario: Exit option
   Then I swipe to Exit
   Then I press "Exit"
   Then I see "Where is My Car"
-  Then I see "WebRadio"  
+  Then I see "WebRadio"
 
+Scenario: Equalizer
+  Then I press "icon"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Dreams"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "slide_panel_now_playing_title"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Flat"
+  Then I press "PRESETS"
+  Then I press "Jazz"
+  Then I wait for 2 seconds
+  Then I press "actionBackArrow"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Jazz"
+  Then I restart application
+  Then I press "icon"
+  Then I press "slide_panel_now_playing_title"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Jazz"
+  Then I press "PRESETS"
+  Then I press "Flat"
+
+Scenario: Search
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Search" 
+  Then I press "search_bar"
+  Then I enter text "Adel"
+  Then I wait for 3 seconds
+  Then I see "Adele"
+  Then I see "Adele - 21"
+  Then I press "Adele"
+  Then I wait for 2 seconds
+  And I see "Adele"
+  And I see "Adele - 21"
+  Then I press "Songs"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+    
 Scenario: Play/Pause music change oriantation
   Then I press "icon"
   Then I press "Albums"

@@ -291,7 +291,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I press "Save"
   Then I press " .. "
   Then I press "Playlists"
-  Then I press "Mac"
+  Then I press "Mac.m3u"
   Then I press "01 Shakin\' Hands"
   Then I go back
   Then I wait for 2 seconds
@@ -308,7 +308,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I press "pause"
   Then I go back
   Then I wait for 1 second
-  Then I long press "Mac"
+  Then I long press "Mac.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
@@ -327,7 +327,7 @@ Scenario: Play/Pause Music - long press (Playlists tab)
   Then I press "Save"
   Then I press " .. "
   Then I press "Playlists"
-  Then I long press "01 Mine"
+  Then I long press "01 Mine.m3u"
   Then I press "Play"
   When I press "slide_panel_now_playing_title"
   Then I see "3:50"
@@ -343,7 +343,7 @@ Scenario: Play/Pause Music - long press (Playlists tab)
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I long press "01 Mine"
+  Then I long press "01 Mine.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
@@ -562,8 +562,8 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  Then I scroll to "Taylor Swift" text
-  Then I press "Taylor Swift"
+  Then I scroll to "Taylor Swift.m3u" text
+  Then I press "Taylor Swift.m3u"
   And I see "01 Mine"
   And I see "02 Sparks Fly"
   Then I scroll down
@@ -571,7 +571,7 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I scroll up
   Then I go back
   Then I wait for 1 second
-  Then I long press "Taylor Swift"
+  Then I long press "Taylor Swift.m3u"
   Then I wait for 2 seconds
   Then I swipe to up
   Then I press "Rename"
@@ -579,12 +579,12 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I enter text "Custom"
   Then I go back
   Then I press "Save"
-  And I see "Custom"
-  Then I long press "Custom"
+  And I see "Custom.m3u"
+  Then I long press "Custom.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
-  And I don't see "Custom"
+  And I don't see "Custom.m3u"
   Then I press "Folders"
 
 Scenario: Long press actions - Play From the ... (Playlists tab)
@@ -603,8 +603,8 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  Then I scroll to "Nickelback" text
-  Then I long press "Nickelback"
+  Then I scroll to "Nickelback.m3u" text
+  Then I long press "Nickelback.m3u"
   Then I press "Play from the beginning"
   Then I press "slide_panel_now_playing_title"
   And I should see text containing "01 Shakin\' Hands"
@@ -629,7 +629,7 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press list item number 1
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I long press "Nickelback"
+  Then I long press "Nickelback.m3u"
   When I press "Play from the saved position"
   Then I wait for 2 seconds
   Then I press "actionBackArrow"
@@ -642,7 +642,7 @@ Scenario: Long press actions - Play From the ... (Playlists tab)
   Then I press "pause"
   Then I go back
   Then I wait for 1 second
-  Then I long press "Nickelback"
+  Then I long press "Nickelback.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   And I press "Delete"
@@ -664,8 +664,8 @@ Scenario: Long press actions - Add to playlist from playlist tab
   Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  Then I scroll to "Swift" text
-  Then I press "Swift"
+  Then I scroll to "Swift.m3u" text
+  Then I press "Swift.m3u"
   And I see "01 Mine"
   And I see "02 Sparks Fly"
   Then I scroll down
@@ -673,7 +673,7 @@ Scenario: Long press actions - Add to playlist from playlist tab
   Then I scroll up
   Then I go back
   Then I wait for 2 seconds
-  Then I long press "Swift"
+  Then I long press "Swift.m3u"
   Then I press "Add to playlist"
   Then I press "New"
   Then I clear "playlist"
@@ -681,9 +681,9 @@ Scenario: Long press actions - Add to playlist from playlist tab
   # To hide keyboard
   Then I go back
   Then I press "Save"
-  Then I scroll to "Swift Copy" text
-  Then I see "Swift Copy"
-  Then I press "Swift Copy"
+  Then I scroll to "Swift Copy.m3u" text
+  Then I see "Swift Copy.m3u"
+  Then I press "Swift Copy.m3u"
   And I see "01 Mine"
   And I see "02 Sparks Fly"
   Then I scroll down
@@ -691,12 +691,12 @@ Scenario: Long press actions - Add to playlist from playlist tab
   Then I scroll up
   Then I go back
   Then I wait for 2 seconds
-  Then I long press "Swift Copy"
+  Then I long press "Swift Copy.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
-  Then I scroll to "Swift" text
-  Then I long press "Swift"
+  Then I scroll to "Swift.m3u" text
+  Then I long press "Swift.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
@@ -713,20 +713,20 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  Then I scroll to "From_Albums" text
-  And I see "From_Albums"
-  When I press "From_Albums"
+  Then I scroll to "From_Albums.m3u" text
+  And I see "From_Albums.m3u"
+  When I press "From_Albums.m3u"
   Then I see "01 Shakin\' Hands"
   And I see "1/2"
   And I see "02 S.E.X."
   And I see "2/2"
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I long press "From_Albums"
+  Then I long press "From_Albums.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
-  Then I don't see "From_Albums"
+  Then I don't see "From_Albums.m3u"
    
 Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I press "icon"
@@ -741,9 +741,9 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I press "Save"
   Then I press "Albums"
   When I press "Playlists"
-  Then I scroll to "From_Artists" text
-  Then I see "From_Artists"
-  When I press "From_Artists"
+  Then I scroll to "From_Artists.m3u" text
+  Then I see "From_Artists.m3u"
+  When I press "From_Artists.m3u"
   Then I see "01 Message in a Bottle"
   Then I see "02 Reggatta de Blanc"
   Then I scroll down
@@ -751,11 +751,11 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I scroll up
   Then I go back
   Then I wait for 1 second
-  Then I long press "From_Artists"
+  Then I long press "From_Artists.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
-  Then I don't see "From_Artists"
+  Then I don't see "From_Artists.m3u"
 
 Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I press "icon"
@@ -772,18 +772,18 @@ Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I press "Artists"
   Then I press "Albums"
   When I press "Playlists"
-  Then I scroll to "From_Songs" text
-  And I see "From_Songs"
-  Then I press "From_Songs"
+  Then I scroll to "From_Songs.m3u" text
+  And I see "From_Songs.m3u"
+  Then I press "From_Songs.m3u"
   And I see "01 Mine"
   And I see "1/1"
   Then I go back
   Then I wait for 1 second
-  Then I long press "From_Songs"
+  Then I long press "From_Songs.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
-  Then I don't see "From_Songs"
+  Then I don't see "From_Songs.m3u"
 
 Scenario: Long press actions - Jum to .. (Songs tab)
   Then I press "icon"
@@ -864,6 +864,50 @@ Scenario: Exit option
   Then I press "Exit"
   Then I see "Where is My Car"
   Then I see "WebRadio"
+
+Scenario: Equalizer
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
+  Then I press "Taylor Swift - Speak Now"
+  Then I press "01 Mine"
+  Then I press " .. "
+  Then I press "slide_panel_now_playing_title"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Flat"
+  Then I press "PRESETS"
+  Then I press "Jazz"
+  Then I wait for 2 seconds
+  Then I press "actionBackArrow"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Jazz"
+  Then I restart application
+  Then I press "icon"
+  Then I press "slide_panel_now_playing_title"
+  Then I press "action_aqualizer"
+  Then I see "Equalizer Jazz"
+  Then I press "PRESETS"
+  Then I press "Flat"
+
+Scenario: Search
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Search" 
+  Then I press "search_bar"
+  Then I enter text "00 Radio"
+  Then I wait for 3 seconds
+  Then I see "00 Radioactive"
+  Then I press "00 Radioactive"
+  Then I wait for 2 seconds
+  And I see "01 Imagine Dragons"
+  Then I press "Songs"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
 
 Scenario: Play/Pause Music when change orientation
   Then I press "icon"
