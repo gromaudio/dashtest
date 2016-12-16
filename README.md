@@ -41,6 +41,8 @@ http://calaba.sh - calabash page
 
 https://blog.testmunk.com/tutorial-for-automated-mobile-app-testing-calabash/ - A Beginner's Guide to Automated Mobile App Testing -> useful blog on configuration and setup
 
+http://qa-helper.com/android-calabash/
+
 > Installation:
 > Install Android Studio
 > Install Android studio platform tools
