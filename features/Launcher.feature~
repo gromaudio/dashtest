@@ -237,7 +237,7 @@ Scenario: Launch and Check Shourtcat
     Then I see "AM Settings"
     Then I go back
     Then I press "leftButtonFirst"
-    Then I press "Home"
+    Then I press "Exit"
     Then I press "menu_button"
     Then I press "delete"
     Then I swipe to left  
@@ -265,7 +265,7 @@ Scenario: Launch and Check Plugin
     Then I go back
     Then I wait for 2 seconds
     Then I press "leftButtonFirst"
-    Then I press "Home"
+    Then I press "Exit"
     Then I press "menu_button"
     Then I press "delete"       
     Then I swipe to left  
@@ -388,7 +388,7 @@ Scenario: Player restore
     Then I press "Playlists"
     Then I press "Folders"
     Then I press "leftButtonFirst"
-    Then I press "Home"
+    Then I press "Exit"
         
     Then I restart application
     Then I wait for 2 seconds

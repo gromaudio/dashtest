@@ -14,7 +14,7 @@ Scenario: Settings
   Then I press "leftButtonFirst"
   And I see "Settings"
   And I see "About"
-  And I see "Home"
+  And I see "Exit"
   Then I press "About"
   And I see "Web Radio player for DashLinQ. Plays web radio stations, FM online stations and other streaming sources, smart caching, easy recording and voice search."
   And I see "Copyright GROM Audio 2015"
@@ -580,7 +580,7 @@ Scenario: Long press navigation
 Scenario: Exit option
   Then I press "icon"
   Then I press "leftButtonFirst"
-  Then I press "Home"
+  Then I press "Exit"
   Then I see "Where is My Car"
   Then I see "WebRadio"
 

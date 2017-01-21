@@ -898,7 +898,7 @@ Scenario: Search
   Then I press "Search" 
   Then I press "search_bar"
   Then I enter text "00 Radio"
-  Then I wait for 10 seconds
+  Then I wait for 3 seconds
   Then I see "00 Radioactive"
   Then I press "00 Radioactive"
   Then I wait for 2 seconds

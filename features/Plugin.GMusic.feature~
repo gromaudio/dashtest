@@ -36,7 +36,7 @@ Scenario: Navigation through the plugin
   And I see "Settings"
   And I see "About"
   Then I swipe to Exit
-  And I see "Home"
+  And I see "Exit"
   
 Scenario: Navigation through the Settings
   Then I press "icon"  
@@ -787,7 +787,7 @@ Scenario: Exit option
   Then I press "icon"
   Then I press "leftButtonFirst"
   Then I swipe to Exit
-  Then I press "Home"
+  Then I press "Exit"
   Then I see "Where is My Car"
   Then I see "WebRadio"
 
