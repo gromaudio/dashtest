@@ -68,7 +68,7 @@ end
 Then /^I check Radio playing$/ do 
 	a = query("* id:'currenttime'")
 	start = a[0]['text'].gsub(':','').to_i
-	sleep 5
+	sleep 8
 	a = query("* id:'currenttime'")
 	final = a[0]['text'].gsub(':','').to_i
 	if final <= start
@@ -324,4 +324,37 @@ end
 
 Then /^I wait for loading "([^\"]*)"$/ do |text|
   wait_for_text(text, timeout: 30)
+end
+
+Then /^I start emulator server$/ do
+  require 'open3'
+  $i, $oe, $t = Open3.popen2e('python -u features/step_definitions/python/serial_android.py')
+end
+
+Then /^I start emulator command "([^\"]*)"$/ do |text|
+  $i.puts text
+end
+
+Then /^I see emulator output "([^\"]*)"$/ do |text|
+  #output = $oe.gets
+  #puts 'Debug: ' + output
+  15.times do
+    puts $oe.gets
+  end
+end
+
+Then /^I see text "([^\"]*)" in emulator output$/ do |text|
+  emulator_output = ''
+  15.times do
+    emulator_output = emulator_output + $oe.gets			
+  end
+  unless emulator_output.include? text
+	fail "Expected text not found in emulator output:\n '#{emulator_output}'"
+  end
+end  
+
+
+Then /^I stop emulator server$/ do
+  	$i.close_write
+  	puts "Server exit code #{@pyaudio_wait_thr}"
 end
