@@ -1,1 +1,16 @@
 test_servers
+builds/*
+assets/*
+emulator/*
+*.feature~
+python/*
+screenshots/*
+*.swp
+*.apk
+compressed reports/*
+log.dat
+*.irb-history
+test.rb
+subprocess_test.py
+*.sh~
+constants.pyc

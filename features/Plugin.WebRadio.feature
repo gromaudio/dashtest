@@ -1,8 +1,7 @@
 Feature: WebRadio Plugin
 
-@debug @a
 Scenario: Start
-  Then I press "skipButton"
+  Then I press "closeButton"
   Then I press "button2"
   Then I press "menu_button"
   Then I press "replace"
@@ -25,10 +24,10 @@ Scenario: Settings
   And I see "Gestures"
   And I see "AutoHide Panels"
   Then I press "AutoHide Panels"
-  
+
 Scenario: Navigation through the tabs
   Then I press "icon"
-  Then I wait for 3 seconds
+  Then I wait for 8 seconds
   # Ensure there is a default station selected in the player
   And I see "Megapolis FM 89.5"
   # Stations tab
@@ -48,7 +47,7 @@ Scenario: Navigation through the tabs
   # Favorites tab
   Then I see "Favorites"
   Then I press "Favorites"
-  And I see "No favorite stations found."
+  And I see "There are no items found in Favorites."
   # Recents tab
   Then I see "Recents"
   Then I press "Recents"
@@ -56,7 +55,7 @@ Scenario: Navigation through the tabs
   # Records tab
   Then I see "Records"
   Then I press "Records"
-  And I see "No radio records found."
+  Then I see "There are no items found in Records."
   # Search tab
   Then I see "Search"
   Then I press "Search"
@@ -116,7 +115,7 @@ Scenario: Add/remove favorite (long press)
   Then I see item number text
   Then I long press previously added element
   Then I press "Delete from favorites"
-  And I see "No favorite stations found."
+  And I see "There are no items found in Favorites."
 
 Scenario: Add/remove favorite (favorite button)
   Then I press "icon"
@@ -127,7 +126,11 @@ Scenario: Add/remove favorite (favorite button)
   Then I get text for item number 3
   Then I press image view number 3
   Then I press "slide_panel_now_playing_title"
-  Then I press "shuffle"
+   
+  Then I long touch left_button
+  Then I touch icon number 3
+  Then I touch left_button
+
   Then I press "actionBackArrow"
   Then I scroll up
   Then I press " .. "
@@ -137,7 +140,7 @@ Scenario: Add/remove favorite (favorite button)
   Then I press "slide_panel_now_playing_title"
   Then I press "shuffle"
   Then I press "actionBackArrow"
-  And I see "No favorite stations found."
+  And I see "There are no items found in Favorites."
 
 Scenario: Play favorite station
   Then I press "icon"
@@ -175,6 +178,7 @@ Scenario: Play favorite station (Long press)
   Then I press "pause"
   Then I check Radio pause
   Then I press "shuffle"
+
 
 Scenario: Switching between favorite stations
   Then I press "icon"
@@ -236,21 +240,29 @@ Scenario: Switching between favorite stations
   Then I go back
   Then I long press list item number 1
   Then I press "Delete from favorites"
+  Then I wait for 5 seconds
   Then I long press list item number 1
   Then I press "Delete from favorites"
-  And I see "No favorite stations found."
+  Then I wait for 3 seconds
+  And I see "There are no items found in Favorites."
 
 # RECENTS TAB
- 
+
 Scenario: Recents tab
   # Play
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 8 seconds
   Then I get text for item number 3
   Then I press list item number 3
+  Then I press " .. "
+
+  Then I press "Local radio"
+  Then I wait for 6 seconds
+  Then I press list item number 3
+
   Then I press "Recents"
   Then I see item number text
   Then I press previously added element
@@ -337,7 +349,7 @@ Scenario: Recents tab
   And I see "Add to favorites"
   Then I go back
   Then I press "Favorites"
-  And I see "No favorite stations found."
+  And I see "There are no items found in Favorites."
 
 # RECORDS TAB
 
@@ -345,16 +357,19 @@ Scenario: Record audio
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
+  Then I press " .. "
   Then I press "Trending"
   Then I wait for 10 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
   Then I wait for start
-  Then I press "repeat"
+  Then I long touch left_button
+  Then I touch icon number 2
+  Then I press "shuffle"
   Then I wait for 10 seconds
-  Then I press "repeat"
-  Then I press "actionBackArrow"
+  Then I press "shuffle"
+  Then I go back
   Then I press "Recents"
   Then I press "Records" 
   Then I see item number text
@@ -365,10 +380,10 @@ Scenario: Record audio
   Then I press list item number 6
   Then I press "slide_panel_now_playing_title"
   Then I wait for start
-  Then I press "repeat"
+  Then I press "shuffle"
   Then I wait for 10 seconds
-  Then I press "repeat"
-  Then I press "actionBackArrow"
+  Then I press "shuffle"
+  Then I go back
   Then I press "Recents"
   Then I press "Records"
   Then I see item number text
@@ -381,7 +396,7 @@ Scenario: Record audio
   Then I press "pause"
   Then I check Radio pause
   Then I press "pause"
-  Then I press "actionBackArrow"
+  Then I go back
 
   # Starting station from Records tab (Long press)
   Then I long press list item number 4
@@ -391,7 +406,7 @@ Scenario: Record audio
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
-  Then I press "actionBackArrow"
+  Then I go back
   Then I press "Favorites"
   Then I press "Stations"
   
@@ -452,6 +467,7 @@ Scenario: Delete from Records
   Then I wait for 2 seconds
   # Currently playing record is unable to delete
   Then I press list item number 1
+  Then I wait for 1 second
   Then I long press list item number 1
   Then I press "Delete"
   Then I see "Unable to delete playing track"
@@ -462,14 +478,14 @@ Scenario: Delete from Records
   Then I wait for 1 second
   Then I long press list item number 1
   Then I press "Delete"
-  Then I see "No radio records found."
+  Then I see "There are no items found in Records."
  
 # STATIONS TAB
-@debug
 Scenario: Play Radio
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
+  Then I press " .. "
   Then I press "Music"
   Then I wait for 3 seconds
   Then I press "60\'s"
@@ -502,6 +518,8 @@ Scenario: Stations switching by next/prev
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
+  Then I press " .. "
+  Then I press " .. "
   Then I press "Trending"
   Then I wait for 10 seconds
   Then I get text for item number 3
@@ -546,6 +564,7 @@ Scenario: Tap on cover
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
+  Then I go back
   Then I press "Trending"
   Then I wait for 10 seconds
   Then I get text for item number 3
@@ -554,7 +573,7 @@ Scenario: Tap on cover
   Then I tap on cover
   Then I wait for 2 seconds
   Then I see item number text
-  And I see "On The Go"
+  And I see "Trending"
   Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I press "actionBackArrow"
@@ -564,6 +583,7 @@ Scenario: Long press navigation
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
+  #Then I press " .. "
   Then I press "Music"
   #Then I scroll to "70\'s" text
   Then I press "70\'s"
@@ -619,13 +639,37 @@ Scenario: Search
   Then I press "Recents"
   Then I press "Favorites"
   Then I press "Stations"
+
+Scenario: Add to Favorites from Search tab
+  Then I press "icon"
+  Then I press "Favorites"
+  Then I press "Recents"
+  Then I press "Records"
+  Then I press "Search" 
+  Then I press "search_bar"
+  Then I enter text "OMG"
+  Then I wait for 5 seconds
+  Then I see "OMG K Pop"
+  Then I press "OMG K Pop"
+  Then I wait for 2 seconds
+  Then I long press "1/1 --:--"
+  Then I wait for 1 second
+  Then I press "Add to favorites"
+  Then I press "Records"
+  Then I press "Recents"
+  Then I press "Favorites"
+  And I see "OMG K Pop"
+  Then I long press "OMG K Pop"
+  Then I wait for 2 seconds
+  Then I press "Delete from favorites"
+  Then I press "Stations"  
   
 # AM/FM Radio
 
 Scenario: Start
   Then I press "menu_button"
   Then I press "replace"
-  Then I press "SHORTCUTS"
+  Then I press "PLUGINS"
   Then I press "AM Radio"
 
 Scenario: AM Shortcut
@@ -643,8 +687,8 @@ Scenario: AM Shortcut
 Scenario: Start
   Then I press "menu_button"
   Then I press "replace"
-  Then I press "SHORTCUTS"
-  Then I scroll until I see the "FM Radio" text
+  Then I press "PLUGINS"
+  #Then I scroll until I see the "FM Radio" text
   Then I press "FM Radio"
 
 Scenario: FM Shortcut
@@ -660,6 +704,5 @@ Scenario: FM Shortcut
   And I see "FM Settings"
 
 # FIXME (high): Ensure that double tap on the cover opens track info dialog with File name, Size, Format fields etc.
-# !!! Need find solution how tap on the cover
 # FIXME: ensure track is highlighted in the list (text color is cyan and V icon exists) (investigate - need custom steps for highlighted element)
 # FIXME: also we should go back to upper levels and ensure that Music/60s folders are highlighted too (investigate - need custom steps for highlighted element)

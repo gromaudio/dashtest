@@ -5,7 +5,7 @@ end
 
 Then /^I press element number (\d+)$/ do |index|
  tap_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr' index:#{index.to_i-1}")
-end
+end  
 
 Then /^I press on folder$/ do
   tap_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr'")
@@ -357,4 +357,67 @@ end
 Then /^I stop emulator server$/ do
   	$i.close_write
   	puts "Server exit code #{@pyaudio_wait_thr}"
+end
+
+
+Then /^I use_new_scroll to "([^\"]*)" text$/ do |name|
+    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 60) do
+    perform_action('drag', 50, 50, 70, 50, 10)
+    end
+end
+
+
+Then /^I use_new_scroll until I see the "([^\"]*)" text$/ do |text|
+  q = query("TextView text:'#{text}'")
+  while q.empty?
+    perform_action('drag', 50, 50, 70, 50, 10)
+    q = query("TextView text:'#{text}'")
+  end 
+end
+
+
+Then /^I use_new_scroll down to "([^\"]*)" text$/ do |name|
+    wait_poll(:until_exists => "* {text CONTAINS[c] '#{name}'}", :timeout => 60) do
+    perform_action('drag', 50, 50, 70, 50, 10)
+    end
+end
+
+
+Then /^I long touch left_button$/ do 
+	long_press_when_element_exists("* id:'shuffle'")
+end
+
+
+Then /^I touch icon number (\d+)$/ do |index|
+	touch("android.support.v7.widget.AppCompatImageView id:'imageView' index:#{index.to_i-1}")
+end 
+
+
+Then /^I touch left_button$/ do 
+	touch("* id:'shuffle'")
+end
+
+
+Then /^I check timer$/ do 
+	a = query("* id:'currenttime'")
+	@time_position = a[0]['text'].gsub(':','').to_i
+	print @time_position
+end
+
+Then /^I check play position$/ do 
+	a = query("* id:'currenttime'")
+	current_position = a[0]['text'].gsub(':','').to_i
+	print current_position
+	if !(@time_position .. @time_position+5).include? current_position
+		fail "Save position incorrect:\n #{[@time_position .. @time_position+5]}"
+  	end
+end
+
+Then /^I check pause position$/ do 
+	a = query("* id:'currenttime'")
+	current_position = a[0]['text'].gsub(':','').to_i
+	print current_position
+	if !(@time_position-5 .. @time_position).include? current_position
+		fail "Save position incorrect:\n #{(@time_position-5 .. @time_position)}"
+  	end
 end

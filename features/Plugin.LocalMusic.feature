@@ -1,18 +1,45 @@
 Feature: Local Music Plugin
   You have to place "01 LocalMusicTestSuite" folder into sdcard/Music folder in order to run these tests.
 
-@debug
 Scenario: Start
-  Then I press "skipButton"
+  Then I press "closeButton"
   Then I press "button2"
-@debug
+
+Scenario: Check background text
+  Then I press "icon"
+  Then I press "leftButtonFirst"
+  Then I press "Settings"
+  Then I scroll to "Music home folder" text
+  Then I press "Music home folder"
+  Then I scroll to "Mob" text
+  Then I press "Mob"
+  Then I press "Select"
+  Then I scroll up
+  Then I press "leftButtonFirst"
+  Then I press "Folders"
+  And I see "There are no items found in Folders."
+  Then I press "Albums"
+  And I see "There are no items found in Albums."
+  Then I press "Artists"
+  And I see "There are no items found in Artists."
+  Then I press "Songs"
+  And I see "There are no items found in Songs."
+  Then I press "Search"
+  And I see "Enter keyword or phrase to search"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"  
+
 Scenario: Change "Music home folder" to Music
   Then I press "icon"
   Then I press "leftButtonFirst"
   Then I press "Settings"
   Then I scroll to "Music home folder" text
   Then I press "Music home folder"
-  Then I scroll to "Music" text
+  Then I press ".."
+
+  #Then I scroll to "Music" text
   Then I press "Music"
   Then I press "01 LocalMusicTestSuite"
   Then I press "Select"
@@ -55,7 +82,147 @@ Scenario: Change "Music home folder" to Music
   Then I scroll up
   Then I press " .. "
   Then I drag from 50:30 to 50:300 moving with 20 steps
-  
+
+Scenario: Add/delete Playlist from On The Go
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I wait for 1 second
+  Then I press "On The Go"
+  Then I long press "01 Mine"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_On_The_Go"
+  # To hide keyboard
+  Then I go back
+  Then I wait for 2 seconds
+  Then I press "Save"
+  Then I press "On The Go"
+  And I see "From_On_The_Go.m3u"
+  Then I press "From_On_The_Go.m3u"
+  Then I see "01 Mine"
+  Then I go back
+  # Delete playlist
+  Then I wait for 1 second
+  Then I long press "From_On_The_Go.m3u"
+  Then I wait for 2 seconds
+  Then I swipe to up
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "From_On_The_Go.m3u"
+
+Scenario: Jump to Folder from On The Go and Play
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I wait for 1 second
+  Then I press "On The Go"
+  Then I long press "01 Mine" 
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I wait for 1 second
+  Then I press "slide_panel_now_playing_title"
+  Then I should see text containing "01 Mine"
+  Then I should see text containing "Speak Now"
+  Then I see "03 Taylor Swift"
+  And I see "3:50"
+  And I see "2/8"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I press "actionBackArrow"
+  Then I wait for 1 second
+  Then I long press "01 Mine"
+  Then I wait for 1 second
+  Then I press "Jump to Folder"
+  Then I wait for 1 second
+  And I see "01 Mine"
+  And I see "02 Sparks Fly"
+  And I see "03 Back To December"
+  Then I press " .. "
+  Then I wait for 1 second
+
+Scenario: Check for duplicate Playlists
+  Then I press "icon"
+  Then I wait for 20 seconds
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "Folders"
+  Then I wait for 1 second
+  Then I long press "Nickelback - Dark Horse"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "Already exist"
+  # To hide keyboard
+  Then I go back
+  Then I wait for 2 seconds
+  Then I press "Save"
+  Then I wait for 1 second
+  Then I long press "Nickelback - Dark Horse"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "Already exist"
+  # To hide keyboard
+  Then I go back
+  Then I wait for 2 seconds
+  Then I press "Save"
+  And I see "Playlist exist"
+  Then I press "Cancel"
+  Then I press "Albums"
+  Then I long press "Reggatta"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "Already exist"
+  # To hide keyboard
+  Then I go back
+  Then I wait for 2 seconds
+  Then I press "Save"
+  And I see "Playlist exist"
+  Then I press "Cancel"
+  Then I press "Artists"
+  Then I long press "01 Nickelback"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "Already exist"
+  # To hide keyboard
+  Then I go back
+  Then I wait for 2 seconds
+  Then I press "Save"
+  And I see "Playlist exist"
+  Then I press "Cancel"
+  Then I press "Songs"
+  Then I long press "01 Mine"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "Already exist"
+  # To hide keyboard
+  Then I go back
+  Then I wait for 2 seconds
+  Then I press "Save"
+  And I see "Playlist exist"
+  Then I press "Cancel"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I long press "Already exist.m3u"
+  Then I wait for 2 seconds
+  Then I swipe to up
+  Then I press "Delete"
+  And I don't see "Already exist.m3u"
+  Then I press "Folders"
+  Then I wait for 1 second
+ 
 Scenario: Check if Albums tab contain items from LocalMusicTestSuite
   Then I press "icon"
   Then I press "Albums"
@@ -217,12 +384,12 @@ Scenario: Local Music Settings
   Then I see "Indexing"
   And I see "Media Rescan"
 
-@debug
 Scenario: Play/Pause Music (Folders tab)
   Then I press "icon"
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
+  Then I wait for 1 second
   Then I go back
   Then I press "Nickelback - Dark Horse"
   Then I scroll up
@@ -243,7 +410,7 @@ Scenario: Play/Pause Music (Folders tab)
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I scroll up
-   
+ 
 Scenario: Play/Pause Music - long press (Folders tab)
   Then I press "icon"
   Then I press "Albums"
@@ -288,6 +455,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I enter text "Mac"
   # To hide keyboard
   Then I go back
+  Then I wait for 1 second
   Then I press "Save"
   Then I press " .. "
   Then I press "Playlists"
@@ -312,6 +480,7 @@ Scenario: Play/Pause Music (Playlists tab)
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
+  Then I wait for 2 seconds
 
 Scenario: Play/Pause Music - long press (Playlists tab)
   Then I press "icon"
@@ -347,6 +516,7 @@ Scenario: Play/Pause Music - long press (Playlists tab)
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
+  Then I wait for 2 seconds
 
 Scenario: Play/Pause Music (Albums tab)
   Then I press "icon"
@@ -367,7 +537,9 @@ Scenario: Play/Pause Music (Albums tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I press "actionBackArrow"
+  Then I go back
+  Then I wait for 5 seconds
+  # Then I go back
   Then I scroll up
   Then I press "Playlists"
   Then I press "Folders"
@@ -440,7 +612,7 @@ Scenario: Play/Pause Music - long press (Artists tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I press "actionBackArrow"
+  Then I go back
   Then I scroll up
   Then I press "Albums"
   Then I press "Playlists"
@@ -462,7 +634,7 @@ Scenario: Play/Pause Music (Songs tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I press "actionBackArrow"
+  Then I go back
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
@@ -485,7 +657,7 @@ Scenario: Play/Pause Music - long press (Songs tab)
   Then I press "pause"
   Then I check Music playing
   Then I press "pause"
-  Then I press "actionBackArrow"
+  Then I go back
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
@@ -524,7 +696,7 @@ Scenario: Switching between tracks
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I scroll up
-  
+
 Scenario: Tap on cover open current folder
   Then I press "icon"
   Then I press "Albums"
@@ -538,14 +710,14 @@ Scenario: Tap on cover open current folder
   And I should see text containing "01 Shakin\' Hands"
   And I should see text containing "Dark Horse"
   Then I tap on cover
-  And I see "On The Go"
+  And I see "Nickelback - Dark Horse"
   And I see "01 Shakin\' Hands"
   And I see "02 S.E.X."
   Then I press "actionBackArrow"
   Then I wait for 1 second
   Then I press "actionBackArrow"
   Then I scroll up
- 
+
 Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I press "icon"
   Then I press "Albums"
@@ -578,7 +750,9 @@ Scenario: Long press actions - Add/Rename/Delete (Playlists tab)
   Then I clear "playlist"
   Then I enter text "Custom"
   Then I go back
+  Then I wait
   Then I press "Save"
+  Then I wait
   And I see "Custom.m3u"
   Then I long press "Custom.m3u"
   Then I wait for 3 seconds
@@ -711,6 +885,7 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I clear "playlist"
   Then I enter text "From_Albums"
   Then I go back
+  Then I wait for 2 seconds
   Then I press "Save"
   Then I press "Playlists"
   Then I scroll to "From_Albums.m3u" text
@@ -720,12 +895,13 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   And I see "1/2"
   And I see "02 S.E.X."
   And I see "2/2"
-  Then I press "actionBackArrow"
+  Then I go back
   Then I wait for 1 second
   Then I long press "From_Albums.m3u"
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
+  Then I wait for 1 second
   Then I don't see "From_Albums.m3u"
    
 Scenario: Long press actions - Add/Delete playlist from Artists tab
@@ -755,6 +931,7 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
+  Then I wait for 1 second
   Then I don't see "From_Artists.m3u"
 
 Scenario: Long press actions - Add/Delete playlist from Songs tab
@@ -783,6 +960,7 @@ Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I wait for 3 seconds
   Then I swipe to up
   Then I press "Delete"
+  Then I wait for 1 second
   Then I don't see "From_Songs.m3u"
 
 Scenario: Long press actions - Jum to .. (Songs tab)
@@ -840,7 +1018,7 @@ Scenario: Long press actions - Jum to Folder (Albums tab)
   And I see "2/2"
   Then I scroll up
   And I press " .. "
-
+  
 Scenario: Long press actions - Jum to Folder (Artists tab)
   Then I press "icon"
   Then I press "Albums"
@@ -870,6 +1048,7 @@ Scenario: Equalizer
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
+  Then I go back
   Then I press "Taylor Swift - Speak Now"
   Then I press "01 Mine"
   Then I press " .. "
@@ -897,17 +1076,49 @@ Scenario: Search
   Then I press "Songs"
   Then I press "Search" 
   Then I press "search_bar"
-  Then I enter text "00 Radio"
-  Then I wait for 10 seconds
-  Then I see "00 Radioactive"
-  Then I press "00 Radioactive"
+  Then I enter text "01 Mi"
+  Then I wait for 5 seconds
+  Then I see "01 Mine"
+  Then I press "01 Mine"
   Then I wait for 2 seconds
-  And I see "01 Imagine Dragons"
+  And I see "03 Taylor Swift - Speak Now"
   Then I press "Songs"
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
+
+Scenario: Add to Playlist from Search tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Search" 
+  Then I press "search_bar"
+  Then I enter text "02 Spa"
+  Then I wait for 5 seconds
+  Then I see "02 Sparks Fly"
+  Then I press "02 Sparks Fly"
+  Then I long press "03 Taylor Swift - Speak Now"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_Search"
+  # To hide keyboard
+  Then I go back
+  Then I wait for 2 seconds
+  Then I press "Save" 
+  Then I press "Songs"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  And I see "From_Search"
+  Then I long press "From_Search"
+  Then I wait for 2 seconds
+  Then I swipe to up
+  Then I press "Delete"
+  Then I press "Folders"  
 
 Scenario: Play/Pause Music when change orientation
   Then I press "icon"

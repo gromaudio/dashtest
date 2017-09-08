@@ -1,18 +1,39 @@
 Feature: GMusic
   You have to (export ADB_DEVICE_ARG=****)
-@debug
+
 Scenario: Start
-  Then I press "skipButton"
+  Then I press "closeButton"
   Then I press "button2" 
   Then I press "menu_button"
   Then I press "replace"
   Then I press "PLUGINS"
   Then I press "GMusic"
-@debug
+
+Scenario: Check background text
+  Then I press "icon"
+  Then I wait for 4 seconds
+  Then I press item with name "Cancel"
+  Then I wait for 2 seconds
+  Then I press "Playlists"
+  And I see "You need to login to use the services. Use Options->Accounts"
+  Then I press "Albums"
+  And I see "You need to login to use the services. Use Options->Accounts"
+  Then I press "Artists"
+  And I see "You need to login to use the services. Use Options->Accounts"
+  Then I press "Songs"
+  And I see "You need to login to use the services. Use Options->Accounts"
+  Then I press "Search"
+  And I see "Enter keyword or phrase to search"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I wait for 1 second
+
 Scenario: Navigation through the plugin
   Then I press "icon"
-  Then I wait for 3 seconds
+  Then I wait for 5 seconds
   Then I press item with name "dashlinqbetatest@gmail.com"
+  Then I wait for 1 second
   Then I press item with name "OK"
   Then I wait for 2 seconds
   Then I press "leftButtonFirst"
@@ -32,12 +53,14 @@ Scenario: Navigation through the plugin
   Then I press "Playlists"
   Then I press "leftButtonFirst"
   And I see "Accounts"
+  And I see "Log Out"
   And I see "Sync"
   And I see "Settings"
-  And I see "About"
   Then I swipe to Exit
+  And I see "About"
   And I see "Home"
-  
+
+
 Scenario: Navigation through the Settings
   Then I press "icon"  
   Then I press "leftButtonFirst"
@@ -90,12 +113,51 @@ Scenario: Navigation through the Settings
 Scenario: Check About section
   Then I press "icon"  
   Then I press "leftButtonFirst"
+  Then I swipe to Exit
   Then I press "About"
   Then I see "Google Music (cloud storage) player for DashLinQ. Plays personal tracks stored on Google Music, automatic cover art updates, offline playback and voice search."
   Then I see "Copyright GROM Audio 2015"
 
+# On The Go
+
+Scenario: Play/Pause music & add to playlist - On The Go
+  Then I press "icon"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I long press "Dreams"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for start
+  Then I see "Dreams - Greatest Hits"
+  And I see "2/20"
+  Then I check Music playing
+  Then I press "pause"
+  Then I check Music pause
+  Then I wait for 1 second
+  Then I go back
+  Then I wait for 1 second
+  Then I long press "Dreams"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_On_The_Go"
+  # To hide keyboard
+  Then I go back
+  Then I press "Save"
+  Then I press "On The Go"
+  And I see "From_On_The_Go"
+  And I see "1 Song"
+  Then I long press "From_On_The_Go"
+  Then I wait for 2 seconds
+  Then I drag from 50:75 to 50:25 moving with 15 steps
+  Then I press "Delete"
+  Then I wait for 2 seconds
+
+
 # Albums Tab
-@debug
+
 Scenario: Play/Pause music - Albums tab
   Then I press "icon"
   Then I press "Albums"
@@ -215,7 +277,7 @@ Scenario: Check Albums tab
   And I see "6:21"
   Then I scroll up
   Then I go back
-  
+ 
   Then I wait for 2 seconds
   Then I full scroll down
   Then I scroll up to "Queen" text
@@ -247,10 +309,14 @@ Scenario: Add to playlist from Albums tab
   Then I long press "Adele - 21"
   Then I press "Add to playlist"
   Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_Album"
+  # To hide keyboard
+  Then I go back
   Then I press "Save"
   Then I press "Playlists"
-  And I see "Adele - 21"
-  Then I press "Adele - 21"
+  And I see "From_Album"
+  Then I press "From_Album"
   And I see "Rolling In The Deep"
   And I see "Rumor Has It"
   Then I scroll down
@@ -259,10 +325,11 @@ Scenario: Add to playlist from Albums tab
   Then I scroll up
   Then I go back
   Then I wait for 2 seconds
-  Then I long press "Adele - 21"
+  Then I long press "From_Album"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
+  Then I wait for 2 seconds
 
 Scenario: Switching between tracks - Albums tab 
   Then I press "icon"
@@ -366,11 +433,15 @@ Scenario: Add to playlist from Artists tab
   Then I long press "Adam Lambert"
   Then I press "Add to playlist"
   Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_Artist"
+  # To hide keyboard
+  Then I go back
   Then I press "Save"
   Then I press "Albums"
   Then I press "Playlists"
-  And I see "Adam Lambert"
-  Then I press "Adam Lambert"
+  And I see "From_Artist"
+  Then I press "From_Artist"
   And I see "Music Again"
   And I see "1/4"
   And I see "Strut"
@@ -383,10 +454,11 @@ Scenario: Add to playlist from Artists tab
   Then I scroll up
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I long press "Adam Lambert"
+  Then I long press "From_Artist"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
+  Then I wait for 2 seconds
 
 Scenario: Play/Pause music
   Then I press "icon"
@@ -413,7 +485,7 @@ Scenario: Play/Pause music
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
   Then I wait for start
-  Then I see "Rolling In The Deep"
+  Then I see "Rumor Has It"
   And I see "1/4"
   Then I check Music playing
   Then I press "pause"
@@ -493,64 +565,64 @@ Scenario: Check Songs tab
   Then I wait for 2 seconds
   Then I drag from 50:30 to 50:300 moving with 20 steps
 
-  Then I scroll down to "1/20" text
+  Then I use_new_scroll down to "1/20" text
   And I see "2 Find U"
 
-  Then I scroll down to "2/20" text
+  Then I use_new_scroll down to "2/20" text
   And I see "Dreams"
 
-  Then I scroll down to "3/20" text
+  Then I use_new_scroll down to "3/20" text
   And I see "Fever"
 
-  Then I scroll down to "4/20" text
+  Then I use_new_scroll down to "4/20" text
   And I see "First Love"
 
-  Then I scroll down to "5/20" text
+  Then I use_new_scroll down to "5/20" text
   And I see "Forever"
 
-  Then I scroll down to "6/20" text
+  Then I use_new_scroll down to "6/20" text
   And I see "Gypsy"
 
-  Then I scroll down to "7/20" text
+  Then I use_new_scroll down to "7/20" text
   And I see "He Won\'t Go"
 
-  Then I scroll down to "8/20" text
+  Then I use_new_scroll down to "8/20" text
   And I see "I Miss You"
 
-  Then I scroll down to "9/20" text
+  Then I use_new_scroll down to "9/20" text
   And I see "A Kind Of Magic"
 
-  Then I scroll down to "10/20" text
+  Then I use_new_scroll down to "10/20" text
   And I see "Lovesong"
 
-  Then I scroll down to "11/20" text
+  Then I use_new_scroll down to "11/20" text
   And I see "Music Again"
 
-  Then I scroll down to "12/20" text
+  Then I use_new_scroll down to "12/20" text
   And I see "One Vision"
 
-  Then I scroll down to "13/20" text
+  Then I use_new_scroll down to "13/20" text
   And I see "One Year Of Love"
 
-  Then I scroll down to "14/20" text
+  Then I use_new_scroll down to "14/20" text
   And I see "Rolling In The Deep"
 
-  Then I scroll down to "15/20" text
+  Then I use_new_scroll down to "15/20" text
   And I see "Rumor Has It"
 
-  Then I scroll down to "16/20" text
+  Then I use_new_scroll down to "16/20" text
   And I see "Sara"
 
-  Then I scroll down to "17/20" text
+  Then I use_new_scroll down to "17/20" text
   And I see "Soaked"
 
-  Then I scroll down to "18/20" text
+  Then I use_new_scroll down to "18/20" text
   And I see "Someday"
 
-  Then I scroll down to "19/20" text
+  Then I use_new_scroll down to "19/20" text
   And I see "Strut"
 
-  Then I scroll down to "20/20" text
+  Then I use_new_scroll down to "20/20" text
   And I see "Tusk"
 
   Then I drag from 50:30 to 50:300 moving with 20 steps
@@ -558,6 +630,7 @@ Scenario: Check Songs tab
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
+
 
 Scenario: Jump to Album/Artist options from Songs tab
   Then I press "icon"
@@ -595,20 +668,25 @@ Scenario: Add to playlist from Songs tab
   Then I long press "Dreams"
   Then I press "Add to playlist"
   Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_Song"
+  # To hide keyboard
+  Then I go back
   Then I press "Save"
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
-  Then I scroll to "Dreams" text
-  And I see "Dreams"
-  Then I press "Dreams"
+  Then I scroll to "From_Song" text
+  And I see "From_Song"
+  Then I press "From_Song"
   And I see "Fleetwood Mac - Greatest Hits"
   Then I go back
   Then I wait for 1 second
-  Then I long press "Dreams"
+  Then I long press "From_Song"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
+  Then I wait for 2 seconds
 
 Scenario: Play/Pause music
   Then I press "icon"
@@ -656,6 +734,7 @@ Scenario: Switching between tracks
   # Swipe Switching
   Then I wait for 2 seconds
   Then I swipe to left
+  Then I wait
   Then I see "2 Find U"
   Then I see "1/20"
   Then I swipe to right
@@ -695,12 +774,14 @@ Scenario: Add/Rename/Delete playlists
   Then I enter text "Unoriginal"
   Then I go back
   Then I press "Save"
+  Then I scroll to "Unoriginal" text
   And I see "Unoriginal"
   Then I long press "Unoriginal"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
-  
+  Then I wait for 2 seconds
+
 Scenario: Add to playlist from playlists tab
   Then I press "icon"
   Then I press "Albums"
@@ -708,7 +789,8 @@ Scenario: Add to playlist from playlists tab
   Then I long press "Adele - 21"  
   Then I press "Add to playlist"
   Then I press "New"
-  Then I clear "playlist"
+  #Then I clear "playlist"
+  Then I clear "Adele - 21"
   Then I enter text "TestPlaylist"
   Then I go back
   Then I press "Save"
@@ -733,6 +815,7 @@ Scenario: Add to playlist from playlists tab
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   And I press "Delete"
+  Then I wait for 2 seconds
 
 Scenario: Long press actions - Play From the ...
   Then I press "icon"
@@ -782,9 +865,14 @@ Scenario: Long press actions - Play From the ...
   Then I go back
   Then I wait for 1 second
   Then I go back
+  Then I long press "Adele - 21"
+  Then I drag from 50:75 to 50:25 moving with 15 steps
+  And I press "Delete"
+  Then I wait for 2 seconds
 
 Scenario: Exit option
   Then I press "icon"
+  Then I wait for 1 second
   Then I press "leftButtonFirst"
   Then I swipe to Exit
   Then I press "Home"
@@ -834,7 +922,40 @@ Scenario: Search
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
-    
+
+Scenario: Add to Playlist from Search tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Search" 
+  Then I press "search_bar"
+  Then I enter text "Drea"
+  Then I wait for 5 seconds
+  Then I see "Dreams"
+  Then I press "Dreams"
+  Then I long press "Fleetwood Mac - Greatest Hits"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_Search"
+  # To hide keyboard
+  Then I go back
+  Then I press "Save"
+  Then I press "Songs"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I scroll to "From_Search" text
+  And I see "From_Search"
+  Then I long press "From_Search"
+  Then I wait for 2 seconds
+  Then I drag from 50:75 to 50:25 moving with 15 steps
+  Then I press "Delete"
+  Then I wait for 2 seconds
+     
+   
 Scenario: Play/Pause music change oriantation
   Then I press "icon"
   Then I press "Albums"
@@ -859,4 +980,112 @@ Scenario: Play/Pause music change oriantation
   Then I go back
   Then I wait for 1 second
   Then I go back
-  Then I press "Playlists"   
+  Then I press "Playlists"
+
+
+Scenario: Check track position
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Dreams"
+  Then I press "slide_panel_now_playing_title"
+  And I see "Fleetwood Mac"
+  Then I press "status_text"
+  Then I check timer    
+  Then I restart application
+  Then I wait for 1 seconds
+  Then I swipe to down
+  Then I tap on cover
+  Then I wait for 3 seconds
+  Then I check play position
+  Then I check Music playing
+    
+  Then I press "status_text"
+  Then I check timer
+  Then I wait for 1 seconds  
+  Then I restart application
+  Then I wait for 1 seconds
+  Then I tap on cover
+  Then I wait for 3 seconds
+  Then I check play position
+  Then I check Music playing
+
+  Then I press "status_text"
+  Then I check timer  
+  Then I wait for 1 seconds
+  Then I restart application
+  Then I wait for 1 seconds
+  Then I tap on cover
+  Then I wait for 3 seconds
+  Then I check play position
+  Then I check Music playing
+
+  Then I press "status_text"
+  Then I check timer 
+  Then I wait for 1 seconds 
+  Then I restart application
+  Then I wait for 1 seconds
+  Then I tap on cover
+  Then I wait for 3 seconds
+  Then I check play position
+  Then I check Music playing
+
+  # Check when track paused
+  Then I tap on cover
+  Then I press "2 Find U"
+  # Then I press "slide_panel_now_playing_title"
+  Then I press "status_text"
+  Then I press "pause"
+  Then I check timer
+  And I see "Buffy"    
+  Then I restart application
+  Then I wait for 1 seconds
+  Then I tap on cover
+  Then I wait for 3 seconds
+  Then I check pause position
+  Then I check Music pause
+
+  Then I check timer
+  Then I restart application
+  Then I wait for 1 seconds
+  Then I tap on cover
+  Then I wait for 3 seconds
+  Then I check pause position
+  Then I check Music pause
+
+  Then I check timer
+  Then I restart application
+  Then I wait for 1 seconds
+  Then I tap on cover
+  Then I wait for 3 seconds
+  Then I check pause position
+  Then I check Music pause
+
+
+  Then I check timer
+  Then I restart application
+  Then I wait for 1 seconds
+  Then I tap on cover
+  Then I wait for 3 seconds
+  Then I check pause position
+  Then I check Music pause
+
+Scenario: Log Out from plugin
+  Then I press "icon"
+  Then I press "leftButtonFirst"
+  Then I press "Log Out"
+  Then I wait for 1 second
+  And I see "You need to login to use the services. Use Options->Accounts"
+  Then I press "Albums"
+  And I see "You need to login to use the services. Use Options->Accounts"
+  Then I press "Artists"
+  And I see "You need to login to use the services. Use Options->Accounts"
+  Then I press "Songs"
+  And I see "You need to login to use the services. Use Options->Accounts"
+  Then I press "Search"
+  And I see "Enter keyword or phrase to search"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I wait for 1 second
