@@ -1,5 +1,5 @@
 Feature: Spotify
-
+@a
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-
+@a
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
@@ -806,6 +806,71 @@ Scenario: Play/Pause Music
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
+@a
+Scenario: Add to Playlist from Search tab
+  Then I press "icon"
+  Then I press "New Releases"
+  Then I touch the "Genres" text
+  Then I press "Your Music"
+  Then I press "Search" 
+  Then I press "search_bar"
+  Then I enter text "Bring Me To"
+  Then I wait for 5 seconds
+  Then I see "Bring Me To Life"
+  Then I press "Bring Me To Life"
+  Then I long press "Evanescence - Fallen"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear "playlist"
+  Then I enter text "From_Search"
+  # To hide keyboard
+  Then I go back
+  Then I wait for 2 seconds
+  Then I press "Save"
+  Then I long press "Evanescence - Fallen"
+  Then I wait for 1 second
+  Then I press "Add to favorites"
+  Then I press "Your Music"
+  Then I press "Playlists"
+  And I see "From_Search"
+  Then I long press "From_Search"
+  Then I wait for 2 seconds
+  Then I press "Delete"
+  Then I press "Playlists"
+
+  Then I press "Artists"
+  Then I wait for 2 seconds
+  Then I press image view number 1
+  Then I press image view number 3
+  Then I see "Bring Me To Life"
+  Then I go back
+  Then I wait for 1 seconds
+  Then I go back
+
+  Then I press "Albums"
+  Then I wait for 2 seconds
+  Then I press on folder
+  Then I see "Bring Me To Life"
+ 
+  Then I go back
+  Then I wait for 1 seconds
+  Then I go back
+
+  Then I press "Songs"
+  And I see "Bring Me To Life"
+  And I see "Evanescence"
+  #Then I long press "Bring Me To Life"
+  #Then I wait for 1 seconds
+  #Then I press "Delete from favorites"
+  Then I wait for 2 seconds
+  Then I go back
+ 
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press "Charts"
+  Then I press "Stations"
+
 
 Scenario: Logout
   Then I press "icon"
