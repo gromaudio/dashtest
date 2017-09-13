@@ -179,7 +179,6 @@ Scenario: Play favorite station (Long press)
   Then I check Radio pause
   Then I press "shuffle"
 
-
 Scenario: Switching between favorite stations
   Then I press "icon"
   Then I press "Favorites"
@@ -236,8 +235,13 @@ Scenario: Switching between favorite stations
   Then I tap on cover
   And I see "Favorites"
   Then I go back
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I go back
+  Then I press "Stations"
+  Then I press "Local radio"
+  Then I press list item number 3
+  Then I press " .. "
+  Then I press "Favorites"
   Then I long press list item number 1
   Then I press "Delete from favorites"
   Then I wait for 5 seconds
@@ -333,7 +337,7 @@ Scenario: Recents tab
   Then I tap on cover
   And I see "Recents"
   Then I go back
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I go back
   
   # Add to favorites/Remove from favorites options from long press menu in Recents tab
@@ -458,6 +462,7 @@ Scenario: Tap on cover
   And I see "Records"
   Then I press "actionBackArrow"
   Then I wait for 1 second
+  Then I press "pause"
   Then I press "actionBackArrow"
 
 Scenario: Delete from Records
@@ -662,8 +667,30 @@ Scenario: Add to Favorites from Search tab
   Then I long press "OMG K Pop"
   Then I wait for 2 seconds
   Then I press "Delete from favorites"
-  Then I press "Stations"  
-  
+  Then I press "Stations" 
+
+#Scenario: Check buffering station
+#  Then I press "icon"
+#  Then I press "Stations"
+#  Then I press "Music"
+#  Then I press "80\'s"
+#  Then I press list item number 6
+#  Then I press "slide_panel_now_playing_title"
+#  Then I wait for start
+#  Then I check Radio playing
+#  Then I press "pause"
+#  Then I go back
+#  Then I full scroll down
+#  Then I wait for 2 seconds
+#  Then I full scroll down
+#  Then I tap on cover
+#  Then I press "slide_panel_now_playing_title"
+#  Then I wait for start
+#  Then I check Radio playing
+#  Then I press "pause"
+#  Then I go back
+
+
 # AM/FM Radio
 
 Scenario: Start

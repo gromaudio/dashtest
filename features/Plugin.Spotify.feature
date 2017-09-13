@@ -1,5 +1,5 @@
 Feature: Spotify
-@a
+
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-@a
+
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
@@ -806,7 +806,7 @@ Scenario: Play/Pause Music
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
-@a
+
 Scenario: Add to Playlist from Search tab
   Then I press "icon"
   Then I press "New Releases"

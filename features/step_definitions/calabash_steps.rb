@@ -408,8 +408,8 @@ Then /^I check play position$/ do
 	a = query("* id:'currenttime'")
 	current_position = a[0]['text'].gsub(':','').to_i
 	print current_position
-	if !(@time_position .. @time_position+5).include? current_position
-		fail "Save position incorrect:\n #{[@time_position .. @time_position+5]}"
+	if !(@time_position .. @time_position+8).include? current_position
+		fail "Save position incorrect:\n #{[@time_position .. @time_position+8]}"
   	end
 end
 

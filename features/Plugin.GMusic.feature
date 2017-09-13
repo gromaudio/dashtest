@@ -1007,7 +1007,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I check play position
   Then I check Music playing
 
@@ -1017,7 +1017,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I check play position
   Then I check Music playing
 
@@ -1027,7 +1027,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I check play position
   Then I check Music playing
 
@@ -1042,7 +1042,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I check pause position
   Then I check Music pause
 
@@ -1050,7 +1050,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I check pause position
   Then I check Music pause
 
@@ -1058,7 +1058,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I check pause position
   Then I check Music pause
 
@@ -1067,7 +1067,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 3 seconds
+  Then I wait for 4 seconds
   Then I check pause position
   Then I check Music pause
 
