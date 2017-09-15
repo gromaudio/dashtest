@@ -3,7 +3,7 @@
 `export ADB_DEVICE_ARG="TA9921ASBX"
 ANDROID_SERIAL=$ADB_DEVICE_ARG; export ANDROID_SERIAL
 export ANDROID_HOME=/home/tolik/ADP/adt-bundle-linux-x86_64-20140702/sdk
-calabash-android run /home/tolik/calabash-test-android/30108.apk --format html --out /home/tolik/calabash-test-android/screenshots/screenshotsMoto/13.09.2017/130917v108.html SCREENSHOT_PATH=/home/tolik/calabash-test-android/screenshots/screenshotsMoto/13.09.2017/`&
+calabash-android run /home/tolik/calabash-test-android/301010.apk --format html --out /home/tolik/calabash-test-android/screenshots/screenshotsMoto/15.09.2017/150917v1010.html SCREENSHOT_PATH=/home/tolik/calabash-test-android/screenshots/screenshotsMoto/15.09.2017/`&
 `export ADB_DEVICE_ARG="9fd6b98e"
 ANDROID_SERIAL=$ADB_DEVICE_ARG; export ANDROID_SERIAL
 export ANDROID_HOME=/home/tolik/ADP/adt-bundle-linux-x86_64-20140702/sdk

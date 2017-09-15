@@ -316,7 +316,7 @@ Scenario: Add to playlist from Albums tab
   Then I press "Save"
   Then I press "Playlists"
   And I see "From_Album"
-  Then I press "From_Album"
+  Then I press "From_Album.m3u"
   And I see "Rolling In The Deep"
   And I see "Rumor Has It"
   Then I scroll down
@@ -325,7 +325,7 @@ Scenario: Add to playlist from Albums tab
   Then I scroll up
   Then I go back
   Then I wait for 2 seconds
-  Then I long press "From_Album"
+  Then I long press "From_Album.m3u"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
@@ -441,7 +441,7 @@ Scenario: Add to playlist from Artists tab
   Then I press "Albums"
   Then I press "Playlists"
   And I see "From_Artist"
-  Then I press "From_Artist"
+  Then I press "From_Artist.m3u"
   And I see "Music Again"
   And I see "1/4"
   And I see "Strut"
@@ -454,7 +454,7 @@ Scenario: Add to playlist from Artists tab
   Then I scroll up
   Then I press "actionBackArrow"
   Then I wait for 1 second
-  Then I long press "From_Artist"
+  Then I long press "From_Artist.m3u"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
@@ -676,13 +676,13 @@ Scenario: Add to playlist from Songs tab
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
-  Then I scroll to "From_Song" text
+  Then I scroll to "From_Song.m3u" text
   And I see "From_Song"
-  Then I press "From_Song"
+  Then I press "From_Song.m3u"
   And I see "Fleetwood Mac - Greatest Hits"
   Then I go back
   Then I wait for 1 second
-  Then I long press "From_Song"
+  Then I long press "From_Song.m3u"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
@@ -764,9 +764,9 @@ Scenario: Add/Rename/Delete playlists
   Then I scroll up
   Then I press "Albums"
   Then I press "Playlists"
-  Then I scroll to "Original" text
+  Then I scroll to "Original.m3u" text
   Then I see "Original"
-  Then I long press "Original"
+  Then I long press "Original.m3u"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Rename"
@@ -774,9 +774,9 @@ Scenario: Add/Rename/Delete playlists
   Then I enter text "Unoriginal"
   Then I go back
   Then I press "Save"
-  Then I scroll to "Unoriginal" text
+  Then I scroll to "Unoriginal.m3u" text
   And I see "Unoriginal"
-  Then I long press "Unoriginal"
+  Then I long press "Unoriginal.m3u"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
@@ -796,22 +796,22 @@ Scenario: Add to playlist from playlists tab
   Then I press "Save"
   Then I press "Playlists"
   And I see "TestPlaylist"
-  Then I long press "TestPlaylist"
+  Then I long press "TestPlaylist.m3u"
   Then I press "Add to playlist"
   Then I press "New"
   Then I clear "playlist"
   Then I enter text "TestPlaylist2"
   Then I go back
   Then I press "Save"
-  Then I scroll to "TestPlaylist2" text
+  Then I scroll to "TestPlaylist2.m3u" text
   And I see "TestPlaylist2"
-  Then I long press "TestPlaylist2"
+  Then I long press "TestPlaylist2.m3u"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   And I press "Delete"
-  Then I scroll to "TestPlaylist" text
+  Then I scroll to "TestPlaylist.m3u" text
   And I see "TestPlaylist"
-  Then I long press "TestPlaylist"
+  Then I long press "TestPlaylist.m3u"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   And I press "Delete"
@@ -827,8 +827,8 @@ Scenario: Long press actions - Play From the ...
   Then I press "New"
   Then I press "Save"
   Then I press "Playlists"
-  Then I scroll to "Adele - 21" text
-  Then I long press "Adele - 21"
+  Then I scroll to "Adele - 21.m3u" text
+  Then I long press "Adele - 21.m3u"
   Then I press "Play from the beginning"
   Then I press "slide_panel_now_playing_title"
   Then I wait for start
@@ -853,8 +853,8 @@ Scenario: Long press actions - Play From the ...
   Then I press list item number 1
   Then I go back
   Then I wait for 1 second
-  Then I scroll to "Adele - 21" text
-  Then I long press "Adele - 21"
+  Then I scroll to "Adele - 21.m3u" text
+  Then I long press "Adele - 21.m3u"
   When I press "Play from the saved position"
   Then I press "slide_panel_now_playing_title"
   Then I wait for start
@@ -865,7 +865,7 @@ Scenario: Long press actions - Play From the ...
   Then I go back
   Then I wait for 1 second
   Then I go back
-  Then I long press "Adele - 21"
+  Then I long press "Adele - 21.m3u"
   Then I drag from 50:75 to 50:25 moving with 15 steps
   And I press "Delete"
   Then I wait for 2 seconds
@@ -947,9 +947,9 @@ Scenario: Add to Playlist from Search tab
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
-  Then I scroll to "From_Search" text
+  Then I scroll to "From_Search.m3u" text
   And I see "From_Search"
-  Then I long press "From_Search"
+  Then I long press "From_Search.m3u"
   Then I wait for 2 seconds
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
