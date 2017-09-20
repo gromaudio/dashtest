@@ -229,6 +229,7 @@ Scenario: Add Plugin
     Then I press "Local Music"
     Then I see "Local Music"
     Then I swipe to left
+    Then I wait for 1 seconds
     Then I drag from 75:50 to 35:50 moving with 5 steps
     And I see "Local Music"
     Then I swipe to left 

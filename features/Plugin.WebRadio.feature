@@ -493,7 +493,7 @@ Scenario: Play Radio
   Then I press " .. "
   Then I press "Music"
   Then I wait for 3 seconds
-  Then I press "60\'s"
+  Then I press "60\'s Music"
   Then I wait for 5 seconds
   # Play station
   Then I press list item number 5
@@ -588,10 +588,8 @@ Scenario: Long press navigation
   Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
-  #Then I press " .. "
   Then I press "Music"
-  #Then I scroll to "70\'s" text
-  Then I press "70\'s"
+  Then I press "70\'s Music"
   Then I wait for 4 seconds
   Then I long press list item number 5
   And I see "Play"
@@ -650,7 +648,7 @@ Scenario: Add to Favorites from Search tab
   Then I press "Favorites"
   Then I press "Recents"
   Then I press "Records"
-  Then I press "Search" 
+  Then I press "Search"
   Then I press "search_bar"
   Then I enter text "OMG"
   Then I wait for 5 seconds
@@ -669,27 +667,26 @@ Scenario: Add to Favorites from Search tab
   Then I press "Delete from favorites"
   Then I press "Stations" 
 
-#Scenario: Check buffering station
-#  Then I press "icon"
-#  Then I press "Stations"
-#  Then I press "Music"
-#  Then I press "80\'s"
-#  Then I press list item number 6
-#  Then I press "slide_panel_now_playing_title"
-#  Then I wait for start
-#  Then I check Radio playing
-#  Then I press "pause"
-#  Then I go back
-#  Then I full scroll down
-#  Then I wait for 2 seconds
-#  Then I full scroll down
-#  Then I tap on cover
-#  Then I press "slide_panel_now_playing_title"
-#  Then I wait for start
-#  Then I check Radio playing
-#  Then I press "pause"
-#  Then I go back
-
+Scenario: Check buffering station
+  Then I press "icon"
+  Then I press "Stations"
+  Then I press " .. "
+  Then I press "80\'s Music"
+  Then I press list item number 6
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for start
+  Then I check Radio playing
+  Then I press "pause"
+  Then I go back
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I full scroll down
+  Then I tap on cover
+  Then I press "slide_panel_now_playing_title"
+  Then I wait for start
+  Then I check Radio playing
+  Then I press "pause"
+  Then I go back
 
 # AM/FM Radio
 

@@ -60,7 +60,6 @@ Scenario: Navigation through the plugin
   And I see "About"
   And I see "Home"
 
-
 Scenario: Navigation through the Settings
   Then I press "icon"  
   Then I press "leftButtonFirst"
@@ -478,9 +477,9 @@ Scenario: Play/Pause music
   Then I check Music pause
   Then I go back
   # Long press play
-  Then I wait for 1 second
+  Then I wait for 1 seconds
   Then I go back
-  Then I wait for 1 second
+  Then I wait
   Then I long press "Adele"
   Then I press "Play"
   Then I press "slide_panel_now_playing_title"
@@ -954,8 +953,7 @@ Scenario: Add to Playlist from Search tab
   Then I drag from 50:75 to 50:25 moving with 15 steps
   Then I press "Delete"
   Then I wait for 2 seconds
-     
-   
+        
 Scenario: Play/Pause music change oriantation
   Then I press "icon"
   Then I press "Albums"
@@ -1042,7 +1040,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I check pause position
   Then I check Music pause
 
@@ -1050,7 +1048,7 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I check pause position
   Then I check Music pause
 
@@ -1058,16 +1056,15 @@ Scenario: Check track position
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I check pause position
   Then I check Music pause
-
 
   Then I check timer
   Then I restart application
   Then I wait for 1 seconds
   Then I tap on cover
-  Then I wait for 4 seconds
+  Then I wait for 5 seconds
   Then I check pause position
   Then I check Music pause
 

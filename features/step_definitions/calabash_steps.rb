@@ -1,51 +1,4 @@
 require 'calabash-android/calabash_steps'
-Then /^I press image view number (\d+)$/ do |index|
- tap_when_element_exists("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
-end
-
-Then /^I press element number (\d+)$/ do |index|
- tap_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr' index:#{index.to_i-1}")
-end  
-
-Then /^I press on folder$/ do
-  tap_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr'")
-end
-
-Then /^I long press element number (\d+)$/ do |index|
- long_press_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr' index:#{index.to_i-1}")
-end
-
-Then /^I long press image view number (\d+)$/ do |index|
- long_press_when_element_exists("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
-end
-
-Then /^I long press "([^\"]*)" and select item number (\d+)$/ do |text, index|
-end
-
-Then /^I click back button$/ do
-	cmd = "#{default_device.adb_command} shell input keyevent 4"
-	system(cmd)
-end
-
-Then /^I press image view with id "([^\"]*)" number (\d+)$/ do |id, index|
- tap_when_element_exists("android.widget.ImageView id:#{id} index:#{index.to_i-1}")
-end
-
-Then /^I press item with name "([^\"]*)"$/ do |name|
-	exit_code = system "./features/step_definitions/click-by-text.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
-	if !exit_code
-		p exit_code
-		raise "Item #{name} is not found on a screen"
-	end
-end
-
-Then /^I press permission "([^\"]*)"$/ do |name|
-	exit_code = system "./features/step_definitions/click-by-text2.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
-	if !exit_code
-		p exit_code
-		raise "Item #{name} is not found on a screen"
-	end
-end
 
 Then /^I scroll until I see the "([^\"]*)" text$/ do |text|
   count=query("ListView",:getCount).first.to_i
@@ -60,10 +13,6 @@ Then /^I scroll until I see the "([^\"]*)" text$/ do |text|
         fail("#{text} is missing") if var==count
     }
 end    
-
-Then /^I long touch the "([^\"]*)" text$/ do |text|
-	long_press_when_element_exists("* {text CONTAINS[c] '#{text}'}")
-end
 
 Then /^I check Radio playing$/ do 
 	a = query("* id:'currenttime'")
@@ -137,14 +86,6 @@ Then /^I swipe to Exit$/ do
 	perform_action('drag', 10, 10, 85, 25, 5)
 end
 
-Then /^I tap on cover$/ do
-	perform_action('click_on_screen', 35, 50)
-end
-
-Then /^I click on screen (\d+)% from the left and (\d+)% from the top$/ do |x, y|
-  perform_action('click_on_screen', x, y)
-end
-
 Then /^I get text for item number (\d+)$/ do |index|
 	a=query("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
 	#@item_text = a[0]['text'] 
@@ -210,30 +151,6 @@ end
 Then /^I enter credentials$/ do
 	enter_text("WebView css:'input[type=\"text\"]'", "xehiyoux")
 	enter_text("WebView css:'input[type=\"Password\"]'", "Gr0m$potify")
-end
-
-Then /^I tap on Log in to Spotify$/ do
-	touch("webView xpath:'//A[contains(text(),\"Log in to Spotify\")]'")
-end
-
-Then /^I press enter button$/ do
-	press_enter_button
-end
-
-Then /^I press Okay button$/ do
-	touch("webView xpath:'//BUTTON[contains(text(),\"Okay\")]'")
-end	
-
-Then /^I press Login button$/ do
-	touch("webView xpath:'//BUTTON[contains(text(),\"Log In\")]'")
-end	
-
-Then /^I touch password field$/ do
-	touch("WebView css:'input[type=\"Password\"]'")
-end
-
-Then /^I touch username field$/ do
-	touch("WebView css:'input[name=\"username\"]'")
 end
 
 Then /^I enter username$/ do
@@ -382,22 +299,6 @@ Then /^I use_new_scroll down to "([^\"]*)" text$/ do |name|
     end
 end
 
-
-Then /^I long touch left_button$/ do 
-	long_press_when_element_exists("* id:'shuffle'")
-end
-
-
-Then /^I touch icon number (\d+)$/ do |index|
-	touch("android.support.v7.widget.AppCompatImageView id:'imageView' index:#{index.to_i-1}")
-end 
-
-
-Then /^I touch left_button$/ do 
-	touch("* id:'shuffle'")
-end
-
-
 Then /^I check timer$/ do 
 	a = query("* id:'currenttime'")
 	@time_position = a[0]['text'].gsub(':','').to_i
@@ -420,4 +321,110 @@ Then /^I check pause position$/ do
 	if !(@time_position-5 .. @time_position).include? current_position
 		fail "Save position incorrect:\n #{(@time_position-5 .. @time_position)}"
   	end
+end
+
+# Press commands
+
+Then /^I press image view number (\d+)$/ do |index|
+ tap_when_element_exists("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
+end
+
+Then /^I press element number (\d+)$/ do |index|
+ tap_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr' index:#{index.to_i-1}")
+end  
+
+Then /^I press on folder$/ do
+  tap_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr'")
+end
+
+Then /^I long press element number (\d+)$/ do |index|
+ long_press_when_element_exists("android.support.v7.widget.AppCompatTextView id:'descr' index:#{index.to_i-1}")
+end
+
+Then /^I long press image view number (\d+)$/ do |index|
+ long_press_when_element_exists("android.widget.ListView index:0 android.widget.TextView index:#{index.to_i-1}")
+end
+
+Then /^I long press "([^\"]*)" and select item number (\d+)$/ do |text, index|
+end
+
+Then /^I click back button$/ do
+	cmd = "#{default_device.adb_command} shell input keyevent 4"
+	system(cmd)
+end
+
+Then /^I press image view with id "([^\"]*)" number (\d+)$/ do |id, index|
+ tap_when_element_exists("android.widget.ImageView id:#{id} index:#{index.to_i-1}")
+end
+
+Then /^I press item with name "([^\"]*)"$/ do |name|
+	exit_code = system "./features/step_definitions/click-by-text.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
+	if !exit_code
+		p exit_code
+		raise "Item #{name} is not found on a screen"
+	end
+end
+
+Then /^I press permission "([^\"]*)"$/ do |name|
+	exit_code = system "./features/step_definitions/click-by-text2.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
+	if !exit_code
+		p exit_code
+		raise "Item #{name} is not found on a screen"
+	end
+end
+
+Then /^I long touch left_button$/ do 
+	long_press_when_element_exists("* id:'shuffle'")
+end
+
+Then /^I touch icon number (\d+)$/ do |index|
+	touch("android.support.v7.widget.AppCompatImageView id:'imageView' index:#{index.to_i-1}")
+end 
+
+Then /^I touch left_button$/ do 
+	touch("* id:'shuffle'")
+end
+
+Then /^I tap on Log in to Spotify$/ do
+	touch("webView xpath:'//A[contains(text(),\"Log in to Spotify\")]'")
+end
+
+Then /^I press enter button$/ do
+	press_enter_button
+end
+
+Then /^I press Okay button$/ do
+	touch("webView xpath:'//BUTTON[contains(text(),\"Okay\")]'")
+end	
+
+Then /^I press Login button$/ do
+	touch("webView xpath:'//BUTTON[contains(text(),\"Log In\")]'")
+end	
+
+Then /^I touch password field$/ do
+	touch("WebView css:'input[type=\"Password\"]'")
+end
+
+Then /^I touch username field$/ do
+	touch("WebView css:'input[name=\"username\"]'")
+end
+
+Then /^I long touch the "([^\"]*)" text$/ do |text|
+	long_press_when_element_exists("* {text CONTAINS[c] '#{text}'}")
+end
+
+Then /^I tap on cover$/ do
+	perform_action('click_on_screen', 35, 50)
+end
+
+Then /^I click on screen (\d+)% from the left and (\d+)% from the top$/ do |x, y|
+  perform_action('click_on_screen', x, y)
+end
+
+Then /^I press icon "([^\"]*)" with text "([^\"]*)"$/ do |identifier,text|
+  tap_when_element_exists("* id:'#{identifier}' text:'#{text}'")
+end
+
+Then /^I check "([^\"]*)" status "([^\"]*)"$/ do |identifier,status|
+  query("* id:'#{identifier}' contentDescription:'#{status}'")
 end
