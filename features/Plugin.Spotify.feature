@@ -168,6 +168,30 @@ Scenario: Play/Pause Music
   Then I wait for 1 second
   Then I go back
 
+Scenario: Check Repeat and Shuffle option after switch plugin 
+  Then I press icon "name" with text "Spotify"
+  Then I press "Stations"
+  Then I press "slide_panel_now_playing_title"
+  Then I press "shuffle"
+  Then I check "shuffle" status "SideButtonLeft On"
+  Then I press "repeat"
+  Then I check "repeat" status "SideButtonRight On"
+  Then I press "leftButtonFirst"
+  Then I press "Home"
+  Then I press icon "name" with text "WebRadio"
+  Then I wait
+  Then I press "leftButtonFirst"
+  Then I press "Home"
+  Then I press icon "name" with text "Spotify"
+  Then I wait
+  Then I press "slide_panel_now_playing_title"
+  Then I check "shuffle" status "SideButtonLeft On"
+  Then I check "repeat" status "SideButtonRight On"
+  Then I press "shuffle"
+  Then I press "repeat"
+  Then I check "shuffle" status "SideButtonLeft Off"
+  Then I check "repeat" status "SideButtonRight Off"       
+
 Scenario: Add/Delete to playlist/favorite
   Then I press "icon"
   Then I wait for 5 seconds

@@ -15,3 +15,5 @@ subprocess_test.py
 *.sh~
 constants.pyc
 GMusic_20092017\.html
+
+start_test\.sh

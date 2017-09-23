@@ -1118,7 +1118,34 @@ Scenario: Add to Playlist from Search tab
   Then I wait for 2 seconds
   Then I swipe to up
   Then I press "Delete"
-  Then I press "Folders"  
+  Then I press "Folders" 
+
+Scenario: Check Repeat and Shuffle option after switch plugin 
+  Then I press icon "name" with text "Local Music"
+  Then I press "Folders"
+  Then I press "Nickelback - Dark Horse"
+  Then I press "02 S.E.X."
+  Then I press " .. "
+  Then I press "slide_panel_now_playing_title"
+  Then I press "shuffle"
+  Then I check "shuffle" status "SideButtonLeft On"
+  Then I press "repeat"
+  Then I check "repeat" status "SideButtonRight On"
+  Then I press "leftButtonFirst"
+  Then I press "Home"
+  Then I press icon "name" with text "WebRadio"
+  Then I wait
+  Then I press "leftButtonFirst"
+  Then I press "Home"
+  Then I press icon "name" with text "Local Music"
+  Then I wait
+  Then I press "slide_panel_now_playing_title"
+  Then I check "shuffle" status "SideButtonLeft On"
+  Then I check "repeat" status "SideButtonRight On"
+  Then I press "shuffle"
+  Then I press "repeat"
+  Then I check "shuffle" status "SideButtonLeft Off"
+  Then I check "repeat" status "SideButtonRight Off"   
 
 Scenario: Play/Pause Music when change orientation
   Then I press "icon"
