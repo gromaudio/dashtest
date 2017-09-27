@@ -40,27 +40,21 @@ Scenario: View Settings
 Scenario: View Settings components 
     Then I press "leftButtonFirst"
     Then I press "Settings"
-
     Then I see "MPH"
     Then I press "Speed"
     Then I see "KM/H"
     Then I press "Speed"
     Then I see "MPH"
-
     Then I see "℉"
     Then I press "Temperature"
     Then I see "℃"
     Then I press "Temperature"
     Then I see "℉"
-
     Then I press "Bluetooth connection"
     Then I see "Bluetooth connection"
     Then I press "Cancel"
-
     Then I press "Display Stay Awake"
     Then I press "Display Stay Awake"
-
-    
     Then I press "Show Quick Return icon"
     Then I press permission "Permit drawing over other apps"
     Then I press "Show Quick Return icon"
@@ -70,14 +64,8 @@ Scenario: View Settings components
     Then I see "Rotation lock" 
     Then I see "Brightness"
     Then I press "None"
-
     Then I see "Navigation"
     Then I see "Maps"
-    
-    #Then I press "Speech To Text Engine"
-    #Then I see "Google"
-    #Then I press "Google"
-
     Then I scroll down
     Then I press "Disable USB Streaming"
     Then I press "Disable USB Streaming"
@@ -272,17 +260,19 @@ Scenario: Replace plugin
     Then I press "replace"
     Then I press "PLUGINS"
     Then I press "GMusic"
-    Then I see "GMusic"
-    Then I swipe to left
     Then I wait
-    Then I drag from 75:50 to 35:50 moving with 5 steps
-    And I see "GMusic"
+    Then I see "GMusic"
+    Then I check "icon" status "GMusic"
+    #Then I swipe to left
+    #Then I wait
+    #Then I drag from 75:50 to 35:50 moving with 10 steps
+    #And I see "GMusic"
     Then I press "menu_button"
     Then I press "delete"
     Then I swipe to left
 
 Scenario: Add multiple plugins
-    Then I drag from 75:50 to 35:50 moving with 5 steps
+    Then I drag from 75:50 to 35:50 moving with 10 steps
     Then I press "icon"
     Then I press "PLUGINS"
     Then I press "Local Music"
@@ -293,7 +283,7 @@ Scenario: Add multiple plugins
     Then I see "Local Music"
     Then I see "Where is My Car"
     Then I swipe to left
-    Then I drag from 75:50 to 35:50 moving with 5 steps
+    Then I drag from 75:50 to 35:50 moving with 10 steps
     And I see "Local Music" 
     And I see "Where is My Car"
     Then I swipe to left

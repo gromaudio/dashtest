@@ -210,7 +210,7 @@ Scenario: Play favorite station (Long press)
   Then I press "pause"
   Then I check Radio pause
   Then I press "shuffle"
-@a
+
 Scenario: Switching between favorite stations
   Then I press icon "name" with text "WebRadio"
 #  Then I press "icon"

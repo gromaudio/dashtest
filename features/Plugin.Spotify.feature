@@ -181,6 +181,8 @@ Scenario: Check Repeat and Shuffle option after switch plugin
   Then I press icon "name" with text "WebRadio"
   Then I wait
   Then I press "leftButtonFirst"
+  Then I swipe to Exit
+  Then I wait
   Then I press "Home"
   Then I press icon "name" with text "Spotify"
   Then I wait
@@ -257,7 +259,6 @@ Scenario: Add/Delete to playlist/favorite
   Then I long press previously added element
   Then I press "Delete from favorites"
   Then I wait for 3 seconds
-  # issue 2438
   #And I see "No elements"
 
   Then I go back
@@ -421,7 +422,6 @@ Scenario: Add/Delete to playlist/favorite
   Then I long press previously added element
   Then I press "Delete from favorites"
   Then I wait for 3 seconds
-  # issue 2438
   #And I see "No elements"
   Then I go back
   Then I press "Genres and Moods"
@@ -542,7 +542,6 @@ Scenario: Add/Delete to playlist/favorite
   Then I long press previously added element
   Then I press "Delete from favorites"
   Then I wait for 3 seconds
-  # issue 2438
   #And I see "No elements"
   Then I go back
   Then I press "Genres and Moods"
@@ -687,7 +686,6 @@ Scenario: Add/Delete to playlist/favorite
   Then I long press previously added element
   Then I press "Delete from favorites"
   Then I wait for 3 seconds
-  # issue 2438
   #And I see "No elements"
   Then I go back
 
@@ -894,7 +892,6 @@ Scenario: Add to Playlist from Search tab
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
-
 
 Scenario: Logout
   Then I press "icon"
