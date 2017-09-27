@@ -17,3 +17,7 @@ constants.pyc
 GMusic_20092017\.html
 
 start_test\.sh
+
+*.html
+
+*.sh

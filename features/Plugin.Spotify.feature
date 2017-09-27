@@ -177,12 +177,11 @@ Scenario: Check Repeat and Shuffle option after switch plugin
   Then I press "repeat"
   Then I check "repeat" status "SideButtonRight On"
   Then I press "leftButtonFirst"
+  Then I swipe to Exit
   Then I press "Home"
   Then I press icon "name" with text "WebRadio"
   Then I wait
   Then I press "leftButtonFirst"
-  Then I swipe to Exit
-  Then I wait
   Then I press "Home"
   Then I press icon "name" with text "Spotify"
   Then I wait
