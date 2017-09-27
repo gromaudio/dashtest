@@ -3,15 +3,10 @@ Feature: WebRadio Plugin
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2"
-#  Then I press "menu_button"
-#  Then I press "replace"
-#  Then I press "PLUGINS"
-#  Then I press "WebRadio"
 
 Scenario: Settings
   Then I press icon "name" with text "WebRadio"
   Then I wait
-#  Then I press "icon"
   Then I press "leftButtonFirst"
   And I see "Settings"
   And I see "About"
@@ -29,7 +24,6 @@ Scenario: Settings
 
 Scenario: Navigation through the tabs
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I wait for 5 seconds
   # Ensure there is a default station selected in the player
   And I see "Megapolis FM 89.5"
@@ -95,7 +89,6 @@ Scenario: Check Repeat and Shuffle option after switch plugin
 
 Scenario: Traversing down/up by Stations tab hierarchy
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I scroll to "Sports" text
@@ -130,11 +123,10 @@ Scenario: Traversing down/up by Stations tab hierarchy
 
 Scenario: Add/remove favorite (long press)
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I get text for item number 3
   Then I long press image view number 3
   Then I press "Add to favorites"
@@ -148,11 +140,10 @@ Scenario: Add/remove favorite (long press)
 
 Scenario: Add/remove favorite (favorite button)
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I get text for item number 3
   Then I press image view number 3
   Then I press "slide_panel_now_playing_title"
@@ -163,25 +154,32 @@ Scenario: Add/remove favorite (favorite button)
 
   Then I press "actionBackArrow"
   Then I scroll up
-  Then I press " .. "
   Then I press "Favorites"
   Then I see item number text
   Then I press previously added element
   Then I press "slide_panel_now_playing_title"
   Then I press "shuffle"
+  And I see "Cannot remove last track from selection"
   Then I press "actionBackArrow"
+  Then I press "Stations"
+  Then I press image view number 3
+  Then I press "slide_panel_now_playing_title"
+  Then I check "shuffle" status "SideButtonLeft On"
+  Then I press "shuffle"
+  Then I go back
+  Then I press " .. "
+  Then I wait
+  Then I press "Favorites"
   And I see "There are no items found in Favorites."
 
 Scenario: Play favorite station
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I long press list item number 3
   Then I press "Add to favorites"
-  Then I press " .. "
   Then I press "Favorites"
   Then I press list item number 1
   Then I press "slide_panel_now_playing_title"
@@ -189,18 +187,24 @@ Scenario: Play favorite station
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
-  Then I press "shuffle"
+  Then I go back
+  Then I press "Stations"
+  Then I press list item number 3
+  Then I long press list item number 3
+  Then I press "Delete from favorites"
+  Then I press " .. "
+  Then I wait
+  Then I press "Favorites"
+  And I see "There are no items found in Favorites."
 
 Scenario: Play favorite station (Long press)
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I long press list item number 6
   Then I press "Add to favorites"
-  Then I press " .. "
   Then I press "Favorites"
   Then I long press list item number 1
   Then I press "Play"
@@ -209,15 +213,22 @@ Scenario: Play favorite station (Long press)
   Then I check Radio playing
   Then I press "pause"
   Then I check Radio pause
-  Then I press "shuffle"
+  Then I go back
+  Then I press "Stations"
+  Then I press list item number 6
+  Then I long press list item number 6
+  Then I press "Delete from favorites"
+  Then I press " .. "
+  Then I wait
+  Then I press "Favorites"
+  And I see "There are no items found in Favorites."
 
 Scenario: Switching between favorite stations
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I get text for item number 3
   Then I long press list item number 3
   Then I press "Add to favorites"
@@ -288,17 +299,16 @@ Scenario: Switching between favorite stations
 Scenario: Recents tab
   # Play
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Trending"
-  Then I wait for 8 seconds
+  Then I wait for 5 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press " .. "
 
   Then I press "Local radio"
-  Then I wait for 6 seconds
+  Then I wait for 5 seconds
   Then I press list item number 3
 
   Then I press "Recents"
@@ -393,12 +403,11 @@ Scenario: Recents tab
 
 Scenario: Record audio
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press " .. "
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -406,7 +415,7 @@ Scenario: Record audio
   Then I long touch left_button
   Then I touch icon number 2
   Then I press "shuffle"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I press "shuffle"
   Then I go back
   Then I press "Recents"
@@ -420,7 +429,7 @@ Scenario: Record audio
   Then I press "slide_panel_now_playing_title"
   Then I wait for start
   Then I press "shuffle"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I press "shuffle"
   Then I go back
   Then I press "Recents"
@@ -448,10 +457,9 @@ Scenario: Record audio
   Then I go back
   Then I press "Favorites"
   Then I press "Stations"
-  
+
 Scenario: Switching between records
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Recents"
   Then I press "Records"
   Then I wait for 2 seconds
@@ -490,7 +498,6 @@ Scenario: Switching between records
 
 Scenario: Tap on cover
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Recents"
   Then I press "Records"
   Then I press list item number 1
@@ -504,7 +511,6 @@ Scenario: Tap on cover
 
 Scenario: Delete from Records
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Recents"
   Then I press "Records"
   Then I wait for 2 seconds
@@ -526,7 +532,6 @@ Scenario: Delete from Records
 # STATIONS TAB
 Scenario: Play Radio
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press " .. "
@@ -560,13 +565,12 @@ Scenario: Play Radio
 
 Scenario: Stations switching by next/prev 
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press " .. "
   Then I press " .. "
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -607,12 +611,11 @@ Scenario: Stations switching by next/prev
 
 Scenario: Tap on cover
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I go back
   Then I press "Trending"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
@@ -627,7 +630,6 @@ Scenario: Tap on cover
 
 Scenario: Long press navigation
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Music"
@@ -652,14 +654,13 @@ Scenario: Exit option
 
 Scenario: Equalizer
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
-  Then I wait for 2 seconds
+  Then I wait
   Then I press "slide_panel_now_playing_title"
   Then I press "action_aqualizer"
   Then I see "Equalizer Flat"
   Then I press "PRESETS"
   Then I press "Jazz"
-  Then I wait for 2 seconds
+  Then I wait
   Then I press "actionBackArrow"
   Then I press "action_aqualizer"
   Then I see "Equalizer Jazz"
@@ -673,13 +674,12 @@ Scenario: Equalizer
 
 Scenario: Search
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Recents"
   Then I press "Records"
   Then I press "Search" 
   Then I press "search_bar"
   Then I enter text "KQED-"
-  Then I wait for 10 seconds
+  Then I wait for 5 seconds
   Then I see "KQED-FM"
   Then I press "text1"
   Then I wait for 2 seconds
@@ -690,7 +690,6 @@ Scenario: Search
 
 Scenario: Add to Favorites from Search tab
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Favorites"
   Then I press "Recents"
   Then I press "Records"
@@ -715,7 +714,6 @@ Scenario: Add to Favorites from Search tab
 
 Scenario: Check buffering station
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "Stations"
   Then I press " .. "
   Then I press "80\'s Music"
