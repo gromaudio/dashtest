@@ -131,11 +131,14 @@ Scenario: Add/remove favorite (long press)
   Then I long press image view number 3
   Then I press "Add to favorites"
   Then I scroll up
-  Then I press " .. "
   Then I press "Favorites"
   Then I see item number text
+  Then I press "Stations"
+  Then I press image view number 6
   Then I long press previously added element
   Then I press "Delete from favorites"
+  Then I press " .. "
+  Then I press "Favorites"
   And I see "There are no items found in Favorites."
 
 Scenario: Add/remove favorite (favorite button)
@@ -619,6 +622,7 @@ Scenario: Tap on cover
   Then I get text for item number 3
   Then I press list item number 3
   Then I press "slide_panel_now_playing_title"
+  Then I wait
   Then I tap on cover
   Then I wait for 2 seconds
   Then I see item number text

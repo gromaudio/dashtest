@@ -117,30 +117,6 @@ Scenario: Check About section
   Then I see "Google Music (cloud storage) player for DashLinQ. Plays personal tracks stored on Google Music, automatic cover art updates, offline playback and voice search."
   Then I see "Copyright GROM Audio 2015"
 
-Scenario: Check Repeat and Shuffle option after switch plugin 
-  Then I press icon "name" with text "GMusic"
-  Then I press "Stations"
-  Then I press "slide_panel_now_playing_title"
-  Then I press "shuffle"
-  Then I check "shuffle" status "SideButtonLeft On"
-  Then I press "repeat"
-  Then I check "repeat" status "SideButtonRight On"
-  Then I press "leftButtonFirst"
-  Then I press "Home"
-  Then I press icon "name" with text "WebRadio"
-  Then I wait
-  Then I press "leftButtonFirst"
-  Then I press "Home"
-  Then I press icon "name" with text "GMusic"
-  Then I wait
-  Then I press "slide_panel_now_playing_title"
-  Then I check "shuffle" status "SideButtonLeft On"
-  Then I check "repeat" status "SideButtonRight On"
-  Then I press "shuffle"
-  Then I press "repeat"
-  Then I check "shuffle" status "SideButtonLeft Off"
-  Then I check "repeat" status "SideButtonRight Off"    
-
 # On The Go
 
 Scenario: Play/Pause music & add to playlist - On The Go
@@ -178,6 +154,30 @@ Scenario: Play/Pause music & add to playlist - On The Go
   Then I press "Delete"
   Then I wait for 2 seconds
 
+Scenario: Check Repeat and Shuffle option after switch plugin 
+  Then I press icon "name" with text "GMusic"
+  Then I press "Playlists"
+  Then I press "slide_panel_now_playing_title"
+  Then I press "shuffle"
+  Then I check "shuffle" status "SideButtonLeft On"
+  Then I press "repeat"
+  Then I check "repeat" status "SideButtonRight On"
+  Then I press "leftButtonFirst"
+  Then I swipe to Exit
+  Then I press "Home"
+  Then I press icon "name" with text "WebRadio"
+  Then I wait
+  Then I press "leftButtonFirst"
+  Then I press "Home"
+  Then I press icon "name" with text "GMusic"
+  Then I wait
+  Then I press "slide_panel_now_playing_title"
+  Then I check "shuffle" status "SideButtonLeft On"
+  Then I check "repeat" status "SideButtonRight On"
+  Then I press "shuffle"
+  Then I press "repeat"
+  Then I check "shuffle" status "SideButtonLeft Off"
+  Then I check "repeat" status "SideButtonRight Off"     
 
 # Albums Tab
 

@@ -537,6 +537,15 @@ Scenario: Add/Delete to playlist/favorite
   Then I go back
   #Then I scroll up
 
+  Then I press "Genres and Moods"
+  Then I touch the "Releases" text
+  Then I press element number 2
+  Then I press image view number 1
+  Then I go back
+  Then I wait for 1 second
+  Then I touch the "Genres" text
+  Then I touch the "Your" text
+
   Then I press "Songs"
   Then I long press previously added element
   Then I press "Delete from favorites"
