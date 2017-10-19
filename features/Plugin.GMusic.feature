@@ -12,7 +12,7 @@ Scenario: Start
 Scenario: Check background text
   Then I press "icon"
   Then I wait for 4 seconds
-  Then I press item with name "Cancel"
+  Then I click CANCEL button
   Then I wait for 2 seconds
   Then I press "Playlists"
   And I see "You need to login to use the services. Use Options->Accounts"
@@ -31,10 +31,8 @@ Scenario: Check background text
 
 Scenario: Navigation through the plugin
   Then I press "icon"
-  Then I wait for 5 seconds
-  Then I press item with name "dashlinqbetatest@gmail.com"
-  Then I wait for 1 second
-  Then I press item with name "OK"
+  Then I wait for 4 seconds
+  Then I login to GMusic
   Then I wait for 2 seconds
   Then I press "leftButtonFirst"
   Then I press "Sync"

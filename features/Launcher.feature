@@ -56,7 +56,7 @@ Scenario: View Settings components
     Then I press "Display Stay Awake"
     Then I press "Display Stay Awake"
     Then I press "Show Quick Return icon"
-    Then I press permission "Permit drawing over other apps"
+    #Then I press permission "Permit drawing over other apps"
     Then I press "Show Quick Return icon"
     Then I scroll down
     Then I press "Sticky icon"
@@ -174,6 +174,7 @@ Scenario: Check default plugin tabs
 Scenario: Add App
     Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
+    Then I press "APPS"
     Then I use_new_scroll to "Play Store" text
     Then I press "Play Store"
     And I see "Play Store"

@@ -365,6 +365,23 @@ Then /^I press item with name "([^\"]*)"$/ do |name|
 	end
 end
 
+Then /^I login to GMusic$/ do
+	exit_code = system "python ./features/step_definitions/Gmusic_login.py #{ENV['ADB_DEVICE_ARG']}"
+	if !exit_code
+		p exit_code
+		raise "Item is not found on a screen"
+	end
+end
+
+Then /^I click CANCEL button$/ do
+	exit_code = system "python ./features/step_definitions/Cancel_button.py #{ENV['ADB_DEVICE_ARG']}"
+	if !exit_code
+		p exit_code
+		raise "Item is not found on a screen"
+	end
+end
+
+
 Then /^I press permission "([^\"]*)"$/ do |name|
 	exit_code = system "./features/step_definitions/click-by-text2.py #{ENV['ADB_DEVICE_ARG']}"+" '"+name+"'"
 	if !exit_code

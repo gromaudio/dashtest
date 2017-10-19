@@ -1,5 +1,5 @@
 Feature: Spotify
-
+@app
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-
+@app
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
@@ -703,7 +703,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Stations"
 
 #YOUR MUSIC TAB
-
+@app
 Scenario: Check "Your Music" tab 
   Then I press "icon"
   Then I wait for 5 seconds
@@ -724,7 +724,7 @@ Scenario: Check "Your Music" tab
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
-
+@app
 Scenario: Add to favorite from Playlist
   Then I press "icon"
   Then I wait for 5 seconds
@@ -767,7 +767,7 @@ Scenario: Add to favorite from Playlist
   Then I wait for 1 seconds
   Then I go back
   #Then I scroll up
-
+@app
 Scenario: Add to Playlist from Favorites
   Then I press "icon"
   Then I wait for 5 seconds
@@ -797,7 +797,7 @@ Scenario: Add to Playlist from Favorites
   Then I wait for 2 seconds
   Then I don't see "From_favorite"
   Then I go back
-
+@app
 Scenario: Play/Pause Music
   Then I press "icon"
   Then I wait for 5 seconds
@@ -836,7 +836,7 @@ Scenario: Play/Pause Music
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
-
+@app
 Scenario: Add to Playlist from Search tab
   Then I press "icon"
   Then I press "New Releases"
