@@ -14,7 +14,6 @@ Scenario: Check background text
   Then I scroll to "Mob" text
   Then I press "Mob"
   Then I press "Select"
-  Then I scroll up
   Then I press "leftButtonFirst"
   Then I press "Folders"
   And I see "There are no items found in Folders."
@@ -43,7 +42,7 @@ Scenario: Change "Music home folder" to Music
   Then I press "Music"
   Then I press "01 LocalMusicTestSuite"
   Then I press "Select"
-  Then I scroll up
+  Then I scroll to text up "General"
   Then I press "AutoHide Panels"
   Then I press "leftButtonFirst"
   Then I press "Albums"
@@ -358,13 +357,13 @@ Scenario: Local Music Settings
   And I see "Toggle Random on/off"
   And I see "Return to Library"
   And I see "Next category. Folder, Playlist, Album, Artist"
-  Then I scroll down
+  Then I scroll to text "Update cover art from internet"
   And I see "Prev category. Folder, Playlist, Album, Artist"
   Then I see "FIXED ACTIONS"
   And I see "Navigation Menu slider"
   And I see "Previous Track/Station"
   And I see "Next Track/Station"
-  Then I scroll down
+  Then I scroll to text "Update cover art from internet"
   And I see "Show Playing Now tracks/stations"
   And I see "Update cover art from internet"
   Then I press "leftButtonFirst" 
@@ -372,7 +371,7 @@ Scenario: Local Music Settings
   And I see "Hide Navigation panels when browsing long lists to free up more space for text data"
   Then I see "Cover art resources"
   And I see "Change order of how cover art is searched"
-  Then I scroll down
+  Then I scroll to text "Media Rescan"
   When I press "Cover art resources"
   Then I see "Lastfm"
   Then I see "Musicbrainz"
@@ -903,6 +902,22 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "From_Albums.m3u"
+@a
+Scenario: Long press actions - Add to the On The Go playlist from Albums tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Dark Horse"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I long press "Reggatta"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I press "Playlists"
+  Then I press "On The Go"
+  And I see "01 Message in a Bottle"
+  And I see "3/6"
+  Then I go back
    
 Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I press "icon"
@@ -934,6 +949,28 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I wait for 1 second
   Then I don't see "From_Artists.m3u"
 
+Scenario: Long press actions - Add to the On The Go playlist from Artist tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Dark Horse"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I press "Artists"
+  Then I press "02 The Police"
+  Then I press "Reggatta"
+  Then I long press "01 Message in a Bottle"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I press "Artists"
+  Then I go back
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "on The Go"
+  And I see "01 Message in a Bottle"
+  And I see "3/3"
+  Then I go back
+
 Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I press "icon"
   Then I press "Albums"
@@ -962,6 +999,67 @@ Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "From_Songs.m3u"
+
+@star
+Scenario: Long press actions - Add to the On The Go playlist from Songs tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Dark Horse"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "01 Mine"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "on The Go"
+  And I see "01 Mine"
+  And I see "3/3"
+  Then I go back
+  
+@star
+Scenario: Long press actions - Add to the On The Go playlist from Songs tab if User has the PL 
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "01 Message in a Bottle"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Songs"
+  Then I go back
+  Then I press "Save"
+  Then I press "Artists"
+  Then I press "Albums"
+  When I press "Playlists"
+  Then I scroll to "On_the_Go_Songs.m3u" text
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "01 Mine"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  And I see "00 Mine"
+  And I see "3/3"
+  Then I go back
+  Then I wait for 1 second
+  Then I long press "On_the_Go_Songs.m3u"
+  Then I wait for 3 seconds
+  Then I swipe to up
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Songs.m3u"
 
 Scenario: Long press actions - Jum to .. (Songs tab)
   Then I press "icon"

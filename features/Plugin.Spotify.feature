@@ -56,9 +56,12 @@ Scenario: Login
   Then I touch password field
   Then I enter password
   Then I go back
-  Then I wait for 2 seconds
+  Then I wait
   Then I press Login button
   Then I wait for 2 seconds
+  Then I scroll down
+  Then I wait for 2 seconds
+  Then I swipe to right
   Then I press Okay button
   Then I wait for 5 seconds
 
@@ -77,7 +80,7 @@ Scenario: Navigation through the Settings
   And I see "Toggle Random on/off"
   And I see "Return to Library"
   And I see "Next category. Folder, Playlist, Album, Artist"
-  Then I scroll down
+  Then I scroll to text "Update cover art from internet"
   And I see "Prev category. Folder, Playlist, Album, Artist"
   Then I see "FIXED ACTIONS"
   And I see "Previous Track/Station"

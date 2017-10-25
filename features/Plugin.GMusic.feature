@@ -72,13 +72,12 @@ Scenario: Navigation through the Settings
   And I see "Toggle Random on/off"
   And I see "Return to Library"
   And I see "Next category. Folder, Playlist, Album, Artist"
-  Then I scroll down
+  Then I scroll to text "Update cover art from internet"
   And I see "Prev category. Folder, Playlist, Album, Artist"
   Then I see "FIXED ACTIONS"
   And I see "Navigation Menu slider"
   And I see "Previous Track/Station"
   And I see "Next Track/Station"
-  Then I scroll down
   And I see "Show Playing Now tracks/stations"
   And I see "Update cover art from internet"
   Then I press "leftButtonFirst"
@@ -93,7 +92,7 @@ Scenario: Navigation through the Settings
   And I see "Save"
   And I see "Cancel"
   Then I go back
-  Then I scroll down
+  Then I scroll to text "Cache options"
   Then I see "Cache"
   Then I see "Cache folder"
   Then I see "Cache options"
@@ -105,8 +104,7 @@ Scenario: Navigation through the Settings
   And I see "OK"
   And I see "Cancel"
   Then I press "Cancel"
-  Then I scroll up
-
+  
 Scenario: Check About section
   Then I press "icon"  
   Then I press "leftButtonFirst"

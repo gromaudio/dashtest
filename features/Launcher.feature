@@ -29,7 +29,7 @@ Scenario: View Settings
     And I see "Display Stay Awake"
     And I see "Show Quick Return icon"
     And I see "When other app is active the quick return icon will be shown at the side of the app. Icon can be adjusted in location via finger press and drag action."
-    Then I scroll down
+    Then I scroll to text "clean attribute wirelinq"
     Then I see "Advertising"
     Then I see "Car Integration"
     And I see "Disable USB Streaming"
@@ -58,7 +58,7 @@ Scenario: View Settings components
     Then I press "Show Quick Return icon"
     #Then I press permission "Permit drawing over other apps"
     Then I press "Show Quick Return icon"
-    Then I scroll down
+    Then I scroll to text "clean attribute wirelinq"
     Then I press "Sticky icon"
     Then I see "None"
     Then I see "Rotation lock" 
@@ -66,14 +66,13 @@ Scenario: View Settings components
     Then I press "None"
     Then I see "Navigation"
     Then I see "Maps"
-    Then I scroll down
     Then I press "Disable USB Streaming"
     Then I press "Disable USB Streaming"
 
 Scenario: Settings (Brightness)
     Then I press "leftButtonFirst"
     Then I press "Settings"
-    Then I scroll down
+    Then I scroll to text "clean attribute wirelinq"
     Then I press "Sticky icon"
     Then I press "Brightness"
     Then I press "leftButtonFirst"
@@ -90,7 +89,7 @@ Scenario: Settings (Brightness) after restart
 Scenario: Settings (Rotation lock)
     Then I press "leftButtonFirst"
     Then I press "Settings"
-    Then I scroll down
+    Then I scroll to text "clean attribute wirelinq"
     Then I press "Sticky icon"
     Then I press "Rotation lock"
     Then I press "leftButtonFirst"
@@ -126,8 +125,7 @@ Scenario: Settings (Speed & Temperature) after restart
 Scenario: Find compatible device
     Then I press "leftButtonFirst"
     Then I press "Settings"
-    Then I scroll down
-    Then I scroll down
+    Then I scroll to text "clean attribute wirelinq"
     Then I press "Find compatible device"
     Then I see "www.gromaudio.com"
     Then I see "learn more"
@@ -175,7 +173,7 @@ Scenario: Add App
     Then I drag from 75:50 to 35:50 moving with 5 steps
     Then I press "icon"
     Then I press "APPS"
-    Then I use_new_scroll to "Play Store" text
+    Then I scroll to text "Play Store"
     Then I press "Play Store"
     And I see "Play Store"
     Then I wait for 2 seconds
@@ -346,9 +344,9 @@ Scenario: Player restore
     Then I press "leftButtonFirst"
     Then I press "Settings"
     Then I wait for 2 seconds
-    Then I scroll down
+    Then I scroll to text "Media Rescan"
     Then I press "Music home folder"
-    Then I scroll to "Music" text
+    Then I scroll to text "Music"
     Then I press "Music"
     Then I press "01 LocalMusicTestSuite"
     Then I press "Select"

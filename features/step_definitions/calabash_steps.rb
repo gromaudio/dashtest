@@ -277,9 +277,15 @@ Then /^I stop emulator server$/ do
 end
 
 
-Then /^I use_new_scroll to "([^\"]*)" text$/ do |name|
+Then /^I scroll to text "([^\"]*)"$/ do |name|
     wait_poll(:until_exists => "* text:'#{name}'", :timeout => 60) do
     perform_action('drag', 50, 50, 70, 50, 10)
+    end
+end
+
+Then /^I scroll to text up"([^\"]*)"$/ do |name|
+    wait_poll(:until_exists => "* text:'#{name}'", :timeout => 60) do
+    perform_action('drag', 50, 50, 50, 70, 10)
     end
 end
 
@@ -413,6 +419,11 @@ end
 Then /^I press Okay button$/ do
 	touch("webView xpath:'//BUTTON[contains(text(),\"Okay\")]'")
 end	
+
+Then /^I press Add to On The Go button$/ do
+	touch("* text:'Add to \"On The Go\"'")
+end
+	
 
 Then /^I press Login button$/ do
 	touch("webView xpath:'//BUTTON[contains(text(),\"Log In\")]'")
