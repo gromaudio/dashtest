@@ -889,6 +889,98 @@ Scenario: Long press actions - Play From the ...
   And I press "Delete"
   Then I wait for 2 seconds
 
+Scenario: Long press actions - Add to the On The Go playlist from Albums tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Adele - 21"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I long press "Buffy First Love"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I press "Playlists"
+  Then I press "On The Go"
+  And I see "2 Find U"
+  And I see "5/8"
+  Then I go back
+
+Scenario: Long press actions - Add to the On The Go playlist from Artist tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Adele - 21"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I press "Artists"
+  Then I press "Adam Lambert"
+  Then I press "For Your Entertainment"
+  Then I long press "Music Again"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I go back
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I wait for 5 seconds
+  Then I press "On The Go"
+  And I see "Music Again"
+  And I see "5/5"
+  Then I go back
+
+Scenario: Long press actions - Add to the On The Go playlist from Songs tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I long press "Adele - 21"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "2 Find U"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  And I see "2 Find U"
+  And I see "5/5"
+  Then I go back
+
+Scenario: Long press actions - Add to the On The Go playlist from Songs tab if User has the PL 
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I long press "2 Find U"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I long press "Dreams"
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Songs"
+  Then I go back
+  Then I press "Save"
+  Then I long press "Dreams"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  And I see "Dreams"
+  And I see "2/21"
+  Then I go back
+  Then I wait for 1 second
+  Then I long press "On_the_Go_Songs.m3u"
+  Then I wait for 3 seconds
+  Then I swipe to up
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Songs.m3u"
+
 Scenario: Exit option
   Then I press "icon"
   Then I wait for 1 second

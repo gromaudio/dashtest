@@ -283,7 +283,7 @@ Then /^I scroll to text "([^\"]*)"$/ do |name|
     end
 end
 
-Then /^I scroll to text up"([^\"]*)"$/ do |name|
+Then /^I scroll up to text "([^\"]*)"$/ do |name|
     wait_poll(:until_exists => "* text:'#{name}'", :timeout => 60) do
     perform_action('drag', 50, 50, 50, 70, 10)
     end

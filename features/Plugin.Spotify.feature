@@ -85,7 +85,7 @@ Scenario: Navigation through the Settings
   Then I see "FIXED ACTIONS"
   And I see "Previous Track/Station"
   And I see "Next Track/Station"
-  Then I scroll down
+  Then I scroll to text "Update cover art from internet"
   And I see "Show Playing Now tracks/stations"
   And I see "Update cover art from internet"
   Then I press "leftButtonFirst"

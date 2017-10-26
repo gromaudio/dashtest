@@ -29,7 +29,7 @@ Scenario: Check background text
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"  
-
+@a
 Scenario: Change "Music home folder" to Music
   Then I press "icon"
   Then I press "leftButtonFirst"
@@ -42,7 +42,7 @@ Scenario: Change "Music home folder" to Music
   Then I press "Music"
   Then I press "01 LocalMusicTestSuite"
   Then I press "Select"
-  Then I scroll to text up "General"
+  Then I scroll up to text "General"
   Then I press "AutoHide Panels"
   Then I press "leftButtonFirst"
   Then I press "Albums"
@@ -902,7 +902,7 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "From_Albums.m3u"
-@a
+
 Scenario: Long press actions - Add to the On The Go playlist from Albums tab
   Then I press "icon"
   Then I press "Albums"
@@ -916,7 +916,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Albums tab
   Then I press "Playlists"
   Then I press "On The Go"
   And I see "01 Message in a Bottle"
-  And I see "3/6"
+  And I see "3/5"
   Then I go back
    
 Scenario: Long press actions - Add/Delete playlist from Artists tab
@@ -948,7 +948,7 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "From_Artists.m3u"
-
+@a
 Scenario: Long press actions - Add to the On The Go playlist from Artist tab
   Then I press "icon"
   Then I press "Albums"
@@ -962,11 +962,10 @@ Scenario: Long press actions - Add to the On The Go playlist from Artist tab
   Then I wait for 1 second
   Then I press "Add to playlist"
   Then I press Add to On The Go button
-  Then I press "Artists"
   Then I go back
   Then I press "Albums"
   Then I press "Playlists"
-  Then I press "on The Go"
+  Then I press "On The Go"
   And I see "01 Message in a Bottle"
   And I see "3/3"
   Then I go back
@@ -1016,7 +1015,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
-  Then I press "on The Go"
+  Then I press "On The Go"
   And I see "01 Mine"
   And I see "3/3"
   Then I go back
@@ -1050,7 +1049,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "On The Go"
-  And I see "00 Mine"
+  And I see "01 Mine"
   And I see "3/3"
   Then I go back
   Then I wait for 1 second
