@@ -1,5 +1,5 @@
 Feature: Spotify
-@app
+@a
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-@app
+@a
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
@@ -901,6 +901,211 @@ Scenario: Add to Playlist from Search tab
  
   Then I press "Genres and Moods"
   Then I touch the "Releases" text
+  Then I press "Charts"
+  Then I press "Stations"
+@a
+Scenario: Long press actions - Add to the On The Go playlist from Genres and Moods tab
+  Then I press "icon"
+  Then I wait for 10 seconds
+  Then I press "Charts"
+  Then I press "New Releases"
+  Then I press "Genres and Moods"
+  Then I press "Chill"
+  Then I wait for loading "Brain Food"
+  Then I press "Brain Food"
+  Then I long press image view number 3
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Moods"
+  Then I go back
+  Then I press "Save"
+  Then I press image view number 4
+  Then I get text for item number 4
+  Then I long press image view number 4
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I go back
+  Then I press "Your Music"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see item number text
+  Then I go back
+  Then I long press "On_the_Go_Moods"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Moods"
+  Then I go back
+  Then I press "Genres and Moods"
+  Then I press "New Releases"
+  Then I press "Charts"
+  Then I press "Stations"
+  Then I wait for 2 seconds
+
+@a
+Scenario: Long press actions - Add to the On The Go playlist from New Releases tab
+  Then I press "icon"
+  Then I press "Charts"
+  Then I press "New Releases"
+  Then I wait
+  Then I press element number 1
+  Then I long press image view number 2
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Releases"
+  Then I go back
+  Then I press "Save"
+  Then I press image view number 1
+  Then I get text for item number 1
+  Then I long press image view number 1
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I go back
+  Then I press "Genres and Moods"
+  Then I press "Your Music"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see item number text
+  Then I go back
+  Then I long press "On_the_Go_Releases"
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Releases"
+  Then I go back
+  Then I press "Genres and Moods"
+  Then I press "New Releases"
+  Then I press "Charts"
+  Then I press "Stations"
+
+@a
+Scenario: Long press actions - Add to the On The Go playlist from Charts tab
+  Then I press "icon"
+  Then I press "Charts"
+  Then I wait
+  Then I press image view number 1
+  Then I long press image view number 1
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Charts"
+  Then I go back
+  Then I press "Save"
+  Then I press image view number 1
+  Then I get text for item number 1
+  Then I long press image view number 1
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I go back
+  Then I press "New Releases"
+  Then I press "Genres and Moods"
+  Then I press "Your Music"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see item number text
+  Then I go back
+  Then I long press "On_the_Go_Charts"
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Charts"
+  Then I go back
+  Then I press "Genres and Moods"
+  Then I press "New Releases"
+  Then I press "Charts"
+  Then I press "Stations"
+  @a
+Scenario: Long press actions - Add to the On The Go playlist from Stations tab
+  Then I press "icon"
+  Then I press "Stations"
+  Then I wait
+  Then I press "Acoustic"
+  Then I long press image view number 3
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Stations"
+  Then I go back
+  Then I press "Save"
+  Then I press image view number 3
+  Then I get text for item number 3
+  Then I long press image view number 3
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I go back
+  Then I press "Charts"
+  Then I press "New Releases"
+  Then I press "Genres and Moods"
+  Then I press "Your Music"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see item number text
+  Then I go back
+  Then I long press "On_the_Go_Stations"
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Stations"
+  Then I go back
+  Then I press "Genres and Moods"
+  Then I press "New Releases"
+  Then I press "Charts"
+  Then I press "Stations"
+
+  @a
+  Scenario: Long press actions - Add to the On The Go playlist from Search tab
+  Then I press "icon"
+  Then I press "Charts"
+  Then I press "New Releases"
+  Then I press "Genres and Moods"
+  Then I press "Your Music"
+  Then I press "Search"
+  Then I press "search_bar"
+  Then I enter text "Despasit"
+  Then I wait for 5 seconds
+  Then I see "Despasito"
+  Then I press "Despasito"
+  Then I long press "Angeliz - Despasito"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Search"
+  Then I go back
+  Then I press "Save"
+  Then I long press "Angeliz - Despasito"
+  Then I press "Add to playlist"
+  Then I press Add to On The Go button
+  Then I press "Your Music"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see "Despasito"
+  Then I go back
+  Then I long press "On_the_Go_Search"
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Search"
+  Then I go back
+  Then I press "Your Music"
+  Then I press "Genres and Moods"
+  Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
 
