@@ -1,6 +1,6 @@
 Feature: Local Music Plugin
   You have to place "01 LocalMusicTestSuite" folder into sdcard/Music folder in order to run these tests.
-
+@a
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2"
@@ -29,7 +29,7 @@ Scenario: Check background text
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"  
-@a
+
 Scenario: Change "Music home folder" to Music
   Then I press "icon"
   Then I press "leftButtonFirst"
@@ -912,7 +912,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Albums tab
   Then I long press "Reggatta"
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I press "Playlists"
   Then I press "On The Go"
   And I see "01 Message in a Bottle"
@@ -948,7 +948,7 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "From_Artists.m3u"
-@a
+
 Scenario: Long press actions - Add to the On The Go playlist from Artist tab
   Then I press "icon"
   Then I press "Albums"
@@ -961,7 +961,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Artist tab
   Then I long press "01 Message in a Bottle"
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I go back
   Then I press "Albums"
   Then I press "Playlists"
@@ -999,7 +999,7 @@ Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I wait for 1 second
   Then I don't see "From_Songs.m3u"
 
-@star
+
 Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   Then I press "icon"
   Then I press "Albums"
@@ -1011,7 +1011,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   Then I long press "01 Mine"
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
@@ -1020,10 +1020,13 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   And I see "3/3"
   Then I go back
   
-@star
+
 Scenario: Long press actions - Add to the On The Go playlist from Songs tab if User has the PL 
   Then I press "icon"
   Then I press "Albums"
+  Then I long press "Dark Horse"
+  Then I wait for 1 second
+  Then I press "Play"
   Then I press "Artists"
   Then I press "Songs"
   Then I long press "01 Message in a Bottle"
@@ -1034,17 +1037,10 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I enter text "On_the_Go_Songs"
   Then I go back
   Then I press "Save"
-  Then I press "Artists"
-  Then I press "Albums"
-  When I press "Playlists"
-  Then I scroll to "On_the_Go_Songs.m3u" text
-  Then I press "Albums"
-  Then I press "Artists"
-  Then I press "Songs"
   Then I long press "01 Mine"
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
@@ -1059,6 +1055,86 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "On_the_Go_Songs.m3u"
+
+
+Scenario: Long press actions - Add to the On The Go playlist from Search tab
+  Then I press "icon"
+  Then I wait
+  Then I press "Playlists"
+  Then I press "Albums"
+  Then I long press "Dark Horse"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Search"
+  Then I press "search_bar"
+  Then I enter text "Mine"
+  Then I wait for 5 seconds
+  Then I see "01 Mine"
+  Then I press "01 Mine"
+  Then I long press "03 Taylor Swift - Speak Now"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Search"
+  Then I go back
+  Then I press "Save"
+  Then I long press "03 Taylor Swift - Speak Now"
+  Then I press "Add to playlist"
+  Then I press "On The Go"
+  Then I press "Songs"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see "01 Mine"
+  Then I go back
+  Then I long press "On_the_Go_Search"
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Search"
+@a
+Scenario: Long press actions - Add to the On The Go playlist from Playlist tab
+  Then I press "icon"
+  Then I wait for 10 seconds
+  Then I press "Playlists"
+  Then I press "Albums"
+  Then I long press "Dark Horse"
+  Then I wait for 1 second
+  Then I press "Play"
+  Then I long press "Reggatta"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "On The Go"
+  Then I long press "Speak Now"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "On The Go"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I long press "02 S.E.X"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Playlists"
+  Then I go back
+  Then I press "Save"
+  Then I long press "02 S.E.X"
+  Then I press "Add to playlist"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see "02 S.E.X"
+  Then I go back
+  Then I long press "On_the_Go_Playlists"
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Playlists"
 
 Scenario: Long press actions - Jum to .. (Songs tab)
   Then I press "icon"

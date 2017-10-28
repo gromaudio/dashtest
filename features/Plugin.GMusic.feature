@@ -1,6 +1,6 @@
 Feature: GMusic
   You have to (export ADB_DEVICE_ARG=****)
-
+@a
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -898,7 +898,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Albums tab
   Then I long press "Buffy First Love"
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I press "Playlists"
   Then I press "On The Go"
   And I see "2 Find U"
@@ -917,7 +917,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Artist tab
   Then I long press "Music Again"
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I go back
   Then I press "Albums"
   Then I press "Playlists"
@@ -938,7 +938,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   Then I long press "2 Find U"
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
@@ -965,7 +965,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I long press "Dreams"
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I press "Artists"
   Then I press "Albums"
   Then I press "Playlists"
@@ -980,6 +980,66 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "On_the_Go_Songs.m3u"
+
+Scenario: Long press actions - Add to the On The Go playlist from Search tab
+  Then I press "icon"
+  Then I press "Albums"
+  Then I press "Artists"
+  Then I press "Songs"
+  Then I press "Search"
+  Then I press "search_bar"
+  Then I enter text "2 Find"
+  Then I wait for 5 seconds
+  Then I see "2 Find U"
+  Then I press "2 Find U"
+  Then I long press "Buffy - Buffy First Love"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Search"
+  Then I go back
+  Then I press "Save"
+  Then I long press "Buffy - Buffy First Love"
+  Then I press "Add to playlist"
+  Then I press "On The Go"
+  Then I press "Songs"
+  Then I press "Artists"
+  Then I press "Albums"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see "2 Find U"
+  Then I go back
+  Then I long press "On_the_Go_Search"
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Search"
+@a
+Scenario: Long press actions - Add to the On The Go playlist from Playlist tab
+  Then I press "icon"
+  Then I press "Playlists"
+  Then I press "On The Go"
+  Then I long press "2 Find U"
+  Then I wait for 1 second
+  Then I press "Add to playlist"
+  Then I press "New"
+  Then I clear input field with id "playlist"
+  Then I enter text "On_the_Go_Playlists"
+  Then I go back
+  Then I press "Save"
+  Then I long press "2 Find U"
+  Then I press "Add to playlist"
+  Then I press "On The Go"
+  Then I full scroll down
+  Then I wait for 2 seconds
+  Then I see "2 Find U"
+  Then I go back
+  Then I long press "On_the_Go_Playlists"
+  Then I press "Delete"
+  Then I wait for 1 second
+  Then I don't see "On_the_Go_Playlists"
 
 Scenario: Exit option
   Then I press "icon"

@@ -926,7 +926,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Genres and Moo
   Then I long press image view number 4
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I go back
   Then I press "Your Music"
   Then I press "Playlists"
@@ -967,7 +967,7 @@ Scenario: Long press actions - Add to the On The Go playlist from New Releases t
   Then I long press image view number 1
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I go back
   Then I press "Genres and Moods"
   Then I press "Your Music"
@@ -1006,7 +1006,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Charts tab
   Then I long press image view number 1
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I go back
   Then I press "New Releases"
   Then I press "Genres and Moods"
@@ -1031,7 +1031,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Stations tab
   Then I press "icon"
   Then I press "Stations"
   Then I wait
-  Then I press "Acoustic"
+  Then I press "Afrobeat"
   Then I long press image view number 3
   Then I wait for 1 second
   Then I press "Add to playlist"
@@ -1045,7 +1045,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Stations tab
   Then I long press image view number 3
   Then I wait for 1 second
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I go back
   Then I press "Charts"
   Then I press "New Releases"
@@ -1090,7 +1090,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Stations tab
   Then I press "Save"
   Then I long press "Angeliz - Despasito"
   Then I press "Add to playlist"
-  Then I press Add to On The Go button
+  Then I press "On The Go"
   Then I press "Your Music"
   Then I press "Playlists"
   Then I press "On The Go"
