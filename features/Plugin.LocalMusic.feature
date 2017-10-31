@@ -1,6 +1,6 @@
 Feature: Local Music Plugin
   You have to place "01 LocalMusicTestSuite" folder into sdcard/Music folder in order to run these tests.
-@a
+
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2"
@@ -145,7 +145,7 @@ Scenario: Jump to Folder from On The Go and Play
 
 Scenario: Check for duplicate Playlists
   Then I press "icon"
-  Then I wait for 20 seconds
+  Then I wait
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"
@@ -538,7 +538,6 @@ Scenario: Play/Pause Music (Albums tab)
   Then I press "pause"
   Then I go back
   Then I wait for 5 seconds
-  # Then I go back
   Then I scroll up
   Then I press "Playlists"
   Then I press "Folders"
@@ -999,7 +998,6 @@ Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I wait for 1 second
   Then I don't see "From_Songs.m3u"
 
-
 Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   Then I press "icon"
   Then I press "Albums"
@@ -1020,7 +1018,6 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   And I see "3/3"
   Then I go back
   
-
 Scenario: Long press actions - Add to the On The Go playlist from Songs tab if User has the PL 
   Then I press "icon"
   Then I press "Albums"
@@ -1097,10 +1094,10 @@ Scenario: Long press actions - Add to the On The Go playlist from Search tab
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "On_the_Go_Search"
-@a
+
 Scenario: Long press actions - Add to the On The Go playlist from Playlist tab
   Then I press "icon"
-  Then I wait for 10 seconds
+  Then I wait
   Then I press "Playlists"
   Then I press "Albums"
   Then I long press "Dark Horse"

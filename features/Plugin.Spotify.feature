@@ -1,5 +1,5 @@
 Feature: Spotify
-@a
+
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-@a
+
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
@@ -122,7 +122,7 @@ Scenario: Navigation through the plugin
 
 Scenario: Check About section
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "leftButtonFirst"
   Then I press "About"
   And I see "Spotify plugin for DashLinQ."
@@ -130,7 +130,7 @@ Scenario: Check About section
 
 Scenario: Exit check
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "leftButtonFirst"
   Then I swipe to Exit
   Then I press "Home"
@@ -141,10 +141,10 @@ Scenario: Exit check
 
 Scenario: Play/Pause Music
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I wait for loading "Acoustic"
   Then I press "Acoustic"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press image view number 3
   Then I wait for 2 seconds
   Then I press "slide_panel_now_playing_title"
@@ -198,10 +198,10 @@ Scenario: Check Repeat and Shuffle option after switch plugin
 
 Scenario: Add/Delete to playlist/favorite
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I wait for loading "Acoustic"
   Then I press "Afrobeat"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I get text for item number 3
   Then I long press image view number 3
   Then I press "Add to playlist"
@@ -273,7 +273,7 @@ Scenario: Add/Delete to playlist/favorite
 
 Scenario: Play/Pause Music
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "Charts"
   Then I wait for loading "RapCaviar"
   And I press "RapCaviar"
@@ -318,7 +318,7 @@ Scenario: Play/Pause Music
 
 Scenario: Check "Charts" tab 
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "Charts"
   Then I wait for loading "RapCaviar"
   And I see "Today\'s Top Hits"
@@ -340,7 +340,7 @@ Scenario: Check "Charts" tab
 
 Scenario: Follow Charts 
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "Charts"
   Then I wait for loading "RapCaviar"
   # Save as playlist
@@ -363,7 +363,7 @@ Scenario: Follow Charts
 
 Scenario: Add/Delete to playlist/favorite 
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "Charts"
   Then I wait for loading "RapCaviar"
   Then I press "RapCaviar"
@@ -435,7 +435,7 @@ Scenario: Add/Delete to playlist/favorite
 
 Scenario: Play/Pause Music
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "New Releases"
   Then I wait for 2 seconds
   Then I press element number 1
@@ -486,7 +486,7 @@ Scenario: Play/Pause Music
 
 Scenario: Add/Delete to playlist/favorite  
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "New Releases"
   Then I press element number 1
   Then I wait for 5 seconds
@@ -538,7 +538,6 @@ Scenario: Add/Delete to playlist/favorite
   Then I go back
   Then I wait for 1 second
   Then I go back
-  #Then I scroll up
 
   Then I press "Genres and Moods"
   Then I touch the "Releases" text
@@ -564,7 +563,7 @@ Scenario: Add/Delete to playlist/favorite
 
 Scenario: Save scroll position
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "New Releases"
   Then I touch the "Genres" text
   Then I wait for 1 second
@@ -582,7 +581,7 @@ Scenario: Save scroll position
 
 Scenario: Play/Pause Music
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "New Releases"
   Then I touch the "Genres" text
   Then I wait for loading "Chill"
@@ -633,7 +632,7 @@ Scenario: Play/Pause Music
 
 Scenario: Add/Delete to playlist/favorite  
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "New Releases"
   Then I touch the "Genres" text
   Then I wait for loading "Chill"
@@ -706,10 +705,10 @@ Scenario: Add/Delete to playlist/favorite
   Then I press "Stations"
 
 #YOUR MUSIC TAB
-@app
+
 Scenario: Check "Your Music" tab 
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "New Releases"
   Then I press "Genres and Moods"
   Then I press "Your Music"
@@ -727,10 +726,10 @@ Scenario: Check "Your Music" tab
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
-@app
+
 Scenario: Add to favorite from Playlist
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "Charts"
   Then I long press "RapCaviar"
   Then I press "Follow"
@@ -770,10 +769,10 @@ Scenario: Add to favorite from Playlist
   Then I wait for 1 seconds
   Then I go back
   #Then I scroll up
-@app
+
 Scenario: Add to Playlist from Favorites
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "Songs"
   Then I wait for 3 seconds
   Then I get text for item number 1
@@ -800,10 +799,10 @@ Scenario: Add to Playlist from Favorites
   Then I wait for 2 seconds
   Then I don't see "From_favorite"
   Then I go back
-@app
+
 Scenario: Play/Pause Music
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "Playlists"
   Then I press "RapCaviar"
   Then I press image view number 4
@@ -839,7 +838,7 @@ Scenario: Play/Pause Music
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
-@app
+
 Scenario: Add to Playlist from Search tab
   Then I press "icon"
   Then I press "New Releases"
@@ -903,10 +902,10 @@ Scenario: Add to Playlist from Search tab
   Then I touch the "Releases" text
   Then I press "Charts"
   Then I press "Stations"
-@a
+
 Scenario: Long press actions - Add to the On The Go playlist from Genres and Moods tab
   Then I press "icon"
-  Then I wait for 10 seconds
+  Then I wait
   Then I press "Charts"
   Then I press "New Releases"
   Then I press "Genres and Moods"
@@ -947,7 +946,6 @@ Scenario: Long press actions - Add to the On The Go playlist from Genres and Moo
   Then I press "Stations"
   Then I wait for 2 seconds
 
-@a
 Scenario: Long press actions - Add to the On The Go playlist from New Releases tab
   Then I press "icon"
   Then I press "Charts"
@@ -987,7 +985,6 @@ Scenario: Long press actions - Add to the On The Go playlist from New Releases t
   Then I press "Charts"
   Then I press "Stations"
 
-@a
 Scenario: Long press actions - Add to the On The Go playlist from Charts tab
   Then I press "icon"
   Then I press "Charts"
@@ -1026,7 +1023,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Charts tab
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-  @a
+
 Scenario: Long press actions - Add to the On The Go playlist from Stations tab
   Then I press "icon"
   Then I press "Stations"
@@ -1067,8 +1064,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Stations tab
   Then I press "Charts"
   Then I press "Stations"
 
-  @a
-  Scenario: Long press actions - Add to the On The Go playlist from Search tab
+Scenario: Long press actions - Add to the On The Go playlist from Search tab
   Then I press "icon"
   Then I press "Charts"
   Then I press "New Releases"
@@ -1111,7 +1107,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Stations tab
 
 Scenario: Logout
   Then I press "icon"
-  Then I wait for 5 seconds
+  Then I wait for 3 seconds
   Then I press "leftButtonFirst"
   Then I press "Log Out"
   Then I press "leftButtonFirst"

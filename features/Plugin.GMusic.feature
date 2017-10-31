@@ -1,6 +1,6 @@
 Feature: GMusic
   You have to (export ADB_DEVICE_ARG=****)
-@a
+
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -650,7 +650,6 @@ Scenario: Check Songs tab
   Then I press "Albums"
   Then I press "Playlists"
 
-
 Scenario: Jump to Album/Artist options from Songs tab
   Then I press "icon"
   Then I press "Artists"
@@ -1016,7 +1015,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Search tab
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "On_the_Go_Search"
-@a
+
 Scenario: Long press actions - Add to the On The Go playlist from Playlist tab
   Then I press "icon"
   Then I press "Playlists"
@@ -1151,7 +1150,6 @@ Scenario: Play/Pause music change oriantation
   Then I wait for 1 second
   Then I go back
   Then I press "Playlists"
-
 
 Scenario: Check track position
   Then I press "icon"

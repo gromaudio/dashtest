@@ -25,7 +25,6 @@ Scenario: Settings
 Scenario: Navigation through the tabs
   Then I press icon "name" with text "WebRadio"
   Then I wait for 5 seconds
-  # Ensure there is a default station selected in the player
   And I see "Megapolis FM 89.5"
   # Stations tab
   Then I see "Stations"
@@ -650,7 +649,6 @@ Scenario: Long press navigation
   
 Scenario: Exit option
   Then I press icon "name" with text "WebRadio"
-#  Then I press "icon"
   Then I press "leftButtonFirst"
   Then I press "Home"
   Then I see "Where is My Car"
@@ -761,7 +759,6 @@ Scenario: Start
   Then I press "menu_button"
   Then I press "replace"
   Then I press "PLUGINS"
-  #Then I scroll until I see the "FM Radio" text
   Then I press "FM Radio"
 
 Scenario: FM Shortcut
@@ -775,7 +772,3 @@ Scenario: FM Shortcut
   When I press "leftButtonFirst"
   Then I press "Settings"
   And I see "FM Settings"
-
-# FIXME (high): Ensure that double tap on the cover opens track info dialog with File name, Size, Format fields etc.
-# FIXME: ensure track is highlighted in the list (text color is cyan and V icon exists) (investigate - need custom steps for highlighted element)
-# FIXME: also we should go back to upper levels and ensure that Music/60s folders are highlighted too (investigate - need custom steps for highlighted element)
