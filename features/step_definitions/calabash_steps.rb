@@ -441,6 +441,10 @@ Then /^I long touch the "([^\"]*)" text$/ do |text|
 	long_press_when_element_exists("* {text CONTAINS[c] '#{text}'}")
 end
 
+Then /^long_touch_on_the_bufertext$/ do 
+	long_press_when_element_exists("* {text CONTAINS[c] '#{@item_text}'}")
+end
+
 Then /^I tap on cover$/ do
 	perform_action('click_on_screen', 35, 50)
 end

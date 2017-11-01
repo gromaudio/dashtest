@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-
+@a
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
@@ -903,7 +903,7 @@ Scenario: Add to Playlist from Search tab
   Then I press "Charts"
   Then I press "Stations"
 
-Scenario: Long press actions - Add to the On The Go playlist from Genres and Moods tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Genres and Moods tab
   Then I press "icon"
   Then I wait
   Then I press "Charts"
@@ -933,6 +933,9 @@ Scenario: Long press actions - Add to the On The Go playlist from Genres and Moo
   Then I full scroll down
   Then I wait for 2 seconds
   Then I see item number text
+  #Then I long_touch_on_the_bufertext
+  #Then I press "Delete"
+  #Then I do not see item number text
   Then I go back
   Then I long press "On_the_Go_Moods"
   Then I wait for 1 second

@@ -888,7 +888,7 @@ Scenario: Long press actions - Play From the ...
   And I press "Delete"
   Then I wait for 2 seconds
 
-Scenario: Long press actions - Add to the On The Go playlist from Albums tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Albums tab
   Then I press "icon"
   Then I press "Albums"
   Then I long press "Adele - 21"
@@ -902,9 +902,13 @@ Scenario: Long press actions - Add to the On The Go playlist from Albums tab
   Then I press "On The Go"
   And I see "2 Find U"
   And I see "5/8"
+  Then I long press "2 Find U"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "2 Find U"
   Then I go back
 
-Scenario: Long press actions - Add to the On The Go playlist from Artist tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Artist tab
   Then I press "icon"
   Then I press "Albums"
   Then I long press "Adele - 21"
@@ -924,9 +928,13 @@ Scenario: Long press actions - Add to the On The Go playlist from Artist tab
   Then I press "On The Go"
   And I see "Music Again"
   And I see "5/5"
+  Then I long press "Music Again"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "Music Again"
   Then I go back
 
-Scenario: Long press actions - Add to the On The Go playlist from Songs tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Songs tab
   Then I press "icon"
   Then I press "Albums"
   Then I long press "Adele - 21"
@@ -944,9 +952,13 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   Then I press "On The Go"
   And I see "2 Find U"
   And I see "5/5"
+  Then I long press "2 Find U"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "2 Find U"
   Then I go back
 
-Scenario: Long press actions - Add to the On The Go playlist from Songs tab if User has the PL 
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist from Songs tab if User has the PL 
   Then I press "icon"
   Then I press "Albums"
   Then I press "Artists"
@@ -969,8 +981,13 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "On The Go"
+  Then I full scroll down
   And I see "Dreams"
-  And I see "2/21"
+  And I see "21/21"
+  Then I long press "Dreams"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "Dreams"
   Then I go back
   Then I wait for 1 second
   Then I long press "On_the_Go_Songs.m3u"
@@ -980,11 +997,12 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I wait for 1 second
   Then I don't see "On_the_Go_Songs.m3u"
 
-Scenario: Long press actions - Add to the On The Go playlist from Search tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Search tab
   Then I press "icon"
   Then I press "Albums"
   Then I press "Artists"
   Then I press "Songs"
+  Then I press "Dreams"
   Then I press "Search"
   Then I press "search_bar"
   Then I enter text "2 Find"
@@ -1010,16 +1028,21 @@ Scenario: Long press actions - Add to the On The Go playlist from Search tab
   Then I full scroll down
   Then I wait for 2 seconds
   Then I see "2 Find U"
+  Then I long press "2 Find U"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "2 Find U"
   Then I go back
   Then I long press "On_the_Go_Search"
   Then I press "Delete"
   Then I wait for 1 second
   Then I don't see "On_the_Go_Search"
 
-Scenario: Long press actions - Add to the On The Go playlist from Playlist tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Playlist tab
   Then I press "icon"
   Then I press "Playlists"
   Then I press "On The Go"
+  Then I press "Dreams"
   Then I long press "2 Find U"
   Then I wait for 1 second
   Then I press "Add to playlist"
@@ -1034,6 +1057,10 @@ Scenario: Long press actions - Add to the On The Go playlist from Playlist tab
   Then I full scroll down
   Then I wait for 2 seconds
   Then I see "2 Find U"
+  Then I long press "2 Find U"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "2 Find U"
   Then I go back
   Then I long press "On_the_Go_Playlists"
   Then I press "Delete"

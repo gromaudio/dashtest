@@ -902,7 +902,7 @@ Scenario: Long press actions - Add/Delete playlist from Albums tab
   Then I wait for 1 second
   Then I don't see "From_Albums.m3u"
 
-Scenario: Long press actions - Add to the On The Go playlist from Albums tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Albums tab
   Then I press "icon"
   Then I press "Albums"
   Then I long press "Dark Horse"
@@ -916,6 +916,10 @@ Scenario: Long press actions - Add to the On The Go playlist from Albums tab
   Then I press "On The Go"
   And I see "01 Message in a Bottle"
   And I see "3/5"
+  Then I long press "01 Message in a Bottle"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "01 Message in a Bottle"
   Then I go back
    
 Scenario: Long press actions - Add/Delete playlist from Artists tab
@@ -948,7 +952,7 @@ Scenario: Long press actions - Add/Delete playlist from Artists tab
   Then I wait for 1 second
   Then I don't see "From_Artists.m3u"
 
-Scenario: Long press actions - Add to the On The Go playlist from Artist tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Artist tab
   Then I press "icon"
   Then I press "Albums"
   Then I long press "Dark Horse"
@@ -967,6 +971,10 @@ Scenario: Long press actions - Add to the On The Go playlist from Artist tab
   Then I press "On The Go"
   And I see "01 Message in a Bottle"
   And I see "3/3"
+  Then I long press "01 Message in a Bottle"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "01 Message in a Bottle"
   Then I go back
 
 Scenario: Long press actions - Add/Delete playlist from Songs tab
@@ -998,7 +1006,7 @@ Scenario: Long press actions - Add/Delete playlist from Songs tab
   Then I wait for 1 second
   Then I don't see "From_Songs.m3u"
 
-Scenario: Long press actions - Add to the On The Go playlist from Songs tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Songs tab
   Then I press "icon"
   Then I press "Albums"
   Then I long press "Dark Horse"
@@ -1016,9 +1024,13 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab
   Then I press "On The Go"
   And I see "01 Mine"
   And I see "3/3"
+  Then I long press "01 Mine"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "01 Mine"
   Then I go back
-  
-Scenario: Long press actions - Add to the On The Go playlist from Songs tab if User has the PL 
+
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Songs tab if User has the PL 
   Then I press "icon"
   Then I press "Albums"
   Then I long press "Dark Horse"
@@ -1044,6 +1056,10 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I press "On The Go"
   And I see "01 Mine"
   And I see "3/3"
+  Then I long press "01 Mine"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "01 Mine"
   Then I go back
   Then I wait for 1 second
   Then I long press "On_the_Go_Songs.m3u"
@@ -1053,10 +1069,8 @@ Scenario: Long press actions - Add to the On The Go playlist from Songs tab if U
   Then I wait for 1 second
   Then I don't see "On_the_Go_Songs.m3u"
 
-
-Scenario: Long press actions - Add to the On The Go playlist from Search tab
+Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the Search tab
   Then I press "icon"
-  Then I wait
   Then I press "Playlists"
   Then I press "Albums"
   Then I long press "Dark Horse"
@@ -1089,6 +1103,10 @@ Scenario: Long press actions - Add to the On The Go playlist from Search tab
   Then I full scroll down
   Then I wait for 2 seconds
   Then I see "01 Mine"
+  Then I long press "01 Mine"
+  Then I wait for 1 second
+  Then I press "Delete"
+  Then I don't see "01 Mine"
   Then I go back
   Then I long press "On_the_Go_Search"
   Then I press "Delete"
@@ -1097,7 +1115,6 @@ Scenario: Long press actions - Add to the On The Go playlist from Search tab
 
 Scenario: Long press actions - Add to the On The Go playlist from Playlist tab
   Then I press "icon"
-  Then I wait
   Then I press "Playlists"
   Then I press "Albums"
   Then I long press "Dark Horse"
@@ -1125,8 +1142,12 @@ Scenario: Long press actions - Add to the On The Go playlist from Playlist tab
   Then I press "Add to playlist"
   Then I press "On The Go"
   Then I full scroll down
-  Then I wait for 2 seconds
+  Then I wait
   Then I see "02 S.E.X"
+  Then I long press "02 S.E.X"
+  Then I wait
+  Then I press "Delete"
+  Then I don't see "02 S.E.X"
   Then I go back
   Then I long press "On_the_Go_Playlists"
   Then I press "Delete"
