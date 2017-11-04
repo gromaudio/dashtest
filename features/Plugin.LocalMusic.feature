@@ -1368,3 +1368,26 @@ Scenario: Play/Pause Music when change orientation
   Then I press "pause"
   Then I press "actionBackArrow"
   Then I scroll up  
+
+#Scenario: Check if all dialogs popup in the settings are displayed after rotate device
+  #Then I press "icon"
+  #Then I press "leftButtonFirst"
+  #Then I press "Cover art resources"
+  #Then I see "Cover art resources"
+  #Then I see "Lastfm"
+  #Then I see "Musicbrainz"
+  #Then I see "SAVE"
+  #Then I see "CANCEL"
+  #Then I rotate device to landscape
+  #Then I see "Cover art resources"
+  #Then I see "Lastfm"
+  #Then I see "Musicbrainz"
+  #Then I see "SAVE"
+  #Then I see "CANCEL"
+  #Then I rotate device to portrait
+  #Then I see "Cover art resources"
+  #Then I see "Lastfm"
+  #Then I see "Musicbrainz"
+  #Then I see "SAVE"
+  #Then I see "CANCEL"
+  #Then I press "CANCEL"

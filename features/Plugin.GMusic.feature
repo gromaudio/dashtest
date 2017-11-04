@@ -1042,6 +1042,7 @@ Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the 
   Then I press "icon"
   Then I press "Playlists"
   Then I press "On The Go"
+  Then I scroll up to text "Dreams"
   Then I press "Dreams"
   Then I long press "2 Find U"
   Then I wait for 1 second
@@ -1264,6 +1265,43 @@ Scenario: Check track position
   Then I wait for 5 seconds
   Then I check pause position
   Then I check Music pause
+
+#Scenario: Check if all dialogs popup in the settings are displayed after rotate device
+  #Then I press "icon"
+  #Then I press "leftButtonFirst"
+  #Then I press "Cover art resources"
+  #Then I see "Cover art resources"
+  #Then I see "Lastfm"
+  #Then I see "Musicbrainz"
+  #Then I see "SAVE"
+  #Then I see "CANCEL"
+  #Then I rotate device to landscape
+  #Then I see "Cover art resources"
+  #Then I see "Lastfm"
+  #Then I see "Musicbrainz"
+  #Then I see "SAVE"
+  #Then I see "CANCEL"
+  #Then I rotate device to portrait
+  #Then I see "Cover art resources"
+  #Then I see "Lastfm"
+  #Then I see "Musicbrainz"
+  #Then I see "SAVE"
+  #Then I see "CANCEL"
+  #Then I press "CANCEL"
+
+  #Then I press "Cache options"
+  #Then I see "Cache"
+  #Then I see "OK"
+  #Then I see "CLEAR TRACKS CACHE"
+  #Then I rotate device to landscape
+  #Then I see "Cache"
+  #Then I see "OK"
+  #Then I see "CLEAR TRACKS CACHE"
+  #Then I rotate device to portrait
+  #Then I see "Cache"
+  #Then I see "OK"
+  #Then I see "CLEAR TRACKS CACHE"
+  #Then I press "OK"
 
 Scenario: Log Out from plugin
   Then I press "icon"

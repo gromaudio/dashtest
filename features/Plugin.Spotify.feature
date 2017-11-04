@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-@a
+
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds

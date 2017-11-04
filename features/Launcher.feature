@@ -29,7 +29,7 @@ Scenario: View Settings
     And I see "Display Stay Awake"
     And I see "Show Quick Return icon"
     And I see "When other app is active the quick return icon will be shown at the side of the app. Icon can be adjusted in location via finger press and drag action."
-    Then I scroll to text "clean attribute wirelinq"
+    Then I full scroll down
     Then I see "Advertising"
     Then I see "Car Integration"
     And I see "Disable USB Streaming"
@@ -58,12 +58,12 @@ Scenario: View Settings components
     Then I press "Show Quick Return icon"
     #Then I press permission "Permit drawing over other apps"
     Then I press "Show Quick Return icon"
-    Then I scroll to text "clean attribute wirelinq"
     Then I press "Sticky icon"
     Then I see "None"
     Then I see "Rotation lock" 
     Then I see "Brightness"
     Then I press "None"
+    Then I full scroll down
     Then I see "Navigation"
     Then I see "Maps"
     Then I press "Disable USB Streaming"
@@ -72,7 +72,7 @@ Scenario: View Settings components
 Scenario: Settings (Brightness)
     Then I press "leftButtonFirst"
     Then I press "Settings"
-    Then I scroll to text "clean attribute wirelinq"
+    Then I full scroll down
     Then I press "Sticky icon"
     Then I press "Brightness"
     Then I press "leftButtonFirst"
@@ -89,7 +89,7 @@ Scenario: Settings (Brightness) after restart
 Scenario: Settings (Rotation lock)
     Then I press "leftButtonFirst"
     Then I press "Settings"
-    Then I scroll to text "clean attribute wirelinq"
+    Then I full scroll down
     Then I press "Sticky icon"
     Then I press "Rotation lock"
     Then I press "leftButtonFirst"
@@ -125,7 +125,7 @@ Scenario: Settings (Speed & Temperature) after restart
 Scenario: Find compatible device
     Then I press "leftButtonFirst"
     Then I press "Settings"
-    Then I scroll to text "clean attribute wirelinq"
+    Then I scroll to text "Find compatible device"
     Then I press "Find compatible device"
     Then I see "www.gromaudio.com"
     Then I see "learn more"
@@ -331,7 +331,7 @@ Scenario: Swipe-down player menu
     Then I wait for 1 second
 
 Scenario: Swipe-up location menu
-    Then I wait for 3 seconds
+    Then I wait for 2 seconds
     Then I swipe to up
     Then I press "locationTextView"
     Then I go back
@@ -536,7 +536,6 @@ Scenario: Check track position
     Then I check pause position
     Then I check Music pause
 
-
     Then I check timer
     Then I restart application
     Then I wait for 1 seconds
@@ -544,3 +543,49 @@ Scenario: Check track position
     Then I wait for 3 seconds
     Then I check pause position
     Then I check Music pause
+
+Scenario: Check if all dialogs popup in the Settings are displayed after rotate device 
+    Then I press "leftButtonFirst"
+    Then I press "Settings"
+    Then I scroll to text "Sticky icon"
+    Then I press "Sticky icon"
+    Then I press "None"
+
+    #Then I press "Bluetooth connection"
+    #Then I see "Bluetooth connection"
+    #Then I see "OK"
+    #Then I see "Cancel"
+    #Then I rotate device to landscape
+    #Then I wait
+    #Then I rotate device to portrait
+    #Then I see "OK"
+    #Then I see "Cancel"
+    #Then I press "Cancel"
+
+    Then I scroll to text "Sticky icon"
+    Then I press "Sticky icon"
+    Then I see "None"
+    Then I see "Rotation lock"
+    Then I see "Brightness"
+    Then I see "Cancel"
+    Then I rotate device to landscape
+    Then I wait
+    Then I rotate device to portrait
+    Then I see "None"
+    Then I see "Rotation lock"
+    Then I see "Brightness"
+    Then I see "Cancel"
+    Then I press "Cancel"
+
+    Then I scroll to text "Navigation"
+    Then I press "Navigation"
+    Then I see "Navigation"
+    Then I see "Maps"
+    Then I see "Cancel"
+    Then I rotate device to landscape
+    Then I wait
+    Then I rotate device to portrait
+    Then I see "Navigation"
+    Then I see "Maps"
+    Then I see "Cancel"
+    Then I press "Cancel"
