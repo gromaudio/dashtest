@@ -327,7 +327,7 @@ Scenario: Check "Charts" tab
   Then I scroll to "mint" text
   Then I scroll to "Rock This" text
   Then I scroll to "Are & Be" text
-  Then I scroll to "Viva Latino-Top 50" text
+  Then I scroll to "¡Viva Latino!" text
   Then I scroll to "Hot Country" text
   #Then I scroll to "New Music Friday" text
   Then I scroll to "Viral Hits" text
