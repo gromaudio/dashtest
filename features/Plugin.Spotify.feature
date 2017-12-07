@@ -1,5 +1,5 @@
 Feature: Spotify
-
+@test
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-
+@test
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
@@ -170,7 +170,7 @@ Scenario: Play/Pause Music
   Then I go back
   Then I wait for 1 second
   Then I go back
-
+@test
 Scenario: Check Repeat and Shuffle option after switch plugin 
   Then I press icon "name" with text "Spotify"
   Then I press "Stations"
@@ -572,7 +572,7 @@ Scenario: Save scroll position
   Then I press "Funk"
   Then I press " .. "
   And I see "Funk"
-  And I see "Punk"
+  And I see "Wrapped"
   And I see "Comedy"
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "New Releases"
