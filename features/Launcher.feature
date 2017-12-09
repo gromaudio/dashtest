@@ -39,15 +39,48 @@ Scenario: View Settings
     Then I full scroll down
     Then I see "SMS"
     Then I see "Enable SMS read aloud"
+    Then I see "More options"
+    
+
+Scenario: View More options Settings (Messaging components)
+    Then I press "leftButtonFirst"
+    Then I press "Settings"
+    Then I scroll to text "More options"
+    Then I press "More options"
+    Then I see "SMS"
     And I see "Active only when connected"
     And I see "SMS read aloud will be activated only when"
     And I see "connected to GROM or Bluetooth."
     And I see "Supported apps"
     And I see "Select apps that you will want to get messages"
     And I see "from while using DashLinQ"
+    Then I press "Supported apps"
+    Then I see "Supported apps"
+    Then I see "SMS"
+    Then I see "Facebook messenger"
+    Then I see "Telegram"
+    Then I see "WhatsApp"
+    Then I see "Slack"
+    Then I see "CANCEL"
+    Then I see "OK"
+    Then I press "OK"
     And I see "Reply options"
     And I see "Select preferred reply options"
-    And I see "Predefined text"
+    Then I press "Reply options"
+    Then I see "Speech-To-Text"
+    Then I see "Callback"
+    Then I see "Predefined text"
+    Then I see "CANCEL"
+    Then I see "OK"
+    Then I press "OK"    
+    Then I see "Predefined text"
+    Then I press "Predefined text"
+    Then I see "Predefined text"
+    And I see "I\'m driving now, will reply when I have a chance"
+    Then I see "CANCEL"
+    Then I see "OK"
+    Then I press "OK"
+    Then I press "More options"
 
 Scenario: View Settings components 
     Then I press "leftButtonFirst"
@@ -70,48 +103,42 @@ Scenario: View Settings components
     Then I press "Show Quick Return icon"
     #Then I press permission "Permit drawing over other apps"
     Then I press "Show Quick Return icon"
-    Then I press "Sticky icon"
-    Then I see "None"
-    Then I see "Rotation lock" 
-    Then I see "Brightness"
-    Then I press "None"
-    Then I scroll to text "SMS"
-    Then I see "Navigation"
     Then I see "Maps"
+    Then I full scroll down
     Then I press "Disable USB Streaming"
     Then I press "Disable USB Streaming"
 
-Scenario: Settings (Brightness)
-    Then I press "leftButtonFirst"
-    Then I press "Settings"
-    Then I scroll to text "SMS"
-    Then I press "Sticky icon"
-    Then I press "Brightness"
-    Then I press "leftButtonFirst"
-    Then I press "leftButtonSecond"
-    Then I press "leftButtonSecond"
-    Then I press "leftButtonSecond"
-    Then I press "leftButtonSecond"
+#Scenario: Settings (Brightness)
+    #Then I press "leftButtonFirst"
+    #Then I press "Settings"
+    #Then I scroll to text "SMS"
+    #Then I press "Sticky icon"
+    #Then I press "Brightness"
+    #Then I press "leftButtonFirst"
+    #Then I press "leftButtonSecond"
+    #Then I press "leftButtonSecond"
+    #Then I press "leftButtonSecond"
+    #Then I press "leftButtonSecond"
 
-Scenario: Settings (Brightness) after restart 
-    Then I wait for 2 seconds
-    Then I press "leftButtonSecond"
-    Then I press "leftButtonSecond"    
+#Scenario: Settings (Brightness) after restart 
+    #Then I wait for 2 seconds
+    #Then I press "leftButtonSecond"
+    #Then I press "leftButtonSecond"    
 
-Scenario: Settings (Rotation lock)
-    Then I press "leftButtonFirst"
-    Then I press "Settings"
-    Then I scroll to text "SMS"
-    Then I press "Sticky icon"
-    Then I press "Rotation lock"
-    Then I press "leftButtonFirst"
-    Then I press "leftButtonSecond"
-    Then I press "leftButtonSecond"
+#Scenario: Settings (Rotation lock)
+    #Then I press "leftButtonFirst"
+    #Then I press "Settings"
+    #Then I scroll to text "SMS"
+    #Then I press "Sticky icon"
+    #Then I press "Rotation lock"
+    #Then I press "leftButtonFirst"
+    #Then I press "leftButtonSecond"
+    #Then I press "leftButtonSecond"
   
-Scenario: Settings (Rotation lock) after restart
-    Then I wait for 2 seconds
-    Then I press "leftButtonSecond"
-    Then I press "leftButtonSecond"        
+#Scenario: Settings (Rotation lock) after restart
+    #Then I wait for 2 seconds
+    #Then I press "leftButtonSecond"
+    #Then I press "leftButtonSecond"        
 
 Scenario: Settings (Speed & Temperature)
     Then I press "weather_icon"
@@ -559,9 +586,9 @@ Scenario: Check track position
 Scenario: Check if all dialogs popup in the Settings are displayed after rotate device 
     Then I press "leftButtonFirst"
     Then I press "Settings"
-    Then I scroll to text "Sticky icon"
-    Then I press "Sticky icon"
-    Then I press "None"
+    #Then I scroll to text "Sticky icon"
+    #Then I press "Sticky icon"
+    #Then I press "None"
 
     #Then I press "Bluetooth connection"
     #Then I see "Bluetooth connection"
@@ -574,20 +601,20 @@ Scenario: Check if all dialogs popup in the Settings are displayed after rotate 
     #Then I see "Cancel"
     #Then I press "Cancel"
 
-    Then I scroll to text "Sticky icon"
-    Then I press "Sticky icon"
-    Then I see "None"
-    Then I see "Rotation lock"
-    Then I see "Brightness"
-    Then I see "Cancel"
-    Then I rotate device to landscape
-    Then I wait
-    Then I rotate device to portrait
-    Then I see "None"
-    Then I see "Rotation lock"
-    Then I see "Brightness"
-    Then I see "Cancel"
-    Then I press "Cancel"
+    #Then I scroll to text "Sticky icon"
+    #Then I press "Sticky icon"
+    #Then I see "None"
+    #Then I see "Rotation lock"
+    #Then I see "Brightness"
+    #Then I see "Cancel"
+    #Then I rotate device to landscape
+    #Then I wait
+    #Then I rotate device to portrait
+    #Then I see "None"
+    #Then I see "Rotation lock"
+    #Then I see "Brightness"
+    #Then I see "Cancel"
+    #Then I press "Cancel"
 
     Then I scroll to text "Navigation"
     Then I press "Navigation"
