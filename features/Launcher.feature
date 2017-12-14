@@ -29,7 +29,7 @@ Scenario: View Settings
     And I see "Display Stay Awake"
     And I see "Show Quick Return icon"
     And I see "When other app is active the quick return icon will be shown at the side of the app. Icon can be adjusted in location via finger press and drag action."
-    Then I scroll to text "SMS"
+    Then I scroll to text "Messages"
     Then I see "Advertising"
     Then I see "Car Integration"
     And I see "Disable USB Streaming"
@@ -37,8 +37,9 @@ Scenario: View Settings
     And I see "Find compatible device"
     And I see "Find the best GROM module for your vehicle. Direct integration and digital quality sound."
     Then I full scroll down
-    Then I see "SMS"
-    Then I see "Enable SMS read aloud"
+    Then I see "Messages"
+    Then I see "Enable Messages read aloud"
+    Then I see "Notification access"
     Then I see "More options"
     
 
@@ -47,10 +48,10 @@ Scenario: View More options Settings (Messaging components)
     Then I press "Settings"
     Then I scroll to text "More options"
     Then I press "More options"
-    Then I see "SMS"
+    Then I see "Messages"
     And I see "Active only when connected"
-    And I see "SMS read aloud will be activated only when"
-    And I see "connected to GROM or Bluetooth."
+    And I see "Messages read aloud will be activated only"
+    And I see "when connected to GROM or Bluetooth."
     And I see "Supported apps"
     And I see "Select apps that you will want to get messages"
     And I see "from while using DashLinQ"
@@ -111,7 +112,7 @@ Scenario: View Settings components
 #Scenario: Settings (Brightness)
     #Then I press "leftButtonFirst"
     #Then I press "Settings"
-    #Then I scroll to text "SMS"
+    #Then I scroll to text "Messages"
     #Then I press "Sticky icon"
     #Then I press "Brightness"
     #Then I press "leftButtonFirst"
@@ -128,7 +129,7 @@ Scenario: View Settings components
 #Scenario: Settings (Rotation lock)
     #Then I press "leftButtonFirst"
     #Then I press "Settings"
-    #Then I scroll to text "SMS"
+    #Then I scroll to text "Messages"
     #Then I press "Sticky icon"
     #Then I press "Rotation lock"
     #Then I press "leftButtonFirst"
