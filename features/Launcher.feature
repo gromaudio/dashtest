@@ -39,7 +39,9 @@ Scenario: View Settings
     Then I full scroll down
     Then I see "Messages"
     Then I see "Enable Messages read aloud"
+    Then I see "Messages received will be read aloud and you can reply to it by using steering wheel controls or screen buttons and gestures."
     Then I see "Notification access"
+    Then I see "To enable reading and replying to messages by Dashlinq app, you need to allow access on next screen or use Settings -> Notification Access -> Dashlinq"
     Then I see "More options"
     
 
