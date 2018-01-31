@@ -1,5 +1,5 @@
 Feature: Spotify
-@test
+@t
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -40,25 +40,19 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-@test
+@t
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
   Then I press "leftButtonFirst"
   Then I press "Accounts"
   Then I wait for 6 seconds
+  Then I enter text "xehiyoux"
+  Then I press "Password"
+  Then I enter text "Gr0m$potify"
+  Then I press "OK"
+  Then I wait for 5 seconds
   Then I tap on Log in to Spotify
-  Then I wait for 2 seconds
-  Then I touch username field
-  Then I enter username
-  Then I go back
-  Then I wait for 2 seconds
-  Then I touch password field
-  Then I enter password
-  Then I go back
-  Then I wait
-  Then I press Login button
-  Then I wait for 2 seconds
   Then I scroll down
   Then I wait for 2 seconds
   Then I swipe to right
@@ -567,13 +561,14 @@ Scenario: Save scroll position
   Then I press "New Releases"
   Then I touch the "Genres" text
   Then I wait for 1 second
-  Then I full scroll down
-  Then I full scroll down
-  Then I press "Funk"
+  Then I scroll to text "Comedy"
+  Then I press "Comedy"
   Then I press " .. "
-  And I see "Funk"
-  And I see "Wrapped"
   And I see "Comedy"
+  Then I scroll to text "Funk"
+  And I see "Funk"
+  Then I scroll to text "Wrapped"
+  And I see "Wrapped"
   Then I drag from 50:30 to 50:300 moving with 20 steps
   Then I press "New Releases"
   Then I press "Charts"
@@ -584,7 +579,8 @@ Scenario: Play/Pause Music
   Then I wait for 3 seconds
   Then I press "New Releases"
   Then I touch the "Genres" text
-  Then I wait for loading "Chill"
+  Then I wait for 2 seconds
+  Then I scroll to text "Chill"
   Then I press "Chill"
   Then I wait for 5 seconds
   Then I press element number 2
@@ -635,7 +631,8 @@ Scenario: Add/Delete to playlist/favorite
   Then I wait for 3 seconds
   Then I press "New Releases"
   Then I touch the "Genres" text
-  Then I wait for loading "Chill"
+  Then I wait for 2 seconds
+  Then I scroll to text "Chill"
   Then I press "Chill"
   Then I wait for 5 seconds
   Then I press element number 2
@@ -909,6 +906,8 @@ Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the 
   Then I press "Charts"
   Then I press "New Releases"
   Then I press "Genres and Moods"
+  Then I wait for 2 seconds
+  Then I scroll to text "Chill"
   Then I press "Chill"
   Then I wait for loading "Brain Food"
   Then I press "Brain Food"
@@ -1079,7 +1078,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Search tab
   Then I wait for 5 seconds
   Then I see "Despasito"
   Then I press "Despasito"
-  Then I long press "Angeliz - Despasito"
+  Then I long press "El Mundi - Despacito"
   Then I wait for 1 second
   Then I press "Add to playlist"
   Then I press "New"
@@ -1087,7 +1086,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Search tab
   Then I enter text "On_the_Go_Search"
   Then I go back
   Then I press "Save"
-  Then I long press "Angeliz - Despasito"
+  Then I long press "El Mundi - Despacito"
   Then I press "Add to playlist"
   Then I press "On The Go"
   Then I press "Your Music"

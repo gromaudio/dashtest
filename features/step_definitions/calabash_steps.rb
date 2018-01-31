@@ -434,7 +434,11 @@ Then /^I touch password field$/ do
 end
 
 Then /^I touch username field$/ do
-	touch("WebView css:'input[name=\"username\"]'")
+	touch("WebView css:'input[name=\"Username\"]'")
+end
+
+Then /^I touch username field$/ do
+	touch("WebView xpath:'//INPUT[contains(text(),\"Username\")]'")
 end
 
 Then /^I long touch the "([^\"]*)" text$/ do |text|

@@ -10,6 +10,7 @@ Scenario: Start
 
 Scenario: View Side Menu
     Then I press "leftButtonFirst"
+    Then I see "Rate Us!"
     Then I see "Settings"
     Then I see "About"
     Then I see "Exit"
@@ -174,6 +175,17 @@ Scenario: Find compatible device
     Then I see "for cars 2011 and up"
     Then I see "seamless integration"
     Then I press "closeButton"
+
+# Rate Us
+
+Scenario: View Rate Us
+    Then I press "leftButtonFirst"
+    Then I press "Rate Us"
+    Then I wait
+    And I see "GROM Audio"
+    Then I scroll to text "Only the developer can see this feedback."
+    And I see "Enter feedback about the app"
+    And I see "Share"
 
 # ABOUT
 
