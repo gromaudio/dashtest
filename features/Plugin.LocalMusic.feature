@@ -1,10 +1,10 @@
 Feature: Local Music Plugin
   You have to place "01 LocalMusicTestSuite" folder into sdcard/Music folder in order to run these tests.
-
+@ter
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2"
-
+@ter
 Scenario: Check background text
   Then I press "icon"
   Then I press "leftButtonFirst"
@@ -29,7 +29,7 @@ Scenario: Check background text
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "Folders"  
-
+@ter
 Scenario: Change "Music home folder" to Music
   Then I press "icon"
   Then I press "leftButtonFirst"
@@ -1310,7 +1310,7 @@ Scenario: Add to Playlist from Search tab
   Then I swipe to up
   Then I press "Delete"
   Then I press "Folders" 
-
+@ter
 Scenario: Check Repeat and Shuffle option after switch plugin 
   Then I press icon "name" with text "Local Music"
   Then I press "Folders"
@@ -1337,7 +1337,7 @@ Scenario: Check Repeat and Shuffle option after switch plugin
   Then I press "repeat"
   Then I check "shuffle" status "SideButtonLeft Off"
   Then I check "repeat" status "SideButtonRight Off"   
-
+@ter
 Scenario: Play/Pause Music when change orientation
   Then I press "icon"
   Then I press "Albums"
@@ -1349,7 +1349,7 @@ Scenario: Play/Pause Music when change orientation
   Then I rotate device to landscape
   Then I wait for 1 second
   Then I press "Play"
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I rotate device to portrait
   Then I wait for 2 seconds
   Then I go back

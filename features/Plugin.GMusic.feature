@@ -981,6 +981,7 @@ Scenario: Long press actions - Add/Delete to/from the On The Go playlist from So
   Then I press "Albums"
   Then I press "Playlists"
   Then I press "On The Go"
+  Then I scroll to "Tusk" text
   Then I full scroll down
   And I see "Dreams"
   And I see "21/21"
@@ -1042,7 +1043,7 @@ Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the 
   Then I press "icon"
   Then I press "Playlists"
   Then I press "On The Go"
-  Then I scroll up to text "Dreams"
+  Then I scroll up to text "2 Find U"
   Then I press "Dreams"
   Then I long press "2 Find U"
   Then I wait for 1 second

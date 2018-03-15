@@ -1,5 +1,5 @@
 Feature: Spotify
-@t
+@ter
 Scenario: Start
   Then I press "closeButton"
   Then I press "button2" 
@@ -40,7 +40,7 @@ Scenario: Check background text
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-@t
+@ter
 Scenario: Login 
   Then I press "icon"
   Then I wait for 3 seconds
@@ -58,7 +58,7 @@ Scenario: Login
   Then I swipe to right
   Then I press Okay button
   Then I wait for 5 seconds
-
+@ter
 Scenario: Navigation through the Settings
   Then I press "icon"
   Then I wait for 5 seconds
@@ -142,7 +142,7 @@ Scenario: Play/Pause Music
   Then I press image view number 3
   Then I wait for 2 seconds
   Then I press "slide_panel_now_playing_title"
-  Then I wait for 1 seconds
+  Then I wait for 1 second
   Then I wait for start
   Then I check Music playing
   Then I press "pause"
@@ -164,7 +164,7 @@ Scenario: Play/Pause Music
   Then I go back
   Then I wait for 1 second
   Then I go back
-@test
+
 Scenario: Check Repeat and Shuffle option after switch plugin 
   Then I press icon "name" with text "Spotify"
   Then I press "Stations"
@@ -238,7 +238,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I press on folder
   Then I see item number text
   Then I go back
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I go back
   
   Then I press "Artists"
@@ -521,7 +521,7 @@ Scenario: Add/Delete to playlist/favorite
   Then I press on folder
   Then I see item number text
   Then I go back
-  Then I wait for 1 second
+  Then I wait for 2 seconds
   Then I go back
 
   Then I press "Artists"
@@ -909,8 +909,8 @@ Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the 
   Then I wait for 2 seconds
   Then I scroll to text "Chill"
   Then I press "Chill"
-  Then I wait for loading "Brain Food"
-  Then I press "Brain Food"
+  Then I wait for loading "Jazz Vibes"
+  Then I press "Jazz Vibes"
   Then I long press image view number 3
   Then I wait for 1 second
   Then I press "Add to playlist"
@@ -925,6 +925,7 @@ Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the 
   Then I wait for 1 second
   Then I press "Add to playlist"
   Then I press "On The Go"
+  Then I wait for 2 seconds
   Then I go back
   Then I press "Your Music"
   Then I press "Playlists"
@@ -947,7 +948,7 @@ Scenario: Long press actions - Add/Delete to/from the On The Go playlist in the 
   Then I press "Charts"
   Then I press "Stations"
   Then I wait for 2 seconds
-
+@ter
 Scenario: Long press actions - Add to the On The Go playlist from New Releases tab
   Then I press "icon"
   Then I press "Charts"
@@ -963,11 +964,13 @@ Scenario: Long press actions - Add to the On The Go playlist from New Releases t
   Then I go back
   Then I press "Save"
   Then I press image view number 1
+  Then I wait for 1 second
   Then I get text for item number 1
   Then I long press image view number 1
   Then I wait for 1 second
   Then I press "Add to playlist"
   Then I press "On The Go"
+  Then I wait for 1 second
   Then I go back
   Then I press "Genres and Moods"
   Then I press "Your Music"
@@ -986,7 +989,7 @@ Scenario: Long press actions - Add to the On The Go playlist from New Releases t
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-
+@ter
 Scenario: Long press actions - Add to the On The Go playlist from Charts tab
   Then I press "icon"
   Then I press "Charts"
@@ -1006,6 +1009,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Charts tab
   Then I wait for 1 second
   Then I press "Add to playlist"
   Then I press "On The Go"
+  Then I wait for 1 second
   Then I go back
   Then I press "New Releases"
   Then I press "Genres and Moods"
@@ -1025,7 +1029,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Charts tab
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-
+@ter
 Scenario: Long press actions - Add to the On The Go playlist from Stations tab
   Then I press "icon"
   Then I press "Stations"
@@ -1045,6 +1049,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Stations tab
   Then I wait for 1 second
   Then I press "Add to playlist"
   Then I press "On The Go"
+  Then I wait for 1 second
   Then I go back
   Then I press "Charts"
   Then I press "New Releases"
@@ -1065,7 +1070,7 @@ Scenario: Long press actions - Add to the On The Go playlist from Stations tab
   Then I press "New Releases"
   Then I press "Charts"
   Then I press "Stations"
-
+@ter
 Scenario: Long press actions - Add to the On The Go playlist from Search tab
   Then I press "icon"
   Then I press "Charts"
@@ -1111,9 +1116,10 @@ Scenario: Logout
   Then I press "icon"
   Then I wait for 3 seconds
   Then I press "leftButtonFirst"
-  Then I press "Log Out"
-  Then I press "leftButtonFirst"
-  Then I press "Accounts"
   Then I wait for 2 seconds
-  Then I go back
-  And I see "No accounts"
+  Then I press "Log Out"
+  Then I wait for 5 seconds
+  Then I press "Stations"
+  And I see "You need to login to use the services. Use Options->Accounts"
+
+

@@ -539,7 +539,7 @@ Scenario: Play Radio
   Then I press " .. "
   Then I press "Music"
   Then I wait for 3 seconds
-  Then I press "60\'s Music"
+  Then I press "60\'s"
   Then I wait for 5 seconds
   # Play station
   Then I press list item number 5
@@ -636,7 +636,7 @@ Scenario: Long press navigation
   Then I press "Favorites"
   Then I press "Stations"
   Then I press "Music"
-  Then I press "70\'s Music"
+  Then I press "70\'s"
   Then I wait for 4 seconds
   Then I long press list item number 5
   And I see "Play"
@@ -718,7 +718,7 @@ Scenario: Check buffering station
   Then I press icon "name" with text "WebRadio"
   Then I press "Stations"
   Then I press " .. "
-  Then I press "80\'s Music"
+  Then I press "80\'s"
   Then I press list item number 6
   Then I press "slide_panel_now_playing_title"
   Then I wait for start

@@ -178,14 +178,14 @@ Scenario: Find compatible device
 
 # Rate Us
 
-Scenario: View Rate Us
-    Then I press "leftButtonFirst"
-    Then I press "Rate Us"
-    Then I wait
-    And I see "GROM Audio"
-    Then I scroll to text "Only the developer can see this feedback."
-    And I see "Enter feedback about the app"
-    And I see "Share"
+#Scenario: View Rate Us
+    #Then I press "leftButtonFirst"
+    #Then I press "Rate Us"
+    #Then I wait
+    #And I see "GROM Audio"
+    #Then I scroll to text "Only the developer can see this feedback."
+    #And I see "Enter feedback about the app"
+    #And I see "Share"
 
 # ABOUT
 
